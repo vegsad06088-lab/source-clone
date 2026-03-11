@@ -6,9 +6,10 @@ import { useState } from "react";
 const SMOOBU_URL = "https://login.smoobu.com/en/booking-tool/widget/285782";
 
 export default function ApartmentDetailPage() {
-  const { slug } = useParams<{ slug: string }>();
   const { t, langPrefix } = useI18n();
   const [selectedImage, setSelectedImage] = useState(0);
+  const location = window.location.pathname;
+  const slug = location.split("/").filter(Boolean).pop() || "";
 
   const apartment = apartments.find((a) => a.id === slug);
 
