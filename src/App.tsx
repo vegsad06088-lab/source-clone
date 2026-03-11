@@ -1,10 +1,18 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import Index from "./pages/Index.tsx";
-import NotFound from "./pages/NotFound.tsx";
+import { I18nProvider } from "@/lib/i18n";
+import Layout from "@/components/Layout";
+import HomePage from "@/pages/Index";
+import ApartmentsPage from "@/pages/ApartmentsPage";
+import ApartmentDetailPage from "@/pages/ApartmentDetailPage";
+import AboutPage from "@/pages/AboutPage";
+import AnleitungenPage from "@/pages/AnleitungenPage";
+import DatenschutzPage from "@/pages/DatenschutzPage";
+import ImpressumPage from "@/pages/ImpressumPage";
+import NotFound from "@/pages/NotFound";
 
 const queryClient = new QueryClient();
 
@@ -14,11 +22,37 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <I18nProvider>
+          <Routes>
+            <Route element={<Layout />}>
+              {/* German routes */}
+              <Route path="/" element={<HomePage />} />
+              <Route path="/apartments" element={<ApartmentsPage />} />
+              <Route path="/twin-harmony-suite" element={<ApartmentDetailPage />} />
+              <Route path="/duo-deluxe-studio" element={<ApartmentDetailPage />} />
+              <Route path="/cosy-couple-nest" element={<ApartmentDetailPage />} />
+              <Route path="/trio-harmony-suite" element={<ApartmentDetailPage />} />
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/anleitungen" element={<AnleitungenPage />} />
+              <Route path="/datenschutz" element={<DatenschutzPage />} />
+              <Route path="/impressum" element={<ImpressumPage />} />
+
+              {/* English routes */}
+              <Route path="/en" element={<HomePage />} />
+              <Route path="/en/apartments" element={<ApartmentsPage />} />
+              <Route path="/en/twin-harmony-suite" element={<ApartmentDetailPage />} />
+              <Route path="/en/duo-deluxe-studio" element={<ApartmentDetailPage />} />
+              <Route path="/en/cosy-couple-nest" element={<ApartmentDetailPage />} />
+              <Route path="/en/trio-harmony-suite" element={<ApartmentDetailPage />} />
+              <Route path="/en/about" element={<AboutPage />} />
+              <Route path="/en/anleitungen" element={<AnleitungenPage />} />
+              <Route path="/en/datenschutz" element={<DatenschutzPage />} />
+              <Route path="/en/impressum" element={<ImpressumPage />} />
+
+              <Route path="*" element={<NotFound />} />
+            </Route>
+          </Routes>
+        </I18nProvider>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
