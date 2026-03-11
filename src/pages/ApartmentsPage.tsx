@@ -13,7 +13,7 @@ export default function ApartmentsPage() {
       {/* Hero */}
       <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center">
         <div className="absolute inset-0">
-          <img src={`${CDN}/65293b8eedb9c49b8bc71ecd_bad.avif`} alt="Apartments" className="w-full h-full object-cover" />
+          <img src="/images/65293b8eedb9c49b8bc71ecd_bad.avif" alt="Apartments" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-foreground/50" />
         </div>
         <div className="relative z-10 text-center px-4">
