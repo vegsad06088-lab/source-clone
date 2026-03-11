@@ -16,7 +16,7 @@ export default function HomePage() {
       <section className="relative min-h-screen flex items-center justify-center">
         <div className="absolute inset-0">
           <img
-            src={`${CDN}/652938d0b1ddde3e7ecc4cac_151351.avif`}
+            src="/images/652938d0b1ddde3e7ecc4cac_151351.avif"
             alt="Apartments zur Quelle"
             className="w-full h-full object-cover"
           />
