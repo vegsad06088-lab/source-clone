@@ -37,6 +37,7 @@ export default function Footer() {
             <ul className="space-y-2 text-sm">
               <li><Link to={`${langPrefix}/apartments`} className="text-muted-foreground hover:text-primary transition-smooth">Apartments</Link></li>
               <li><Link to={`${langPrefix}/about`} className="text-muted-foreground hover:text-primary transition-smooth">{t({ de: "Über uns", en: "About us" })}</Link></li>
+              <li><Link to={`${langPrefix}/contact`} className="text-muted-foreground hover:text-primary transition-smooth">{t({ de: "Kontakt", en: "Contact" })}</Link></li>
               <li><Link to={`${langPrefix}/anleitungen`} className="text-muted-foreground hover:text-primary transition-smooth">{t({ de: "Anleitungen", en: "Instructions" })}</Link></li>
             </ul>
           </div>

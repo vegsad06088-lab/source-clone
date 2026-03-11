@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -9,6 +9,7 @@ import HomePage from "@/pages/Index";
 import ApartmentsPage from "@/pages/ApartmentsPage";
 import ApartmentDetailPage from "@/pages/ApartmentDetailPage";
 import AboutPage from "@/pages/AboutPage";
+import ContactPage from "@/pages/ContactPage";
 import AnleitungenPage from "@/pages/AnleitungenPage";
 import DatenschutzPage from "@/pages/DatenschutzPage";
 import ImpressumPage from "@/pages/ImpressumPage";
@@ -33,6 +34,7 @@ const App = () => (
               <Route path="/cosy-couple-nest" element={<ApartmentDetailPage />} />
               <Route path="/trio-harmony-suite" element={<ApartmentDetailPage />} />
               <Route path="/about" element={<AboutPage />} />
+              <Route path="/contact" element={<ContactPage />} />
               <Route path="/anleitungen" element={<AnleitungenPage />} />
               <Route path="/datenschutz" element={<DatenschutzPage />} />
               <Route path="/impressum" element={<ImpressumPage />} />
@@ -45,6 +47,7 @@ const App = () => (
               <Route path="/en/cosy-couple-nest" element={<ApartmentDetailPage />} />
               <Route path="/en/trio-harmony-suite" element={<ApartmentDetailPage />} />
               <Route path="/en/about" element={<AboutPage />} />
+              <Route path="/en/contact" element={<ContactPage />} />
               <Route path="/en/anleitungen" element={<AnleitungenPage />} />
               <Route path="/en/datenschutz" element={<DatenschutzPage />} />
               <Route path="/en/impressum" element={<ImpressumPage />} />
