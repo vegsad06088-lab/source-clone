@@ -52,6 +52,27 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Smoobu Booking Widget */}
+      <section className="bg-card py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground text-center mb-4">
+            {t({ de: "Finde Dein perfektes Apartment", en: "Find your perfect apartment" })}
+          </h2>
+          <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto">
+            {t({ de: "Wähle Dein Reisedatum und finde verfügbare Apartments.", en: "Choose your travel dates and find available apartments." })}
+          </p>
+          <div className="bg-background rounded-2xl shadow-card overflow-hidden">
+            <iframe
+              src="https://login.smoobu.com/en/booking-tool/iframe/1656615?newTabAfterSearch=true"
+              className="w-full border-0"
+              style={{ minHeight: "400px", height: "50vh", maxHeight: "600px" }}
+              title="Smoobu Booking"
+              allow="payment"
+            />
+          </div>
+        </div>
+      </section>
+
       {/* Promo */}
       <PromoBanner />
 

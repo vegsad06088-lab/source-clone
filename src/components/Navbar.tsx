@@ -13,7 +13,7 @@ export default function Navbar() {
     { label: "Apartments", path: `${langPrefix}/apartments` },
     { label: t({ de: "Über uns", en: "About us" }), path: `${langPrefix}/about` },
     { label: t({ de: "Anleitungen", en: "Instructions" }), path: `${langPrefix}/anleitungen` },
-    { label: t({ de: "Kontakt", en: "Contact" }), path: `${langPrefix}/about` },
+    { label: t({ de: "Kontakt", en: "Contact" }), path: `${langPrefix}/contact` },
   ];
 
   const switchLang = (newLang: "de" | "en") => {

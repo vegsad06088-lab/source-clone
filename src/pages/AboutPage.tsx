@@ -14,7 +14,7 @@ export default function AboutPage() {
       {/* Hero */}
       <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center">
         <div className="absolute inset-0">
-          <img src={`${CDN}/65344f823268205b9fd3083b_1231211212.avif`} alt="About" className="w-full h-full object-cover" />
+          <img src={`${CDN}/652938d0b1ddde3e7ecc4cac_151351.avif`} alt="About" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-foreground/50" />
         </div>
         <div className="relative z-10 text-center px-4">
