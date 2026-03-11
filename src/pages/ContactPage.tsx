@@ -26,7 +26,7 @@ export default function ContactPage() {
       <section className="relative min-h-[50vh] flex items-center justify-center">
         <div className="absolute inset-0">
           <img
-            src={`${CDN}/652938d0b1ddde3e7ecc4cac_151351.avif`}
+            src="/images/652938d0b1ddde3e7ecc4cac_151351.avif"
             alt="Contact"
             className="w-full h-full object-cover"
           />
@@ -167,7 +167,12 @@ export default function ContactPage() {
             </h3>
             <p className="text-sm text-primary group-hover:underline">+43 676 842 287 105</p>
           </a>
-          <a href="https://maps.app.goo.gl/xGRYJcKUyFY2gndG9" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-3 p-8 bg-card rounded-2xl shadow-card hover:shadow-card-hover transition-smooth text-center group">
+            <a
+              href="https://www.google.com/maps/place/Apartments+zur+Quelle/@48.1735058,16.3894297,646m/data=!3m3!1e3!4b1!5s0x476da9e9bb558713:0x62207c3e1bf1362d!4m6!3m5!1s0x2ad883a0300fc9ed:0xed842bf85b14b5dc!8m2!3d48.1735058!4d16.3894297!16s%2Fg%2F11vc6dg9hv?entry=ttu"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex flex-col items-center gap-3 p-8 bg-card rounded-2xl shadow-card hover:shadow-card-hover transition-smooth text-center group"
+            >
             <MapPin className="w-8 h-8 text-primary" />
             <h3 className="text-base font-semibold text-foreground font-sans">
               {t({ de: "Besuche uns!", en: "Come visit us!" })}
