@@ -43,7 +43,7 @@ export default function AboutPage() {
           <p className="text-muted-foreground mb-2">Absberggasse 6</p>
           <p className="text-muted-foreground mb-4">1100 Wien, Österreich</p>
           <a
-            href="https://maps.app.goo.gl/vhk8MZtAXAwTW5ks6"
+            href="https://www.google.com/maps/place/Apartments+zur+Quelle/@48.1735058,16.3894297,646m/data=!3m3!1e3!4b1!5s0x476da9e9bb558713:0x62207c3e1bf1362d!4m6!3m5!1s0x2ad883a0300fc9ed:0xed842bf85b14b5dc!8m2!3d48.1735058!4d16.3894297!16s%2Fg%2F11vc6dg9hv?entry=ttu"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center px-6 py-3 text-sm font-medium text-primary-foreground bg-primary rounded-lg transition-smooth hover:opacity-90"
