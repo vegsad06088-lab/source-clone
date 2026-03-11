@@ -39,7 +39,11 @@ export default function AnleitungenPage() {
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {instructions.map((inst) => (
-            <div key={inst.id} className="group rounded-2xl overflow-hidden shadow-card hover:shadow-card-hover transition-smooth">
+            <Link
+              key={inst.id}
+              to={`${langPrefix}/anleitungen-post/${inst.id}`}
+              className="group rounded-2xl overflow-hidden shadow-card hover:shadow-card-hover transition-smooth block"
+            >
               <div className="aspect-video overflow-hidden">
                 <img src={inst.image} alt={t(inst.title)} className="w-full h-full object-cover transition-smooth group-hover:scale-105" loading="lazy" />
               </div>
@@ -52,19 +56,19 @@ export default function AnleitungenPage() {
                 {inst.pdf && (
                   <div className="flex flex-wrap gap-2">
                     {inst.pdf.de && (
-                      <a href={inst.pdf.de} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-sm text-primary font-medium hover:underline transition-smooth">
+                      <span className="inline-flex items-center gap-1 text-sm text-primary font-medium">
                         📄 PDF (DE)
-                      </a>
+                      </span>
                     )}
                     {inst.pdf.en && (
-                      <a href={inst.pdf.en} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-sm text-primary font-medium hover:underline transition-smooth">
+                      <span className="inline-flex items-center gap-1 text-sm text-primary font-medium">
                         📄 PDF (EN)
-                      </a>
+                      </span>
                     )}
                   </div>
                 )}
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </section>

@@ -11,6 +11,7 @@ import ApartmentDetailPage from "@/pages/ApartmentDetailPage";
 import AboutPage from "@/pages/AboutPage";
 import ContactPage from "@/pages/ContactPage";
 import AnleitungenPage from "@/pages/AnleitungenPage";
+import AnleitungDetailPage from "@/pages/AnleitungDetailPage";
 import DatenschutzPage from "@/pages/DatenschutzPage";
 import ImpressumPage from "@/pages/ImpressumPage";
 import NotFound from "@/pages/NotFound";
@@ -36,6 +37,7 @@ const App = () => (
               <Route path="/about" element={<AboutPage />} />
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/anleitungen" element={<AnleitungenPage />} />
+              <Route path="/anleitungen-post/:slug" element={<AnleitungDetailPage />} />
               <Route path="/datenschutz" element={<DatenschutzPage />} />
               <Route path="/impressum" element={<ImpressumPage />} />
 
@@ -49,6 +51,7 @@ const App = () => (
               <Route path="/en/about" element={<AboutPage />} />
               <Route path="/en/contact" element={<ContactPage />} />
               <Route path="/en/anleitungen" element={<AnleitungenPage />} />
+              <Route path="/en/anleitungen-post/:slug" element={<AnleitungDetailPage />} />
               <Route path="/en/datenschutz" element={<DatenschutzPage />} />
               <Route path="/en/impressum" element={<ImpressumPage />} />
 
