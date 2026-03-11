@@ -14,7 +14,7 @@ export default function AboutPage() {
       {/* Hero */}
       <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center">
         <div className="absolute inset-0">
-          <img src={`${CDN}/652938d0b1ddde3e7ecc4cac_151351.avif`} alt="About" className="w-full h-full object-cover" />
+          <img src="/images/652938d0b1ddde3e7ecc4cac_151351.avif" alt="About" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-foreground/50" />
         </div>
         <div className="relative z-10 text-center px-4">
@@ -84,12 +84,27 @@ export default function AboutPage() {
 
       {/* Photo Grid */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-          <img src={`${CDN}/653593603b0593b2e2e14b9a_Unbenannt-3.avif`} alt="" className="rounded-2xl shadow-card w-full h-48 object-cover col-span-2 md:col-span-2" loading="lazy" />
-          <img src={`${CDN}/65359412284b0413bf6b772e_Unbenannt-5.avif`} alt="" className="rounded-2xl shadow-card w-full h-48 object-cover" loading="lazy" />
-          <img src={`${CDN}/653594678dd7217452f8a07f_Unbenannt-6.avif`} alt="" className="rounded-2xl shadow-card w-full h-48 object-cover" loading="lazy" />
-        </div>
-      </section>
+  <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+    <img
+      src="/images/653593603b0593b2e2e14b9a_Unbenannt-3.avif"
+      alt=""
+      className="rounded-2xl shadow-card w-full h-48 object-cover col-span-2 md:col-span-2"
+      loading="lazy"
+    />
+    <img
+      src="/images/65359412284b0413bf6b772e_Unbenannt-5.avif"
+      alt=""
+      className="rounded-2xl shadow-card w-full h-48 object-cover"
+      loading="lazy"
+    />
+    <img
+      src="/images/653594678dd7217452f8a07f_Unbenannt-6.avif"
+      alt=""
+      className="rounded-2xl shadow-card w-full h-48 object-cover"
+      loading="lazy"
+    />
+  </div>
+</section>
 
       {/* Why Guests Love Us */}
       <section className="bg-card py-20">
@@ -98,12 +113,12 @@ export default function AboutPage() {
             {t({ de: "Warum Gäste uns lieben", en: "Why Guests Love Us" })}
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { img: `${CDN}/652d4d541f3b9a2db2c8aff9_lage.avif`, title: { de: "Top Lage", en: "Top Location" }, desc: { de: "Mitten in Wien, alles in greifbarer Nähe.", en: "In the middle of Vienna, everything within reach." } },
-              { img: `${CDN}/652d4e65582b48b236c38f15_persoenlichkeit.avif`, title: { de: "Persönlichkeit", en: "Personality" }, desc: { de: "Jeder Gast ist für uns einzigartig.", en: "Every guest is unique to us." } },
-              { img: `${CDN}/652d4e65c9fcba3cb32f9734_service.avif`, title: { de: "Einzigartiger Service", en: "Unique Service" }, desc: { de: "Wir sind erst zufrieden, wenn Du es bist.", en: "We're not satisfied until you are." } },
-              { img: `${CDN}/652d4e659191a5d05333e03b_detail.avif`, title: { de: "Liebe zum Detail", en: "Attention to Detail" }, desc: { de: "In jedem Raum spürst Du unsere Leidenschaft.", en: "In every room you feel our passion." } },
-            ].map((item, i) => (
+              {[
+                { img: "/images/652d4d541f3b9a2db2c8aff9_lage.avif", title: { de: "Top Lage", en: "Top Location" }, desc: { de: "Mitten in Wien, alles in greifbarer Nähe.", en: "In the middle of Vienna, everything within reach." } },
+                { img: "/images/652d4e65582b48b236c38f15_persoenlichkeit.avif", title: { de: "Persönlichkeit", en: "Personality" }, desc: { de: "Jeder Gast ist für uns einzigartig.", en: "Every guest is unique to us." } },
+                { img: "/images/652d4e65c9fcba3cb32f9734_service.avif", title: { de: "Einzigartiger Service", en: "Unique Service" }, desc: { de: "Wir sind erst zufrieden, wenn Du es bist.", en: "We're not satisfied until you are." } },
+                { img: "/images/652d4e659191a5d05333e03b_detail.avif", title: { de: "Liebe zum Detail", en: "Attention to Detail" }, desc: { de: "In jedem Raum spürst Du unsere Leidenschaft.", en: "In every room you feel our passion." } },
+              ].map((item, i) => (
               <div key={i} className="text-center">
                 <div className="aspect-square rounded-2xl overflow-hidden shadow-card mb-4">
                   <img src={item.img} alt={t(item.title)} className="w-full h-full object-cover" loading="lazy" />
