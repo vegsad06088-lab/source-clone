@@ -1,4 +1,4 @@
-import { useParams, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useI18n } from "@/lib/i18n";
 import { apartments, amenities } from "@/lib/data";
 import { useState } from "react";
