@@ -2,12 +2,13 @@ import { Link } from "react-router-dom";
 import { useI18n } from "@/lib/i18n";
 import { apartments, amenities } from "@/lib/data";
 import { useState } from "react";
+import Lightbox from "@/components/Lightbox";
 
 const SMOOBU_URL = "https://login.smoobu.com/en/booking-tool/widget/285782";
 
 export default function ApartmentDetailPage() {
   const { t, langPrefix } = useI18n();
-  const [selectedImage, setSelectedImage] = useState(0);
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const location = window.location.pathname;
   const slug = location.split("/").filter(Boolean).pop() || "";
 
@@ -109,14 +110,25 @@ export default function ApartmentDetailPage() {
           {apartment.gallery.map((img, i) => (
             <div
               key={i}
-              className="aspect-[4/3] rounded-xl overflow-hidden shadow-card cursor-pointer hover:shadow-card-hover transition-smooth"
-              onClick={() => setSelectedImage(i)}
+              className="aspect-[4/3] rounded-xl overflow-hidden shadow-card cursor-pointer hover:shadow-card-hover transition-smooth group"
+              onClick={() => setLightboxIndex(i)}
             >
-              <img src={img} alt={`${apartment.name} ${i + 1}`} className="w-full h-full object-cover" loading="lazy" />
+              <img src={img} alt={`${apartment.name} ${i + 1}`} className="w-full h-full object-cover transition-smooth group-hover:scale-105" loading="lazy" />
             </div>
           ))}
         </div>
       </section>
+
+      {/* Lightbox */}
+      {lightboxIndex !== null && (
+        <Lightbox
+          images={apartment.gallery}
+          currentIndex={lightboxIndex}
+          onClose={() => setLightboxIndex(null)}
+          onNavigate={setLightboxIndex}
+          altPrefix={apartment.name}
+        />
+      )}
 
       {/* Sticky Mobile Booking */}
       <div className="fixed bottom-0 left-0 right-0 lg:hidden bg-background border-t border-border p-4 z-40">
