@@ -256,12 +256,12 @@ export default function ApartmentDetailPage() {
 
         <div id="apartmentIframeAll"></div>
 
-        <p
-          className="text-center mt-4 text-sm text-primary underline cursor-pointer"
-          onClick={() => setConditionsOpen(true)}
-        >
-          {t({ de: "Buchungsbedingungen anzeigen", en: "View Booking Conditions" })}
-        </p>
+       <p
+        className="text-center mt-4 text-sm text-primary underline cursor-pointer"
+        onClick={() => setConditionsOpen(true)}
+      >
+        {t({ de: "Buchungsbedingungen anzeigen", en: "View Booking Conditions" })}
+      </p>
       </ModalPane>
 
       {/* NEW BOOKING CONDITIONS MODAL */}
