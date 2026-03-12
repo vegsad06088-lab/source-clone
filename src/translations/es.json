@@ -26,5 +26,41 @@
 
   "es.bookingConditions.more.title": "7. Información adicional",
   "es.bookingConditions.more.text": "Para todos los detalles legales, consulte nuestros",
-  "es.bookingConditions.more.link": "Términos y condiciones"
+  "es.bookingConditions.more.link": "Términos y condiciones",
+
+  "es.apartments.cosy_couple_nest.beds": "1 cama doble",
+  "es.apartments.cosy_couple_nest.description": "Una cómoda cama doble para parejas o viajeros solos.",
+  "es.apartments.cosy_couple_nest.long_description": "Bienvenido al Cosy Couple Nest, tu refugio acogedor en el corazón de Viena. Este encantador apartamento ofrece una cómoda cama doble, ideal para parejas o viajeros solos que valoran la tranquilidad y la comodidad.\n\nLa zona de estar te invita a relajarte con un televisor moderno, perfecto para noches de películas o para desconectar después de un día lleno de experiencias. Gracias al WiFi rápido y gratuito, siempre estarás conectado, ya sea por trabajo o por ocio.\n\nLa cocina totalmente equipada incluye todo lo que necesitas para cocinar por tu cuenta: refrigerador, hervidor, microondas, utensilios de cocina y suficiente vajilla. Puedes preparar fácilmente tus comidas favoritas.\n\nEl baño moderno con ducha garantiza un comienzo fresco del día o momentos de relajación por la noche.\n\nCosy Couple Nest: pequeño, encantador y perfecto para tu estancia en Viena.",
+  "es.apartments.cosy_couple_nest.name": "Cosy Couple Nest",
+  "es.apartments.cosy_couple_nest.persons": "1-2",
+  "es.apartments.cosy_couple_nest.rooms": "1 habitación",
+  "es.apartments.cosy_couple_nest.section_title": "Tu refugio acogedor en Viena",
+  "es.apartments.cosy_couple_nest.size": "25m²",
+  
+  "es.apartments.duo_deluxe_studio.beds": "1 cama doble",
+  "es.apartments.duo_deluxe_studio.description": "Una cama doble moderna para parejas o viajeros solos.",
+  "es.apartments.duo_deluxe_studio.long_description": "Bienvenido al Duo Deluxe Studio, tu hogar elegante lejos de casa en Viena. Este estudio moderno ofrece una cómoda cama doble, ideal para parejas o viajeros solos que valoran el diseño y la funcionalidad.\n\nLa zona de estar está equipada con un televisor de alta calidad, permitiéndote disfrutar de noches relajantes con tus películas o series favoritas. El WiFi rápido y gratuito garantiza que siempre estés bien conectado.\n\nLa cocina bien equipada incluye todo lo que necesitas para cocinar por tu cuenta: refrigerador, hervidor, microondas, utensilios de cocina y suficiente vajilla. Puedes preparar tus comidas exactamente como te gustan.\n\nEl baño moderno con ducha ofrece comodidad y frescura después de un largo día en la ciudad.\n\nDuo Deluxe Studio: elegante, moderno y perfecto para tu estancia en Viena.",
+  "es.apartments.duo_deluxe_studio.name": "Duo Deluxe Studio",
+  "es.apartments.duo_deluxe_studio.persons": "1-2",
+  "es.apartments.duo_deluxe_studio.rooms": "1 habitación",
+  "es.apartments.duo_deluxe_studio.section_title": "Tu estudio deluxe en Viena",
+  "es.apartments.duo_deluxe_studio.size": "30m²",
+  
+  "es.apartments.luminous_lounge_apartment.description": "Un apartamento luminoso con mucho espacio y comodidad.",
+  "es.apartments.luminous_lounge_apartment.long_description": "Bienvenido al Luminous Lounge Apartment, tu refugio luminoso en Viena. Este amplio apartamento ofrece una cómoda cama doble y mucho espacio para relajarte.\n\nLa zona de estar es moderna y perfecta para noches tranquilas. Con WiFi rápido, siempre estarás conectado.\n\nLa cocina totalmente equipada incluye todo lo que necesitas: refrigerador, hervidor, microondas, cocina y vajilla.\n\nEl baño moderno con ducha ofrece comodidad y frescura.\n\nLuminous Lounge Apartment: luminoso, moderno y perfecto para estancias más largas.",
+  "es.apartments.luminous_lounge_apartment.name": "Luminous Lounge Apartment",
+  "es.apartments.luminous_lounge_apartment.persons": "1-2",
+  "es.apartments.luminous_lounge_apartment.rooms": "1 habitación",
+  "es.apartments.luminous_lounge_apartment.section_title": "Tu apartamento luminoso en Viena",
+  "es.apartments.luminous_lounge_apartment.size": "35m²",
+  
+  "es.apartments.twin_harmony_suite.beds": "2 camas individuales",
+  "es.apartments.twin_harmony_suite.description": "Dos cómodas camas individuales para amigos o colegas.",
+  "es.apartments.twin_harmony_suite.long_description": "Bienvenido a la Twin Harmony Suite, perfecta para amigos, colegas o viajeros solitarios que prefieren camas separadas. Las dos acogedoras camas individuales ofrecen comodidad y flexibilidad.\n\nLa zona de estar cuenta con un televisor moderno e invita a relajarte. El WiFi rápido te mantiene siempre conectado.\n\nLa cocina incluye todo lo que necesitas: refrigerador, hervidor, microondas, cocina y vajilla.\n\nEl baño con ducha ofrece comodidad y frescura.\n\nTwin Harmony Suite: flexible, cómoda e ideal para tu estancia en Viena.",
+  "es.apartments.twin_harmony_suite.name": "Twin Harmony Suite",
+  "es.apartments.twin_harmony_suite.persons": "1-2",
+  "es.apartments.twin_harmony_suite.rooms": "1 habitación",
+  "es.apartments.twin_harmony_suite.section_title": "Tu suite flexible en Viena",
+  "es.apartments.twin_harmony_suite.size": "28m²"
+
 }
