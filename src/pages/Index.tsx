@@ -4,12 +4,31 @@ import { apartments, features, reviews, faqs } from "@/lib/data";
 import ApartmentCard from "@/components/ApartmentCard";
 import PromoBanner from "@/components/PromoBanner";
 import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const CDN = "https://cdn.prod.website-files.com/6515f2606ac654c52d9c4bfa";
 
 export default function HomePage() {
   const { t, langPrefix } = useI18n();
 
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://login.smoobu.com/js/Settings/BookingToolIframe.js";
+    script.async = true;
+
+    script.onload = () => {
+      if (window.BookingToolIframe) {
+        window.BookingToolIframe.initialize({
+          url: "https://login.smoobu.com/en/booking-tool/iframe/1656615?newTabAfterSearch=true",
+          baseUrl: "https://login.smoobu.com",
+          target: "#apartmentIframeAll",
+        });
+      }
+    };
+
+    document.body.appendChild(script);
+  }, []);
+  
   return (
     <div>
       {/* Hero */}
@@ -62,13 +81,7 @@ export default function HomePage() {
             {t({ de: "Wähle Dein Reisedatum und finde verfügbare Apartments.", en: "Choose your travel dates and find available apartments." })}
           </p>
           <div className="bg-background rounded-2xl shadow-card overflow-hidden">
-            <iframe
-              src="https://login.smoobu.com/en/booking-tool/iframe/1656615?newTabAfterSearch=true"
-              className="w-full border-0"
-              style={{ minHeight: "400px", height: "50vh", maxHeight: "600px" }}
-              title="Smoobu Booking"
-              allow="payment"
-            />
+            <div id="apartmentIframeAll" style={{ minHeight: "400px" }} />
           </div>
         </div>
       </section>
