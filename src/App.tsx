@@ -25,6 +25,7 @@ const queryClient = new QueryClient();
 function LangWrapper() {
   const { lang } = useParams();
 
+  
   const selectedLang: Lang = LANGUAGE_PACK.includes(lang as Lang)
     ? (lang as Lang)
     : "de";
