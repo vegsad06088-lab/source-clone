@@ -16,9 +16,9 @@ export default function Navbar() {
   const navItems = [
     { label: "Home", path: `${langPrefix}/` },
     { label: "Apartments", path: `${langPrefix}/apartments` },
-    { label: t({ de: "Über uns", en: "About us" }), path: `${langPrefix}/about` },
-    { label: t({ de: "Anleitungen", en: "Instructions" }), path: `${langPrefix}/anleitungen` },
-    { label: t({ de: "Kontakt", en: "Contact" }), path: `${langPrefix}/contact` },
+    { label: t("footer.about"), path: `${langPrefix}/about` },
+    { label: t("footer.instructions"), path: `${langPrefix}/anleitungen` },
+    { label: t("footer.contact"), path: `${langPrefix}/contact` },
   ];
 
   const switchLang = (newLang: Lang) => {
@@ -86,7 +86,7 @@ export default function Navbar() {
               to={`${langPrefix}/apartments`}
               className="inline-flex items-center justify-center px-5 py-2.5 text-sm font-medium text-primary-foreground bg-primary rounded-lg shadow-card hover:shadow-card-hover transition-smooth hover:-translate-y-[1px] active:translate-y-[1px] active:scale-[0.98]"
             >
-              {t({ de: "Jetzt buchen!", en: "Book now!" })}
+              {t("navbar.book_now")}
             </Link>
           </div>
 
@@ -138,7 +138,7 @@ export default function Navbar() {
               onClick={() => setMobileOpen(false)}
               className="mt-4 w-full inline-flex items-center justify-center px-5 py-3 text-sm font-medium text-primary-foreground bg-primary rounded-lg"
             >
-              {t({ de: "Jetzt buchen!", en: "Book now!" })}
+              {t("navbar.book_now")}
             </Link>
           </div>
         )}

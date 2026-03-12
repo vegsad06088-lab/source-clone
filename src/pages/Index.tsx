@@ -42,17 +42,11 @@ export default function HomePage() {
 
         <div className="relative z-10 text-center px-4 max-w-3xl mx-auto">
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif font-bold text-background mb-6">
-            {t({
-              de: "Modernes Wohnen im Herzen Wiens",
-              en: "Modern living in the heart of Vienna",
-            })}
+            {t("home.hero.title")}
           </h1>
 
           <p className="text-lg sm:text-xl text-background/90 mb-8 max-w-2xl mx-auto">
-            {t({
-              de: "Entdecke neu definierten Komfort in unseren nachhaltigen Apartments – Dein urbanes, stilvolles Zuhause für jeden Aufenthalt in Wien!",
-              en: "Discover newly defined comfort in our sustainable apartments — your urban, stylish home for every stay in Vienna!",
-            })}
+            {t("home.hero.subtitle")}
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -60,14 +54,14 @@ export default function HomePage() {
               to={`${langPrefix}/apartments`}
               className="inline-flex items-center justify-center px-8 py-3.5 text-base font-medium text-primary-foreground bg-primary rounded-lg shadow-card hover:shadow-card-hover transition-smooth hover:-translate-y-[1px]"
             >
-              {t({ de: "Jetzt buchen!", en: "Book now!" })}
+              {t("home.hero.cta_book")}
             </Link>
 
             <Link
               to={`${langPrefix}/about`}
               className="inline-flex items-center justify-center px-8 py-3.5 text-base font-medium text-background bg-background/20 backdrop-blur-sm border border-background/30 rounded-lg transition-smooth hover:bg-background/30"
             >
-              {t({ de: "Über uns", en: "About us" })}
+              {t("home.hero.cta_about")}
             </Link>
           </div>
         </div>
@@ -77,24 +71,15 @@ export default function HomePage() {
       <section className="bg-card py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground text-center mb-4">
-            {t({
-              de: "Finde Dein perfektes Apartment",
-              en: "Find your perfect apartment",
-            })}
+            {t("home.booking.title")}
           </h2>
 
           <p className="text-center text-muted-foreground mb-4 max-w-2xl mx-auto">
-            {t({
-              de: "Wähle Dein Reisedatum und finde verfügbare Apartments.",
-              en: "Choose your travel dates and find available apartments.",
-            })}
+            {t("home.booking.subtitle")}
           </p>
 
           <p className="text-center text-sm text-yellow-600 font-medium mb-6">
-            {t({
-              de: "Hinweis: Der Mindestaufenthalt beträgt 2 Nächte.",
-              en: "Note: Minimum stay is 2 nights.",
-            })}
+            {t("home.booking.minimum_stay")}
           </p>
 
           <p className="text-center mb-6">
@@ -102,10 +87,7 @@ export default function HomePage() {
               to={`${langPrefix}/booking-conditions`}
               className="text-primary underline hover:text-primary/80 transition-smooth"
             >
-              {t({
-                de: "Buchungsbedingungen anzeigen",
-                en: "View Booking Conditions",
-              })}
+              {t("home.booking.conditions_link")}
             </Link>
           </p>
 
@@ -121,10 +103,7 @@ export default function HomePage() {
       {/* Apartments */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground text-center mb-12">
-          {t({
-            de: "Entdecke unsere Apartments",
-            en: "Discover our apartments",
-          })}
+          {t("home.apartments.title")}
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -137,17 +116,11 @@ export default function HomePage() {
       {/* Features */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground text-center mb-4">
-          {t({
-            de: "Genieße Top-Ausstattung in jedem Raum",
-            en: "Enjoy top amenities in every room",
-          })}
+          {t("home.features.title")}
         </h2>
 
         <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-          {t({
-            de: "Erlebe den Komfort moderner und durchdachter Features, designed für Deinen perfekten Aufenthalt.",
-            en: "Experience the comfort of modern and thoughtful features, designed for your perfect stay.",
-          })}
+          {t("home.features.subtitle")}
         </p>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
@@ -178,17 +151,11 @@ export default function HomePage() {
       <section className="bg-primary text-primary-foreground py-16">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">
-            {t({
-              de: "Nachhaltig Wohnen, stilvoller Aufenthalt.",
-              en: "Sustainable living, stylish stay.",
-            })}
+            {t("home.sustainability.title")}
           </h2>
 
           <p className="text-primary-foreground/80 mb-8 max-w-2xl mx-auto">
-            {t({
-              de: "Erlebe Komfort mit Verantwortungsbewusstsein. Unsere Apartments setzen auf erneuerbare Energien und nachhaltige Praktiken.",
-              en: "Experience comfort with responsibility. Our apartments rely on renewable energy and sustainable practices.",
-            })}
+            {t("home.sustainability.subtitle")}
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -196,14 +163,14 @@ export default function HomePage() {
               to={`${langPrefix}/apartments`}
               className="inline-flex items-center justify-center px-6 py-3 text-sm font-medium bg-background text-foreground rounded-lg transition-smooth hover:opacity-90"
             >
-              {t({ de: "Apartments entdecken", en: "Discover apartments" })}
+              {t("home.sustainability.cta_discover")}
             </Link>
 
             <Link
               to={`${langPrefix}/about`}
               className="inline-flex items-center justify-center px-6 py-3 text-sm font-medium text-primary-foreground border border-primary-foreground/30 rounded-lg transition-smooth hover:bg-primary-foreground/10"
             >
-              {t({ de: "Über uns", en: "About us" })}
+              {t("home.hero.cta_about")}
             </Link>
           </div>
         </div>
@@ -212,24 +179,15 @@ export default function HomePage() {
       {/* Why Us */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground text-center mb-4">
-          {t({
-            de: "Warum Dein Aufenthalt bei uns besonders ist.",
-            en: "Why your stay with us is special.",
-          })}
+          {t("home.why_us.title")}
         </h2>
 
         <p className="text-center text-muted-foreground mb-12 max-w-3xl mx-auto">
-          {t({
-            de: "Erlebe echte Gastfreundschaft! Genieße individuellen Komfort und herzlichen Service in unseren nachhaltigen Apartments in Wien.",
-            en: "Experience true hospitality! Enjoy individual comfort and warm service in our sustainable apartments in Vienna.",
-          })}
+          {t("home.why_us.subtitle")}
         </p>
 
         <p className="text-center text-muted-foreground max-w-3xl mx-auto">
-          {t({
-            de: "Bei uns lebst Du grün! Mit Erdwärme und zukünftiger Solarenergie bieten wir Dir einen Aufenthalt, der nicht nur gemütlich, sondern auch umweltfreundlich ist.",
-            en: "Live green with us! With geothermal energy and future solar power, we offer you a stay that is not only cozy but also environmentally friendly.",
-          })}
+          {t("home.why_us.description")}
         </p>
       </section>
 
@@ -237,17 +195,11 @@ export default function HomePage() {
       <section className="bg-card py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground text-center mb-4">
-            {t({
-              de: "Stimmen unserer Gäste",
-              en: "What our guests say",
-            })}
+            {t("home.reviews.title")}
           </h2>
 
           <p className="text-center text-muted-foreground mb-12">
-            {t({
-              de: "Entdecke, warum Besucher aus aller Welt unsere Apartments lieben!",
-              en: "Discover why visitors from around the world love our apartments!",
-            })}
+            {t("home.reviews.subtitle")}
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -285,14 +237,14 @@ export default function HomePage() {
             to={`${langPrefix}/apartments`}
             className="inline-flex items-center justify-center px-8 py-3.5 text-base font-medium text-primary-foreground bg-primary rounded-lg shadow-card hover:shadow-card-hover transition-smooth"
           >
-            {t({ de: "Jetzt buchen!", en: "Book now!" })}
+            {t("home.hero.cta_book")}
           </Link>
 
           <Link
             to={`${langPrefix}/about`}
             className="inline-flex items-center justify-center px-8 py-3.5 text-base font-medium text-foreground bg-muted rounded-lg transition-smooth hover:bg-muted/80"
           >
-            {t({ de: "Über uns", en: "About us" })}
+            {t("home.hero.cta_about")}
           </Link>
         </div>
       </section>

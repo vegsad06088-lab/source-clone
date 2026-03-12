@@ -25,6 +25,7 @@ const queryClient = new QueryClient();
 function LangWrapper() {
   const { lang } = useParams();
 
+  
   const selectedLang: Lang = LANGUAGE_PACK.includes(lang as Lang)
     ? (lang as Lang)
     : "de";
@@ -67,9 +68,16 @@ export default function App() {
           <ScrollToTop />
 
           <Routes>
+            {/* 1. If path is exactly "/", immediately redirect to /de */}
+            <Route path="/" element={<Navigate to="/de" replace />} />
+          
+            {/* 2. All language-specific routes */}
             <Route path="/:lang/*" element={<LangWrapper />} />
-            <Route path="*" element={<Navigate to="/de" replace />} />
+          
+            {/* 3. Fallback: real 404, not redirect */}
+            <Route path="*" element={<NotFound />} />
           </Routes>
+
         </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>

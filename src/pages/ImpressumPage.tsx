@@ -8,17 +8,14 @@ export default function ImpressumPage() {
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <h1 className="text-4xl font-serif font-bold text-foreground mb-4">Impressum</h1>
       <p className="text-muted-foreground mb-8">
-        {t({
-          de: "Alle wichtigen rechtlichen Informationen und Kontaktdetails zu Apartments zur Quelle findest Du hier. Wir stehen für Transparenz und Klarheit.",
-          en: "All important legal information and contact details for Apartments zur Quelle can be found here. We stand for transparency and clarity.",
-        })}
+        {t("en.impressum.intro")}
       </p>
 
       <div className="space-y-8 text-sm text-muted-foreground leading-relaxed">
         {/* Kontakt */}
         <section>
           <h3 className="text-lg font-sans font-semibold text-foreground mb-3">
-            {t({ de: "Kontakt", en: "Contact" })}
+            {t("en.impressum.contact.title")}
           </h3>
           <p className="mb-1">Apartments zur Quelle</p>
           <p className="mb-1">Christine Führer GmbH</p>
@@ -41,49 +38,40 @@ export default function ImpressumPage() {
         {/* Auskunft / Unternehmensdaten */}
         <section>
           <h3 className="text-lg font-sans font-semibold text-foreground mb-3">
-            {t({ de: "Auskunft", en: "Information" })}
+            {t("en.impressum.info.title")}
           </h3>
           <p className="mb-1">Christine Führer GmbH</p>
           <p className="mb-1">
-            {t({
-              de: "Geschäftsführung: Christine Führer",
-              en: "Managing director: Christine Führer",
-            })}
+            {t("en.impressum.info.management")}
           </p>
           <p className="mb-1">
-            {t({
-              de: "Unternehmensgegenstand: Beherbergung von Gästen in Ferienwohnungen (Gastgewerbe)",
-              en: "Business purpose: Accommodation of guests in holiday apartments (hospitality)",
-            })}
+            {t("en.impressum.info.businessPurpose")}
           </p>
           <p className="mb-1">UID-Nr: ATU67808903</p>
           <p className="mb-1">
-            {t({ de: "Firmenbuchnummer", en: "Company register number" })}: 389718s
+            {t("en.impressum.info.registrationNumber")}: 389718s
           </p>
           <p className="mb-1">
-            {t({ de: "Firmenbuchgericht", en: "Company register court" })}: Handelsgericht Wien
+            {t("en.impressum.info.registrationCourt")}: Handelsgericht Wien
           </p>
           <p className="mb-1">
-            {t({ de: "Firmensitz", en: "Registered office" })}: Absberggasse 6, 1100 Wien, Austria
+            {t("en.impressum.info.registeredOffice")}: Absberggasse 6, 1100 Wien, Austria
           </p>
           <p className="mb-1">
-            {t({ de: "Mitglied bei", en: "Member of" })}: Wirtschaftskammer Wien
+            {t("en.impressum.info.memberOf")}: Wirtschaftskammer Wien
           </p>
           <p className="mb-1">
-            {t({ de: "Berufsgruppe", en: "Professional group" })}: Gastgewerbe
+            {t("en.impressum.info.professionalGroup")}: Gastgewerbe
           </p>
           <p>
-            {t({
-              de: "Medieninhaber: Christine Führer GmbH",
-              en: "Media owner: Christine Führer GmbH",
-            })}
+            {t("en.impressum.info.mediaOwner")}
           </p>
         </section>
 
         {/* Design & Programmierung */}
         <section>
           <h3 className="text-lg font-sans font-semibold text-foreground mb-3">
-            Design & {t({ de: "Programmierung", en: "Programming" })}
+            Design & {t("en.impressum.design")}
           </h3>
           <p>ap-zur-quelle Team</p>
           <p>
@@ -97,51 +85,39 @@ export default function ImpressumPage() {
         {/* Haftung und Datenschutz */}
         <section>
           <h3 className="text-lg font-sans font-semibold text-foreground mb-3">
-            {t({ de: "Haftung und Datenschutz", en: "Liability and Data Protection" })}
+            {t("en.impressum.liability.title")}
           </h3>
           <h4 className="font-semibold text-foreground mb-2">
-            {t({ de: "1. Inhalt", en: "1. Content" })}
+            {t("en.impressum.section1")}
           </h4>
           <p className="mb-4">
-            {t({
-              de: "Die Inhalte dieser Homepage dienen ausschließlich zur Information. Die einzelnen Texte und Inhalte wurden nach bestem Wissen und Gewissen erstellt. Da es sich in Teilbereichen auch um Ratschläge handelt, kann für die objektive Richtigkeit, sowie für die Vollständigkeit der veröffentlichten Informationen keinerlei Gewähr übernommen werden.",
-              en: "The content of this homepage is for information purposes only. The individual texts and content were created to the best of our knowledge and belief. Since some areas also contain advice, no guarantee can be given for the objective correctness or completeness of the published information.",
-            })}
+            {t("en.impressum.section1.text")}
           </p>
           <h4 className="font-semibold text-foreground mb-2">
-            {t({ de: "2. Datenschutz", en: "2. Data Protection" })}
+            {t("en.impressum.section2")}
           </h4>
           <p className="mb-4">
-            {t({
-              de: "Angaben zum Datenschutz entnehmen Sie bitte unserer",
-              en: "For data protection information, please see our",
-            })}{" "}
+            {t("en.impressum.section2.text")}{" "}
             <a href="/datenschutz" className="text-primary hover:underline">
-              {t({ de: "Datenschutzerklärung", en: "Privacy Policy" })}
+              {t("en.impressum.section2.link")}
             </a>
             .
           </p>
           <h4 className="font-semibold text-foreground mb-2">
-            {t({ de: "3. Externe Links", en: "3. External Links" })}
+            {t("en.impressum.section3")}
           </h4>
           <p>
-            {t({
-              de: "Wir übernehmen keine Verantwortung für den Inhalt extern verlinkter Seiten. Diese Inhalte wurden zum Zeitpunkt der Linksetzung sorgfältig geprüft, allerdings ist eine kontinuierliche Überwachung der verlinkten Seiten nicht durchführbar.",
-              en: "We assume no responsibility for the content of externally linked pages. This content was carefully checked at the time of linking, however continuous monitoring of linked pages is not feasible.",
-            })}
+            {t("en.impressum.section3.text")}
           </p>
         </section>
 
         {/* Online-Streitbeilegung */}
         <section>
           <h3 className="text-lg font-sans font-semibold text-foreground mb-3">
-            {t({ de: "Online-Streitbeilegung", en: "Online Dispute Resolution" })}
+            {t("en.impressum.odr.title")}
           </h3>
           <p>
-            {t({
-              de: "Verbraucher haben die Möglichkeit, Beschwerden an die Online-Streitbeilegungsplattform der EU zu richten:",
-              en: "Consumers have the option of submitting complaints to the EU's online dispute resolution platform:",
-            })}{" "}
+            {t("en.impressum.odr.text")}{" "}
             <a
               href="http://ec.europa.eu/odr"
               target="_blank"
