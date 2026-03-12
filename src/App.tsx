@@ -15,7 +15,7 @@ import AnleitungDetailPage from "@/pages/AnleitungDetailPage";
 import DatenschutzPage from "@/pages/DatenschutzPage";
 import ImpressumPage from "@/pages/ImpressumPage";
 import NotFound from "@/pages/NotFound";
-import ScrollToTop from "./ScrollToTop";
+import ScrollToTop from "@/components/ScrollToTop";
 
 
 
