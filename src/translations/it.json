@@ -1,0 +1,30 @@
+{
+  "it.bookingConditions.title": "Condizioni di prenotazione",
+  "it.bookingConditions.intro": "Si prega di leggere attentamente queste condizioni di prenotazione prima di effettuare una prenotazione.",
+
+  "it.bookingConditions.cancellation.title": "1. Politica di cancellazione",
+  "it.bookingConditions.cancellation.free": "Cancellazione gratuita fino a 7 giorni prima dell'arrivo (14:00).",
+  "it.bookingConditions.cancellation.late": "A partire da 7 giorni prima dell'arrivo si applica una penale del 20% del prezzo della prenotazione.",
+
+  "it.bookingConditions.payment.title": "2. Metodi di pagamento",
+  "it.bookingConditions.payment.methods": "I pagamenti possono essere effettuati tramite Stripe o PayPal.",
+
+  "it.bookingConditions.deposit.title": "3. Regole di deposito e pagamento",
+  "it.bookingConditions.deposit.first": "Deposito del 20% al momento della prenotazione.",
+  "it.bookingConditions.deposit.second": "Il restante 80% deve essere pagato entro 7 giorni prima dell'arrivo.",
+
+  "it.bookingConditions.cleaning.title": "4. Tariffa di pulizia",
+  "it.bookingConditions.cleaning.text": "La tariffa di pulizia è inclusa nel prezzo totale.",
+
+  "it.bookingConditions.cityTax.title": "5. Tassa di soggiorno",
+  "it.bookingConditions.cityTax.text": "La tassa di soggiorno è inclusa nel prezzo totale.",
+
+  "it.bookingConditions.checkin.title": "6. Check-in & Check-out",
+  "it.bookingConditions.checkin.in": "Check-in: dopo le 14:00",
+  "it.bookingConditions.checkin.out": "Check-out: entro le 10:00",
+  "it.bookingConditions.checkin.lockbox": "Self check-in tramite cassetta di sicurezza.",
+
+  "it.bookingConditions.more.title": "7. Informazioni aggiuntive",
+  "it.bookingConditions.more.text": "Per tutti i dettagli legali, consultare le nostre",
+  "it.bookingConditions.more.link": "Condizioni generali"
+}
