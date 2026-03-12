@@ -279,7 +279,7 @@ export default function ApartmentDetailPage() {
       {/* Booking Conditions */}
       {conditionsOpen && (
         <div className="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50">
-          <div className="bg-white rounded-2xl shadow-xl max-w-lg w-full p-6 relative">
+          <div className="bg-white rounded-2xl shadow-xl max-w-3xl w-full h-[80vh] p-6 relative overflow-hidden">
       
             {/* Close button */}
             <button
@@ -293,17 +293,14 @@ export default function ApartmentDetailPage() {
               {t({ de: "Buchungsbedingungen", en: "Booking Conditions" })}
             </h2>
       
-            <p className="text-muted-foreground text-sm leading-relaxed">
-              {t({
-                de: "Hier kannst du deine Buchungsbedingungen erklären. Mindestaufenthalt, Stornierungsrichtlinien, Check-in Zeiten usw.",
-                en: "Here you can explain your booking conditions. Minimum stay, cancellation policy, check‑in times, etc.",
-              })}
-            </p>
-      
+            {/* Load the REAL booking conditions page in the correct language */}
+            <iframe
+              src={`${window.location.origin}${langPrefix}/booking-conditions`}
+              className="w-full h-full border-0 rounded-lg"
+            />
           </div>
         </div>
       )}
-
 
       {/* Sticky Mobile Booking */}
       <div className="fixed bottom-0 left-0 right-0 lg:hidden bg-background border-t border-border p-4 z-40">
