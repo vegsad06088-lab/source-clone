@@ -15,6 +15,8 @@ const SMOOBU_URL = "https://login.smoobu.com/en/booking-tool/widget/285782";
 export default function ApartmentDetailPage() {
   const { t, langPrefix } = useI18n();
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const [expanded, setExpanded] = useState(false);
+
   const location = window.location.pathname;
   const slug = location.split("/").filter(Boolean).pop() || "";
 
@@ -63,8 +65,7 @@ export default function ApartmentDetailPage() {
                 {apartment.name}
               </h3>
               <p className="text-sm text-muted-foreground mb-3">
-                {apartment.persons}{" "}
-                {t({ de: "Personen", en: "Persons" })}
+                {apartment.persons} {t({ de: "Personen", en: "Persons" })}
               </p>
               <div className="border-t border-border pt-3 mb-4">
                 <p className="text-sm text-muted-foreground">
@@ -94,8 +95,7 @@ export default function ApartmentDetailPage() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex flex-wrap gap-3">
           <span className="inline-flex items-center gap-2 px-4 py-2 bg-card rounded-lg text-sm text-foreground shadow-card">
-            👤 {apartment.persons}{" "}
-            {t({ de: "Person", en: "Person" })}
+            👤 {apartment.persons} {t({ de: "Person", en: "Person" })}
           </span>
           <span className="inline-flex items-center gap-2 px-4 py-2 bg-card rounded-lg text-sm text-foreground shadow-card">
             🛏️ {t(apartment.beds)}
@@ -148,26 +148,59 @@ export default function ApartmentDetailPage() {
         </div>
       </section>
 
-      {/* Gallery (Swiper Carousel) */}
+      {/* Gallery */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <h2 className="text-2xl md:text-3xl font-serif font-bold text-foreground mb-8">
           {t({ de: "Galerie", en: "Gallery" })}
         </h2>
 
-        <Swiper
-          modules={[Navigation]}
-          navigation
-          spaceBetween={16}
-          slidesPerView={1.2}
-          breakpoints={{
-            640: { slidesPerView: 2.2 },
-            1024: { slidesPerView: 3.2 },
-          }}
-          className="w-full"
+        {/* Expand / Collapse Button */}
+        <button
+          onClick={() => setExpanded(!expanded)}
+          className="flex items-center gap-2 text-primary font-medium mb-6"
         >
-          {apartment.gallery.map((img, i) => (
-            <SwiperSlide key={i}>
+          {expanded
+            ? t({ de: "▲ Weniger anzeigen", en: "▲ Show less" })
+            : t({ de: "▼ Alle Bilder anzeigen", en: "▼ Show all images" })}
+        </button>
+
+        {/* Collapsed: Swiper Carousel */}
+        {!expanded && (
+          <Swiper
+            modules={[Navigation]}
+            navigation
+            spaceBetween={16}
+            slidesPerView={1.2}
+            breakpoints={{
+              640: { slidesPerView: 2.2 },
+              1024: { slidesPerView: 3.2 },
+            }}
+            className="w-full"
+          >
+            {apartment.gallery.map((img, i) => (
+              <SwiperSlide key={i}>
+                <div
+                  className="aspect-[4/3] rounded-xl overflow-hidden shadow-card cursor-pointer hover:shadow-card-hover transition-smooth"
+                  onClick={() => setLightboxIndex(i)}
+                >
+                  <img
+                    src={img}
+                    alt={`${apartment.name} ${i + 1}`}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        )}
+
+        {/* Expanded: Full Grid */}
+        {expanded && (
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            {apartment.gallery.map((img, i) => (
               <div
+                key={i}
                 className="aspect-[4/3] rounded-xl overflow-hidden shadow-card cursor-pointer hover:shadow-card-hover transition-smooth"
                 onClick={() => setLightboxIndex(i)}
               >
@@ -178,9 +211,9 @@ export default function ApartmentDetailPage() {
                   loading="lazy"
                 />
               </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+            ))}
+          </div>
+        )}
       </section>
 
       {/* Lightbox */}
