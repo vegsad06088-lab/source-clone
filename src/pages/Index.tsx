@@ -9,7 +9,7 @@ import { useState, useEffect } from "react";
 const CDN = "https://cdn.prod.website-files.com/6515f2606ac654c52d9c4bfa";
 
 export default function HomePage() {
-  const { t, langPrefix } = useI18n();
+const { t, lang, langPrefix } = useI18n();
 
   useEffect(() => {
     const script = document.createElement("script");
