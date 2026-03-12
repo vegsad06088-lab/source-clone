@@ -1,9 +1,9 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, Navigate, useParams } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { I18nProvider } from "@/lib/i18n";
+import { I18nProvider, LANGUAGE_PACK, Lang } from "@/lib/i18n";
 import Layout from "@/components/Layout";
 import HomePage from "@/pages/Index";
 import ApartmentsPage from "@/pages/ApartmentsPage";
@@ -20,9 +20,48 @@ import CookiePolicy from "@/pages/CookiePolicy";
 import AGBPage from "@/pages/AGBPage";
 import BookingConditionsPage from "@/pages/BookingConditionsPage";
 
-
 const queryClient = new QueryClient();
 
+// ------------------------------
+// Language Wrapper
+// ------------------------------
+function LangWrapper() {
+  const { lang } = useParams();
+
+  const selectedLang: Lang = LANGUAGE_PACK.includes(lang as Lang)
+    ? (lang as Lang)
+    : "de";
+
+  return (
+    <I18nProvider initialLang={selectedLang}>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/apartments" element={<ApartmentsPage />} />
+          <Route path="/twin-harmony-suite" element={<ApartmentDetailPage />} />
+          <Route path="/duo-deluxe-studio" element={<ApartmentDetailPage />} />
+          <Route path="/cosy-couple-nest" element={<ApartmentDetailPage />} />
+          <Route path="/trio-harmony-suite" element={<ApartmentDetailPage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/anleitungen" element={<AnleitungenPage />} />
+          <Route path="/anleitungen-post/:slug" element={<AnleitungDetailPage />} />
+          <Route path="/datenschutz" element={<DatenschutzPage />} />
+          <Route path="/cookies" element={<CookiePolicy />} />
+          <Route path="/impressum" element={<ImpressumPage />} />
+          <Route path="/agb" element={<AGBPage />} />
+          <Route path="/booking-conditions" element={<BookingConditionsPage />} />
+
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Layout>
+    </I18nProvider>
+  );
+}
+
+// ------------------------------
+// Main App
+// ------------------------------
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
@@ -30,58 +69,18 @@ const App = () => (
       <Sonner />
 
       <BrowserRouter>
-        <ScrollToTop />   {/* <-- This is the correct place */}
+        <ScrollToTop />
 
-        <I18nProvider>
-          <Routes>
-            <Route element={<Layout />}>
+        <Routes>
+          {/* Multi-language routes */}
+          <Route path="/:lang/*" element={<LangWrapper />} />
 
-              {/* German routes */}
-              <Route path="/" element={<HomePage />} />
-              <Route path="/apartments" element={<ApartmentsPage />} />
-              <Route path="/twin-harmony-suite" element={<ApartmentDetailPage />} />
-              <Route path="/duo-deluxe-studio" element={<ApartmentDetailPage />} />
-              <Route path="/cosy-couple-nest" element={<ApartmentDetailPage />} />
-              <Route path="/trio-harmony-suite" element={<ApartmentDetailPage />} />
-              <Route path="/about" element={<AboutPage />} />
-              <Route path="/contact" element={<ContactPage />} />
-              <Route path="/anleitungen" element={<AnleitungenPage />} />
-              <Route path="/anleitungen-post/:slug" element={<AnleitungDetailPage />} />
-              <Route path="/datenschutz" element={<DatenschutzPage />} />
-              <Route path="/cookies" element={<CookiePolicy />} />
-              <Route path="/impressum" element={<ImpressumPage />} />
-              <Route path="/agb" element={<AGBPage />} />
-              <Route path="/booking-conditions" element={<BookingConditionsPage />} />
-            
-
-              {/* English routes */}
-              <Route path="/en" element={<HomePage />} />
-              <Route path="/en/apartments" element={<ApartmentsPage />} />
-              <Route path="/en/twin-harmony-suite" element={<ApartmentDetailPage />} />
-              <Route path="/en/duo-deluxe-studio" element={<ApartmentDetailPage />} />
-              <Route path="/en/cosy-couple-nest" element={<ApartmentDetailPage />} />
-              <Route path="/en/trio-harmony-suite" element={<ApartmentDetailPage />} />
-              <Route path="/en/about" element={<AboutPage />} />
-              <Route path="/en/contact" element={<ContactPage />} />
-              <Route path="/en/anleitungen" element={<AnleitungenPage />} />
-              <Route path="/en/anleitungen-post/:slug" element={<AnleitungDetailPage />} />
-              <Route path="/en/datenschutz" element={<DatenschutzPage />} />
-              <Route path="/en/cookies" element={<CookiePolicy />} />
-              <Route path="/en/impressum" element={<ImpressumPage />} />
-              <Route path="/en/terms" element={<AGBPage />} />
-              <Route path="/en/booking-conditions" element={<BookingConditionsPage />} />
-
-              
-              {/* 404 */}
-              <Route path="*" element={<NotFound />} />
-
-            </Route>
-          </Routes>
-        </I18nProvider>
+          {/* Default redirect to German */}
+          <Route path="*" element={<Navigate to="/de" replace />} />
+        </Routes>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
 );
-
 
 export default App;
