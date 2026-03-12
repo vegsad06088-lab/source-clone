@@ -276,10 +276,10 @@ export const faqs = [
 ];
 
 export const features = [
-  { image: "/images/features/65295b54dd06ae818ed1be7c_Aufzug.avif", title: { de: "Aufzug Verfügbar", en: "Elevator Available" }, desc: { de: "Bequemer Zugang zu Deinem Apartment.", en: "Convenient access to your apartment." } },
-  { image: "/images/features/65295f309e9c01878c7c2ce6_TV.avif", title: { de: "Modernes TV", en: "Modern TV" }, desc: { de: "Entspanne mit vielseitigen Fernsehprogrammen.", en: "Relax with versatile TV programs." } },
-  { image: "/images/features/65295fe24c43f5d22dc509df_Fön.avif", title: { de: "Haartrockner", en: "Hair Dryer" }, desc: { de: "Stylische Haare auch im Urlaub.", en: "Stylish hair even on vacation." } },
-  { image: "/images/features/6529604a62e57157ec5f3402_WLAN.avif", title: { de: "Schnelles WLAN", en: "Fast WiFi" }, desc: { de: "Immer verbunden, kostenlos surfen.", en: "Always connected, free surfing." } },
-  { image: "/images/features/6529619ad524db7eb5a8f6e8_Küche.avif", title: { de: "Kochmöglichkeiten", en: "Cooking Facilities" }, desc: { de: "Zaubere Deine Lieblingsspeisen.", en: "Cook your favorite meals." } },
-  { image: "/images/features/65296245dd8cf73344675481_Handtücher.avif", title: { de: "Weiche Handtücher", en: "Soft Towels" }, desc: { de: "Frisch und komfortabel für Dich.", en: "Fresh and comfortable for you." } },
+  { image: "/images/65295b54dd06ae818ed1be7c_Aufzug.avif", title: { de: "Aufzug Verfügbar", en: "Elevator Available" }, desc: { de: "Bequemer Zugang zu Deinem Apartment.", en: "Convenient access to your apartment." } },
+  { image: "/images/65295f309e9c01878c7c2ce6_TV.avif", title: { de: "Modernes TV", en: "Modern TV" }, desc: { de: "Entspanne mit vielseitigen Fernsehprogrammen.", en: "Relax with versatile TV programs." } },
+  { image: "/images/65295fe24c43f5d22dc509df_Fön.avif", title: { de: "Haartrockner", en: "Hair Dryer" }, desc: { de: "Stylische Haare auch im Urlaub.", en: "Stylish hair even on vacation." } },
+  { image: "/images/6529604a62e57157ec5f3402_WLAN.avif", title: { de: "Schnelles WLAN", en: "Fast WiFi" }, desc: { de: "Immer verbunden, kostenlos surfen.", en: "Always connected, free surfing." } },
+  { image: "/images/6529619ad524db7eb5a8f6e8_Küche.avif", title: { de: "Kochmöglichkeiten", en: "Cooking Facilities" }, desc: { de: "Zaubere Deine Lieblingsspeisen.", en: "Cook your favorite meals." } },
+  { image: "/images/65296245dd8cf73344675481_Handtücher.avif", title: { de: "Weiche Handtücher", en: "Soft Towels" }, desc: { de: "Frisch und komfortabel für Dich.", en: "Fresh and comfortable for you." } },
 ];
