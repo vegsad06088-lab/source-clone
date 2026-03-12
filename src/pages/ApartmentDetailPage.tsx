@@ -264,6 +264,14 @@ export default function ApartmentDetailPage() {
 
             {/* Smoobu widget container */}
             <div id="apartmentIframeAll"></div>
+            <p className="text-center mt-4 text-sm">
+              <Link
+                to={`${langPrefix}/booking-conditions`}
+                className="text-primary underline"
+              >
+                {t({ de: "Buchungsbedingungen anzeigen", en: "View Booking Conditions" })}
+              </Link>
+            </p>
           </div>
         </div>
       )}
