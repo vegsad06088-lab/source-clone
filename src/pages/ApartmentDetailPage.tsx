@@ -10,12 +10,11 @@ import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 
-const SMOOBU_URL = "https://login.smoobu.com/en/booking-tool/widget/285782";
-
 export default function ApartmentDetailPage() {
   const { t, langPrefix } = useI18n();
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const [expanded, setExpanded] = useState(false);
+  const [bookingOpen, setBookingOpen] = useState(false);
 
   const location = window.location.pathname;
   const slug = location.split("/").filter(Boolean).pop() || "";
@@ -35,6 +34,25 @@ export default function ApartmentDetailPage() {
       </div>
     );
   }
+
+  // Load Smoobu widget dynamically
+  const openBookingWidget = () => {
+    setBookingOpen(true);
+
+    setTimeout(() => {
+      const script = document.createElement("script");
+      script.src = "https://login.smoobu.com/js/Settings/BookingToolIframe.js";
+      script.onload = () => {
+        // @ts-ignore
+        BookingToolIframe.initialize({
+          url: "https://login.smoobu.com/en/booking-tool/iframe/1656615?newTabAfterSearch=true",
+          baseUrl: "https://login.smoobu.com",
+          target: "#bookingWidgetContainer",
+        });
+      };
+      document.body.appendChild(script);
+    }, 50);
+  };
 
   return (
     <div>
@@ -78,14 +96,14 @@ export default function ApartmentDetailPage() {
                   </span>
                 </p>
               </div>
-              <a
-                href={SMOOBU_URL}
-                target="_blank"
-                rel="noopener noreferrer"
+
+              {/* NEW: Open booking modal */}
+              <button
+                onClick={openBookingWidget}
                 className="w-full inline-flex items-center justify-center px-6 py-3 text-sm font-medium text-primary-foreground bg-primary rounded-lg shadow-card hover:shadow-card-hover transition-smooth hover:-translate-y-[1px] active:translate-y-[1px] active:scale-[0.98]"
               >
                 {t({ de: "Jetzt buchen!", en: "Book now!" })}
-              </a>
+              </button>
             </div>
           </div>
         </div>
@@ -227,6 +245,29 @@ export default function ApartmentDetailPage() {
         />
       )}
 
+      {/* Booking Modal */}
+      {bookingOpen && (
+        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+          <div className="bg-background rounded-2xl shadow-elevated p-6 w-full max-w-2xl relative">
+
+            {/* Close button */}
+            <button
+              onClick={() => setBookingOpen(false)}
+              className="absolute top-3 right-3 text-foreground hover:text-primary text-xl"
+            >
+              ✕
+            </button>
+
+            <h2 className="text-xl font-semibold mb-4">
+              {t({ de: "Jetzt buchen", en: "Book now" })}
+            </h2>
+
+            {/* Smoobu widget container */}
+            <div id="bookingWidgetContainer"></div>
+          </div>
+        </div>
+      )}
+
       {/* Sticky Mobile Booking */}
       <div className="fixed bottom-0 left-0 right-0 lg:hidden bg-background border-t border-border p-4 z-40">
         <div className="flex items-center justify-between">
@@ -241,14 +282,14 @@ export default function ApartmentDetailPage() {
               /{t({ de: "Nacht", en: "Night" })}
             </span>
           </div>
-          <a
-            href={SMOOBU_URL}
-            target="_blank"
-            rel="noopener noreferrer"
+
+          {/* Mobile booking button */}
+          <button
+            onClick={openBookingWidget}
             className="px-6 py-2.5 text-sm font-medium text-primary-foreground bg-primary rounded-lg shadow-card transition-smooth"
           >
             {t({ de: "Jetzt buchen!", en: "Book now!" })}
-          </a>
+          </button>
         </div>
       </div>
     </div>
