@@ -17,7 +17,7 @@ import ImpressumPage from "@/pages/ImpressumPage";
 import NotFound from "@/pages/NotFound";
 import ScrollToTop from "@/components/ScrollToTop";
 import CookiePolicy from "@/pages/CookiePolicy";
-
+import AGBPage from "@/pages/AGBPage";
 
 
 const queryClient = new QueryClient();
@@ -49,6 +49,7 @@ const App = () => (
               <Route path="/datenschutz" element={<DatenschutzPage />} />
               <Route path="/cookies" element={<CookiePolicy />} />
               <Route path="/impressum" element={<ImpressumPage />} />
+              <Route path="/agb" element={<AGBPage />} />
             
 
               {/* English routes */}
@@ -65,6 +66,7 @@ const App = () => (
               <Route path="/en/datenschutz" element={<DatenschutzPage />} />
               <Route path="/en/cookies" element={<CookiePolicy />} />
               <Route path="/en/impressum" element={<ImpressumPage />} />
+              <Route path="/en/terms" element={<AGBPage />} />
 
               {/* 404 */}
               <Route path="*" element={<NotFound />} />
