@@ -15,6 +15,8 @@ export default function ApartmentDetailPage() {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const [expanded, setExpanded] = useState(false);
   const [bookingOpen, setBookingOpen] = useState(false);
+  const [conditionsOpen, setConditionsOpen] = useState(false);
+
 
   const location = window.location.pathname;
   const slug = location.split("/").filter(Boolean).pop() || "";
@@ -264,17 +266,44 @@ export default function ApartmentDetailPage() {
 
             {/* Smoobu widget container */}
             <div id="apartmentIframeAll"></div>
-            <p className="text-center mt-4 text-sm">
-              <Link
-                to={`${langPrefix}/booking-conditions`}
-                className="text-primary underline"
-              >
-                {t({ de: "Buchungsbedingungen anzeigen", en: "View Booking Conditions" })}
-              </Link>
+            <p
+              className="text-center mt-4 text-sm text-primary underline cursor-pointer"
+              onClick={() => setConditionsOpen(true)}
+            >
+              {t({ de: "Buchungsbedingungen anzeigen", en: "View Booking Conditions" })}
             </p>
           </div>
         </div>
       )}
+
+      {/* Booking Conditions */}
+      {conditionsOpen && (
+        <div className="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50">
+          <div className="bg-white rounded-2xl shadow-xl max-w-lg w-full p-6 relative">
+      
+            {/* Close button */}
+            <button
+              onClick={() => setConditionsOpen(false)}
+              className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
+            >
+              ✕
+            </button>
+      
+            <h2 className="text-2xl font-serif font-bold mb-4">
+              {t({ de: "Buchungsbedingungen", en: "Booking Conditions" })}
+            </h2>
+      
+            <p className="text-muted-foreground text-sm leading-relaxed">
+              {t({
+                de: "Hier kannst du deine Buchungsbedingungen erklären. Mindestaufenthalt, Stornierungsrichtlinien, Check-in Zeiten usw.",
+                en: "Here you can explain your booking conditions. Minimum stay, cancellation policy, check‑in times, etc.",
+              })}
+            </p>
+      
+          </div>
+        </div>
+      )}
+
 
       {/* Sticky Mobile Booking */}
       <div className="fixed bottom-0 left-0 right-0 lg:hidden bg-background border-t border-border p-4 z-40">
