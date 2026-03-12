@@ -26,5 +26,41 @@
 
   "it.bookingConditions.more.title": "7. Informazioni aggiuntive",
   "it.bookingConditions.more.text": "Per tutti i dettagli legali, consultare le nostre",
-  "it.bookingConditions.more.link": "Condizioni generali"
+  "it.bookingConditions.more.link": "Condizioni generali",
+  "it.apartments.cosy_couple_nest.beds": "1 letto matrimoniale",
+  
+  "it.apartments.cosy_couple_nest.description": "Un comodo letto matrimoniale per coppie o viaggiatori singoli.",
+  "it.apartments.cosy_couple_nest.long_description": "Benvenuto nel Cosy Couple Nest, il tuo rifugio accogliente nel cuore di Vienna. Questo affascinante appartamento offre un comodo letto matrimoniale, ideale per coppie o viaggiatori singoli che apprezzano tranquillità e comfort.\n\nL’area soggiorno ti invita a rilassarti con una moderna TV – perfetta per serate cinema o per distenderti dopo una giornata ricca di esperienze. Grazie al WiFi veloce e gratuito, rimani sempre connesso, sia per lavoro che per svago.\n\nLa cucina completamente attrezzata include tutto ciò di cui hai bisogno per cucinare in autonomia: frigorifero, bollitore, microonde, utensili da cucina e stoviglie. Puoi preparare facilmente i tuoi piatti preferiti.\n\nIl bagno moderno con doccia garantisce un inizio di giornata fresco o momenti di relax serali.\n\nCosy Couple Nest: piccolo, accogliente e perfetto per il tuo soggiorno a Vienna.",
+  "it.apartments.cosy_couple_nest.name": "Cosy Couple Nest",
+  "it.apartments.cosy_couple_nest.persons": "1-2",
+  "it.apartments.cosy_couple_nest.rooms": "1 stanza",
+  "it.apartments.cosy_couple_nest.section_title": "Il tuo nido accogliente a Vienna",
+  "it.apartments.cosy_couple_nest.size": "25m²",
+  
+  "it.apartments.duo_deluxe_studio.beds": "1 letto matrimoniale",
+  "it.apartments.duo_deluxe_studio.description": "Un moderno letto matrimoniale per coppie o viaggiatori singoli.",
+  "it.apartments.duo_deluxe_studio.long_description": "Benvenuto nel Duo Deluxe Studio – la tua elegante casa lontano da casa a Vienna. Questo studio moderno offre un comodo letto matrimoniale, ideale per coppie o viaggiatori singoli che apprezzano design e funzionalità.\n\nL’area soggiorno è dotata di una TV di alta qualità, permettendoti di goderti serate rilassanti con i tuoi film o serie preferiti. Il WiFi veloce e gratuito garantisce una connessione ottimale in ogni momento.\n\nLa cucina ben attrezzata include tutto ciò di cui hai bisogno per cucinare in autonomia: frigorifero, bollitore, microonde, utensili da cucina e stoviglie. Puoi preparare i tuoi pasti esattamente come li preferisci.\n\nIl bagno moderno con doccia offre comfort e freschezza dopo una lunga giornata in città.\n\nDuo Deluxe Studio: elegante, moderno e perfetto per il tuo soggiorno a Vienna.",
+  "it.apartments.duo_deluxe_studio.name": "Duo Deluxe Studio",
+  "it.apartments.duo_deluxe_studio.persons": "1-2",
+  "it.apartments.duo_deluxe_studio.rooms": "1 stanza",
+  "it.apartments.duo_deluxe_studio.section_title": "Il tuo studio deluxe a Vienna",
+  "it.apartments.duo_deluxe_studio.size": "30m²",
+  
+  "it.apartments.luminous_lounge_apartment.description": "Un appartamento luminoso con molto spazio e comfort.",
+  "it.apartments.luminous_lounge_apartment.long_description": "Benvenuto nel Luminous Lounge Apartment, il tuo rifugio luminoso a Vienna. Questo ampio appartamento offre un comodo letto matrimoniale e molto spazio per rilassarti.\n\nL’area soggiorno è moderna e perfetta per serate tranquille. Con il WiFi veloce, rimani sempre connesso.\n\nLa cucina completamente attrezzata include tutto ciò di cui hai bisogno: frigorifero, bollitore, microonde, piano cottura e stoviglie.\n\nIl bagno moderno con doccia offre comfort e freschezza.\n\nLuminous Lounge Apartment: luminoso, moderno e perfetto per soggiorni più lunghi.",
+  "it.apartments.luminous_lounge_apartment.name": "Luminous Lounge Apartment",
+  "it.apartments.luminous_lounge_apartment.persons": "1-2",
+  "it.apartments.luminous_lounge_apartment.rooms": "1 stanza",
+  "it.apartments.luminous_lounge_apartment.section_title": "Il tuo appartamento luminoso a Vienna",
+  "it.apartments.luminous_lounge_apartment.size": "35m²",
+  
+  "it.apartments.twin_harmony_suite.beds": "2 letti singoli",
+  "it.apartments.twin_harmony_suite.description": "Due comodi letti singoli per amici o colleghi.",
+  "it.apartments.twin_harmony_suite.long_description": "Benvenuto nella Twin Harmony Suite – perfetta per amici, colleghi o viaggiatori singoli che preferiscono letti separati. I due accoglienti letti singoli offrono comfort e flessibilità.\n\nL’area soggiorno include una moderna TV e ti invita a rilassarti. Il WiFi veloce ti mantiene sempre connesso.\n\nLa cucina include tutto ciò di cui hai bisogno: frigorifero, bollitore, microonde, piano cottura e stoviglie.\n\nIl bagno con doccia offre comfort e freschezza.\n\nTwin Harmony Suite: flessibile, confortevole e ideale per il tuo soggiorno a Vienna.",
+  "it.apartments.twin_harmony_suite.name": "Twin Harmony Suite",
+  "it.apartments.twin_harmony_suite.persons": "1-2",
+  "it.apartments.twin_harmony_suite.rooms": "1 stanza",
+  "it.apartments.twin_harmony_suite.section_title": "La tua suite flessibile a Vienna",
+  "it.apartments.twin_harmony_suite.size": "28m²"
+
 }
