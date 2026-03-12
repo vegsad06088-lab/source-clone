@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useI18n } from "@/lib/i18n";
+import { LANGUAGE_PACK, Lang } from "@/lib/i18n";
 import { Menu, X } from "lucide-react";
 
 export default function Navbar() {
@@ -8,7 +9,6 @@ export default function Navbar() {
   const location = useLocation();
   const pathname = location.pathname;
 
-  // Detect active route
   const isActive = (path: string) => pathname === path;
 
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -21,13 +21,22 @@ export default function Navbar() {
     { label: t({ de: "Kontakt", en: "Contact" }), path: `${langPrefix}/contact` },
   ];
 
-  const switchLang = (newLang: "de" | "en") => {
+  // Universal language switcher
+  const switchLang = (newLang: Lang) => {
     setLang(newLang);
-    const currentPath = location.pathname.replace(/^\/(en\/?)/, "/");
+
+    const parts = location.pathname.split("/");
+    const currentLang = parts[1];
+
+    // Remove old language prefix
+    let rest = parts.slice(2).join("/");
+    if (rest === "") rest = "";
+
+    // Build new path
     const newPath =
-      newLang === "en"
-        ? `/en${currentPath === "/" ? "" : currentPath}`
-        : currentPath;
+      newLang === "de"
+        ? `/${rest}`
+        : `/${newLang}/${rest}`;
 
     window.history.replaceState(null, "", newPath);
   };
@@ -46,28 +55,21 @@ export default function Navbar() {
             />
           </Link>
 
-          {/* Language Switch */}
+          {/* Language Switcher (Desktop) */}
           <div className="hidden md:flex items-center gap-2">
-            <button
-              onClick={() => switchLang("de")}
-              className={`px-2 py-1 text-sm font-medium transition-smooth rounded ${
-                lang === "de"
-                  ? "text-primary"
-                  : "text-muted-foreground hover:text-foreground"
-              }`}
-            >
-              DE
-            </button>
-            <button
-              onClick={() => switchLang("en")}
-              className={`px-2 py-1 text-sm font-medium transition-smooth rounded ${
-                lang === "en"
-                  ? "text-primary"
-                  : "text-muted-foreground hover:text-foreground"
-              }`}
-            >
-              EN
-            </button>
+            {LANGUAGE_PACK.map((lng) => (
+              <button
+                key={lng}
+                onClick={() => switchLang(lng)}
+                className={`px-2 py-1 text-sm font-medium transition-smooth rounded ${
+                  lang === lng
+                    ? "text-primary"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                {lng.toUpperCase()}
+              </button>
+            ))}
           </div>
 
           {/* Desktop Navigation */}
@@ -109,31 +111,26 @@ export default function Navbar() {
         {/* Mobile Menu */}
         {mobileOpen && (
           <div className="md:hidden mt-2 rounded-2xl bg-background/95 backdrop-blur-sm p-6 shadow-card animate-fade-in">
+            
+            {/* Language Switcher (Mobile) */}
             <div className="flex gap-4 mb-4">
-              <button
-                onClick={() => {
-                  switchLang("de");
-                  setMobileOpen(false);
-                }}
-                className={`text-sm font-medium ${
-                  lang === "de" ? "text-primary" : "text-muted-foreground"
-                }`}
-              >
-                DE
-              </button>
-              <button
-                onClick={() => {
-                  switchLang("en");
-                  setMobileOpen(false);
-                }}
-                className={`text-sm font-medium ${
-                  lang === "en" ? "text-primary" : "text-muted-foreground"
-                }`}
-              >
-                EN
-              </button>
+              {LANGUAGE_PACK.map((lng) => (
+                <button
+                  key={lng}
+                  onClick={() => {
+                    switchLang(lng);
+                    setMobileOpen(false);
+                  }}
+                  className={`text-sm font-medium ${
+                    lang === lng ? "text-primary" : "text-muted-foreground"
+                  }`}
+                >
+                  {lng.toUpperCase()}
+                </button>
+              ))}
             </div>
 
+            {/* Mobile Nav Items */}
             {navItems.map((item) => (
               <Link
                 key={item.path + item.label}
@@ -149,6 +146,7 @@ export default function Navbar() {
               </Link>
             ))}
 
+            {/* Book Now (Mobile) */}
             <Link
               to={`${langPrefix}/apartments`}
               onClick={() => setMobileOpen(false)}
