@@ -21,12 +21,12 @@ export const apartments = [
     rooms: { de: "2 Zimmer", en: "2 Rooms" },
     size: "35m²",
     price: 50,
-    gallery: [
-    "/images/twin-harmony-suite/6535b0917ecc65ca6b1df9db_th1.avif",
-    "/images/twin-harmony-suite/65359c33b55fc64b2dcae8fc_sd4.avif",
-    "/images/twin-harmony-suite/65359a30c693127e8fc7ccc9_sd2.avif",
-    "/images/twin-harmony-suite/65359b8edfd7d237958fdc34_sd3.avif",
-    ],
+    gallery: Object.values(
+        import.meta.glob("/public/images/twin-harmony-suite/*.{jpg,jpeg,png,avif,webp}", {
+        eager: true,
+        import: "default",
+      })
+    ),
   },
   {
     id: "duo-deluxe-studio",
@@ -47,12 +47,12 @@ export const apartments = [
     rooms: { de: "2 Zimmer", en: "2 Rooms" },
     size: "35m²",
     price: 50,
-    gallery: [
-      "/images/duo-deluxe-studio/6535997065a382945fffed31_sd1.avif",
-      "/images/duo-deluxe-studio/65359a30c693127e8fc7ccc9_sd2.avif",
-      "/images/duo-deluxe-studio/6535b0907a7f1db2e98ac56e_th3.avif",
-      "/images/duo-deluxe-studio/6535b132515cf73360220098_th4.avif",
-    ],
+    gallery: Object.values(
+      import.meta.glob("/public/images/duo-deluxe-studio/*.{jpg,jpeg,png,avif,webp}", {
+        eager: true,
+        import: "default",
+      })
+    ),
   },
   {
     id: "cosy-couple-nest",
@@ -73,14 +73,12 @@ export const apartments = [
     rooms: { de: "Suite", en: "Suite" },
     size: "35m²",
     price: 55,
-    gallery: [
-      "/images/cosy-couple-nest/6535b39cd49a0ebb74a26aa5_cc1.avif",
-      "/images/cosy-couple-nest/6535b39c92a04a804ffa5f3d_cc2.avif",
-      "/images/cosy-couple-nest/6535b39fd827f094321c6c07_cc3.avif",
-      "/images/cosy-couple-nest/65b7cce721e708708f526995_Unbenannt-1.avif",
-      "/images/cosy-couple-nest/65b7cf5abd090365661f8005_cc-5.avif",
-      "/images/cosy-couple-nest/65b7cf5bd463e1c715d290b1_cc-7.avif",
-    ],
+    gallery: Object.values(
+      import.meta.glob("/public/images/cosy-couple-nest/*.{jpg,jpeg,png,avif,webp}", {
+        eager: true,
+        import: "default",
+      })
+    ),
   },
   {
     id: "trio-harmony-suite",
@@ -101,12 +99,12 @@ export const apartments = [
     rooms: { de: "2 Zimmer", en: "2 Rooms" },
     size: "35m²",
     price: 50,
-    gallery: [
-      "/images/trio-harmony-suite/6535b0917ecc65ca6b1df9db_th1.avif",
-      "/images/trio-harmony-suite/65359c33b55fc64b2dcae8fc_sd4.avif",
-      "/images/trio-harmony-suite/65359a30c693127e8fc7ccc9_sd2.avif",
-      "/images/trio-harmony-suite/65359b8edfd7d237958fdc34_sd3.avif",
-    ],
+    gallery: Object.values(
+      import.meta.glob("/public/images/trio-harmony-suite/*.{jpg,jpeg,png,avif,webp}", {
+        eager: true,
+        import: "default",
+      })
+    ),
   },
 ];
 
