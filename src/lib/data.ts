@@ -136,8 +136,8 @@ export const instructions = [
     image: "/images/66dc570e930b82790d37d7c0_rfwergfwer.avif",
     category: "apartments",
     pdf: {
-      de: "https://cdn.prod.website-files.com/6515f2606ac654c52d9c4c6a/66dc4099e1e99fbb3902dd4d_CHECK-IN-DEUTSCH.pdf",
-      en: "https://cdn.prod.website-files.com/6515f2606ac654c52d9c4c6a/66dc409d875e1dd1152e97fc_CHECK-IN-ENGLISH.pdf",
+      de: "/pdfs/66dc4099e1e99fbb3902dd4d_CHECK-IN-DEUTSCH.pdf",
+      en: "/pdfs/66dc409d875e1dd1152e97fc_CHECK-IN-ENGLISH.pdf",
     },
   },
   {
@@ -150,8 +150,8 @@ export const instructions = [
     image: "/images/66dc5787f68d3cfe6e042314_Bügeleisen.avif",
     category: "apartments",
     pdf: {
-      de: "https://cdn.prod.website-files.com/6515f2606ac654c52d9c4c6a/66dc5126b1ddeddd0b92998a_BU%CC%88GELEISEN-DEUTSCH.pdf",
-      en: "https://cdn.prod.website-files.com/6515f2606ac654c52d9c4c6a/66dc512829e15a21ed752974_BU%CC%88GELEISEN-ENGLISH.pdf",
+      de: "/pdfs/66dc5126b1ddeddd0b92998a_BÜGELEISEN-DEUTSCH.pdf",
+      en: "/pdfs/66dc512829e15a21ed752974_BÜGELEISEN-ENGLISH.pdf",
     },
   },
   {
@@ -214,8 +214,8 @@ export const instructions = [
     image: "/images/66dc932976d9846673c23606_bwtrbwtb.avif",
     category: "apartments",
     pdf: {
-      de: "https://cdn.prod.website-files.com/6515f2606ac654c52d9c4c6a/66dc93638058bad06f401194_Heizung%20-%20Deutsch.pdf",
-      en: "https://cdn.prod.website-files.com/6515f2606ac654c52d9c4c6a/66dc9369a0bd34b5418fc5d4_Heizung%20-%20English.pdf",
+      de: "/pdfs/66dc93638058bad06f401194_Heizung - Deutsch.pdf",
+      en: "/pdfs/66dc9369a0bd34b5418fc5d4_Heizung - English.pdf",
     },
   },
   {
@@ -228,8 +228,8 @@ export const instructions = [
     image: "/images/67a202309177d701325a5536_tv_2.avif",
     category: "apartments",
     pdf: {
-      de: "https://cdn.prod.website-files.com/6515f2606ac654c52d9c4c6a/67a1fc442fb5da9e90ee64f7_TV_Deutsch.pdf",
-      en: "https://cdn.prod.website-files.com/6515f2606ac654c52d9c4c6a/67a1fc9c6c341944712ef511_TV_English.pdf",
+      de: "/pdfs/67a1fc442fb5da9e90ee64f7_TV_Deutsch.pdf",
+      en: "/pdfs/67a1fc9c6c341944712ef511_TV_English.pdf",
     },
   },
   {
@@ -242,7 +242,7 @@ export const instructions = [
     image: "/images/67aaaea25c2914fff36f0c64_uzmzum.avif",
     category: "apartments",
     pdf: {
-      de: "https://cdn.prod.website-files.com/6515f2606ac654c52d9c4c6a/67aaaf26f38909589d462bd1_Anleitung_DE.pdf",
+      de: "/pdfs/67aaaf26f38909589d462bd1_Anleitung_DE.pdf",
     },
   },
   {
