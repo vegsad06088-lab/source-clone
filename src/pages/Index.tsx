@@ -122,25 +122,49 @@ export default function HomePage() {
       </section>
 
       {/* Features */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground text-center mb-4">
-          {t({ de: "Genieße Top-Ausstattung in jedem Raum", en: "Enjoy top amenities in every room" })}
-        </h2>
-        <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-          {t({ de: "Erlebe den Komfort moderner und durchdachter Features, designed für Deinen perfekten Aufenthalt.", en: "Experience the comfort of modern and thoughtful features, designed for your perfect stay." })}
-        </p>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-          {features.map((f, i) => (
-            <div key={i} className="text-center group">
-              <div className="aspect-square rounded-2xl overflow-hidden shadow-card mb-3">
-                <img src={f.image} alt={t(f.title)} className="w-full h-full object-cover transition-smooth group-hover:scale-105" loading="lazy" />
-              </div>
-              <h3 className="text-sm font-semibold text-foreground font-sans">{t(f.title)}</h3>
-              <p className="text-xs text-muted-foreground mt-1">{t(f.desc)}</p>
-            </div>
-          ))}
+<section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+  <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground text-center mb-4">
+    {t({
+      de: "Genieße Top-Ausstattung in jedem Raum",
+      en: "Enjoy top amenities in every room",
+    })}
+  </h2>
+
+  <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
+    {t({
+      de: "Erlebe den Komfort moderner und durchdachter Features, designed für Deinen perfekten Aufenthalt.",
+      en: "Experience the comfort of modern and thoughtful features, designed for your perfect stay.",
+    })}
+  </p>
+
+  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+    {features.map((f, i) => (
+      <div key={i} className="text-center group">
+        
+        {/* Icon container */}
+        <div className="flex items-center justify-center mb-3">
+          <img
+            src={f.image}
+            alt={t(f.title)}
+            className="w-10 h-10 sm:w-12 sm:h-12 object-contain transition-transform duration-300 group-hover:scale-110"
+            loading="lazy"
+          />
         </div>
-      </section>
+
+        {/* Title */}
+        <h3 className="text-sm font-semibold text-foreground font-sans">
+          {t(f.title)}
+        </h3>
+
+        {/* Description */}
+        <p className="text-xs text-muted-foreground mt-1">
+          {t(f.desc)}
+        </p>
+      </div>
+    ))}
+  </div>
+</section>
+
 
       {/* Sustainability CTA */}
       <section className="bg-primary text-primary-foreground py-16">
