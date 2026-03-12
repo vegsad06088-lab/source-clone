@@ -160,9 +160,12 @@ export default function AGBPage() {
                 de: "Informationen zum Datenschutz finden Sie in unserer Datenschutzerklärung.",
                 en: "For data protection information, please see our Privacy Policy.",
               })}{" "}
-              <a href="/datenschutz" className="text-primary hover:underline">
+              <Link
+                to={`${langPrefix}/datenschutz`}
+                className="text-primary hover:underline"
+              >
                 {t({ de: "Datenschutzerklärung", en: "Privacy Policy" })}
-              </a>
+              </Link>
               .
             </p>
           </section>
