@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
+
 export default function BookingConditionsPage() {
+  const { t, lang, langPrefix } = useI18n();
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -12,10 +14,6 @@ export default function BookingConditionsPage() {
     const route = params.get("route");
     if (route) navigate(route, { replace: true });
   }, []);
-
-
-export default function BookingConditionsPage() {
-  const { t, lang, langPrefix } = useI18n();
 
   return (
     <div className="pt-32 pb-20">
