@@ -1,12 +1,10 @@
 import React, { createContext, useContext, useState, useCallback } from "react";
 
-// Supported languages (you can add more anytime)
 export const LANGUAGE_PACK = ["de", "en", "sq", "fr", "it", "es", "tr"] as const;
 export type Lang = typeof LANGUAGE_PACK[number];
 
-// A translation object can contain ANY subset of languages
 export type TranslationObject = Partial<Record<Lang, string>> & {
-  de: string; // German required as fallback
+  de: string;
 };
 
 interface I18nContextType {
@@ -31,10 +29,8 @@ export function I18nProvider({
   initialLang?: Lang;
 }) {
   const [lang, setLangState] = useState<Lang>(() => {
-    // If router provides a language → use it
     if (initialLang) return initialLang;
 
-    // Otherwise detect from URL
     const path = window.location.pathname;
     const prefix = path.split("/")[1];
 
@@ -45,7 +41,6 @@ export function I18nProvider({
     setLangState(newLang);
   }, []);
 
-  // Translation function with safe fallback
   const t = useCallback(
     (texts: TranslationObject) => texts[lang] ?? texts.de,
     [lang]
