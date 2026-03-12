@@ -4,6 +4,12 @@ import { apartments, amenities } from "@/lib/data";
 import { useState } from "react";
 import Lightbox from "@/components/Lightbox";
 
+// Swiper imports
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+
 const SMOOBU_URL = "https://login.smoobu.com/en/booking-tool/widget/285782";
 
 export default function ApartmentDetailPage() {
@@ -18,7 +24,10 @@ export default function ApartmentDetailPage() {
     return (
       <div className="pt-32 text-center">
         <h1 className="text-2xl font-serif">Apartment not found</h1>
-        <Link to={`${langPrefix}/apartments`} className="text-primary hover:underline mt-4 inline-block">
+        <Link
+          to={`${langPrefix}/apartments`}
+          className="text-primary hover:underline mt-4 inline-block"
+        >
           {t({ de: "Zurück zu Apartments", en: "Back to Apartments" })}
         </Link>
       </div>
@@ -30,7 +39,11 @@ export default function ApartmentDetailPage() {
       {/* Hero */}
       <section className="relative h-[60vh] min-h-[500px]">
         <div className="absolute inset-0">
-          <img src={apartment.heroImage} alt={apartment.name} className="w-full h-full object-cover" />
+          <img
+            src={apartment.heroImage}
+            alt={apartment.name}
+            className="w-full h-full object-cover"
+          />
           <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-foreground/20 to-transparent" />
         </div>
         <div className="absolute bottom-0 left-0 right-0 z-10">
@@ -43,13 +56,26 @@ export default function ApartmentDetailPage() {
                 {t(apartment.description)}
               </p>
             </div>
+
             {/* Booking Card */}
             <div className="bg-background rounded-2xl shadow-elevated p-6 min-w-[280px] lg:min-w-[320px]">
-              <h3 className="text-lg font-semibold text-foreground font-sans">{apartment.name}</h3>
-              <p className="text-sm text-muted-foreground mb-3">{apartment.persons} {t({ de: "Personen", en: "Persons" })}</p>
+              <h3 className="text-lg font-semibold text-foreground font-sans">
+                {apartment.name}
+              </h3>
+              <p className="text-sm text-muted-foreground mb-3">
+                {apartment.persons}{" "}
+                {t({ de: "Personen", en: "Persons" })}
+              </p>
               <div className="border-t border-border pt-3 mb-4">
-                <p className="text-sm text-muted-foreground">{t({ de: "Ab", en: "From" })}</p>
-                <p className="text-2xl font-bold text-foreground">€ {apartment.price}.00 EUR <span className="text-sm font-normal text-muted-foreground">/{t({ de: "Nacht", en: "Night" })}</span></p>
+                <p className="text-sm text-muted-foreground">
+                  {t({ de: "Ab", en: "From" })}
+                </p>
+                <p className="text-2xl font-bold text-foreground">
+                  € {apartment.price}.00 EUR{" "}
+                  <span className="text-sm font-normal text-muted-foreground">
+                    /{t({ de: "Nacht", en: "Night" })}
+                  </span>
+                </p>
               </div>
               <a
                 href={SMOOBU_URL}
@@ -67,10 +93,19 @@ export default function ApartmentDetailPage() {
       {/* Quick Info */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex flex-wrap gap-3">
-          <span className="inline-flex items-center gap-2 px-4 py-2 bg-card rounded-lg text-sm text-foreground shadow-card">👤 {apartment.persons} {t({ de: "Person", en: "Person" })}</span>
-          <span className="inline-flex items-center gap-2 px-4 py-2 bg-card rounded-lg text-sm text-foreground shadow-card">🛏️ {t(apartment.beds)}</span>
-          <span className="inline-flex items-center gap-2 px-4 py-2 bg-card rounded-lg text-sm text-foreground shadow-card">🏠 {t(apartment.rooms)}</span>
-          <span className="inline-flex items-center gap-2 px-4 py-2 bg-card rounded-lg text-sm text-foreground shadow-card">📐 {apartment.size}</span>
+          <span className="inline-flex items-center gap-2 px-4 py-2 bg-card rounded-lg text-sm text-foreground shadow-card">
+            👤 {apartment.persons}{" "}
+            {t({ de: "Person", en: "Person" })}
+          </span>
+          <span className="inline-flex items-center gap-2 px-4 py-2 bg-card rounded-lg text-sm text-foreground shadow-card">
+            🛏️ {t(apartment.beds)}
+          </span>
+          <span className="inline-flex items-center gap-2 px-4 py-2 bg-card rounded-lg text-sm text-foreground shadow-card">
+            🏠 {t(apartment.rooms)}
+          </span>
+          <span className="inline-flex items-center gap-2 px-4 py-2 bg-card rounded-lg text-sm text-foreground shadow-card">
+            📐 {apartment.size}
+          </span>
         </div>
       </section>
 
@@ -80,9 +115,16 @@ export default function ApartmentDetailPage() {
           {t(apartment.sectionTitle)}
         </h2>
         <div className="prose prose-slate max-w-none">
-          {t(apartment.longDescription).split("\n\n").map((p, i) => (
-            <p key={i} className="text-muted-foreground leading-relaxed mb-4">{p}</p>
-          ))}
+          {t(apartment.longDescription)
+            .split("\n\n")
+            .map((p, i) => (
+              <p
+                key={i}
+                className="text-muted-foreground leading-relaxed mb-4"
+              >
+                {p}
+              </p>
+            ))}
         </div>
       </section>
 
@@ -93,30 +135,52 @@ export default function ApartmentDetailPage() {
         </h2>
         <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-4">
           {amenities.map((a, i) => (
-            <div key={i} className="flex flex-col items-center gap-2 p-4 bg-card rounded-xl shadow-card text-center">
+            <div
+              key={i}
+              className="flex flex-col items-center gap-2 p-4 bg-card rounded-xl shadow-card text-center"
+            >
               <span className="text-2xl">{a.icon}</span>
-              <span className="text-xs font-medium text-foreground">{t(a.label)}</span>
+              <span className="text-xs font-medium text-foreground">
+                {t(a.label)}
+              </span>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Gallery */}
+      {/* Gallery (Swiper Carousel) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <h2 className="text-2xl md:text-3xl font-serif font-bold text-foreground mb-8">
           {t({ de: "Galerie", en: "Gallery" })}
         </h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+
+        <Swiper
+          modules={[Navigation]}
+          navigation
+          spaceBetween={16}
+          slidesPerView={1.2}
+          breakpoints={{
+            640: { slidesPerView: 2.2 },
+            1024: { slidesPerView: 3.2 },
+          }}
+          className="w-full"
+        >
           {apartment.gallery.map((img, i) => (
-            <div
-              key={i}
-              className="aspect-[4/3] rounded-xl overflow-hidden shadow-card cursor-pointer hover:shadow-card-hover transition-smooth group"
-              onClick={() => setLightboxIndex(i)}
-            >
-              <img src={img} alt={`${apartment.name} ${i + 1}`} className="w-full h-full object-cover transition-smooth group-hover:scale-105" loading="lazy" />
-            </div>
+            <SwiperSlide key={i}>
+              <div
+                className="aspect-[4/3] rounded-xl overflow-hidden shadow-card cursor-pointer hover:shadow-card-hover transition-smooth"
+                onClick={() => setLightboxIndex(i)}
+              >
+                <img
+                  src={img}
+                  alt={`${apartment.name} ${i + 1}`}
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+            </SwiperSlide>
           ))}
-        </div>
+        </Swiper>
       </section>
 
       {/* Lightbox */}
@@ -134,9 +198,15 @@ export default function ApartmentDetailPage() {
       <div className="fixed bottom-0 left-0 right-0 lg:hidden bg-background border-t border-border p-4 z-40">
         <div className="flex items-center justify-between">
           <div>
-            <span className="text-sm text-muted-foreground">{t({ de: "Ab", en: "From" })}</span>
-            <span className="text-lg font-bold text-foreground ml-1">€{apartment.price}</span>
-            <span className="text-sm text-muted-foreground">/{t({ de: "Nacht", en: "Night" })}</span>
+            <span className="text-sm text-muted-foreground">
+              {t({ de: "Ab", en: "From" })}
+            </span>
+            <span className="text-lg font-bold text-foreground ml-1">
+              €{apartment.price}
+            </span>
+            <span className="text-sm text-muted-foreground">
+              /{t({ de: "Nacht", en: "Night" })}
+            </span>
           </div>
           <a
             href={SMOOBU_URL}
