@@ -1,0 +1,30 @@
+{
+  "en.bookingConditions.title": "Booking Conditions",
+  "en.bookingConditions.intro": "Please review these booking conditions carefully before making a reservation.",
+
+  "en.bookingConditions.cancellation.title": "1. Cancellation Policy",
+  "en.bookingConditions.cancellation.free": "Free cancellation up to 7 days before arrival (14:00).",
+  "en.bookingConditions.cancellation.late": "From 7 days before arrival, a cancellation fee of 20% of the booking price applies.",
+
+  "en.bookingConditions.payment.title": "2. Payment Methods",
+  "en.bookingConditions.payment.methods": "Payments can be made via Stripe or PayPal.",
+
+  "en.bookingConditions.deposit.title": "3. Deposit & Payment Rules",
+  "en.bookingConditions.deposit.first": "20% deposit at the time of booking.",
+  "en.bookingConditions.deposit.second": "80% remaining balance due no later than 7 days before arrival.",
+
+  "en.bookingConditions.cleaning.title": "4. Cleaning Fee",
+  "en.bookingConditions.cleaning.text": "The cleaning fee is included in the total price.",
+
+  "en.bookingConditions.cityTax.title": "5. City Tax",
+  "en.bookingConditions.cityTax.text": "The city tax is included in the total price.",
+
+  "en.bookingConditions.checkin.title": "6. Check-in & Check-out",
+  "en.bookingConditions.checkin.in": "Check-in: after 14:00",
+  "en.bookingConditions.checkin.out": "Check-out: before 10:00",
+  "en.bookingConditions.checkin.lockbox": "Self check-in via lockbox.",
+
+  "en.bookingConditions.more.title": "7. Additional Information",
+  "en.bookingConditions.more.text": "For full legal details, please refer to our",
+  "en.bookingConditions.more.link": "Terms & Conditions"
+}
