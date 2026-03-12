@@ -247,8 +247,8 @@ export default function ApartmentDetailPage() {
 
       {/* Booking Modal */}
       {bookingOpen && (
-        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-          <div className="bg-background rounded-2xl shadow-elevated p-6 w-full max-w-2xl relative">
+        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 overflow-y-auto">
+          <div className="bg-background rounded-2xl shadow-elevated w-full max-w-2xl relative max-h-[90vh] overflow-y-auto p-6">
 
             {/* Close button */}
             <button
