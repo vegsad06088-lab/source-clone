@@ -61,6 +61,53 @@
   "es.apartments.twin_harmony_suite.persons": "1-2",
   "es.apartments.twin_harmony_suite.rooms": "1 habitación",
   "es.apartments.twin_harmony_suite.section_title": "Tu suite flexible en Viena",
-  "es.apartments.twin_harmony_suite.size": "28m²"
+  "es.apartments.twin_harmony_suite.size": "28m²",
+
+  "es.amenities.self_check_in": "Self-Check-In",
+"es.amenities.accessible": "Accesible",
+"es.amenities.non_smoking": "No fumadores",
+"es.amenities.wifi_250_mbit": "250 Mbit/s",
+"es.amenities.tv": "TV",
+"es.amenities.hair_dryer": "Secador de pelo",
+"es.amenities.shower": "Ducha",
+"es.amenities.towels": "Toallas",
+"es.amenities.refrigerator": "Refrigerador",
+"es.amenities.microwave": "Microondas",
+"es.amenities.stove": "Cocina",
+"es.amenities.kettle": "Hervidor",
+
+"es.instructions.check_in_guide.title": "Guía de Check-In",
+"es.instructions.check_in_guide.description": "Instrucciones rápidas y sencillas para tu self-check-in. Aprende cómo acceder a tu apartamento de forma segura y fácil.",
+
+"es.instructions.iron_board.title": "Plancha y Tabla de Planchar",
+"es.instructions.iron_board.description": "La plancha y la tabla de planchar se encuentran en la planta baja. Sigue las instrucciones para utilizarlas de forma segura.",
+
+"es.instructions.parking_options.title": "Opciones de Aparcamiento",
+"es.instructions.parking_options.description": "Aparcar es fácil: nuestro garaje subterráneo y los aparcamientos públicos cercanos ofrecen opciones flexibles para tu estancia.",
+
+"es.instructions.check_out_guide.title": "Guía de Check-Out",
+"es.instructions.check_out_guide.description": "Esperamos que hayas tenido una estancia agradable. Antes de irte, por favor sigue estos pasos.",
+
+"es.instructions.public_transport_vienna.title": "Transporte Público en Viena",
+"es.instructions.public_transport_vienna.description": "Viena ofrece una excelente red de transporte público que te permite moverte por la ciudad de forma rápida y cómoda.",
+
+"es.instructions.luggage_before_check_in.title": "Guardaequipaje Antes del Check-In",
+"es.instructions.luggage_before_check_in.description": "Estamos encantados de ofrecerte la posibilidad de guardar tu equipaje de forma segura si tu apartamento aún no está listo.",
+
+"es.instructions.luggage_after_check_out.title": "Guardaequipaje Después del Check-Out",
+"es.instructions.luggage_after_check_out.description": "Puedes dejar tu equipaje con nosotros después del check-out.",
+
+"es.instructions.heating_control.title": "Guía de Control de la Calefacción",
+"es.instructions.heating_control.description": "Sigue estos pasos para ajustar la calefacción de manera óptima. También hay una guía detallada con imágenes disponible en PDF.",
+
+"es.instructions.tv_guide.title": "Guía de TV",
+"es.instructions.tv_guide.description": "Aquí encontrarás una guía sencilla paso a paso para usar la TV en tu apartamento.",
+
+"es.instructions.induction_cooktop.title": "Guía de Placa de Inducción",
+"es.instructions.induction_cooktop.description": "Cocina de forma rápida y segura: aprende en pocos pasos cómo usar la placa de inducción de manera óptima y qué debes tener en cuenta.",
+
+"es.instructions.discover_vienna_kids.title": "🧸 Descubre Viena con Niños",
+"es.instructions.discover_vienna_kids.description": "Consejos familiares para tu estancia en Viena: desde excursiones hasta pequeños descansos con niños."
+
 
 }
