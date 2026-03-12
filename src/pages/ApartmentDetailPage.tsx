@@ -293,7 +293,7 @@ export default function ApartmentDetailPage() {
             </h2>
       
             <iframe
-              src={`${window.location.origin}/booking-conditions`}
+              src={`${window.location.origin}${langPrefix}/booking-conditions`}
               className="w-full h-full border-0 rounded-lg"
             />
           </div>
