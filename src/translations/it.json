@@ -61,6 +61,53 @@
   "it.apartments.twin_harmony_suite.persons": "1-2",
   "it.apartments.twin_harmony_suite.rooms": "1 stanza",
   "it.apartments.twin_harmony_suite.section_title": "La tua suite flessibile a Vienna",
-  "it.apartments.twin_harmony_suite.size": "28m²"
+  "it.apartments.twin_harmony_suite.size": "28m²",
+
+  "it.amenities.self_check_in": "Self-Check-In",
+"it.amenities.accessible": "Accessibile",
+"it.amenities.non_smoking": "Non fumatori",
+"it.amenities.wifi_250_mbit": "250 Mbit/s",
+"it.amenities.tv": "TV",
+"it.amenities.hair_dryer": "Asciugacapelli",
+"it.amenities.shower": "Doccia",
+"it.amenities.towels": "Asciugamani",
+"it.amenities.refrigerator": "Frigorifero",
+"it.amenities.microwave": "Microonde",
+"it.amenities.stove": "Piano cottura",
+"it.amenities.kettle": "Bollitore",
+
+"it.instructions.check_in_guide.title": "Guida al Check-In",
+"it.instructions.check_in_guide.description": "Istruzioni rapide e semplici per il tuo self-check-in. Scopri come accedere al tuo appartamento in modo facile e sicuro.",
+
+"it.instructions.iron_board.title": "Ferro e Asse da Stiro",
+"it.instructions.iron_board.description": "Il ferro e l’asse da stiro si trovano al piano terra. Segui le istruzioni per utilizzarli in sicurezza.",
+
+"it.instructions.parking_options.title": "Opzioni di Parcheggio",
+"it.instructions.parking_options.description": "Parcheggiare è facile: il nostro garage sotterraneo e i parcheggi pubblici vicini offrono opzioni flessibili per il tuo soggiorno.",
+
+"it.instructions.check_out_guide.title": "Guida al Check-Out",
+"it.instructions.check_out_guide.description": "Speriamo che tu abbia avuto un soggiorno piacevole! Prima di partire, ti preghiamo di seguire questi passaggi.",
+
+"it.instructions.public_transport_vienna.title": "Trasporti Pubblici a Vienna",
+"it.instructions.public_transport_vienna.description": "Vienna offre un eccellente sistema di trasporti pubblici che ti permette di muoverti rapidamente e comodamente in città.",
+
+"it.instructions.luggage_before_check_in.title": "Deposito Bagagli Prima del Check-In",
+"it.instructions.luggage_before_check_in.description": "Siamo felici di offrirti la possibilità di depositare i tuoi bagagli in sicurezza se il tuo appartamento non è ancora pronto.",
+
+"it.instructions.luggage_after_check_out.title": "Deposito Bagagli Dopo il Check-Out",
+"it.instructions.luggage_after_check_out.description": "Puoi lasciare i tuoi bagagli da noi anche dopo il check-out.",
+
+"it.instructions.heating_control.title": "Guida al Controllo del Riscaldamento",
+"it.instructions.heating_control.description": "Segui questi passaggi per regolare il riscaldamento in modo ottimale. Una guida dettagliata con immagini è disponibile anche in PDF.",
+
+"it.instructions.tv_guide.title": "Guida TV",
+"it.instructions.tv_guide.description": "Qui troverai una semplice guida passo dopo passo per utilizzare la TV nel tuo appartamento.",
+
+"it.instructions.induction_cooktop.title": "Guida al Piano a Induzione",
+"it.instructions.induction_cooktop.description": "Cucina in modo rapido e sicuro: scopri in pochi passaggi come utilizzare al meglio il piano a induzione e cosa devi tenere a mente.",
+
+"it.instructions.discover_vienna_kids.title": "🧸 Scoprire Vienna con i Bambini",
+"it.instructions.discover_vienna_kids.description": "Consigli adatti alle famiglie per il tuo soggiorno a Vienna – dalle escursioni alle pause tranquille con i bambini."
+
 
 }
