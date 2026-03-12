@@ -3,6 +3,8 @@ import { useI18n } from "@/lib/i18n";
 import { apartments, amenities } from "@/lib/data";
 import { useState } from "react";
 import Lightbox from "@/components/Lightbox";
+import ModalPane from "@/components/ModalPane";
+import BookingConditionsContent from "@/components/BookingConditionsContent";
 
 // Swiper imports
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -16,7 +18,6 @@ export default function ApartmentDetailPage() {
   const [expanded, setExpanded] = useState(false);
   const [bookingOpen, setBookingOpen] = useState(false);
   const [conditionsOpen, setConditionsOpen] = useState(false);
-
 
   const location = window.location.pathname;
   const slug = location.split("/").filter(Boolean).pop() || "";
@@ -247,58 +248,26 @@ export default function ApartmentDetailPage() {
         />
       )}
 
-      {/* Booking Modal */}
-      {bookingOpen && (
-        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 overflow-y-auto">
-          <div className="bg-background rounded-2xl shadow-elevated w-full max-w-2xl relative max-h-[90vh] overflow-y-auto p-6">
+      {/* NEW BOOKING MODAL (shared modal) */}
+      <ModalPane open={bookingOpen} onClose={() => setBookingOpen(false)}>
+        <h2 className="text-xl font-semibold mb-4">
+          {t({ de: "Jetzt buchen", en: "Book now" })}
+        </h2>
 
-            {/* Close button */}
-            <button
-              onClick={() => setBookingOpen(false)}
-              className="absolute top-3 right-3 text-foreground hover:text-primary text-xl"
-            >
-              ✕
-            </button>
+        <div id="apartmentIframeAll"></div>
 
-            <h2 className="text-xl font-semibold mb-4">
-              {t({ de: "Jetzt buchen", en: "Book now" })}
-            </h2>
+        <p
+          className="text-center mt-4 text-sm text-primary underline cursor-pointer"
+          onClick={() => setConditionsOpen(true)}
+        >
+          {t({ de: "Buchungsbedingungen anzeigen", en: "View Booking Conditions" })}
+        </p>
+      </ModalPane>
 
-            {/* Smoobu widget container */}
-            <div id="apartmentIframeAll"></div>
-            <p
-              className="text-center mt-4 text-sm text-primary underline cursor-pointer"
-              onClick={() => setConditionsOpen(true)}
-            >
-              {t({ de: "Buchungsbedingungen anzeigen", en: "View Booking Conditions" })}
-            </p>
-          </div>
-        </div>
-      )}
-
-      {/* Booking Conditions */}
-      {conditionsOpen && (
-        <div className="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50">
-          <div className="bg-white rounded-2xl shadow-xl max-w-3xl w-full h-[80vh] p-6 relative overflow-hidden">
-      
-            <button
-              onClick={() => setConditionsOpen(false)}
-              className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
-            >
-              ✕
-            </button>
-      
-            <h2 className="text-2xl font-serif font-bold mb-4">
-              {t({ de: "Buchungsbedingungen", en: "Booking Conditions" })}
-            </h2>
-      
-            <iframe
-              src={`${window.location.origin}/index.html?route=${langPrefix}/booking-conditions`}
-              className="w-full h-full border-0 rounded-lg"
-            />
-          </div>
-        </div>
-      )}
+      {/* NEW BOOKING CONDITIONS MODAL */}
+      <ModalPane open={conditionsOpen} onClose={() => setConditionsOpen(false)}>
+        <BookingConditionsContent />
+      </ModalPane>
 
       {/* Sticky Mobile Booking */}
       <div className="fixed bottom-0 left-0 right-0 lg:hidden bg-background border-t border-border p-4 z-40">
