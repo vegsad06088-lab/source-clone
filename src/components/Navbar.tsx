@@ -21,18 +21,13 @@ export default function Navbar() {
     { label: t({ de: "Kontakt", en: "Contact" }), path: `${langPrefix}/contact` },
   ];
 
-  // Universal language switcher
   const switchLang = (newLang: Lang) => {
     setLang(newLang);
 
     const parts = location.pathname.split("/");
-    const currentLang = parts[1];
-
-    // Remove old language prefix
     let rest = parts.slice(2).join("/");
     if (rest === "") rest = "";
 
-    // Build new path
     const newPath =
       newLang === "de"
         ? `/${rest}`
@@ -46,7 +41,6 @@ export default function Navbar() {
       <div className="mx-auto max-w-7xl">
         <div className="flex items-center justify-between rounded-2xl bg-background/95 backdrop-blur-sm px-6 py-3 shadow-card">
           
-          {/* Logo */}
           <Link to={`${langPrefix}/`} className="flex-shrink-0">
             <img
               src="/images/logo.avif"
@@ -55,7 +49,6 @@ export default function Navbar() {
             />
           </Link>
 
-          {/* Language Switcher (Desktop) */}
           <div className="hidden md:flex items-center gap-2">
             {LANGUAGE_PACK.map((lng) => (
               <button
@@ -72,7 +65,6 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-6">
             {navItems.map((item) => (
               <Link
@@ -89,7 +81,6 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* Book Now Button */}
           <div className="hidden md:block">
             <Link
               to={`${langPrefix}/apartments`}
@@ -99,7 +90,6 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* Mobile Menu Button */}
           <button
             className="md:hidden p-2"
             onClick={() => setMobileOpen(!mobileOpen)}
@@ -108,11 +98,9 @@ export default function Navbar() {
           </button>
         </div>
 
-        {/* Mobile Menu */}
         {mobileOpen && (
           <div className="md:hidden mt-2 rounded-2xl bg-background/95 backdrop-blur-sm p-6 shadow-card animate-fade-in">
             
-            {/* Language Switcher (Mobile) */}
             <div className="flex gap-4 mb-4">
               {LANGUAGE_PACK.map((lng) => (
                 <button
@@ -130,7 +118,6 @@ export default function Navbar() {
               ))}
             </div>
 
-            {/* Mobile Nav Items */}
             {navItems.map((item) => (
               <Link
                 key={item.path + item.label}
@@ -146,7 +133,6 @@ export default function Navbar() {
               </Link>
             ))}
 
-            {/* Book Now (Mobile) */}
             <Link
               to={`${langPrefix}/apartments`}
               onClick={() => setMobileOpen(false)}
