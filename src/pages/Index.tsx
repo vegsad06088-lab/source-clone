@@ -3,10 +3,9 @@ import { useI18n } from "@/lib/i18n";
 import { apartments, features, reviews, faqs } from "@/lib/data";
 import ApartmentCard from "@/components/ApartmentCard";
 import PromoBanner from "@/components/PromoBanner";
-import { useState } from "react";
+import FAQSection from "@/components/FAQSection";
 import { useState, useEffect } from "react";
 
-const CDN = "https://cdn.prod.website-files.com/6515f2606ac654c52d9c4bfa";
 
 export default function HomePage() {
 const { t, lang, langPrefix } = useI18n();
