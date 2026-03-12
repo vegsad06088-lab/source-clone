@@ -15,6 +15,9 @@ import AnleitungDetailPage from "@/pages/AnleitungDetailPage";
 import DatenschutzPage from "@/pages/DatenschutzPage";
 import ImpressumPage from "@/pages/ImpressumPage";
 import NotFound from "@/pages/NotFound";
+import ScrollToTop from "./ScrollToTop";
+
+
 
 const queryClient = new QueryClient();
 
@@ -23,10 +26,14 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
+
       <BrowserRouter>
+        <ScrollToTop />   {/* <-- This is the correct place */}
+
         <I18nProvider>
           <Routes>
             <Route element={<Layout />}>
+
               {/* German routes */}
               <Route path="/" element={<HomePage />} />
               <Route path="/apartments" element={<ApartmentsPage />} />
@@ -55,7 +62,9 @@ const App = () => (
               <Route path="/en/datenschutz" element={<DatenschutzPage />} />
               <Route path="/en/impressum" element={<ImpressumPage />} />
 
+              {/* 404 */}
               <Route path="*" element={<NotFound />} />
+
             </Route>
           </Routes>
         </I18nProvider>
@@ -63,5 +72,6 @@ const App = () => (
     </TooltipProvider>
   </QueryClientProvider>
 );
+
 
 export default App;
