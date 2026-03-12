@@ -214,8 +214,8 @@ export const instructions = [
     image: "/images/66dc932976d9846673c23606_bwtrbwtb.avif",
     category: "apartments",
     pdf: {
-      de: "/pdfs/66dc93638058bad06f401194_Heizung - Deutsch.pdf",
-      en: "/pdfs/66dc9369a0bd34b5418fc5d4_Heizung - English.pdf",
+      de: "/pdfs/66dc93638058bad06f401194_Heizung_Deutsch.pdf",
+      en: "/pdfs/66dc9369a0bd34b5418fc5d4_Heizung_English.pdf",
     },
   },
   {
