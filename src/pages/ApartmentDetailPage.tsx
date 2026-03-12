@@ -45,9 +45,9 @@ export default function ApartmentDetailPage() {
       script.onload = () => {
         // @ts-ignore
         BookingToolIframe.initialize({
-          url: "https://login.smoobu.com/en/booking-tool/iframe/1656615?newTabAfterSearch=true",
+          url: "https://login.smoobu.com/en/booking-tool/iframe/1656615",
           baseUrl: "https://login.smoobu.com",
-          target: "#bookingWidgetContainer",
+          target: "#apartmentIframeAll",
         });
       };
       document.body.appendChild(script);
@@ -263,7 +263,7 @@ export default function ApartmentDetailPage() {
             </h2>
 
             {/* Smoobu widget container */}
-            <div id="bookingWidgetContainer"></div>
+            <div id="apartmentIframeAll"></div>
           </div>
         </div>
       )}
