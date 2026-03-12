@@ -88,5 +88,52 @@
   "de.apartments.duo_deluxe_studio.persons": "1-2",
   "de.apartments.duo_deluxe_studio.rooms": "1 Zimmer",
   "de.apartments.duo_deluxe_studio.section_title": "Dein Deluxe-Studio in Wien",
-  "de.apartments.duo_deluxe_studio.size": "30m²"
+  "de.apartments.duo_deluxe_studio.size": "30m²",
+
+  "de.amenities.self_check_in": "Self-Check-In",
+"de.amenities.accessible": "Barrierefrei",
+"de.amenities.non_smoking": "Nichtraucher",
+"de.amenities.wifi_250_mbit": "250 Mbit/s",
+"de.amenities.tv": "TV",
+"de.amenities.hair_dryer": "Haartrockner",
+"de.amenities.shower": "Dusche",
+"de.amenities.towels": "Handtücher",
+"de.amenities.refrigerator": "Kühlschrank",
+"de.amenities.microwave": "Mikrowelle",
+"de.amenities.stove": "Kochfeld",
+"de.amenities.kettle": "Wasserkocher",
+
+"de.instructions.check_in_guide.title": "Check-In Anleitung",
+"de.instructions.check_in_guide.description": "Schnelle und einfache Anweisungen für Deinen Self-Check-in. Erfahre, wie Du sicher und problemlos Zugang zu Deinem Apartment erhältst.",
+
+"de.instructions.iron_board.title": "Bügeleisen & Bügelbrett",
+"de.instructions.iron_board.description": "Das Bügeleisen und Bügelbrett befinden sich im Erdgeschoss. Folge den Anweisungen, um sie sicher zu nutzen.",
+
+"de.instructions.parking_options.title": "Parkmöglichkeiten",
+"de.instructions.parking_options.description": "Parken leicht gemacht: Unsere Tiefgarage und nahegelegene öffentliche Parkplätze bieten Dir flexible Optionen für Deinen Aufenthalt.",
+
+"de.instructions.check_out_guide.title": "Check-Out Anleitung",
+"de.instructions.check_out_guide.description": "Wir hoffen, Du hattest einen angenehmen Aufenthalt! Bevor Du gehst, bitten wir Dich, folgende Schritte zu beachten.",
+
+"de.instructions.public_transport_vienna.title": "Öffentlichen Verkehrsmittel in Wien",
+"de.instructions.public_transport_vienna.description": "Wien bietet ein ausgezeichnetes Netz an öffentlichen Verkehrsmitteln, das Dir ermöglicht, Dich schnell und bequem in der Stadt zu bewegen.",
+
+"de.instructions.luggage_before_check_in.title": "Gepäckaufbewahrung vor dem Check-In",
+"de.instructions.luggage_before_check_in.description": "Wir bieten Dir gerne die Möglichkeit, Dein Gepäck bei uns sicher aufzubewahren, falls Dein Apartment noch nicht bezugsfertig ist.",
+
+"de.instructions.luggage_after_check_out.title": "Gepäckaufbewahrung nach dem Check-Out",
+"de.instructions.luggage_after_check_out.description": "Du kannst Dein Gepäck gerne nach dem Check-Out bei uns lassen.",
+
+"de.instructions.heating_control.title": "Anleitung zur Steuerung der Heizung",
+"de.instructions.heating_control.description": "Befolge diese Schritte, um Deine Heizung optimal einzustellen. Eine detaillierte Anleitung mit Bildern findest Du auch als PDF zum Download.",
+
+"de.instructions.tv_guide.title": "Anleitung TV",
+"de.instructions.tv_guide.description": "Hier findest du eine einfache Schritt-für-Schritt-Anleitung zur Nutzung des TVs in deinem Apartment.",
+
+"de.instructions.induction_cooktop.title": "Anleitung Induktionskochplatte",
+"de.instructions.induction_cooktop.description": "Schnell und sicher kochen: Erfahre in wenigen Schritten, wie du die Induktionskochplatte optimal nutzt und worauf du achten solltest.",
+
+"de.instructions.discover_vienna_kids.title": "🧸 Mit Kindern Wien entdecken",
+"de.instructions.discover_vienna_kids.description": "Familienfreundliche Tipps für Euren Aufenthalt in Wien – von Ausflügen bis zu kleinen Ruhepausen mit Kindern."
+
 }
