@@ -23,10 +23,20 @@ const I18nContext = createContext<I18nContextType>({
   langPrefix: "",
 });
 
-export function I18nProvider({ children }: { children: React.ReactNode }) {
+export function I18nProvider({
+  children,
+  initialLang,
+}: {
+  children: React.ReactNode;
+  initialLang?: Lang;
+}) {
   const [lang, setLangState] = useState<Lang>(() => {
+    // If router provides a language → use it
+    if (initialLang) return initialLang;
+
+    // Otherwise detect from URL
     const path = window.location.pathname;
-    const prefix = path.split("/")[1]; // e.g. "/en/..." → "en"
+    const prefix = path.split("/")[1];
 
     return LANGUAGE_PACK.includes(prefix as Lang) ? (prefix as Lang) : "de";
   });
@@ -37,9 +47,7 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
 
   // Translation function with safe fallback
   const t = useCallback(
-    (texts: TranslationObject) => {
-      return texts[lang] ?? texts.de; // fallback to German
-    },
+    (texts: TranslationObject) => texts[lang] ?? texts.de,
     [lang]
   );
 
