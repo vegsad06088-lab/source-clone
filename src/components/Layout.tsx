@@ -2,6 +2,9 @@ import { Outlet } from "react-router-dom";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import CookieBanner from "./CookieBanner";
+import { useLocation } from "react-router-dom";
+
+const { pathname } = useLocation();
 
 export default function Layout() {
   return (
