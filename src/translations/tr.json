@@ -26,5 +26,41 @@
 
   "tr.bookingConditions.more.title": "7. Ek bilgiler",
   "tr.bookingConditions.more.text": "Tüm yasal detaylar için lütfen bakınız:",
-  "tr.bookingConditions.more.link": "Şartlar & Koşullar"
+  "tr.bookingConditions.more.link": "Şartlar & Koşullar",
+
+  "tr.apartments.cosy_couple_nest.beds": "1 çift kişilik yatak",
+"tr.apartments.cosy_couple_nest.description": "Çiftler veya yalnız seyahat edenler için rahat bir çift kişilik yatak.",
+"tr.apartments.cosy_couple_nest.long_description": "Cosy Couple Nest’e hoş geldiniz — Viyana’nın kalbindeki sıcak ve huzurlu kaçamağınız. Bu şirin daire, sakinlik ve konfor arayan çiftler veya yalnız seyahat edenler için ideal, rahat bir çift kişilik yatak sunar.\n\nOturma alanı, modern bir TV ile dinlenmeniz için sizi davet eder — film geceleri veya yoğun bir günün ardından rahatlamak için mükemmeldir. Hızlı ve ücretsiz WiFi sayesinde her zaman bağlı kalırsınız; ister iş ister eğlence için.\n\nTam donanımlı mutfak, kendi yemeğinizi hazırlamanız için ihtiyacınız olan her şeyi içerir: buzdolabı, su ısıtıcısı, mikrodalga, pişirme ekipmanları ve yeterli mutfak gereçleri. Sevdiğiniz yemekleri kolayca hazırlayabilirsiniz.\n\nModern duşlu banyo, güne ferah bir başlangıç veya akşamları rahatlama sağlar.\n\nCosy Couple Nest: küçük, sıcak ve Viyana’daki konaklamanız için mükemmel.",
+"tr.apartments.cosy_couple_nest.name": "Cosy Couple Nest",
+"tr.apartments.cosy_couple_nest.persons": "1-2",
+"tr.apartments.cosy_couple_nest.rooms": "1 oda",
+"tr.apartments.cosy_couple_nest.section_title": "Viyana’daki sıcak yuvanız",
+"tr.apartments.cosy_couple_nest.size": "25m²",
+
+"tr.apartments.duo_deluxe_studio.beds": "1 çift kişilik yatak",
+"tr.apartments.duo_deluxe_studio.description": "Çiftler veya yalnız seyahat edenler için modern bir çift kişilik yatak.",
+"tr.apartments.duo_deluxe_studio.long_description": "Duo Deluxe Studio’ya hoş geldiniz — Viyana’daki şık ve konforlu eviniz. Bu modern stüdyo, tasarım ve işlevselliğe önem veren çiftler veya yalnız seyahat edenler için ideal, rahat bir çift kişilik yatak sunar.\n\nOturma alanı, yüksek kaliteli bir TV ile donatılmıştır ve favori film veya dizilerinizle keyifli akşamlar geçirmenizi sağlar. Hızlı ve ücretsiz WiFi sayesinde her zaman bağlantıda kalırsınız.\n\nİyi donanımlı mutfak, kendi yemeğinizi hazırlamanız için ihtiyacınız olan her şeyi içerir: buzdolabı, su ısıtıcısı, mikrodalga, pişirme ekipmanları ve yeterli mutfak gereçleri.\n\nModern duşlu banyo, şehirde geçen uzun bir günün ardından konfor ve ferahlık sunar.\n\nDuo Deluxe Studio: şık, modern ve Viyana’daki konaklamanız için mükemmel.",
+"tr.apartments.duo_deluxe_studio.name": "Duo Deluxe Studio",
+"tr.apartments.duo_deluxe_studio.persons": "1-2",
+"tr.apartments.duo_deluxe_studio.rooms": "1 oda",
+"tr.apartments.duo_deluxe_studio.section_title": "Viyana’daki deluxe stüdyonuz",
+"tr.apartments.duo_deluxe_studio.size": "30m²",
+
+"tr.apartments.luminous_lounge_apartment.description": "Bol alan ve konfor sunan aydınlık bir daire.",
+"tr.apartments.luminous_lounge_apartment.long_description": "Luminous Lounge Apartment’a hoş geldiniz — Viyana’daki aydınlık kaçamağınız. Bu geniş daire, rahat bir çift kişilik yatak ve dinlenmeniz için bol alan sunar.\n\nOturma alanı moderndir ve sakin akşamlar için idealdir. Hızlı WiFi sayesinde her zaman bağlantıda kalırsınız.\n\nTam donanımlı mutfak, ihtiyacınız olan her şeyi içerir: buzdolabı, su ısıtıcısı, mikrodalga, ocak ve mutfak gereçleri.\n\nModern duşlu banyo konfor ve ferahlık sağlar.\n\nLuminous Lounge Apartment: aydınlık, modern ve uzun konaklamalar için mükemmel.",
+"tr.apartments.luminous_lounge_apartment.name": "Luminous Lounge Apartment",
+"tr.apartments.luminous_lounge_apartment.persons": "1-2",
+"tr.apartments.luminous_lounge_apartment.rooms": "1 oda",
+"tr.apartments.luminous_lounge_apartment.section_title": "Viyana’daki aydınlık daireniz",
+"tr.apartments.luminous_lounge_apartment.size": "35m²",
+
+"tr.apartments.twin_harmony_suite.beds": "2 tek kişilik yatak",
+"tr.apartments.twin_harmony_suite.description": "Arkadaşlar veya iş arkadaşları için iki rahat tek kişilik yatak.",
+"tr.apartments.twin_harmony_suite.long_description": "Twin Harmony Suite’e hoş geldiniz — ayrı yatak tercih eden arkadaşlar, iş arkadaşları veya yalnız seyahat edenler için mükemmel bir seçim. İki rahat tek kişilik yatak konfor ve esneklik sunar.\n\nOturma alanı modern bir TV içerir ve dinlenmeniz için sizi davet eder. Hızlı WiFi sayesinde her zaman bağlantıda kalırsınız.\n\nMutfak, ihtiyacınız olan her şeyi içerir: buzdolabı, su ısıtıcısı, mikrodalga, ocak ve mutfak gereçleri.\n\nDuşlu banyo konfor ve ferahlık sağlar.\n\nTwin Harmony Suite: esnek, konforlu ve Viyana’daki konaklamanız için ideal.",
+"tr.apartments.twin_harmony_suite.name": "Twin Harmony Suite",
+"tr.apartments.twin_harmony_suite.persons": "1-2",
+"tr.apartments.twin_harmony_suite.rooms": "1 oda",
+"tr.apartments.twin_harmony_suite.section_title": "Viyana’daki esnek süitinız",
+"tr.apartments.twin_harmony_suite.size": "28m²"
+
 }
