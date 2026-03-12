@@ -1,14 +1,19 @@
 import { useI18n } from "@/lib/i18n";
+import { Link } from "react-router-dom";
 
 export default function AGBPage() {
-  const { t } = useI18n();
+  const { t, lang, langPrefix } = useI18n();
 
   return (
     <div className="pt-32 pb-20">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <h1 className="text-4xl font-serif font-bold text-foreground mb-4">
-          {t({ de: "Allgemeine Geschäftsbedingungen (AGB)", en: "Terms & Conditions" })}
+          {t({
+            de: "Allgemeine Geschäftsbedingungen (AGB)",
+            en: "Terms & Conditions",
+          })}
         </h1>
+
         <p className="text-muted-foreground mb-8">
           {t({
             de: "Diese Allgemeinen Geschäftsbedingungen gelten für alle Buchungen und Aufenthalte in den Apartments zur Quelle.",
@@ -52,7 +57,10 @@ export default function AGBPage() {
           {/* 3. Stornierungsbedingungen / Cancellation Policy */}
           <section>
             <h3 className="text-lg font-sans font-semibold text-foreground mb-3">
-              {t({ de: "3. Stornierungsbedingungen", en: "3. Cancellation Policy" })}
+              {t({
+                de: "3. Stornierungsbedingungen",
+                en: "3. Cancellation Policy",
+              })}
             </h3>
             <p className="mb-2">
               {t({
@@ -77,7 +85,10 @@ export default function AGBPage() {
           {/* 4. Check-in & Check-out */}
           <section>
             <h3 className="text-lg font-sans font-semibold text-foreground mb-3">
-              {t({ de: "4. Check-in & Check-out", en: "4. Check-in & Check-out" })}
+              {t({
+                de: "4. Check-in & Check-out",
+                en: "4. Check-in & Check-out",
+              })}
             </h3>
             <p className="mb-1">
               {t({
@@ -121,7 +132,10 @@ export default function AGBPage() {
           {/* 6. Schäden & Haftung / Damages & Liability */}
           <section>
             <h3 className="text-lg font-sans font-semibold text-foreground mb-3">
-              {t({ de: "6. Schäden & Haftung", en: "6. Damages & Liability" })}
+              {t({
+                de: "6. Schäden & Haftung",
+                en: "6. Damages & Liability",
+              })}
             </h3>
             <p className="mb-2">
               {t({
