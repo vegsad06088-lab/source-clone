@@ -77,9 +77,19 @@ export default function HomePage() {
           <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground text-center mb-4">
             {t({ de: "Finde Dein perfektes Apartment", en: "Find your perfect apartment" })}
           </h2>
-          <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto">
+      
+          <p className="text-center text-muted-foreground mb-4 max-w-2xl mx-auto">
             {t({ de: "Wähle Dein Reisedatum und finde verfügbare Apartments.", en: "Choose your travel dates and find available apartments." })}
           </p>
+      
+          {/* ⭐ NEW: Minimum stay message */}
+          <p className="text-center text-sm text-yellow-600 font-medium mb-6">
+            {t({
+              de: "Hinweis: Der Mindestaufenthalt beträgt 2 Nächte.",
+              en: "Note: Minimum stay is 2 nights."
+            })}
+          </p>
+      
           <div className="bg-background rounded-2xl shadow-card overflow-hidden">
             <div id="apartmentIframeAll" style={{ minHeight: "400px" }} />
           </div>
