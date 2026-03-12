@@ -9,23 +9,23 @@ import { useEffect } from "react";
 export default function HomePage() {
   const { t, langPrefix } = useI18n();
 
-  useEffect(() => {
-    const script = document.createElement("script");
-    script.src = "https://login.smoobu.com/js/Settings/BookingToolIframe.js";
-    script.async = true;
-
-    script.onload = () => {
-      if (window.BookingToolIframe) {
-        window.BookingToolIframe.initialize({
-          url: "https://login.smoobu.com/en/booking-tool/iframe/1656615?newTabAfterSearch=true",
-          baseUrl: "https://login.smoobu.com",
-          target: "#apartmentIframeAll",
-        });
-      }
-    };
-
-    document.body.appendChild(script);
-  }, []);
+  // useEffect(() => {
+//   const script = document.createElement("script");
+//   script.src = "https://login.smoobu.com/js/Settings/BookingToolIframe.js";
+//   script.async = true;
+//
+//   script.onload = () => {
+//     if (window.BookingToolIframe) {
+//       window.BookingToolIframe.initialize({
+//         url: "https://login.smoobu.com/en/booking-tool/iframe/1656615?newTabAfterSearch=true",
+//         baseUrl: "https://login.smoobu.com",
+//         target: "#apartmentIframeAll",
+//       });
+//     }
+//   };
+//
+//   document.body.appendChild(script);
+// }, []);
 
   return (
     <div>
@@ -109,9 +109,10 @@ export default function HomePage() {
             </Link>
           </p>
 
-          <div className="bg-background rounded-2xl shadow-card overflow-hidden">
-            <div id="apartmentIframeAll" style={{ minHeight: "400px" }} />
-          </div>
+          {/* <div className="bg-background rounded-2xl shadow-card overflow-hidden">
+  <div id="apartmentIframeAll" style={{ minHeight: "400px" }} />
+</div> */}
+
         </div>
       </section>
 
