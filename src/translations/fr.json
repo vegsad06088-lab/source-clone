@@ -61,6 +61,53 @@
   "fr.apartments.twin_harmony_suite.persons": "1-2",
   "fr.apartments.twin_harmony_suite.rooms": "1 pièce",
   "fr.apartments.twin_harmony_suite.section_title": "Votre suite flexible à Vienne",
-  "fr.apartments.twin_harmony_suite.size": "28m²"
+  "fr.apartments.twin_harmony_suite.size": "28m²",
+
+  "fr.amenities.self_check_in": "Self-Check-In",
+"fr.amenities.accessible": "Accessible",
+"fr.amenities.non_smoking": "Non-fumeur",
+"fr.amenities.wifi_250_mbit": "250 Mbit/s",
+"fr.amenities.tv": "TV",
+"fr.amenities.hair_dryer": "Sèche-cheveux",
+"fr.amenities.shower": "Douche",
+"fr.amenities.towels": "Serviettes",
+"fr.amenities.refrigerator": "Réfrigérateur",
+"fr.amenities.microwave": "Micro-ondes",
+"fr.amenities.stove": "Plaque de cuisson",
+"fr.amenities.kettle": "Bouilloire",
+
+"fr.instructions.check_in_guide.title": "Guide de Check-In",
+"fr.instructions.check_in_guide.description": "Instructions rapides et simples pour votre self-check-in. Découvrez comment accéder à votre appartement facilement et en toute sécurité.",
+
+"fr.instructions.iron_board.title": "Fer et Table à Repasser",
+"fr.instructions.iron_board.description": "Le fer et la table à repasser se trouvent au rez-de-chaussée. Suivez les instructions pour les utiliser en toute sécurité.",
+
+"fr.instructions.parking_options.title": "Options de Stationnement",
+"fr.instructions.parking_options.description": "Stationner facilement : notre garage souterrain et les parkings publics à proximité offrent des options flexibles pour votre séjour.",
+
+"fr.instructions.check_out_guide.title": "Guide de Check-Out",
+"fr.instructions.check_out_guide.description": "Nous espérons que vous avez passé un agréable séjour ! Avant de partir, veuillez suivre ces étapes.",
+
+"fr.instructions.public_transport_vienna.title": "Transports Publics à Vienne",
+"fr.instructions.public_transport_vienna.description": "Vienne offre un excellent réseau de transports publics qui vous permet de vous déplacer rapidement et confortablement dans la ville.",
+
+"fr.instructions.luggage_before_check_in.title": "Consigne Avant le Check-In",
+"fr.instructions.luggage_before_check_in.description": "Nous sommes heureux de vous offrir la possibilité de stocker vos bagages en toute sécurité si votre appartement n’est pas encore prêt.",
+
+"fr.instructions.luggage_after_check_out.title": "Consigne Après le Check-Out",
+"fr.instructions.luggage_after_check_out.description": "Vous pouvez laisser vos bagages chez nous après le check-out.",
+
+"fr.instructions.heating_control.title": "Guide de Réglage du Chauffage",
+"fr.instructions.heating_control.description": "Suivez ces étapes pour régler votre chauffage de manière optimale. Un guide détaillé avec images est également disponible en PDF.",
+
+"fr.instructions.tv_guide.title": "Guide TV",
+"fr.instructions.tv_guide.description": "Vous trouverez ici un guide simple étape par étape pour utiliser la télévision dans votre appartement.",
+
+"fr.instructions.induction_cooktop.title": "Guide de Plaque à Induction",
+"fr.instructions.induction_cooktop.description": "Cuisinez rapidement et en toute sécurité : apprenez en quelques étapes comment utiliser la plaque à induction de manière optimale et ce qu’il faut surveiller.",
+
+"fr.instructions.discover_vienna_kids.title": "🧸 Découvrir Vienne avec des Enfants",
+"fr.instructions.discover_vienna_kids.description": "Conseils adaptés aux familles pour votre séjour à Vienne – des excursions aux moments de détente avec les enfants."
+
 
 }
