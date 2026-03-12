@@ -1,0 +1,30 @@
+{
+  "de.bookingConditions.title": "Buchungsbedingungen",
+  "de.bookingConditions.intro": "Bitte lesen Sie diese Buchungsbedingungen sorgfältig durch, bevor Sie eine Reservierung vornehmen.",
+
+  "de.bookingConditions.cancellation.title": "1. Stornierungsbedingungen",
+  "de.bookingConditions.cancellation.free": "Kostenlose Stornierung bis 7 Tage vor Anreise (14:00 Uhr).",
+  "de.bookingConditions.cancellation.late": "Ab 7 Tage vor Anreise beträgt die Stornogebühr 20 % des Buchungspreises.",
+
+  "de.bookingConditions.payment.title": "2. Zahlungsmethoden",
+  "de.bookingConditions.payment.methods": "Zahlungen sind per Stripe oder PayPal möglich.",
+
+  "de.bookingConditions.deposit.title": "3. Anzahlungs- und Zahlungsregeln",
+  "de.bookingConditions.deposit.first": "20 % Anzahlung bei Buchung.",
+  "de.bookingConditions.deposit.second": "80 % Restzahlung spätestens 7 Tage vor Anreise.",
+
+  "de.bookingConditions.cleaning.title": "4. Reinigungsgebühr",
+  "de.bookingConditions.cleaning.text": "Die Reinigungsgebühr ist im Gesamtpreis enthalten.",
+
+  "de.bookingConditions.cityTax.title": "5. Ortstaxe",
+  "de.bookingConditions.cityTax.text": "Die Ortstaxe ist im Gesamtpreis enthalten.",
+
+  "de.bookingConditions.checkin.title": "6. Check-in & Check-out",
+  "de.bookingConditions.checkin.in": "Check-in: ab 14:00 Uhr",
+  "de.bookingConditions.checkin.out": "Check-out: bis 10:00 Uhr",
+  "de.bookingConditions.checkin.lockbox": "Self Check-in über Schlüsselsafe (Lockbox).",
+
+  "de.bookingConditions.more.title": "7. Weitere Informationen",
+  "de.bookingConditions.more.text": "Die vollständigen rechtlichen Bedingungen finden Sie in unseren",
+  "de.bookingConditions.more.link": "AGB"
+}
