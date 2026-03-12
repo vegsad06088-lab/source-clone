@@ -59,6 +59,14 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link
+                  to={`${langPrefix}/agb`}
+                  className="text-muted-foreground hover:text-primary transition-smooth"
+                >
+                  {t({ de: "AGB", en: "Terms & Conditions" })}
+                </Link>
+              </li>
+              <li>
                 <Link to={`${langPrefix}/cookies`} className="text-muted-foreground hover:text-primary transition-smooth">
                   {t({ de: "Cookie-Richtlinie", en: "Cookie Policy" })}
                 </Link>
