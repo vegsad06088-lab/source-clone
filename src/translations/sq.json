@@ -26,5 +26,54 @@
 
   "sq.bookingConditions.more.title": "7. Informacione shtesë",
   "sq.bookingConditions.more.text": "Për detaje të plota ligjore, ju lutemi referojuni",
-  "sq.bookingConditions.more.link": "Kushtet & Rregullat"
+  "sq.bookingConditions.more.link": "Kushtet & Rregullat",
+
+  "sq.amenities.accessible": "I përshtatshëm për persona me aftësi të kufizuara",
+  "sq.amenities.cooking_facilities": "Pajisje gatimi",
+  "sq.amenities.fridge": "Frigorifer",
+  "sq.amenities.hair_dryer": "Tharëse flokësh",
+  "sq.amenities.kettle": "Çajnik",
+  "sq.amenities.microwave": "Mikrovalë",
+  "sq.amenities.non_smoking": "Ndalohet duhani",
+  "sq.amenities.self_check_in": "Self check-in",
+  "sq.amenities.shower": "Dush",
+  "sq.amenities.soft_towels": "Peshqirë të butë",
+  "sq.amenities.tv": "TV",
+  "sq.amenities.wifi_250_mbit": "250 Mbit/s",
+  
+  "sq.apartments.cosy_couple_nest.beds": "1 krevat dopio",
+  "sq.apartments.cosy_couple_nest.description": "Një krevat i rehatshëm dopio për çifte ose udhëtarë solo.",
+  "sq.apartments.cosy_couple_nest.long_description": "Mirësevini në Cosy Couple Nest, strehimi juaj i ngrohtë në zemër të Vjenës. Ky apartament i këndshëm ofron një krevat të rehatshëm dopio, ideal për çifte ose udhëtarë solo që vlerësojnë qetësinë dhe komoditetin.\n\nZona e ndenjjes ju fton të relaksoheni me një TV modern – perfekt për mbrëmje filmash ose për t'u çlodhur pas një dite plot përjetime. Falë WiFi‑së së shpejtë dhe falas, qëndroni gjithmonë të lidhur, qoftë për punë apo për argëtim.\n\nKuzhina plotësisht e pajisur përfshin gjithçka që ju nevojitet për vetë‑ushqim: frigorifer, çajnik, mikrovalë, pajisje gatimi dhe enë të mjaftueshme. Mund të përgatisni me lehtësi ushqimet tuaja të preferuara.\n\nBanjoja moderne me dush siguron një fillim të freskët të ditës ose momente relaksi në mbrëmje.\n\nCosy Couple Nest: i vogël, i këndshëm dhe perfekt për qëndrimin tuaj në Vjenë.",
+  "sq.apartments.cosy_couple_nest.name": "Cosy Couple Nest",
+  "sq.apartments.cosy_couple_nest.persons": "1-2",
+  "sq.apartments.cosy_couple_nest.rooms": "1 dhomë",
+  "sq.apartments.cosy_couple_nest.section_title": "Strehimi juaj i ngrohtë në Vjenë",
+  "sq.apartments.cosy_couple_nest.size": "25m²",
+  
+  "sq.apartments.duo_deluxe_studio.beds": "1 krevat dopio",
+  "sq.apartments.duo_deluxe_studio.description": "Një krevat modern dopio për çifte ose udhëtarë solo.",
+  "sq.apartments.duo_deluxe_studio.long_description": "Mirësevini në Duo Deluxe Studio – shtëpia juaj elegante larg shtëpisë në Vjenë. Ky studio modern ofron një krevat të rehatshëm dopio, ideal për çifte ose udhëtarë solo që vlerësojnë dizajnin dhe funksionalitetin.\n\nZona e ndenjjes është e pajisur me një TV cilësor, duke ju mundësuar mbrëmje relaksuese me filmat ose serialet tuaja të preferuara. WiFi i shpejtë dhe falas siguron që të jeni gjithmonë të lidhur.\n\nKuzhina e pajisur mirë përfshin gjithçka që ju nevojitet për vetë‑ushqim: frigorifer, çajnik, mikrovalë, pajisje gatimi dhe enë të bollshme. Mund të përgatisni ushqimet tuaja ashtu siç dëshironi.\n\nBanjoja moderne me dush ofron komoditet dhe freski pas një dite të gjatë në qytet.\n\nDuo Deluxe Studio: elegant, modern dhe perfekt për qëndrimin tuaj në Vjenë.",
+  "sq.apartments.duo_deluxe_studio.name": "Duo Deluxe Studio",
+  "sq.apartments.duo_deluxe_studio.persons": "1-2",
+  "sq.apartments.duo_deluxe_studio.rooms": "1 dhomë",
+  "sq.apartments.duo_deluxe_studio.section_title": "Studio juaj deluxe në Vjenë",
+  "sq.apartments.duo_deluxe_studio.size": "30m²",
+  
+  "sq.apartments.luminous_lounge_apartment.description": "Një apartament i ndritshëm me shumë hapësirë dhe komoditet.",
+  "sq.apartments.luminous_lounge_apartment.long_description": "Mirësevini në Luminous Lounge Apartment – strehimi juaj i ndritshëm në Vjenë. Ky apartament i gjerë ofron një krevat të rehatshëm dopio dhe shumë hapësirë për t'u çlodhur.\n\nZona e ndenjjes është moderne dhe perfekte për mbrëmje të qeta. Me WiFi të shpejtë, qëndroni gjithmonë të lidhur.\n\nKuzhina plotësisht e pajisur përfshin gjithçka që ju nevojitet: frigorifer, çajnik, mikrovalë, sobë dhe enë kuzhine.\n\nBanjoja moderne me dush ofron komoditet dhe freski.\n\nLuminous Lounge Apartment: i ndritshëm, modern dhe perfekt për qëndrime më të gjata.",
+  "sq.apartments.luminous_lounge_apartment.name": "Luminous Lounge Apartment",
+  "sq.apartments.luminous_lounge_apartment.persons": "1-2",
+  "sq.apartments.luminous_lounge_apartment.rooms": "1 dhomë",
+  "sq.apartments.luminous_lounge_apartment.section_title": "Apartamenti juaj i ndritshëm në Vjenë",
+  "sq.apartments.luminous_lounge_apartment.size": "35m²",
+  
+  "sq.apartments.twin_harmony_suite.beds": "2 krevate teke",
+  "sq.apartments.twin_harmony_suite.description": "Dy krevate të rehatshëm teke për miq ose kolegë.",
+  "sq.apartments.twin_harmony_suite.long_description": "Mirësevini në Twin Harmony Suite – perfekte për miq, kolegë ose udhëtarë solo që preferojnë krevate të ndara. Dy krevate të rehatshëm teke ofrojnë komoditet dhe fleksibilitet.\n\nZona e ndenjjes përfshin një TV modern dhe ju fton të relaksoheni. WiFi i shpejtë ju mban gjithmonë të lidhur.\n\nKuzhina përfshin gjithçka që ju nevojitet: frigorifer, çajnik, mikrovalë, sobë dhe enë kuzhine.\n\nBanjoja me dush ofron komoditet dhe freski.\n\nTwin Harmony Suite: fleksibël, e rehatshme dhe ideale për qëndrimin tuaj në Vjenë.",
+  "sq.apartments.twin_harmony_suite.name": "Twin Harmony Suite",
+  "sq.apartments.twin_harmony_suite.persons": "1-2",
+  "sq.apartments.twin_harmony_suite.rooms": "1 dhomë",
+  "sq.apartments.twin_harmony_suite.section_title": "Suita juaj fleksibël në Vjenë",
+  "sq.apartments.twin_harmony_suite.size": "28m²"
+
   }
