@@ -74,6 +74,53 @@
   "sq.apartments.twin_harmony_suite.persons": "1-2",
   "sq.apartments.twin_harmony_suite.rooms": "1 dhomë",
   "sq.apartments.twin_harmony_suite.section_title": "Suita juaj fleksibël në Vjenë",
-  "sq.apartments.twin_harmony_suite.size": "28m²"
+  "sq.apartments.twin_harmony_suite.size": "28m²",
+
+  "sq.amenities.self_check_in": "Self-Check-In",
+"sq.amenities.accessible": "I përshtatshëm për persona me aftësi të kufizuara",
+"sq.amenities.non_smoking": "Ndalohen duhani",
+"sq.amenities.wifi_250_mbit": "250 Mbit/s",
+"sq.amenities.tv": "TV",
+"sq.amenities.hair_dryer": "Tharëse flokësh",
+"sq.amenities.shower": "Dush",
+"sq.amenities.towels": "Peshqirë",
+"sq.amenities.refrigerator": "Frigorifer",
+"sq.amenities.microwave": "Mikrovalë",
+"sq.amenities.stove": "Pllakë gatimi",
+"sq.amenities.kettle": "Çajnik",
+
+"sq.instructions.check_in_guide.title": "Udhëzuesi i Check-In",
+"sq.instructions.check_in_guide.description": "Udhëzime të shpejta dhe të thjeshta për self-check-in. Mëso si të hysh në apartamentin tënd në mënyrë të sigurt dhe të lehtë.",
+
+"sq.instructions.iron_board.title": "Hekuri & Dërrasa e hekurosjes",
+"sq.instructions.iron_board.description": "Hekuri dhe dërrasa e hekurosjes ndodhen në katin përdhes. Ndiq udhëzimet për t’i përdorur në mënyrë të sigurt.",
+
+"sq.instructions.parking_options.title": "Opsionet e parkimit",
+"sq.instructions.parking_options.description": "Parkim i lehtë: Garazhi ynë nëntokësor dhe vendparkimet publike aty pranë ofrojnë opsione fleksibël për qëndrimin tënd.",
+
+"sq.instructions.check_out_guide.title": "Udhëzuesi i Check-Out",
+"sq.instructions.check_out_guide.description": "Shpresojmë që ke pasur një qëndrim të këndshëm! Para se të largohesh, të lutemi ndiq këto hapa.",
+
+"sq.instructions.public_transport_vienna.title": "Transporti publik në Vjenë",
+"sq.instructions.public_transport_vienna.description": "Vjena ofron një rrjet të shkëlqyer të transportit publik që të mundëson të lëvizësh shpejt dhe rehat nëpër qytet.",
+
+"sq.instructions.luggage_before_check_in.title": "Ruajtja e bagazhit para Check-In",
+"sq.instructions.luggage_before_check_in.description": "Ne të ofrojmë me kënaqësi mundësinë për të ruajtur bagazhin tënd nëse apartamenti yt nuk është ende gati.",
+
+"sq.instructions.luggage_after_check_out.title": "Ruajtja e bagazhit pas Check-Out",
+"sq.instructions.luggage_after_check_out.description": "Mund ta lësh bagazhin tënd tek ne edhe pas check-out.",
+
+"sq.instructions.heating_control.title": "Udhëzuesi i ngrohjes",
+"sq.instructions.heating_control.description": "Ndiq këto hapa për të rregulluar ngrohjen në mënyrën optimale. Një udhëzues i detajuar me foto është gjithashtu i disponueshëm si PDF.",
+
+"sq.instructions.tv_guide.title": "Udhëzuesi i TV",
+"sq.instructions.tv_guide.description": "Këtu do të gjesh një udhëzues të thjeshtë hap‑pas‑hapi për përdorimin e TV-së në apartamentin tënd.",
+
+"sq.instructions.induction_cooktop.title": "Udhëzuesi i pianurës me induksion",
+"sq.instructions.induction_cooktop.description": "Gatuaj shpejt dhe sigurt: Mëso në pak hapa si ta përdorësh pianurën me induksion në mënyrë optimale dhe çfarë duhet të kesh parasysh.",
+
+"sq.instructions.discover_vienna_kids.title": "🧸 Zbuloni Vjenën me fëmijë",
+"sq.instructions.discover_vienna_kids.description": "Këshilla miqësore për familjet gjatë qëndrimit në Vjenë – nga ekskursionet deri te pushimet e qeta me fëmijët."
+
 
   }
