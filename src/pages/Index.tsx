@@ -74,15 +74,22 @@ export default function HomePage() {
       {/* Smoobu Booking Widget */}
       <section className="bg-card py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
           <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground text-center mb-4">
-            {t({ de: "Finde Dein perfektes Apartment", en: "Find your perfect apartment" })}
+            {t({
+              de: "Finde Dein perfektes Apartment",
+              en: "Find your perfect apartment"
+            })}
           </h2>
       
           <p className="text-center text-muted-foreground mb-4 max-w-2xl mx-auto">
-            {t({ de: "Wähle Dein Reisedatum und finde verfügbare Apartments.", en: "Choose your travel dates and find available apartments." })}
+            {t({
+              de: "Wähle Dein Reisedatum und finde verfügbare Apartments.",
+              en: "Choose your travel dates and find available apartments."
+            })}
           </p>
       
-          {/* ⭐ NEW: Minimum stay message */}
+          {/* ⭐ Minimum stay message */}
           <p className="text-center text-sm text-yellow-600 font-medium mb-6">
             {t({
               de: "Hinweis: Der Mindestaufenthalt beträgt 2 Nächte.",
@@ -90,9 +97,24 @@ export default function HomePage() {
             })}
           </p>
       
+          {/* ⭐ Booking Conditions Link */}
+          <p className="text-center mb-6">
+            <Link
+              to={`${langPrefix}/booking-conditions`}
+              className="text-primary underline hover:text-primary/80 transition-smooth"
+            >
+              {t({
+                de: "Buchungsbedingungen anzeigen",
+                en: "View Booking Conditions"
+              })}
+            </Link>
+          </p>
+      
+          {/* ⭐ Smoobu Widget */}
           <div className="bg-background rounded-2xl shadow-card overflow-hidden">
             <div id="apartmentIframeAll" style={{ minHeight: "400px" }} />
           </div>
+      
         </div>
       </section>
 
