@@ -150,8 +150,8 @@ export const instructions = [
     image: "/images/66dc5787f68d3cfe6e042314_Bügeleisen.avif",
     category: "apartments",
     pdf: {
-      de: "/pdfs/66dc5126b1ddeddd0b92998a_BÜGELEISEN-DEUTSCH.pdf",
-      en: "/pdfs/66dc512829e15a21ed752974_BÜGELEISEN-ENGLISH.pdf",
+      de: "/pdfs/66dc5126b1ddeddd0b92998a_BUEGELEISEN-DEUTSCH.pdf",
+      en: "/pdfs/66dc512829e15a21ed752974_BUEGELEISEN-ENGLISH.pdf",
     },
   },
   {
