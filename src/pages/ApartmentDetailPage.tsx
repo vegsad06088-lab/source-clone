@@ -281,7 +281,6 @@ export default function ApartmentDetailPage() {
         <div className="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50">
           <div className="bg-white rounded-2xl shadow-xl max-w-3xl w-full h-[80vh] p-6 relative overflow-hidden">
       
-            {/* Close button */}
             <button
               onClick={() => setConditionsOpen(false)}
               className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
@@ -293,9 +292,8 @@ export default function ApartmentDetailPage() {
               {t({ de: "Buchungsbedingungen", en: "Booking Conditions" })}
             </h2>
       
-            {/* Load the REAL booking conditions page in the correct language */}
             <iframe
-              src={`${window.location.origin}${langPrefix}/booking-conditions`}
+              src={`${window.location.origin}/booking-conditions`}
               className="w-full h-full border-0 rounded-lg"
             />
           </div>
