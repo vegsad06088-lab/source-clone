@@ -6,6 +6,11 @@ import { Menu, X } from "lucide-react";
 export default function Navbar() {
   const { lang, setLang, t, langPrefix } = useI18n();
   const location = useLocation();
+  const pathname = location.pathname;
+
+  // Detect active route
+  const isActive = (path: string) => pathname === path;
+
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const navItems = [
@@ -19,7 +24,11 @@ export default function Navbar() {
   const switchLang = (newLang: "de" | "en") => {
     setLang(newLang);
     const currentPath = location.pathname.replace(/^\/(en\/?)/, "/");
-    const newPath = newLang === "en" ? `/en${currentPath === "/" ? "" : currentPath}` : currentPath;
+    const newPath =
+      newLang === "en"
+        ? `/en${currentPath === "/" ? "" : currentPath}`
+        : currentPath;
+
     window.history.replaceState(null, "", newPath);
   };
 
@@ -27,37 +36,58 @@ export default function Navbar() {
     <nav className="fixed top-0 left-0 right-0 z-50 px-4 pt-4">
       <div className="mx-auto max-w-7xl">
         <div className="flex items-center justify-between rounded-2xl bg-background/95 backdrop-blur-sm px-6 py-3 shadow-card">
+          
+          {/* Logo */}
           <Link to={`${langPrefix}/`} className="flex-shrink-0">
-            <img src="/images/logo.avif" alt="Apartments zur Quelle" className="h-10 md:h-12" />
+            <img
+              src="/images/logo.avif"
+              alt="Apartments zur Quelle"
+              className="h-10 md:h-12"
+            />
           </Link>
 
+          {/* Language Switch */}
           <div className="hidden md:flex items-center gap-2">
             <button
               onClick={() => switchLang("de")}
-              className={`px-2 py-1 text-sm font-medium transition-smooth rounded ${lang === "de" ? "text-primary" : "text-muted-foreground hover:text-foreground"}`}
+              className={`px-2 py-1 text-sm font-medium transition-smooth rounded ${
+                lang === "de"
+                  ? "text-primary"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
             >
               DE
             </button>
             <button
               onClick={() => switchLang("en")}
-              className={`px-2 py-1 text-sm font-medium transition-smooth rounded ${lang === "en" ? "text-primary" : "text-muted-foreground hover:text-foreground"}`}
+              className={`px-2 py-1 text-sm font-medium transition-smooth rounded ${
+                lang === "en"
+                  ? "text-primary"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
             >
               EN
             </button>
           </div>
 
+          {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-6">
             {navItems.map((item) => (
               <Link
                 key={item.path + item.label}
                 to={item.path}
-                className="text-sm font-medium text-foreground/80 hover:text-foreground transition-smooth"
+                className={`px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 ${
+                  isActive(item.path)
+                    ? "backdrop-blur-md bg-white/20 text-primary font-semibold shadow-lg"
+                    : "text-foreground/80 hover:text-foreground"
+                }`}
               >
                 {item.label}
               </Link>
             ))}
           </div>
 
+          {/* Book Now Button */}
           <div className="hidden md:block">
             <Link
               to={`${langPrefix}/apartments`}
@@ -67,27 +97,58 @@ export default function Navbar() {
             </Link>
           </div>
 
-          <button className="md:hidden p-2" onClick={() => setMobileOpen(!mobileOpen)}>
+          {/* Mobile Menu Button */}
+          <button
+            className="md:hidden p-2"
+            onClick={() => setMobileOpen(!mobileOpen)}
+          >
             {mobileOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
 
+        {/* Mobile Menu */}
         {mobileOpen && (
           <div className="md:hidden mt-2 rounded-2xl bg-background/95 backdrop-blur-sm p-6 shadow-card animate-fade-in">
             <div className="flex gap-4 mb-4">
-              <button onClick={() => { switchLang("de"); setMobileOpen(false); }} className={`text-sm font-medium ${lang === "de" ? "text-primary" : "text-muted-foreground"}`}>DE</button>
-              <button onClick={() => { switchLang("en"); setMobileOpen(false); }} className={`text-sm font-medium ${lang === "en" ? "text-primary" : "text-muted-foreground"}`}>EN</button>
+              <button
+                onClick={() => {
+                  switchLang("de");
+                  setMobileOpen(false);
+                }}
+                className={`text-sm font-medium ${
+                  lang === "de" ? "text-primary" : "text-muted-foreground"
+                }`}
+              >
+                DE
+              </button>
+              <button
+                onClick={() => {
+                  switchLang("en");
+                  setMobileOpen(false);
+                }}
+                className={`text-sm font-medium ${
+                  lang === "en" ? "text-primary" : "text-muted-foreground"
+                }`}
+              >
+                EN
+              </button>
             </div>
+
             {navItems.map((item) => (
               <Link
                 key={item.path + item.label}
                 to={item.path}
                 onClick={() => setMobileOpen(false)}
-                className="block py-3 text-base font-medium text-foreground/80 hover:text-foreground border-b border-border/50 last:border-0"
+                className={`block py-3 text-base font-medium border-b border-border/50 last:border-0 transition-all duration-300 ${
+                  isActive(item.path)
+                    ? "backdrop-blur-md bg-white/10 text-primary font-semibold rounded-lg px-3"
+                    : "text-foreground/80 hover:text-foreground"
+                }`}
               >
                 {item.label}
               </Link>
             ))}
+
             <Link
               to={`${langPrefix}/apartments`}
               onClick={() => setMobileOpen(false)}
