@@ -16,6 +16,7 @@ import DatenschutzPage from "@/pages/DatenschutzPage";
 import ImpressumPage from "@/pages/ImpressumPage";
 import NotFound from "@/pages/NotFound";
 import ScrollToTop from "@/components/ScrollToTop";
+import CookiePolicy from "@/pages/CookiePolicy";
 
 
 
@@ -46,7 +47,9 @@ const App = () => (
               <Route path="/anleitungen" element={<AnleitungenPage />} />
               <Route path="/anleitungen-post/:slug" element={<AnleitungDetailPage />} />
               <Route path="/datenschutz" element={<DatenschutzPage />} />
+              <Route path="/cookies" element={<CookiePolicy />} 
               <Route path="/impressum" element={<ImpressumPage />} />
+            
 
               {/* English routes */}
               <Route path="/en" element={<HomePage />} />
@@ -60,6 +63,7 @@ const App = () => (
               <Route path="/en/anleitungen" element={<AnleitungenPage />} />
               <Route path="/en/anleitungen-post/:slug" element={<AnleitungDetailPage />} />
               <Route path="/en/datenschutz" element={<DatenschutzPage />} />
+              <Route path="/en/cookies" element={<CookiePolicy />} />
               <Route path="/en/impressum" element={<ImpressumPage />} />
 
               {/* 404 */}
