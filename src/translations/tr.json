@@ -1,0 +1,30 @@
+{
+  "tr.bookingConditions.title": "Rezervasyon Şartları",
+  "tr.bookingConditions.intro": "Lütfen rezervasyon yapmadan önce bu rezervasyon şartlarını dikkatlice inceleyin.",
+
+  "tr.bookingConditions.cancellation.title": "1. İptal Politikası",
+  "tr.bookingConditions.cancellation.free": "Varıştan 7 gün öncesine kadar ücretsiz iptal (14:00).",
+  "tr.bookingConditions.cancellation.late": "Varıştan 7 gün önce itibarıyla rezervasyon ücretinin %20'si kadar iptal ücreti uygulanır.",
+
+  "tr.bookingConditions.payment.title": "2. Ödeme Yöntemleri",
+  "tr.bookingConditions.payment.methods": "Ödemeler Stripe veya PayPal üzerinden yapılabilir.",
+
+  "tr.bookingConditions.deposit.title": "3. Depozito ve ödeme kuralları",
+  "tr.bookingConditions.deposit.first": "Rezervasyon sırasında %20 depozito alınır.",
+  "tr.bookingConditions.deposit.second": "Kalan %80, varıştan en geç 7 gün önce ödenmelidir.",
+
+  "tr.bookingConditions.cleaning.title": "4. Temizlik ücreti",
+  "tr.bookingConditions.cleaning.text": "Temizlik ücreti toplam fiyata dahildir.",
+
+  "tr.bookingConditions.cityTax.title": "5. Şehir vergisi",
+  "tr.bookingConditions.cityTax.text": "Şehir vergisi toplam fiyata dahildir.",
+
+  "tr.bookingConditions.checkin.title": "6. Giriş & Çıkış",
+  "tr.bookingConditions.checkin.in": "Giriş: 14:00 sonrası",
+  "tr.bookingConditions.checkin.out": "Çıkış: 10:00'dan önce",
+  "tr.bookingConditions.checkin.lockbox": "Anahtar kutusu ile self check-in.",
+
+  "tr.bookingConditions.more.title": "7. Ek bilgiler",
+  "tr.bookingConditions.more.text": "Tüm yasal detaylar için lütfen bakınız:",
+  "tr.bookingConditions.more.link": "Şartlar & Koşullar"
+}
