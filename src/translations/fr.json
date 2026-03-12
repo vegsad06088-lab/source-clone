@@ -26,5 +26,41 @@
 
   "fr.bookingConditions.more.title": "7. Informations supplémentaires",
   "fr.bookingConditions.more.text": "Pour tous les détails juridiques, veuillez consulter nos",
-  "fr.bookingConditions.more.link": "Conditions générales"
+  "fr.bookingConditions.more.link": "Conditions générales",
+
+  "fr.apartments.cosy_couple_nest.beds": "1 lit double",
+  "fr.apartments.cosy_couple_nest.description": "Un lit double confortable pour les couples ou les voyageurs seuls.",
+  "fr.apartments.cosy_couple_nest.long_description": "Bienvenue au Cosy Couple Nest, votre refuge chaleureux au cœur de Vienne. Cet appartement charmant offre un lit double confortable, idéal pour les couples ou les voyageurs seuls qui apprécient le calme et le confort.\n\nLe coin salon vous invite à vous détendre avec une télévision moderne – parfait pour des soirées cinéma ou pour se relaxer après une journée bien remplie. Grâce au WiFi rapide et gratuit, vous restez connecté à tout moment, que ce soit pour le travail ou les loisirs.\n\nLa cuisine entièrement équipée comprend tout ce dont vous avez besoin pour cuisiner vous‑même : réfrigérateur, bouilloire, micro‑ondes, ustensiles de cuisine et vaisselle. Vous pouvez facilement préparer vos plats préférés.\n\nLa salle de bain moderne avec douche garantit un début de journée rafraîchissant ou des moments de détente en soirée.\n\nCosy Couple Nest : petit, charmant et parfait pour votre séjour à Vienne.",
+  "fr.apartments.cosy_couple_nest.name": "Cosy Couple Nest",
+  "fr.apartments.cosy_couple_nest.persons": "1-2",
+  "fr.apartments.cosy_couple_nest.rooms": "1 pièce",
+  "fr.apartments.cosy_couple_nest.section_title": "Votre nid chaleureux à Vienne",
+  "fr.apartments.cosy_couple_nest.size": "25m²",
+  
+  "fr.apartments.duo_deluxe_studio.beds": "1 lit double",
+  "fr.apartments.duo_deluxe_studio.description": "Un lit double moderne pour les couples ou les voyageurs seuls.",
+  "fr.apartments.duo_deluxe_studio.long_description": "Bienvenue au Duo Deluxe Studio – votre chez‑vous élégant loin de chez vous à Vienne. Ce studio moderne offre un lit double confortable, idéal pour les couples ou les voyageurs seuls qui apprécient le design et la fonctionnalité.\n\nLe coin salon est équipé d’une télévision de haute qualité, vous permettant de profiter de soirées relaxantes avec vos films ou séries préférés. Le WiFi rapide et gratuit vous garantit une connexion optimale à tout moment.\n\nLa cuisine bien équipée comprend tout ce dont vous avez besoin pour cuisiner vous‑même : réfrigérateur, bouilloire, micro‑ondes, ustensiles de cuisine et vaisselle. Vous pouvez préparer vos repas exactement comme vous les aimez.\n\nLa salle de bain moderne avec douche offre confort et fraîcheur après une longue journée en ville.\n\nDuo Deluxe Studio : élégant, moderne et parfait pour votre séjour à Vienne.",
+  "fr.apartments.duo_deluxe_studio.name": "Duo Deluxe Studio",
+  "fr.apartments.duo_deluxe_studio.persons": "1-2",
+  "fr.apartments.duo_deluxe_studio.rooms": "1 pièce",
+  "fr.apartments.duo_deluxe_studio.section_title": "Votre studio deluxe à Vienne",
+  "fr.apartments.duo_deluxe_studio.size": "30m²",
+  
+  "fr.apartments.luminous_lounge_apartment.description": "Un appartement lumineux avec beaucoup d’espace et de confort.",
+  "fr.apartments.luminous_lounge_apartment.long_description": "Bienvenue au Luminous Lounge Apartment, votre refuge lumineux à Vienne. Cet appartement spacieux offre un lit double confortable et beaucoup d’espace pour se détendre.\n\nLe coin salon est moderne et parfait pour des soirées tranquilles. Avec un WiFi rapide, vous restez toujours connecté.\n\nLa cuisine entièrement équipée comprend tout ce dont vous avez besoin : réfrigérateur, bouilloire, micro‑ondes, cuisinière et vaisselle.\n\nLa salle de bain moderne avec douche offre confort et fraîcheur.\n\nLuminous Lounge Apartment : lumineux, moderne et parfait pour les séjours plus longs.",
+  "fr.apartments.luminous_lounge_apartment.name": "Luminous Lounge Apartment",
+  "fr.apartments.luminous_lounge_apartment.persons": "1-2",
+  "fr.apartments.luminous_lounge_apartment.rooms": "1 pièce",
+  "fr.apartments.luminous_lounge_apartment.section_title": "Votre appartement lumineux à Vienne",
+  "fr.apartments.luminous_lounge_apartment.size": "35m²",
+  
+  "fr.apartments.twin_harmony_suite.beds": "2 lits simples",
+  "fr.apartments.twin_harmony_suite.description": "Deux lits simples confortables pour amis ou collègues.",
+  "fr.apartments.twin_harmony_suite.long_description": "Bienvenue à la Twin Harmony Suite – parfaite pour les amis, collègues ou voyageurs seuls qui préfèrent des lits séparés. Les deux lits simples confortables offrent flexibilité et confort.\n\nLe coin salon comprend une télévision moderne et vous invite à vous détendre. Le WiFi rapide vous garde connecté à tout moment.\n\nLa cuisine comprend tout ce dont vous avez besoin : réfrigérateur, bouilloire, micro‑ondes, cuisinière et vaisselle.\n\nLa salle de bain avec douche offre confort et fraîcheur.\n\nTwin Harmony Suite : flexible, confortable et idéale pour votre séjour à Vienne.",
+  "fr.apartments.twin_harmony_suite.name": "Twin Harmony Suite",
+  "fr.apartments.twin_harmony_suite.persons": "1-2",
+  "fr.apartments.twin_harmony_suite.rooms": "1 pièce",
+  "fr.apartments.twin_harmony_suite.section_title": "Votre suite flexible à Vienne",
+  "fr.apartments.twin_harmony_suite.size": "28m²"
+
 }
