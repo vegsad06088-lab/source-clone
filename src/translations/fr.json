@@ -1,0 +1,30 @@
+{
+  "fr.bookingConditions.title": "Conditions de réservation",
+  "fr.bookingConditions.intro": "Veuillez lire attentivement ces conditions de réservation avant de faire une réservation.",
+
+  "fr.bookingConditions.cancellation.title": "1. Politique d'annulation",
+  "fr.bookingConditions.cancellation.free": "Annulation gratuite jusqu'à 7 jours avant l'arrivée (14h00).",
+  "fr.bookingConditions.cancellation.late": "À partir de 7 jours avant l'arrivée, des frais d'annulation de 20 % s'appliquent.",
+
+  "fr.bookingConditions.payment.title": "2. Méthodes de paiement",
+  "fr.bookingConditions.payment.methods": "Les paiements peuvent être effectués via Stripe ou PayPal.",
+
+  "fr.bookingConditions.deposit.title": "3. Règles de dépôt et de paiement",
+  "fr.bookingConditions.deposit.first": "Dépôt de 20 % au moment de la réservation.",
+  "fr.bookingConditions.deposit.second": "Les 80 % restants doivent être payés au plus tard 7 jours avant l'arrivée.",
+
+  "fr.bookingConditions.cleaning.title": "4. Frais de ménage",
+  "fr.bookingConditions.cleaning.text": "Les frais de ménage sont inclus dans le prix total.",
+
+  "fr.bookingConditions.cityTax.title": "5. Taxe de séjour",
+  "fr.bookingConditions.cityTax.text": "La taxe de séjour est incluse dans le prix total.",
+
+  "fr.bookingConditions.checkin.title": "6. Arrivée & Départ",
+  "fr.bookingConditions.checkin.in": "Arrivée : après 14h00",
+  "fr.bookingConditions.checkin.out": "Départ : avant 10h00",
+  "fr.bookingConditions.checkin.lockbox": "Self check-in via boîte à clés.",
+
+  "fr.bookingConditions.more.title": "7. Informations supplémentaires",
+  "fr.bookingConditions.more.text": "Pour tous les détails juridiques, veuillez consulter nos",
+  "fr.bookingConditions.more.link": "Conditions générales"
+}
