@@ -1,5 +1,18 @@
 import { useI18n } from "@/lib/i18n";
 import { Link } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+
+export default function BookingConditionsPage() {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const route = params.get("route");
+    if (route) navigate(route, { replace: true });
+  }, []);
+
 
 export default function BookingConditionsPage() {
   const { t, lang, langPrefix } = useI18n();
