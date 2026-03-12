@@ -1,0 +1,30 @@
+{
+  "sq.bookingConditions.title": "Kushtet e rezervimit",
+  "sq.bookingConditions.intro": "Ju lutemi lexoni me kujdes këto kushte rezervimi para se të bëni një prenotim.",
+
+  "sq.bookingConditions.cancellation.title": "1. Politika e anulimit",
+  "sq.bookingConditions.cancellation.free": "Anulim falas deri në 7 ditë para mbërritjes (14:00).",
+  "sq.bookingConditions.cancellation.late": "Nga 7 ditë para mbërritjes aplikohet një tarifë anulimi prej 20% të çmimit të rezervimit.",
+
+  "sq.bookingConditions.payment.title": "2. Metodat e pagesës",
+  "sq.bookingConditions.payment.methods": "Pagesat mund të bëhen përmes Stripe ose PayPal.",
+
+  "sq.bookingConditions.deposit.title": "3. Rregullat e parapagimit dhe pagesës",
+  "sq.bookingConditions.deposit.first": "20% parapagim në momentin e rezervimit.",
+  "sq.bookingConditions.deposit.second": "80% e shumës së mbetur duhet të paguhet jo më vonë se 7 ditë para mbërritjes.",
+
+  "sq.bookingConditions.cleaning.title": "4. Tarifa e pastrimit",
+  "sq.bookingConditions.cleaning.text": "Tarifa e pastrimit është e përfshirë në çmimin total.",
+
+  "sq.bookingConditions.cityTax.title": "5. Taksa e qytetit",
+  "sq.bookingConditions.cityTax.text": "Taksa e qytetit është e përfshirë në çmimin total.",
+
+  "sq.bookingConditions.checkin.title": "6. Check-in & Check-out",
+  "sq.bookingConditions.checkin.in": "Check-in: pas orës 14:00",
+  "sq.bookingConditions.checkin.out": "Check-out: para orës 10:00",
+  "sq.bookingConditions.checkin.lockbox": "Self check-in përmes kutisë së çelësave.",
+
+  "sq.bookingConditions.more.title": "7. Informacione shtesë",
+  "sq.bookingConditions.more.text": "Për detaje të plota ligjore, ju lutemi referojuni",
+  "sq.bookingConditions.more.link": "Kushtet & Rregullat"
+  }
