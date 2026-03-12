@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { faqs } from "@/lib/data";
 import { useState } from "react";
 
-const CDN = "https://cdn.prod.website-files.com/6515f2606ac654c52d9c4bfa";
 
 export default function AboutPage() {
   const { t, langPrefix } = useI18n();
@@ -19,13 +18,10 @@ export default function AboutPage() {
         </div>
         <div className="relative z-10 text-center px-4">
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif font-bold text-background mb-4">
-            {t({ de: "Unser Herzschlag", en: "Our Heartbeat" })}
+            {t("about.hero.title")}
           </h1>
           <p className="text-lg text-background/90 max-w-2xl mx-auto">
-            {t({
-              de: "Im Puls von Wien schlagen wir eine Brücke zwischen modernem Wohnkomfort und nachhaltiger Verantwortung. Begleite uns auf unserer Reise.",
-              en: "In the pulse of Vienna, we bridge modern living comfort and sustainable responsibility. Join us on our journey.",
-            })}
+            {t("about.hero.subtitle")}
           </p>
         </div>
       </section>
@@ -33,10 +29,10 @@ export default function AboutPage() {
       {/* Location */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <h2 className="text-3xl font-serif font-bold text-foreground text-center mb-4">
-          {t({ de: "Unser Standort in Wien", en: "Our Location in Vienna" })}
+          {t("about.location.title")}
         </h2>
         <p className="text-center text-muted-foreground mb-12">
-          {t({ de: "Wiener Charme trifft moderne Eleganz. Dein perfekter Start für Stadterkundungen.", en: "Viennese charm meets modern elegance. Your perfect starting point for city explorations." })}
+          {t("about.location.subtitle")}
         </p>
         <div className="max-w-2xl mx-auto text-center">
           <h3 className="text-xl font-serif font-semibold text-foreground mb-2">Apartments zur Quelle</h3>
@@ -48,7 +44,7 @@ export default function AboutPage() {
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center px-6 py-3 text-sm font-medium text-primary-foreground bg-primary rounded-lg transition-smooth hover:opacity-90"
           >
-            {t({ de: "Karte öffnen", en: "Open Map" })}
+            {t("about.location.open_map")}
           </a>
         </div>
       </section>
@@ -57,11 +53,11 @@ export default function AboutPage() {
       <section className="bg-card py-12">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <h2 className="text-2xl font-serif font-bold text-foreground mb-3">
-            {t({ de: "Tipps für Deinen Aufenthalt in Wien.", en: "Tips for your stay in Vienna." })}
+            {t("about.viator.title")}
           </h2>
-          <p className="text-muted-foreground mb-6">{t({ de: "Entdecke die besten Touren, Tickets und Highlights für Deine Reise", en: "Discover the best tours, tickets and highlights for your trip" })}</p>
+          <p className="text-muted-foreground mb-6">{t("about.viator.subtitle")}</p>
           <a href="https://www.viator.com/Vienna/d454-ttd?localeSwitch=1&pid=P00290902&mcid=42383&medium=link" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-6 py-3 text-sm font-medium text-primary-foreground bg-primary rounded-lg transition-smooth hover:opacity-90">
-            {t({ de: "Jetzt entdecken", en: "Discover now" })}
+            {t("home.hero.cta_book")}
           </a>
         </div>
       </section>
@@ -69,13 +65,13 @@ export default function AboutPage() {
       {/* Your Home */}
       <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <h2 className="text-3xl font-serif font-bold text-foreground mb-6">
-          {t({ de: "Dein Zuhause in Wien", en: "Your Home in Vienna" })}
+          {t("about.home.title")}
         </h2>
         <p className="text-muted-foreground leading-relaxed mb-8">
-          {t({ de: "Tauche ein in das urbane Flair von Wien und genieße gleichzeitig den Komfort und die Privatsphäre unserer modernen Apartments. Jedes Zimmer ist stilvoll eingerichtet und spiegelt die vibrierende Energie dieser Stadt wider.", en: "Immerse yourself in the urban flair of Vienna while enjoying the comfort and privacy of our modern apartments. Every room is stylishly furnished and reflects the vibrant energy of this city." })}
+          {t("about.home.description")}
         </p>
         <h2 className="text-3xl font-serif font-bold text-foreground mb-6">
-          {t({ de: "Räume zum Wohlfühlen", en: "Rooms to Feel Good In" })}
+          {t("about.rooms.title")}
         </h2>
         <p className="text-muted-foreground leading-relaxed">
           {t({ de: "Wir wissen, wie wichtig es ist, einen gemütlichen Rückzugsort zu haben, besonders wenn man unterwegs ist. Unsere Apartments sind darauf ausgerichtet, dir genau das zu bieten.", en: "We know how important it is to have a cozy retreat, especially when traveling. Our apartments are designed to offer you exactly that." })}

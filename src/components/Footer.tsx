@@ -12,10 +12,7 @@ export default function Footer() {
           <div>
             <h2 className="text-xl font-serif text-foreground mb-4">AP Zur Quelle</h2>
             <p className="text-muted-foreground text-sm max-w-xs">
-              {t({
-                de: "Ihr Zuhause in Wien. Perfekt gelegen, modern ausgestattet.",
-                en: "Your home in Vienna. Perfectly located, modernly equipped.",
-              })}
+              {t("footer.brand_description")}
             </p>
             <div className="mt-4">
               <p className="text-sm text-muted-foreground">Absberggasse 6, 1100 Wien</p>
@@ -32,20 +29,20 @@ export default function Footer() {
           {/* Quick Links */}
           <div>
             <h3 className="text-sm font-medium text-foreground mb-4 uppercase tracking-wider font-sans">
-              {t({ de: "Schnellzugriff", en: "Quick Links" })}
+              {t("footer.quick_links")}
             </h3>
             <ul className="space-y-2 text-sm">
               <li><Link to={`${langPrefix}/apartments`} className="text-muted-foreground hover:text-primary transition-smooth">Apartments</Link></li>
-              <li><Link to={`${langPrefix}/about`} className="text-muted-foreground hover:text-primary transition-smooth">{t({ de: "Über uns", en: "About us" })}</Link></li>
-              <li><Link to={`${langPrefix}/contact`} className="text-muted-foreground hover:text-primary transition-smooth">{t({ de: "Kontakt", en: "Contact" })}</Link></li>
-              <li><Link to={`${langPrefix}/anleitungen`} className="text-muted-foreground hover:text-primary transition-smooth">{t({ de: "Anleitungen", en: "Instructions" })}</Link></li>
+              <li><Link to={`${langPrefix}/about`} className="text-muted-foreground hover:text-primary transition-smooth">{t("footer.about")}</Link></li>
+              <li><Link to={`${langPrefix}/contact`} className="text-muted-foreground hover:text-primary transition-smooth">{t("footer.contact")}</Link></li>
+              <li><Link to={`${langPrefix}/anleitungen`} className="text-muted-foreground hover:text-primary transition-smooth">{t("footer.instructions")}</Link></li>
             </ul>
           </div>
 
           {/* Legal */}
           <div>
             <h3 className="text-sm font-medium text-foreground mb-4 uppercase tracking-wider font-sans">
-              {t({ de: "Rechtliches", en: "Legal" })}
+              {t("footer.legal")}
             </h3>
             <ul className="space-y-2 text-sm">
               <li>
@@ -55,7 +52,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link to={`${langPrefix}/datenschutz`} className="text-muted-foreground hover:text-primary transition-smooth">
-                  {t({ de: "Datenschutz", en: "Privacy Policy" })}
+                  {t("footer.privacy_policy")}
                 </Link>
               </li>
               <li>
@@ -63,7 +60,7 @@ export default function Footer() {
                   to={`${langPrefix}/agb`}
                   className="text-muted-foreground hover:text-primary transition-smooth"
                 >
-                  {t({ de: "AGB", en: "Terms & Conditions" })}
+                  {t("footer.terms_conditions")}
                 </Link>
               </li>
               <li>
@@ -71,12 +68,12 @@ export default function Footer() {
                   to={`${langPrefix}/booking-conditions`}
                   className="text-muted-foreground hover:text-primary transition-smooth"
                 >
-                  {t({ de: "Buchungsbedingungen", en: "Booking Conditions" })}
+                  {t("footer.booking_conditions")}
                 </Link>
               </li>
               <li>
                 <Link to={`${langPrefix}/cookies`} className="text-muted-foreground hover:text-primary transition-smooth">
-                  {t({ de: "Cookie-Richtlinie", en: "Cookie Policy" })}
+                  {t("footer.cookie_policy")}
                 </Link>
               </li>
             </ul>
@@ -100,7 +97,7 @@ export default function Footer() {
         <div className="pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center text-xs text-muted-foreground">
           <p>© {new Date().getFullYear()} AP Zur Quelle. All rights reserved.</p>
           <p className="mt-2 md:mt-0">
-            {t({ de: "Design & Programmierung:", en: "Design & Programming:" })}{" "}
+            {t("footer.design_programming")}{" "}
             <span className="font-medium text-foreground">ap-zur-quelle Team</span>
           </p>
         </div>

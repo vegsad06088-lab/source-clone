@@ -3,8 +3,6 @@ import { apartments } from "@/lib/data";
 import ApartmentCard from "@/components/ApartmentCard";
 import PromoBanner from "@/components/PromoBanner";
 
-const CDN = "https://cdn.prod.website-files.com/6515f2606ac654c52d9c4bfa";
-
 export default function ApartmentsPage() {
   const { t } = useI18n();
 

@@ -1,5 +1,3 @@
-const CDN = "https://cdn.prod.website-files.com/6515f2606ac654c52d9c4bfa";
-const CDN2 = "https://cdn.prod.website-files.com/6515f2606ac654c52d9c4c6a";
 
 export const apartments = [
   {

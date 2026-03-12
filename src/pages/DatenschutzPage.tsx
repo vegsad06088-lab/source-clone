@@ -7,38 +7,35 @@ export default function DatenschutzPage() {
     <div className="pt-32 pb-20">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <h1 className="text-4xl font-serif font-bold text-foreground mb-4">
-          {t({ de: "Datenschutzerklärung", en: "Privacy Policy" })}
+          {t("en.datenschutz.title")}
         </h1>
         <p className="text-muted-foreground mb-8">
-          {t({ de: "Unser Engagement für Ihre Privatsphäre und Datensicherheit", en: "Our commitment to your privacy and data security" })}
+          {t("en.datenschutz.subtitle")}
         </p>
 
         <div className="prose prose-slate max-w-none text-muted-foreground text-sm leading-relaxed space-y-6">
           <section>
-            <h2 className="text-xl font-serif font-bold text-foreground">{t({ de: "Präambel", en: "Preamble" })}</h2>
-            <p>{t({
-              de: "Mit der folgenden Datenschutzerklärung möchten wir Sie darüber aufklären, welche Arten Ihrer personenbezogenen Daten (nachfolgend auch kurz als \"Daten\" bezeichnet) wir zu welchen Zwecken und in welchem Umfang verarbeiten. Die Datenschutzerklärung gilt für alle von uns durchgeführten Verarbeitungen personenbezogener Daten, sowohl im Rahmen der Erbringung unserer Leistungen als auch insbesondere auf unseren Webseiten, in mobilen Applikationen sowie innerhalb externer Onlinepräsenzen, wie z. B. unserer Social-Media-Profile.",
-              en: "With the following privacy policy, we would like to inform you about the types of personal data (hereinafter also referred to as \"data\") we process, for what purposes and to what extent. The privacy policy applies to all processing of personal data carried out by us, both in the context of providing our services and in particular on our websites, mobile applications and external online presences."
-            })}</p>
-            <p>{t({ de: "Stand: März 2026", en: "Last updated: March 2026" })}</p>
+            <h2 className="text-xl font-serif font-bold text-foreground">{t("en.datenschutz.preamble.title")}</h2>
+            <p>{t("en.datenschutz.preamble.text")}</p>
+            <p>{t("en.datenschutz.preamble.lastUpdated")}</p>
           </section>
 
           <section>
-            <h2 className="text-xl font-serif font-bold text-foreground">{t({ de: "Verantwortlicher", en: "Controller" })}</h2>
+            <h2 className="text-xl font-serif font-bold text-foreground">{t("en.datenschutz.controller.title")}</h2>
             <p>Christine Führer GmbH<br />Absberggasse 6<br />1100 Wien - AT</p>
             <p>E-Mail: <a href="mailto:info@ap-zur-quelle.at" className="text-primary hover:underline">info@ap-zur-quelle.at</a></p>
             <p>Impressum: <a href="/impressum" className="text-primary hover:underline">ap-zur-quelle.at/impressum</a></p>
           </section>
 
           <section>
-            <h2 className="text-xl font-serif font-bold text-foreground">{t({ de: "Übersicht der Verarbeitungen", en: "Overview of Processing" })}</h2>
-            <h3 className="text-lg font-sans font-semibold text-foreground">{t({ de: "Arten der verarbeiteten Daten", en: "Types of Data Processed" })}</h3>
+            <h2 className="text-xl font-serif font-bold text-foreground">{t("en.datenschutz.processing.title")}</h2>
+            <h3 className="text-lg font-sans font-semibold text-foreground">{t("en.datenschutz.processing.types")}</h3>
             <ul className="list-disc pl-5">
-              <li>{t({ de: "Bestandsdaten", en: "Master data" })}</li>
-              <li>{t({ de: "Kontaktdaten", en: "Contact data" })}</li>
-              <li>{t({ de: "Inhaltsdaten", en: "Content data" })}</li>
-              <li>{t({ de: "Nutzungsdaten", en: "Usage data" })}</li>
-              <li>{t({ de: "Meta-, Kommunikations- und Verfahrensdaten", en: "Meta, communication and process data" })}</li>
+              <li>{t("en.datenschutz.processing.masterData")}</li>
+              <li>{t("en.datenschutz.processing.contactData")}</li>
+              <li>{t("en.datenschutz.processing.contentData")}</li>
+              <li>{t("en.datenschutz.processing.usageData")}</li>
+              <li>{t("en.datenschutz.processing.metaData")}</li>
             </ul>
           </section>
 

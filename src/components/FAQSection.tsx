@@ -9,14 +9,11 @@ export default function FAQSection() {
   return (
     <section className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
       <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground text-center mb-4">
-        {t({ de: "Häufige Fragen", en: "Frequently Asked Questions" })}
+        {t("faq.section.title")}
       </h2>
 
       <p className="text-center text-muted-foreground mb-12">
-        {t({
-          de: "Finde hier schnelle Antworten rund um Deinen Aufenthalt bei uns.",
-          en: "Find quick answers about your stay with us here.",
-        })}
+        {t("faq.section.subtitle")}
       </p>
 
       <div className="space-y-3">
