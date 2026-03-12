@@ -1,0 +1,30 @@
+{
+  "es.bookingConditions.title": "Condiciones de reserva",
+  "es.bookingConditions.intro": "Lea atentamente estas condiciones de reserva antes de realizar una reserva.",
+
+  "es.bookingConditions.cancellation.title": "1. Política de cancelación",
+  "es.bookingConditions.cancellation.free": "Cancelación gratuita hasta 7 días antes de la llegada (14:00).",
+  "es.bookingConditions.cancellation.late": "A partir de 7 días antes de la llegada, se aplica una tarifa de cancelación del 20% del precio de la reserva.",
+
+  "es.bookingConditions.payment.title": "2. Métodos de pago",
+  "es.bookingConditions.payment.methods": "Los pagos pueden realizarse a través de Stripe o PayPal.",
+
+  "es.bookingConditions.deposit.title": "3. Normas de depósito y pago",
+  "es.bookingConditions.deposit.first": "Depósito del 20% al momento de la reserva.",
+  "es.bookingConditions.deposit.second": "El 80% restante debe pagarse como máximo 7 días antes de la llegada.",
+
+  "es.bookingConditions.cleaning.title": "4. Tarifa de limpieza",
+  "es.bookingConditions.cleaning.text": "La tarifa de limpieza está incluida en el precio total.",
+
+  "es.bookingConditions.cityTax.title": "5. Impuesto municipal",
+  "es.bookingConditions.cityTax.text": "El impuesto municipal está incluido en el precio total.",
+
+  "es.bookingConditions.checkin.title": "6. Check-in & Check-out",
+  "es.bookingConditions.checkin.in": "Check-in: después de las 14:00",
+  "es.bookingConditions.checkin.out": "Check-out: antes de las 10:00",
+  "es.bookingConditions.checkin.lockbox": "Self check-in mediante caja de llaves.",
+
+  "es.bookingConditions.more.title": "7. Información adicional",
+  "es.bookingConditions.more.text": "Para todos los detalles legales, consulte nuestros",
+  "es.bookingConditions.more.link": "Términos y condiciones"
+}
