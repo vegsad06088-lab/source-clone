@@ -6,6 +6,10 @@ import { useLocation } from "react-router-dom";
 
 const { pathname } = useLocation();
 
+const isActive = (path: string) =>
+  pathname === path || pathname === `/en${path}`;
+
+
 export default function Layout() {
   return (
     <div className="min-h-screen flex flex-col">
