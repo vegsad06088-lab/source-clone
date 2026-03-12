@@ -50,6 +50,7 @@ const App = () => (
               <Route path="/cookies" element={<CookiePolicy />} />
               <Route path="/impressum" element={<ImpressumPage />} />
               <Route path="/agb" element={<AGBPage />} />
+              <Route path="/booking-conditions" element={<BookingConditionsPage />} />
             
 
               {/* English routes */}
@@ -67,7 +68,9 @@ const App = () => (
               <Route path="/en/cookies" element={<CookiePolicy />} />
               <Route path="/en/impressum" element={<ImpressumPage />} />
               <Route path="/en/terms" element={<AGBPage />} />
+              <Route path="/en/booking-conditions" element={<BookingConditionsPage />} />
 
+              
               {/* 404 */}
               <Route path="*" element={<NotFound />} />
 
