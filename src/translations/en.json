@@ -75,5 +75,52 @@
   "en.apartments.twin_harmony_suite.persons": "1-2",
   "en.apartments.twin_harmony_suite.rooms": "1 room",
   "en.apartments.twin_harmony_suite.section_title": "Your flexible suite in Vienna",
-  "en.apartments.twin_harmony_suite.size": "28m²"
+  "en.apartments.twin_harmony_suite.size": "28m²",
+
+  "en.amenities.self_check_in": "Self-Check-In",
+"en.amenities.accessible": "Accessible",
+"en.amenities.non_smoking": "Non-Smoking",
+"en.amenities.wifi_250_mbit": "250 Mbit/s",
+"en.amenities.tv": "TV",
+"en.amenities.hair_dryer": "Hair Dryer",
+"en.amenities.shower": "Shower",
+"en.amenities.towels": "Towels",
+"en.amenities.refrigerator": "Refrigerator",
+"en.amenities.microwave": "Microwave",
+"en.amenities.stove": "Stove",
+"en.amenities.kettle": "Kettle",
+
+"en.instructions.check_in_guide.title": "Check-in Guide",
+"en.instructions.check_in_guide.description": "Quick and easy instructions for your self-check-in. Learn how to safely and easily access your apartment.",
+
+"en.instructions.iron_board.title": "Iron & Ironing Board",
+"en.instructions.iron_board.description": "The iron and ironing board are located on the ground floor. Follow the instructions to use them safely.",
+
+"en.instructions.parking_options.title": "Parking Options",
+"en.instructions.parking_options.description": "Easy parking: Our underground garage and nearby public parking spaces offer flexible options for your stay.",
+
+"en.instructions.check_out_guide.title": "Check-out Guide",
+"en.instructions.check_out_guide.description": "We hope you had a pleasant stay! Before you leave, please follow these steps.",
+
+"en.instructions.public_transport_vienna.title": "Public Transport in Vienna",
+"en.instructions.public_transport_vienna.description": "Vienna offers an excellent public transport network that allows you to get around the city quickly and comfortably.",
+
+"en.instructions.luggage_before_check_in.title": "Luggage Storage Before Check-In",
+"en.instructions.luggage_before_check_in.description": "We're happy to offer you the opportunity to safely store your luggage with us if your apartment isn't ready yet.",
+
+"en.instructions.luggage_after_check_out.title": "Luggage Storage After Check-Out",
+"en.instructions.luggage_after_check_out.description": "You're welcome to leave your luggage with us after check-out.",
+
+"en.instructions.heating_control.title": "Heating Control Guide",
+"en.instructions.heating_control.description": "Follow these steps to optimally adjust your heating. A detailed guide with images is also available as a PDF download.",
+
+"en.instructions.tv_guide.title": "TV Guide",
+"en.instructions.tv_guide.description": "Here you'll find a simple step-by-step guide for using the TV in your apartment.",
+
+"en.instructions.induction_cooktop.title": "Induction Cooktop Guide",
+"en.instructions.induction_cooktop.description": "Cook quickly and safely: Learn in a few steps how to use the induction cooktop optimally and what to pay attention to.",
+
+"en.instructions.discover_vienna_kids.title": "🧸 Discover Vienna with Kids",
+"en.instructions.discover_vienna_kids.description": "Family-friendly tips for your stay in Vienna – from excursions to quiet breaks with children."
+
 }
