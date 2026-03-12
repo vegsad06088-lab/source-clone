@@ -61,6 +61,53 @@
 "tr.apartments.twin_harmony_suite.persons": "1-2",
 "tr.apartments.twin_harmony_suite.rooms": "1 oda",
 "tr.apartments.twin_harmony_suite.section_title": "Viyana’daki esnek süitinız",
-"tr.apartments.twin_harmony_suite.size": "28m²"
+"tr.apartments.twin_harmony_suite.size": "28m²",
+
+  "tr.amenities.self_check_in": "Self-Check-In",
+"tr.amenities.accessible": "Engelli erişimine uygun",
+"tr.amenities.non_smoking": "Sigara içilmez",
+"tr.amenities.wifi_250_mbit": "250 Mbit/s",
+"tr.amenities.tv": "TV",
+"tr.amenities.hair_dryer": "Saç kurutma makinesi",
+"tr.amenities.shower": "Duş",
+"tr.amenities.towels": "Havlular",
+"tr.amenities.refrigerator": "Buzdolabı",
+"tr.amenities.microwave": "Mikrodalga",
+"tr.amenities.stove": "Ocak",
+"tr.amenities.kettle": "Su ısıtıcısı",
+
+"tr.instructions.check_in_guide.title": "Check-In Rehberi",
+"tr.instructions.check_in_guide.description": "Self check-in için hızlı ve kolay talimatlar. Dairene güvenli ve sorunsuz bir şekilde nasıl giriş yapacağını öğren.",
+
+"tr.instructions.iron_board.title": "Ütü ve Ütü Masası",
+"tr.instructions.iron_board.description": "Ütü ve ütü masası zemin katta bulunmaktadır. Güvenli kullanım için talimatları takip et.",
+
+"tr.instructions.parking_options.title": "Park Seçenekleri",
+"tr.instructions.parking_options.description": "Kolay park: Yer altı otoparkımız ve yakınlardaki halka açık park alanları konaklaman için esnek seçenekler sunar.",
+
+"tr.instructions.check_out_guide.title": "Check-Out Rehberi",
+"tr.instructions.check_out_guide.description": "Umarız keyifli bir konaklama geçirdin! Ayrılmadan önce lütfen şu adımları takip et.",
+
+"tr.instructions.public_transport_vienna.title": "Viyana'da Toplu Taşıma",
+"tr.instructions.public_transport_vienna.description": "Viyana, şehirde hızlı ve rahat bir şekilde dolaşmanı sağlayan mükemmel bir toplu taşıma ağı sunar.",
+
+"tr.instructions.luggage_before_check_in.title": "Check-In Öncesi Bagaj Depolama",
+"tr.instructions.luggage_before_check_in.description": "Dairen henüz hazır değilse, bagajını güvenle saklaman için memnuniyetle yardımcı oluruz.",
+
+"tr.instructions.luggage_after_check_out.title": "Check-Out Sonrası Bagaj Depolama",
+"tr.instructions.luggage_after_check_out.description": "Check-out sonrası bagajını bizde bırakabilirsin.",
+
+"tr.instructions.heating_control.title": "Isıtma Kontrol Rehberi",
+"tr.instructions.heating_control.description": "Isıtmayı en iyi şekilde ayarlamak için bu adımları takip et. Görseller içeren detaylı bir PDF rehberi de mevcuttur.",
+
+"tr.instructions.tv_guide.title": "TV Rehberi",
+"tr.instructions.tv_guide.description": "Dairendeki TV'yi kullanmak için basit bir adım adım rehber burada.",
+
+"tr.instructions.induction_cooktop.title": "İndüksiyon Ocak Rehberi",
+"tr.instructions.induction_cooktop.description": "Hızlı ve güvenli pişirme: İndüksiyon ocağını en iyi şekilde nasıl kullanacağını ve nelere dikkat etmen gerektiğini birkaç adımda öğren.",
+
+"tr.instructions.discover_vienna_kids.title": "🧸 Çocuklarla Viyana'yı Keşfet",
+"tr.instructions.discover_vienna_kids.description": "Viyana'daki konaklamanız için aile dostu öneriler – gezilerden çocuklarla sakin molalara kadar."
+
 
 }
