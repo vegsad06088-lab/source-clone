@@ -22,9 +22,6 @@ import BookingConditionsPage from "@/pages/BookingConditionsPage";
 
 const queryClient = new QueryClient();
 
-// ------------------------------
-// Language Wrapper
-// ------------------------------
 function LangWrapper() {
   const { lang } = useParams();
 
@@ -59,28 +56,22 @@ function LangWrapper() {
   );
 }
 
-// ------------------------------
-// Main App
-// ------------------------------
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
+export default function App() {
+  return (
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
 
-      <BrowserRouter>
-        <ScrollToTop />
+        <BrowserRouter>
+          <ScrollToTop />
 
-        <Routes>
-          {/* Multi-language routes */}
-          <Route path="/:lang/*" element={<LangWrapper />} />
-
-          {/* Default redirect to German */}
-          <Route path="*" element={<Navigate to="/de" replace />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
-
-export default App;
+          <Routes>
+            <Route path="/:lang/*" element={<LangWrapper />} />
+            <Route path="*" element={<Navigate to="/de" replace />} />
+          </Routes>
+        </BrowserRouter>
+      </TooltipProvider>
+    </QueryClientProvider>
+  );
+}
