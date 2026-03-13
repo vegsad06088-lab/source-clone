@@ -3,15 +3,32 @@ import React, { createContext, useContext, useState, useCallback, useEffect } fr
 // ============================================
 // CONFIGURATION: Customize available languages
 // ============================================
-// Change this to include only the languages you need
-// Example: ["de", "en"] for German and English only
-export const LANGUAGE_PACK = ["de", "en", "sq", "fr", "it", "es", "tr"] as const;
+// To add a new language, follow these 3 simple steps:
+//
+// 1. Add language code to LANGUAGE_PACK below
+//    Example: ["de", "en", "sq", "ru", "ja"]
+//
+// 2. Add language metadata to LANGUAGE_METADATA in 
+//    src/components/LanguageSelector.tsx
+//    (already pre-populated with common languages)
+//
+// 3. Create translation JSON file: src/translations/{code}.json
+//    Copy structure from de.json or en.json as template
+//
+// That's it! The language will automatically appear in the selector
+// and work throughout the entire application.
+// ============================================
+//export const LANGUAGE_PACK = ["de", "en", "sq", "ru", "fr", "it", "es", "tr", "ja", "zh"] as const;
+export const LANGUAGE_PACK = ["de", "en", "sq"] as const;
 
 // ============================================
 // CONFIGURATION: Set the default language
 // ============================================
-// This language will be used if no language preference is detected
+// This language is used for two purposes:
+// 1. Default if no language preference is detected
+// 2. Fallback for missing translation keys
 // Must be one of the languages in LANGUAGE_PACK above
+// Change this to any language in LANGUAGE_PACK to customize fallback behavior
 export const DEFAULT_LANGUAGE: typeof LANGUAGE_PACK[number] = "de";
 
 export type Lang = typeof LANGUAGE_PACK[number];
@@ -58,29 +75,38 @@ export function I18nProvider({
   useEffect(() => {
     const loadTranslations = async () => {
       try {
-        const translationFiles: Record<Lang, any> = {
-          de: null,
-          en: null,
-          sq: null,
-          fr: null,
-          it: null,
-          es: null,
-          tr: null,
-        };
+        const translationFiles: Record<Lang, any> = {} as Record<Lang, any>;
+        const allTranslations: Record<string, string> = {}; // Flat object for all translations
+        const loadedLanguages: string[] = [];
+        const missingLanguages: string[] = [];
 
-        // Load all translation files
+        // Load translation files for languages in LANGUAGE_PACK
         for (const lng of LANGUAGE_PACK) {
           try {
             const module = await import(`../translations/${lng}.json`);
-            translationFiles[lng] = module.default || module;
+            const langTranslations = module.default || module;
+            translationFiles[lng] = langTranslations;
+            // Merge all translations into a flat object
+            Object.assign(allTranslations, langTranslations);
+            loadedLanguages.push(lng);
           } catch (err) {
-            console.warn(`Failed to load translations for ${lng}`);
+            missingLanguages.push(lng);
+            console.warn(`⚠️ Translation file not found for language "${lng}". Expected: src/translations/${lng}.json`);
+            console.warn(`   This language won't be available until you create the translation file.`);
           }
         }
 
-        setTranslations(translationFiles);
+        setTranslations(allTranslations);
+        
+        // Log summary
+        if (loadedLanguages.length > 0) {
+          console.log(`✅ Loaded translations: ${loadedLanguages.join(", ")}`);
+        }
+        if (missingLanguages.length > 0) {
+          console.warn(`⚠️ Missing translations: ${missingLanguages.join(", ")}`);
+        }
       } catch (err) {
-        console.error("Failed to load translations", err);
+        console.error("❌ Failed to initialize translation system", err);
       }
     };
 
@@ -95,13 +121,23 @@ export function I18nProvider({
     (texts: TranslationObject | string) => {
       // If it's a string (key), look it up in translations
       if (typeof texts === "string") {
-        // Add language prefix since translation files have keys like "de.footer.contact"
+        // Translation files have flattened keys with language prefix (e.g., "de.home.hero.title")
         const key = `${lang}.${texts}`;
-        if (translations[lang] && translations[lang][key]) {
-          return translations[lang][key];
+        
+        // Try current language first
+        if (translations && translations[key]) {
+          return translations[key];
         }
-        // Fallback to key itself if not found
-        console.warn(`Translation key not found: ${key}`);
+        
+        // Fallback to default language
+        const defaultKey = `${DEFAULT_LANGUAGE}.${texts}`;
+        if (translations && translations[defaultKey]) {
+          console.warn(`Translation key missing for ${lang}: ${key}, falling back to ${DEFAULT_LANGUAGE}`);
+          return translations[defaultKey];
+        }
+        
+        // Last resort: return the key itself
+        console.warn(`Translation key not found in any language: ${key}`);
         return texts;
       }
 

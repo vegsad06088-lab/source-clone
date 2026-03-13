@@ -36,17 +36,17 @@ export default function ApartmentCard({ id, name, image, descriptionKey, persons
         <h3 className="text-xl font-serif font-semibold text-foreground mb-2">{name}</h3>
         <p className="text-sm text-muted-foreground mb-4 line-clamp-2">{t(descriptionKey)}</p>
         <div className="flex items-center gap-4 text-xs text-muted-foreground mb-3">
-          <span className="flex items-center gap-1">👤 {persons} {t({ de: "Personen", en: "Persons" })}</span>
+          <span className="flex items-center gap-1">👤 {persons} {t("apartment.card.persons")}</span>
           <span className="flex items-center gap-1">🛏️ {t(bedsKey)}</span>
         </div>
         <div className="flex items-end justify-between">
           <div>
-            <span className="text-sm text-muted-foreground">{t({ de: "ab", en: "from" })}</span>
+            <span className="text-sm text-muted-foreground">{t("apartment.card.from")}</span>
             <span className="text-xl font-semibold text-foreground ml-1">€{price}</span>
-            <span className="text-sm text-muted-foreground">/{t({ de: "Nacht", en: "Night" })}</span>
+            <span className="text-sm text-muted-foreground">/{t("apartment.card.night")}</span>
           </div>
           <span className="text-sm font-medium text-primary group-hover:underline">
-            {t({ de: "Details ansehen", en: "View details" })} →
+            {t("apartment.card.view_details")} →
           </span>
         </div>
       </div>

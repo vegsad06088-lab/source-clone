@@ -9,37 +9,37 @@ import { useEffect } from "react";
 export default function HomePage() {
   const { t, langPrefix } = useI18n();
 
-  // useEffect(() => {
-//   const script = document.createElement("script");
-//   script.src = "https://login.smoobu.com/js/Settings/BookingToolIframe.js";
-//   script.async = true;
-//
-//   script.onload = () => {
-//     if (window.BookingToolIframe) {
-//       window.BookingToolIframe.initialize({
-//         url: "https://login.smoobu.com/en/booking-tool/iframe/1656615?newTabAfterSearch=true",
-//         baseUrl: "https://login.smoobu.com",
-//         target: "#apartmentIframeAll",
-//       });
-//     }
-//   };
-//
-//   document.body.appendChild(script);
-// }, []);
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://login.smoobu.com/js/Settings/BookingToolIframe.js";
+    script.async = true;
+
+    script.onload = () => {
+      if (window.BookingToolIframe) {
+        window.BookingToolIframe.initialize({
+          url: "https://login.smoobu.com/en/booking-tool/iframe/1656615?newTabAfterSearch=true",
+          baseUrl: "https://login.smoobu.com",
+          target: "#apartmentIframeAll",
+        });
+      }
+    };
+
+    document.body.appendChild(script);
+  }, []);
 
   return (
     <div>
       {/* Hero */}
       <section 
-        className="relative w-screen h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-700 to-gray-800"
+        className="relative w-screen h-[85vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-700 to-gray-800"
         style={{
-          backgroundImage: 'url(/images/652938d0b1ddde3e7ecc4cac_151351.avif)',
+          backgroundImage: 'url(/images/65292a8ac576df93df55e85a_Titelbild_3.avif)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
       >
         <img
-          src="/images/652938d0b1ddde3e7ecc4cac_151351.avif"
+          src="/images/65292a8ac576df93df55e85a_Titelbild_3.avif"
           alt="Apartments zur Quelle"
           className="absolute inset-0 w-full h-full object-cover"
           onError={(e) => {
@@ -77,32 +77,34 @@ export default function HomePage() {
       </section>
 
       {/* Booking Widget */}
-      <section className="bg-card py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground text-center mb-4">
+      <section className="bg-card py-12 sm:py-16 lg:py-20">
+        <div className="container-modern">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-foreground text-center mb-2 sm:mb-4">
             {t("home.booking.title")}
           </h2>
 
-          <p className="text-center text-muted-foreground mb-4 max-w-2xl mx-auto">
+          <p className="text-center text-muted-foreground mb-3 sm:mb-4 max-w-2xl mx-auto text-sm sm:text-base">
             {t("home.booking.subtitle")}
           </p>
 
-          <p className="text-center text-sm text-yellow-600 font-medium mb-6">
+          <p className="text-center text-xs sm:text-sm text-yellow-600 font-medium mb-4 sm:mb-6">
             {t("home.booking.minimum_stay")}
           </p>
 
-          <p className="text-center mb-6">
+          <p className="text-center mb-6 sm:mb-8">
             <Link
               to={`${langPrefix}/booking-conditions`}
-              className="text-primary underline hover:text-primary/80 transition-smooth"
+              className="text-primary underline hover:text-primary/80 transition-smooth text-sm sm:text-base"
             >
               {t("home.booking.conditions_link")}
             </Link>
           </p>
 
-          {/* <div className="bg-background rounded-2xl shadow-card overflow-hidden">
-  <div id="apartmentIframeAll" style={{ minHeight: "400px" }} />
-</div> */}
+          <div className="flex justify-center">
+            <div className="w-full max-w-4xl bg-background rounded-2xl shadow-card overflow-hidden">
+              <div id="apartmentIframeAll" style={{ minHeight: "180px", width: "100%" }} />
+            </div>
+          </div>
 
         </div>
       </section>
@@ -110,49 +112,53 @@ export default function HomePage() {
       <PromoBanner />
 
       {/* Apartments */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground text-center mb-12">
-          {t("home.apartments.title")}
-        </h2>
+      <section className="w-full py-20 bg-background">
+        <div className="mx-auto w-full px-4 sm:px-6 lg:px-8 max-w-6xl">
+          <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground text-center mb-12">
+            {t("home.apartments.title")}
+          </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {apartments.map((apt) => (
-            <ApartmentCard key={apt.id} {...apt} />
-          ))}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {apartments.map((apt) => (
+              <ApartmentCard key={apt.id} {...apt} />
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Features */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground text-center mb-4">
-          {t("home.features.title")}
-        </h2>
+      <section className="w-full py-20 bg-background">
+        <div className="mx-auto w-full px-4 sm:px-6 lg:px-8 max-w-6xl">
+          <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground text-center mb-4">
+            {t("home.features.title")}
+          </h2>
 
-        <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-          {t("home.features.subtitle")}
-        </p>
+          <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
+            {t("home.features.subtitle")}
+          </p>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
-          {features.map((f, i) => (
-            <div key={i} className="text-center group">
-              <div className="flex items-center justify-center mb-3">
-                <img
-                  src={f.image}
-                  alt={t(f.titleKey)}
-                  className="w-10 h-10 sm:w-12 sm:h-12 object-contain transition-transform duration-300 group-hover:scale-110"
-                  loading="lazy"
-                />
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+            {features.map((f, i) => (
+              <div key={i} className="text-center group">
+                <div className="flex items-center justify-center mb-3">
+                  <img
+                    src={f.image}
+                    alt={t(f.titleKey)}
+                    className="w-10 h-10 sm:w-12 sm:h-12 object-contain transition-transform duration-300 group-hover:scale-110"
+                    loading="lazy"
+                  />
+                </div>
+
+                <h3 className="text-sm font-semibold text-foreground font-sans">
+                  {t(f.titleKey)}
+                </h3>
+
+                <p className="text-xs text-muted-foreground mt-1">
+                  {t(f.titleKey)}
+                </p>
               </div>
-
-              <h3 className="text-sm font-semibold text-foreground font-sans">
-                {t(f.titleKey)}
-              </h3>
-
-              <p className="text-xs text-muted-foreground mt-1">
-                {t(f.titleKey)}
-              </p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 
@@ -186,23 +192,25 @@ export default function HomePage() {
       </section>
 
       {/* Why Us */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground text-center mb-4">
-          {t("home.why_us.title")}
-        </h2>
+      <section className="w-full py-20 bg-background">
+        <div className="mx-auto w-full px-4 sm:px-6 lg:px-8 max-w-6xl">
+          <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground text-center mb-4">
+            {t("home.why_us.title")}
+          </h2>
 
-        <p className="text-center text-muted-foreground mb-12 max-w-3xl mx-auto">
-          {t("home.why_us.subtitle")}
-        </p>
+          <p className="text-center text-muted-foreground mb-12 max-w-3xl mx-auto">
+            {t("home.why_us.subtitle")}
+          </p>
 
-        <p className="text-center text-muted-foreground max-w-3xl mx-auto">
-          {t("home.why_us.description")}
-        </p>
+          <p className="text-center text-muted-foreground max-w-3xl mx-auto">
+            {t("home.why_us.description")}
+          </p>
+        </div>
       </section>
 
       {/* Reviews */}
       <section className="bg-card py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container-modern">
           <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground text-center mb-4">
             {t("home.reviews.title")}
           </h2>
@@ -240,21 +248,23 @@ export default function HomePage() {
       <FAQSection />
 
       {/* Final CTA */}
-      <section className="max-w-4xl mx-auto px-4 py-20 text-center">
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link
-            to={`${langPrefix}/apartments`}
-            className="inline-flex items-center justify-center px-8 py-3.5 text-base font-medium text-primary-foreground bg-primary rounded-lg shadow-card hover:shadow-card-hover transition-smooth"
-          >
-            {t("home.hero.cta_book")}
-          </Link>
+      <section className="w-full py-20 bg-background">
+        <div className="mx-auto w-full px-4 sm:px-6 lg:px-8 max-w-4xl text-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              to={`${langPrefix}/apartments`}
+              className="inline-flex items-center justify-center px-8 py-3.5 text-base font-medium text-primary-foreground bg-primary rounded-lg shadow-card hover:shadow-card-hover transition-smooth"
+            >
+              {t("home.hero.cta_book")}
+            </Link>
 
-          <Link
-            to={`${langPrefix}/about`}
-            className="inline-flex items-center justify-center px-8 py-3.5 text-base font-medium text-foreground bg-muted rounded-lg transition-smooth hover:bg-muted/80"
-          >
-            {t("home.hero.cta_about")}
-          </Link>
+            <Link
+              to={`${langPrefix}/about`}
+              className="inline-flex items-center justify-center px-8 py-3.5 text-base font-medium text-foreground bg-muted rounded-lg transition-smooth hover:bg-muted/80"
+            >
+              {t("home.hero.cta_about")}
+            </Link>
+          </div>
         </div>
       </section>
     </div>

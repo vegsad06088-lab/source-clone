@@ -50,8 +50,9 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Form */}
-      <section className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 -mt-12 relative z-20">
-        <div className="bg-background rounded-2xl shadow-elevated p-8">
+      <section className="w-full px-4 sm:px-6 lg:px-8 py-16 -mt-12 relative z-20">
+        <div className="mx-auto max-w-xl">
+          <div className="bg-background rounded-2xl shadow-elevated p-8">
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div>
@@ -149,11 +150,13 @@ export default function ContactPage() {
             )}
           </form>
         </div>
+        </div>
       </section>
 
       {/* Contact Cards */}
-      <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+      <section className="w-full px-4 sm:px-6 lg:px-8 pb-16">
+        <div className="mx-auto max-w-2xl">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
           <a href="mailto:info@ap-zur-quelle.at" className="flex flex-col items-center gap-3 p-8 bg-card rounded-2xl shadow-card hover:shadow-card-hover transition-smooth text-center group">
             <Mail className="w-8 h-8 text-primary" />
             <h3 className="text-base font-semibold text-foreground font-sans">
@@ -181,11 +184,13 @@ export default function ContactPage() {
             <p className="text-sm text-primary group-hover:underline">Absberggasse 6, 1100 Wien</p>
           </a>
         </div>
+        </div>
       </section>
 
       {/* Viator */}
-      <section className="bg-card py-12">
-        <div className="max-w-7xl mx-auto px-4 text-center">
+      <section className="bg-card py-12 bg-cover bg-center bg-no-repeat relative" style={{ backgroundImage: 'url(/images/opera.avif)' }}>
+        <div className="absolute inset-0 bg-black/40"></div>
+        <div className="max-w-7xl mx-auto px-4 text-center relative z-10">
           <h2 className="text-2xl font-serif font-bold text-foreground mb-3">
             {t("contact.recommendations_title")}
           </h2>
@@ -196,7 +201,7 @@ export default function ContactPage() {
             href="https://www.viator.com/Vienna/d454-ttd?localeSwitch=1&pid=P00290902&mcid=42383&medium=link"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center px-6 py-3 text-sm font-medium text-primary-foreground bg-primary rounded-lg transition-smooth hover:opacity-90"
+            className="inline-flex items-center justify-center px-6 py-3 text-sm font-medium text-primary bg-white rounded-lg transition-smooth hover:opacity-90"
           >
             {t("home.hero.cta_book")}
           </a>

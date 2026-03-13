@@ -150,7 +150,7 @@ export default function AnleitungDetailPage() {
         <div className="absolute bottom-0 left-0 right-0 z-10">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-8">
             <span className="text-xs font-medium text-white/80 uppercase tracking-wider font-sans">
-              {instruction.category === "apartments" ? "Apartments" : t({ de: "Standort & Umgebung", en: "Location & Area" })}
+              {instruction.category === "apartments" ? t("anleitungen.category.apartments") : t("anleitungen.category.location")}
             </span>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-white mt-2">
               {t(instruction.titleKey)}
@@ -163,7 +163,7 @@ export default function AnleitungDetailPage() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
         <Link to={`${langPrefix}/anleitungen`} className="inline-flex items-center gap-2 text-sm text-primary hover:underline transition-smooth">
           <ArrowLeft className="w-4 h-4" />
-          {t({ de: "Alle Anleitungen", en: "All Instructions" })}
+          {t("anleitungen.back_to_all")}
         </Link>
       </div>
 
@@ -220,10 +220,10 @@ export default function AnleitungDetailPage() {
         {instruction.pdf && (
           <div className="mt-12 bg-card rounded-2xl p-8 shadow-card">
             <h3 className="text-lg font-semibold text-foreground font-sans mb-2">
-              {t({ de: "Download als PDF", en: "Download as PDF" })}
+              {t("anleitungen.pdf_download")}
             </h3>
             <p className="text-sm text-muted-foreground mb-4">
-              {t({ de: "Lade die vollständige Anleitung als PDF herunter und habe alle wichtigen Infos jederzeit griffbereit.", en: "Download the complete guide as a PDF and have all important information at your fingertips at any time." })}
+              {t("anleitungen.pdf_description")}
             </p>
             <div className="flex flex-wrap gap-3">
               {instruction.pdf.de && (
@@ -245,10 +245,10 @@ export default function AnleitungDetailPage() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
         <div className="flex items-center justify-between mb-8">
           <h2 className="text-2xl font-serif font-bold text-foreground">
-            {t({ de: "Weitere Anleitungen", en: "More Instructions" })}
+            {t("anleitungen.more_instructions")}
           </h2>
           <Link to={`${langPrefix}/anleitungen`} className="text-sm text-primary hover:underline transition-smooth">
-            {t({ de: "Alle zeigen", en: "Show all" })}
+            {t("anleitungen.show_all")}
           </Link>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -263,7 +263,7 @@ export default function AnleitungDetailPage() {
               </div>
               <div className="p-4 bg-background">
                 <span className="text-xs font-medium text-primary uppercase tracking-wider mb-1 block font-sans">
-                  {inst.category === "apartments" ? "Apartments" : t({ de: "Standort & Umgebung", en: "Location & Area" })}
+                  {inst.category === "apartments" ? t("anleitungen.category.apartments") : t("anleitungen.category.location")}
                 </span>
                 <h3 className="text-base font-semibold text-foreground font-sans">{t(inst.titleKey)}</h3>
               </div>

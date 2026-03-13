@@ -9,7 +9,12 @@ export default function Navbar() {
   const location = useLocation();
   const pathname = location.pathname;
 
-  const isActive = (path: string) => pathname === path;
+  // Normalize paths for comparison - remove trailing slashes for consistent comparison
+  const isActive = (path: string) => {
+    const normalizedPath = path.replace(/\/$/, '') || '/';
+    const normalizedPathname = pathname.replace(/\/$/, '') || '/';
+    return normalizedPathname === normalizedPath;
+  };
 
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -43,13 +48,16 @@ export default function Navbar() {
               <Link
                 key={item.path + item.label}
                 to={item.path}
-                className={`px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 ${
+                className={`px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 relative ${
                   isActive(item.path)
-                    ? "backdrop-blur-md bg-white/20 text-primary font-semibold shadow-lg"
-                    : "text-foreground/80 hover:text-foreground"
+                    ? "text-primary font-bold"
+                    : "text-foreground/60 hover:text-foreground/80"
                 }`}
               >
                 {item.label}
+                {isActive(item.path) && (
+                  <div className="absolute bottom-0 left-4 right-4 h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent rounded-full blur-sm glow-effect" />
+                )}
               </Link>
             ))}
           </div>
@@ -84,13 +92,16 @@ export default function Navbar() {
                 key={item.path + item.label}
                 to={item.path}
                 onClick={() => setMobileOpen(false)}
-                className={`block py-3 text-base font-medium border-b border-border/50 last:border-0 transition-all duration-300 ${
+                className={`block py-3 px-4 text-base font-medium rounded-lg transition-all duration-300 relative ${
                   isActive(item.path)
-                    ? "backdrop-blur-md bg-white/10 text-primary font-semibold rounded-lg px-3"
-                    : "text-foreground/80 hover:text-foreground"
+                    ? "text-primary font-bold"
+                    : "text-foreground/60 hover:text-foreground/80"
                 }`}
               >
                 {item.label}
+                {isActive(item.path) && (
+                  <div className="absolute bottom-1 left-4 right-4 h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent rounded-full blur-sm" />
+                )}
               </Link>
             ))}
 

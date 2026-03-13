@@ -1,46 +1,71 @@
 import { useI18n } from "@/lib/i18n";
 import { Link } from "react-router-dom";
 import { faqs } from "@/lib/data";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import Lightbox from "@/components/Lightbox";
 
 
 export default function AboutPage() {
   const { t, langPrefix } = useI18n();
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [scrollY, setScrollY] = useState(0);
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+
+  const photoGallery = [
+    "/images/653593603b0593b2e2e14b9a_Unbenannt-3.avif",
+    "/images/65359412284b0413bf6b772e_Unbenannt-5.avif",
+    "/images/653594678dd7217452f8a07f_Unbenannt-6.avif",
+  ];
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <div>
       {/* Hero */}
       <section 
-        className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-700 to-gray-800"
+        className="relative w-screen h-[85vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-700 to-gray-800"
         style={{
-          backgroundImage: 'url(/images/652938d0b1ddde3e7ecc4cac_151351.avif)',
+          backgroundImage: 'url(/images/6534417f2845a4410a0f52c5_Untitled-poster-00001.jpg)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
       >
         <img 
-          src="/images/652938d0b1ddde3e7ecc4cac_151351.avif" 
+          src="/images/6534417f2845a4410a0f52c5_Untitled-poster-00001.jpg"
           alt="About" 
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover transition-transform duration-300"
+          style={{
+            transform: `scale(1.05) translateY(${scrollY * 0.3}px)`,
+          }}
           onError={(e) => {
             console.error("About hero image failed to load:", e);
             e.currentTarget.style.display = 'none';
           }}
         />
-        <div className="absolute inset-0 bg-black/30" />
+        {/* Enhanced overlay with gradient */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/40 to-black/50" />
+        {/* Extra accent gradient */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-black/30" />
+        
         <div className="relative z-10 text-center px-4">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif font-bold text-white mb-4">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif font-bold text-white mb-4 drop-shadow-lg">
             {t("about.hero.title")}
           </h1>
-          <p className="text-lg text-white/90 max-w-2xl mx-auto">
+          <p className="text-lg text-white/90 max-w-2xl mx-auto drop-shadow-md">
             {t("about.hero.subtitle")}
           </p>
         </div>
       </section>
 
       {/* Location */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <section className="container-modern py-20">
         <h2 className="text-3xl font-serif font-bold text-foreground text-center mb-4">
           {t("about.location.title")}
         </h2>
@@ -48,23 +73,29 @@ export default function AboutPage() {
           {t("about.location.subtitle")}
         </p>
         <div className="max-w-2xl mx-auto text-center">
-          <h3 className="text-xl font-serif font-semibold text-foreground mb-2">Apartments zur Quelle</h3>
-          <p className="text-muted-foreground mb-2">Absberggasse 6</p>
-          <p className="text-muted-foreground mb-4">1100 Wien, Österreich</p>
+          {/* Clickable Photo */}
           <a
             href="https://www.google.com/maps/place/Apartments+zur+Quelle/@48.1735058,16.3894297,646m/data=!3m3!1e3!4b1!5s0x476da9e9bb558713:0x62207c3e1bf1362d!4m6!3m5!1s0x2ad883a0300fc9ed:0xed842bf85b14b5dc!8m2!3d48.1735058!4d16.3894297!16s%2Fg%2F11vc6dg9hv?entry=ttu"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center px-6 py-3 text-sm font-medium text-primary-foreground bg-primary rounded-lg transition-smooth hover:opacity-90"
+            className="mb-6 inline-block rounded-2xl overflow-hidden shadow-card hover:shadow-card-hover transition-smooth cursor-pointer transform hover:scale-105"
           >
-            {t("about.location.open_map")}
+            <img
+              src="/images/65344f823268205b9fd3083b_1231211212.avif"
+              alt="Apartments zur Quelle Location"
+              className="w-full h-96 object-cover"
+            />
           </a>
+          <h3 className="text-xl font-serif font-semibold text-foreground mb-2">Apartments zur Quelle</h3>
+          <p className="text-muted-foreground mb-2">Absberggasse 6</p>
+          <p className="text-muted-foreground mb-4">1100 Wien, Österreich</p>
         </div>
       </section>
 
       {/* Viator */}
-      <section className="bg-card py-12">
-        <div className="max-w-7xl mx-auto px-4 text-center">
+      <section className="bg-card py-12 bg-cover bg-center bg-no-repeat relative" style={{ backgroundImage: 'url(/images/opera.avif)' }}>
+        <div className="absolute inset-0 bg-black/40"></div>
+        <div className="max-w-7xl mx-auto px-4 text-center relative z-10">
           <h2 className="text-2xl font-serif font-bold text-foreground mb-3">
             {t("about.viator.title")}
           </h2>
@@ -76,7 +107,7 @@ export default function AboutPage() {
       </section>
 
       {/* Your Home */}
-      <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <section className="container-narrow py-20">
         <h2 className="text-3xl font-serif font-bold text-foreground mb-6">
           {t("about.home.title")}
         </h2>
@@ -87,37 +118,33 @@ export default function AboutPage() {
           {t("about.rooms.title")}
         </h2>
         <p className="text-muted-foreground leading-relaxed">
-          {t({ de: "Wir wissen, wie wichtig es ist, einen gemütlichen Rückzugsort zu haben, besonders wenn man unterwegs ist. Unsere Apartments sind darauf ausgerichtet, dir genau das zu bieten.", en: "We know how important it is to have a cozy retreat, especially when traveling. Our apartments are designed to offer you exactly that." })}
+          {t("about.rooms.description")}
         </p>
       </section>
 
       {/* Photo Grid */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+      <section className="container-modern pb-20">
   <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-    <img
-      src="/images/653593603b0593b2e2e14b9a_Unbenannt-3.avif"
-      alt=""
-      className="rounded-2xl shadow-card w-full h-48 object-cover col-span-2 md:col-span-2"
-      loading="lazy"
-    />
-    <img
-      src="/images/65359412284b0413bf6b772e_Unbenannt-5.avif"
-      alt=""
-      className="rounded-2xl shadow-card w-full h-48 object-cover"
-      loading="lazy"
-    />
-    <img
-      src="/images/653594678dd7217452f8a07f_Unbenannt-6.avif"
-      alt=""
-      className="rounded-2xl shadow-card w-full h-48 object-cover"
-      loading="lazy"
-    />
+    {photoGallery.map((img, i) => (
+      <button
+        key={i}
+        onClick={() => setLightboxIndex(i)}
+        className={`rounded-2xl shadow-card overflow-hidden cursor-pointer hover:shadow-card-hover transition-smooth ${i === 0 ? "col-span-2 md:col-span-2" : ""}`}
+      >
+        <img
+          src={img}
+          alt=""
+          className="w-full h-48 object-cover hover:scale-110 transition-transform duration-300"
+          loading="lazy"
+        />
+      </button>
+    ))}
   </div>
 </section>
 
       {/* Why Guests Love Us */}
       <section className="bg-card py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container-modern">
           <h2 className="text-3xl font-serif font-bold text-foreground text-center mb-12">
             {t({ de: "Warum Gäste uns lieben", en: "Why Guests Love Us" })}
           </h2>
@@ -141,7 +168,7 @@ export default function AboutPage() {
       </section>
 
       {/* FAQ */}
-      <section className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <section className="container-ultra-narrow py-20">
         <h2 className="text-3xl font-serif font-bold text-foreground text-center mb-12">
           {t({ de: "Häufige Fragen", en: "FAQ" })}
         </h2>
@@ -159,6 +186,14 @@ export default function AboutPage() {
           ))}
         </div>
       </section>
+      {lightboxIndex !== null && (
+        <Lightbox
+          images={photoGallery}
+          currentIndex={lightboxIndex}
+          onClose={() => setLightboxIndex(null)}
+          onNavigate={(index) => setLightboxIndex(index)}
+        />
+      )}
     </div>
   );
 }
