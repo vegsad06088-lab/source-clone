@@ -1,6 +1,6 @@
 import { useI18n } from "@/lib/i18n";
 import { instructions } from "@/lib/data";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 
 
@@ -102,17 +102,22 @@ export { instructionContent };
 
 export default function AnleitungDetailPage() {
   const { t, langPrefix } = useI18n();
-  const pathname = window.location.pathname;
-  const slug = pathname.split("/").filter(Boolean).pop() || "";
+  const { slug } = useParams<{ slug: string }>();
 
   const instruction = instructions.find((i) => i.id === slug);
   const content = instructionContent[slug] || [];
 
   if (!instruction) {
     return (
-      <div className="pt-32 text-center">
-        <h1 className="text-2xl font-serif">{t({ de: "Anleitung nicht gefunden", en: "Guide not found" })}</h1>
-        <Link to={`${langPrefix}/anleitungen`} className="text-primary hover:underline mt-4 inline-block">
+      <div className="w-full min-h-screen flex flex-col items-center justify-center bg-card">
+        <h1 className="text-4xl font-serif font-bold text-foreground mb-4">
+          {t({ de: "Anleitung nicht gefunden", en: "Guide not found" })}
+        </h1>
+        <p className="text-lg text-muted-foreground mb-8">Slug: {slug}</p>
+        <Link 
+          to={`${langPrefix}/anleitungen`} 
+          className="px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:opacity-90 transition-smooth"
+        >
           {t({ de: "Zurück zu Anleitungen", en: "Back to Instructions" })}
         </Link>
       </div>
@@ -122,18 +127,33 @@ export default function AnleitungDetailPage() {
   return (
     <div>
       {/* Hero Image */}
-      <section className="relative h-[40vh] min-h-[300px]">
+      <section 
+        className="relative h-[40vh] min-h-[300px] bg-gradient-to-br from-gray-700 to-gray-800"
+        style={{
+          backgroundImage: `url(${instruction.image})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
         <div className="absolute inset-0">
-          <img src={instruction.image} alt={t(instruction.title)} className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-foreground/40" />
+          <img 
+            src={instruction.image} 
+            alt={t(instruction.titleKey)}
+            className="w-full h-full object-cover"
+            onError={(e) => {
+              console.error("Instruction hero image failed to load:", e);
+              e.currentTarget.style.display = 'none';
+            }}
+          />
+          <div className="absolute inset-0 bg-black/30" />
         </div>
         <div className="absolute bottom-0 left-0 right-0 z-10">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-8">
-            <span className="text-xs font-medium text-background/80 uppercase tracking-wider font-sans">
+            <span className="text-xs font-medium text-white/80 uppercase tracking-wider font-sans">
               {instruction.category === "apartments" ? "Apartments" : t({ de: "Standort & Umgebung", en: "Location & Area" })}
             </span>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-background mt-2">
-              {t(instruction.title)}
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-white mt-2">
+              {t(instruction.titleKey)}
             </h1>
           </div>
         </div>
@@ -239,13 +259,13 @@ export default function AnleitungDetailPage() {
               className="group rounded-2xl overflow-hidden shadow-card hover:shadow-card-hover transition-smooth block"
             >
               <div className="aspect-video overflow-hidden">
-                <img src={inst.image} alt={t(inst.title)} className="w-full h-full object-cover transition-smooth group-hover:scale-105" loading="lazy" />
+                <img src={inst.image} alt={t(inst.titleKey)} className="w-full h-full object-cover transition-smooth group-hover:scale-105" loading="lazy" />
               </div>
               <div className="p-4 bg-background">
                 <span className="text-xs font-medium text-primary uppercase tracking-wider mb-1 block font-sans">
                   {inst.category === "apartments" ? "Apartments" : t({ de: "Standort & Umgebung", en: "Location & Area" })}
                 </span>
-                <h3 className="text-base font-semibold text-foreground font-sans">{t(inst.title)}</h3>
+                <h3 className="text-base font-semibold text-foreground font-sans">{t(inst.titleKey)}</h3>
               </div>
             </Link>
           ))}

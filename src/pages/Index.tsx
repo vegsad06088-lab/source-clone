@@ -30,22 +30,31 @@ export default function HomePage() {
   return (
     <div>
       {/* Hero */}
-      <section className="relative min-h-screen flex items-center justify-center">
-        <div className="absolute inset-0">
-          <img
-            src="/images/652938d0b1ddde3e7ecc4cac_151351.avif"
-            alt="Apartments zur Quelle"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-foreground/40" />
-        </div>
+      <section 
+        className="relative w-screen h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-700 to-gray-800"
+        style={{
+          backgroundImage: 'url(/images/652938d0b1ddde3e7ecc4cac_151351.avif)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
+        <img
+          src="/images/652938d0b1ddde3e7ecc4cac_151351.avif"
+          alt="Apartments zur Quelle"
+          className="absolute inset-0 w-full h-full object-cover"
+          onError={(e) => {
+            console.error("Hero image failed to load:", e);
+            e.currentTarget.style.display = 'none';
+          }}
+        />
+        <div className="absolute inset-0 bg-black/30" />
 
         <div className="relative z-10 text-center px-4 max-w-3xl mx-auto">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif font-bold text-background mb-6">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif font-bold text-white mb-6">
             {t("home.hero.title")}
           </h1>
 
-          <p className="text-lg sm:text-xl text-background/90 mb-8 max-w-2xl mx-auto">
+          <p className="text-lg sm:text-xl text-white/90 mb-8 max-w-2xl mx-auto">
             {t("home.hero.subtitle")}
           </p>
 
@@ -129,18 +138,18 @@ export default function HomePage() {
               <div className="flex items-center justify-center mb-3">
                 <img
                   src={f.image}
-                  alt={t(f.title)}
+                  alt={t(f.titleKey)}
                   className="w-10 h-10 sm:w-12 sm:h-12 object-contain transition-transform duration-300 group-hover:scale-110"
                   loading="lazy"
                 />
               </div>
 
               <h3 className="text-sm font-semibold text-foreground font-sans">
-                {t(f.title)}
+                {t(f.titleKey)}
               </h3>
 
               <p className="text-xs text-muted-foreground mt-1">
-                {t(f.desc)}
+                {t(f.titleKey)}
               </p>
             </div>
           ))}
@@ -206,11 +215,11 @@ export default function HomePage() {
             {reviews.map((r, i) => (
               <div key={i} className="bg-background p-6 rounded-2xl shadow-card">
                 <h3 className="text-lg font-semibold text-foreground mb-3 font-sans">
-                  "{t(r.text)}"
+                  "{t(r.textKey)}"
                 </h3>
 
                 <p className="text-sm text-muted-foreground mb-4">
-                  {t(r.quote)}
+                  {t(r.quoteKey)}
                 </p>
 
                 <div>
@@ -218,7 +227,7 @@ export default function HomePage() {
                     {r.name}
                   </p>
                   <p className="text-xs text-muted-foreground">
-                    {t(r.location)}
+                    {t(r.locationKey)}
                   </p>
                 </div>
               </div>

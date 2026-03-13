@@ -24,7 +24,7 @@ export default function FAQSection() {
               className="w-full text-left p-5 flex justify-between items-center bg-background hover:bg-card transition-smooth"
             >
               <span className="text-base font-medium text-foreground font-sans">
-                {t(faq.q)}
+                {t(faq.qKey)}
               </span>
 
               <svg
@@ -46,7 +46,7 @@ export default function FAQSection() {
 
             {open === i && (
               <div className="px-5 pb-5 bg-background">
-                <p className="text-sm text-muted-foreground">{t(faq.a)}</p>
+                <p className="text-sm text-muted-foreground">{t(faq.aKey)}</p>
               </div>
             )}
           </div>

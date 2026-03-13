@@ -3,7 +3,7 @@ import { instructions } from "@/lib/data";
 import { Link } from "react-router-dom";
 
 export default function AnleitungenPage() {
-  const { t, lang, langPrefix } = useI18n();
+  const { t, langPrefix } = useI18n();
 
   return (
     <div>
@@ -11,10 +11,10 @@ export default function AnleitungenPage() {
       <section className="pt-32 pb-16 bg-card">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl sm:text-5xl font-serif font-bold text-foreground mb-4">
-            {t({ de: "Anleitungen für Deinen Aufenthalt", en: "Instructions for Your Stay" })}
+            {t("anleitungen.title")}
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            {t({ de: "Alles, was Du für einen entspannten Aufenthalt wissen musst.", en: "Everything you need to know for a relaxed stay." })}
+            {t("anleitungen.subtitle")}
           </p>
         </div>
       </section>
@@ -23,11 +23,11 @@ export default function AnleitungenPage() {
       <section className="bg-primary text-primary-foreground py-10">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <h2 className="text-xl font-serif font-bold mb-2">
-            {t({ de: "Tipps für Deinen Aufenthalt in Wien.", en: "Tips for your stay in Vienna." })}
+            {t("anleitungen.viator.title")}
           </h2>
-          <p className="text-primary-foreground/80 mb-4 text-sm">{t({ de: "Entdecke die besten Touren, Tickets und Highlights", en: "Discover the best tours, tickets and highlights" })}</p>
+          <p className="text-primary-foreground/80 mb-4 text-sm">{t("anleitungen.viator.subtitle")}</p>
           <a href="https://www.viator.com/Vienna/d454-ttd?localeSwitch=1&pid=P00290902&mcid=42383&medium=link" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-6 py-2.5 text-sm font-medium bg-background text-foreground rounded-lg transition-smooth hover:opacity-90">
-            {t({ de: "Jetzt entdecken", en: "Discover now" })}
+            {t("anleitungen.viator.cta")}
           </a>
         </div>
       </section>
@@ -35,7 +35,7 @@ export default function AnleitungenPage() {
       {/* Instructions Grid */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <h2 className="text-2xl font-serif font-bold text-foreground mb-8">
-          {t({ de: "Hier findest Du alles was Du wissen musst.", en: "Here you'll find everything you need to know." })}
+          {t("anleitungen.section.title")}
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {instructions.map((inst) => (
@@ -45,14 +45,14 @@ export default function AnleitungenPage() {
               className="group rounded-2xl overflow-hidden shadow-card hover:shadow-card-hover transition-smooth block"
             >
               <div className="aspect-video overflow-hidden">
-                <img src={inst.image} alt={t(inst.title)} className="w-full h-full object-cover transition-smooth group-hover:scale-105" loading="lazy" />
+                <img src={inst.image} alt={t(inst.titleKey)} className="w-full h-full object-cover transition-smooth group-hover:scale-105" loading="lazy" />
               </div>
               <div className="p-6 bg-background">
                 <span className="text-xs font-medium text-primary uppercase tracking-wider mb-2 block font-sans">
-                  {inst.category === "apartments" ? "Apartments" : t({ de: "Standort & Umgebung", en: "Location & Area" })}
+                  {inst.category === "apartments" ? t("anleitungen.category.apartments") : t("anleitungen.category.location")}
                 </span>
-                <h3 className="text-lg font-semibold text-foreground mb-2 font-sans">{t(inst.title)}</h3>
-                <p className="text-sm text-muted-foreground mb-4 line-clamp-2">{t(inst.description)}</p>
+                <h3 className="text-lg font-semibold text-foreground mb-2 font-sans">{t(inst.titleKey)}</h3>
+                <p className="text-sm text-muted-foreground mb-4 line-clamp-2">{t(inst.descriptionKey)}</p>
                 {inst.pdf && (
                   <div className="flex flex-wrap gap-2">
                     {inst.pdf.de && (

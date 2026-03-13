@@ -1,6 +1,19 @@
 import React, { createContext, useContext, useState, useCallback, useEffect } from "react";
 
+// ============================================
+// CONFIGURATION: Customize available languages
+// ============================================
+// Change this to include only the languages you need
+// Example: ["de", "en"] for German and English only
 export const LANGUAGE_PACK = ["de", "en", "sq", "fr", "it", "es", "tr"] as const;
+
+// ============================================
+// CONFIGURATION: Set the default language
+// ============================================
+// This language will be used if no language preference is detected
+// Must be one of the languages in LANGUAGE_PACK above
+export const DEFAULT_LANGUAGE: typeof LANGUAGE_PACK[number] = "de";
+
 export type Lang = typeof LANGUAGE_PACK[number];
 
 export type TranslationObject = Partial<Record<Lang, string>> & {
@@ -16,7 +29,7 @@ interface I18nContextType {
 }
 
 const I18nContext = createContext<I18nContextType>({
-  lang: "de",
+  lang: DEFAULT_LANGUAGE,
   setLang: () => {},
   t: (texts) => typeof texts === "string" ? texts : texts.de,
   langPrefix: "",
@@ -36,7 +49,7 @@ export function I18nProvider({
     const path = window.location.pathname;
     const prefix = path.split("/")[1];
 
-    return LANGUAGE_PACK.includes(prefix as Lang) ? (prefix as Lang) : "de";
+    return LANGUAGE_PACK.includes(prefix as Lang) ? (prefix as Lang) : DEFAULT_LANGUAGE;
   });
 
   const [translations, setTranslations] = useState<Record<string, any>>({});
@@ -82,6 +95,7 @@ export function I18nProvider({
     (texts: TranslationObject | string) => {
       // If it's a string (key), look it up in translations
       if (typeof texts === "string") {
+        // Add language prefix since translation files have keys like "de.footer.contact"
         const key = `${lang}.${texts}`;
         if (translations[lang] && translations[lang][key]) {
           return translations[lang][key];
@@ -97,7 +111,7 @@ export function I18nProvider({
     [lang, translations]
   );
 
-  const langPrefix = lang === "de" ? "" : `/${lang}`;
+  const langPrefix = lang === DEFAULT_LANGUAGE ? "" : `/${lang}`;
 
   return (
     <I18nContext.Provider value={{ lang, setLang, t, langPrefix, translations }}>

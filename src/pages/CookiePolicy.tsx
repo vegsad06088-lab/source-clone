@@ -7,14 +7,11 @@ export default function CookiePolicy() {
     <div className="pt-32 pb-20">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <h1 className="text-4xl font-serif font-bold text-foreground mb-4">
-          {t({ de: "Cookie-Richtlinie", en: "Cookie Policy" })}
+          {t("cookies.title")}
         </h1>
 
         <p className="text-muted-foreground mb-8">
-          {t({
-            de: "Hier erklären wir, welche Cookies wir verwenden, warum wir sie einsetzen und wie du deine Einstellungen verwalten kannst.",
-            en: "Here we explain which cookies we use, why we use them, and how you can manage your settings.",
-          })}
+          {t("cookies.intro")}
         </p>
 
         <div className="space-y-8 text-sm text-muted-foreground leading-relaxed">
@@ -22,86 +19,65 @@ export default function CookiePolicy() {
           {/* 1. What are cookies */}
           <section>
             <h2 className="text-lg font-sans font-semibold text-foreground mb-2">
-              {t({ de: "1. Was sind Cookies?", en: "1. What are cookies?" })}
+              {t("cookies.section1.title")}
             </h2>
             <p>
-              {t({
-                de: "Cookies sind kleine Textdateien, die auf deinem Gerät gespeichert werden. Sie helfen uns, die Website funktionsfähig zu halten und dein Nutzungserlebnis zu verbessern.",
-                en: "Cookies are small text files stored on your device. They help us keep the website functional and improve your user experience.",
-              })}
+              {t("cookies.section1.text")}
             </p>
           </section>
 
           {/* 2. Types of cookies */}
           <section>
             <h2 className="text-lg font-sans font-semibold text-foreground mb-2">
-              {t({ de: "2. Welche Cookies verwenden wir?", en: "2. Which cookies do we use?" })}
+              {t("cookies.section2.title")}
             </h2>
 
             <h3 className="font-semibold text-foreground mb-1">
-              {t({ de: "a) Notwendige Cookies", en: "a) Essential cookies" })}
+              {t("cookies.section2.essential")}
             </h3>
             <p className="mb-3">
-              {t({
-                de: "Diese Cookies sind technisch erforderlich, damit die Website funktioniert. Sie können nicht deaktiviert werden.",
-                en: "These cookies are technically required for the website to function. They cannot be disabled.",
-              })}
+              {t("cookies.section2.essential.text")}
             </p>
 
             <h3 className="font-semibold text-foreground mb-1">
-              {t({ de: "b) Analyse-Cookies", en: "b) Analytics cookies" })}
+              {t("cookies.section2.analytics")}
             </h3>
             <p className="mb-3">
-              {t({
-                de: "Diese Cookies helfen uns zu verstehen, wie Besucher unsere Website nutzen. Die Daten werden anonym ausgewertet.",
-                en: "These cookies help us understand how visitors use our website. The data is evaluated anonymously.",
-              })}
+              {t("cookies.section2.analytics.text")}
             </p>
 
             <h3 className="font-semibold text-foreground mb-1">
-              {t({ de: "c) Marketing-Cookies", en: "c) Marketing cookies" })}
+              {t("cookies.section2.marketing")}
             </h3>
             <p className="mb-3">
-              {t({
-                de: "Marketing-Cookies ermöglichen es uns, dir relevante Inhalte und Angebote anzuzeigen. Diese können von Drittanbietern gesetzt werden.",
-                en: "Marketing cookies allow us to show you relevant content and offers. These may be set by third parties.",
-              })}
+              {t("cookies.section2.marketing.text")}
             </p>
 
             <h3 className="font-semibold text-foreground mb-1">
-              {t({ de: "d) Drittanbieter-Cookies (z.B. Smoobu)", en: "d) Third-party cookies (e.g. Smoobu)" })}
+              {t("cookies.section2.thirdparty")}
             </h3>
             <p>
-              {t({
-                de: "Für unsere Buchungsfunktionen nutzen wir externe Dienste wie Smoobu. Diese Anbieter können eigene Cookies setzen.",
-                en: "For our booking functions we use external services such as Smoobu. These providers may set their own cookies.",
-              })}
+              {t("cookies.section2.thirdparty.text")}
             </p>
           </section>
 
           {/* 3. Legal basis */}
           <section>
             <h2 className="text-lg font-sans font-semibold text-foreground mb-2">
-              {t({ de: "3. Rechtsgrundlage", en: "3. Legal basis" })}
+              {t("cookies.section3.title")}
             </h2>
             <p>
-              {t({
-                de: "Notwendige Cookies basieren auf unserem berechtigten Interesse (Art. 6 Abs. 1 lit. f DSGVO). Analyse- und Marketing-Cookies verwenden wir nur mit deiner Einwilligung (Art. 6 Abs. 1 lit. a DSGVO).",
-                en: "Essential cookies are based on our legitimate interest (Art. 6(1)(f) GDPR). Analytics and marketing cookies are used only with your consent (Art. 6(1)(a) GDPR).",
-              })}
+              {t("cookies.section3.text")}
             </p>
           </section>
 
           {/* 4. Change settings */}
           <section>
             <h2 className="text-lg font-sans font-semibold text-foreground mb-2">
-              {t({ de: "4. Cookie-Einstellungen ändern", en: "4. Change cookie settings" })}
+              {t("cookies.section4.title")}
             </h2>
             <p>
-              {t({
-                de: "Du kannst deine Cookie-Einstellungen jederzeit über das Cookie-Banner anpassen. Wenn es nicht sichtbar ist, lösche die Cookies in deinem Browser, um die Auswahl erneut angezeigt zu bekommen.",
-                en: "You can adjust your cookie settings at any time via the cookie banner. If it is not visible, delete the cookies in your browser to see the selection again.",
-              })}
+              {t("cookies.section4.text")}
             </p>
           </section>
 

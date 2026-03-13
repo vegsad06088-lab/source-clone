@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useI18n } from "@/lib/i18n";
-import { LANGUAGE_PACK, Lang } from "@/lib/i18n";
 import { Menu, X } from "lucide-react";
+import LanguageSelector from "@/components/LanguageSelector";
 
 export default function Navbar() {
-  const { lang, setLang, t, langPrefix } = useI18n();
+  const { t, langPrefix } = useI18n();
   const location = useLocation();
   const pathname = location.pathname;
 
@@ -21,25 +21,10 @@ export default function Navbar() {
     { label: t("footer.contact"), path: `${langPrefix}/contact` },
   ];
 
-  const switchLang = (newLang: Lang) => {
-    setLang(newLang);
-
-    const parts = location.pathname.split("/");
-    let rest = parts.slice(2).join("/");
-    if (rest === "") rest = "";
-
-    const newPath =
-      newLang === "de"
-        ? `/${rest}`
-        : `/${newLang}/${rest}`;
-
-    window.history.replaceState(null, "", newPath);
-  };
-
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 px-4 pt-4">
-      <div className="mx-auto max-w-7xl">
-        <div className="flex items-center justify-between rounded-2xl bg-background/95 backdrop-blur-sm px-6 py-3 shadow-card">
+    <nav className="fixed top-0 left-0 right-0 z-50 px-4 pt-4 w-full">
+        <div className="mx-auto max-w-7xl">
+          <div className="flex items-center justify-between rounded-2xl bg-background/95 backdrop-blur-sm px-6 py-3 shadow-card">
           
           <Link to={`${langPrefix}/`} className="flex-shrink-0">
             <img
@@ -49,20 +34,8 @@ export default function Navbar() {
             />
           </Link>
 
-          <div className="hidden md:flex items-center gap-2">
-            {LANGUAGE_PACK.map((lng) => (
-              <button
-                key={lng}
-                onClick={() => switchLang(lng)}
-                className={`px-2 py-1 text-sm font-medium transition-smooth rounded ${
-                  lang === lng
-                    ? "text-primary"
-                    : "text-muted-foreground hover:text-foreground"
-                }`}
-              >
-                {lng.toUpperCase()}
-              </button>
-            ))}
+          <div className="hidden md:flex items-center">
+            <LanguageSelector />
           </div>
 
           <div className="hidden md:flex items-center gap-6">
@@ -101,21 +74,9 @@ export default function Navbar() {
         {mobileOpen && (
           <div className="md:hidden mt-2 rounded-2xl bg-background/95 backdrop-blur-sm p-6 shadow-card animate-fade-in">
             
-            <div className="flex gap-4 mb-4">
-              {LANGUAGE_PACK.map((lng) => (
-                <button
-                  key={lng}
-                  onClick={() => {
-                    switchLang(lng);
-                    setMobileOpen(false);
-                  }}
-                  className={`text-sm font-medium ${
-                    lang === lng ? "text-primary" : "text-muted-foreground"
-                  }`}
-                >
-                  {lng.toUpperCase()}
-                </button>
-              ))}
+            <div className="mb-4 border-b border-border/50 pb-4">
+              <p className="text-sm font-medium text-muted-foreground mb-2">Language</p>
+              <LanguageSelector />
             </div>
 
             {navItems.map((item) => (
@@ -142,7 +103,7 @@ export default function Navbar() {
             </Link>
           </div>
         )}
-      </div>
-    </nav>
-  );
-}
+        </div>
+      </nav>
+    );
+  }
