@@ -1,6 +1,8 @@
 import { useI18n } from "@/lib/i18n";
 import { instructions } from "@/lib/data";
 import { Link } from "react-router-dom";
+import VoucherBanner from "@/components/VoucherBanner";
+import offersConfig from "@/config/offers.json";
 
 export default function AnleitungenPage() {
   const { t, langPrefix } = useI18n();
@@ -18,6 +20,14 @@ export default function AnleitungenPage() {
           </p>
         </div>
       </section>
+
+
+      {/* Voucher Banner */}
+      {offersConfig.voucher.enabled && (
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <VoucherBanner />
+        </section>
+      )}
 
       {/* Viator */}
       <section className="bg-primary text-primary-foreground py-10 bg-cover bg-center bg-no-repeat relative" style={{ backgroundImage: 'url(/images/opera.avif)' }}>

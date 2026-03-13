@@ -529,7 +529,11 @@
   "ru.anleitungen.pdf_download": "Загрузить как PDF",
   "ru.anleitungen.pdf_description": "Загрузите полное руководство в формате PDF и всегда имейте под рукой всю важную информацию.",
   "ru.anleitungen.more_instructions": "Другие инструкции",
-  "ru.anleitungen.show_all": "Показать все"
-
+  "ru.anleitungen.show_all": "Показать все",
+  "ru.promo.banner": "Живите дольше, платьте меньше! Экономьте до 20% при проживании 4 ночей или дольше!",
+  "ru.voucher.title": "🎁 Эксклюзивный Ваучер",
+  "ru.voucher.description": "Используйте этот код для дополнительной скидки!",
+  "ru.voucher.codeLabel": "Код ваучера:",
+  "ru.voucher.valueLabel": "Размер скидки:",
+  "ru.promo.alert": "🎉 Специальное предложение: Экономьте до %%percentage%%% при проживании %%nights%%+ ночей!"
 }
-
