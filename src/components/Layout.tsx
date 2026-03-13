@@ -15,9 +15,9 @@ export default function Layout() {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="w-full min-h-screen flex flex-col bg-background">
       <Navbar />
-      <main className="flex-1">
+      <main className="flex-1 w-full pt-24">
         <Outlet />
       </main>
       <Footer />

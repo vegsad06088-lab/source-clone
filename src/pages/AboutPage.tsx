@@ -11,16 +11,29 @@ export default function AboutPage() {
   return (
     <div>
       {/* Hero */}
-      <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center">
-        <div className="absolute inset-0">
-          <img src="/images/652938d0b1ddde3e7ecc4cac_151351.avif" alt="About" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-foreground/50" />
-        </div>
+      <section 
+        className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-700 to-gray-800"
+        style={{
+          backgroundImage: 'url(/images/652938d0b1ddde3e7ecc4cac_151351.avif)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
+        <img 
+          src="/images/652938d0b1ddde3e7ecc4cac_151351.avif" 
+          alt="About" 
+          className="absolute inset-0 w-full h-full object-cover"
+          onError={(e) => {
+            console.error("About hero image failed to load:", e);
+            e.currentTarget.style.display = 'none';
+          }}
+        />
+        <div className="absolute inset-0 bg-black/30" />
         <div className="relative z-10 text-center px-4">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif font-bold text-background mb-4">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif font-bold text-white mb-4">
             {t("about.hero.title")}
           </h1>
-          <p className="text-lg text-background/90 max-w-2xl mx-auto">
+          <p className="text-lg text-white/90 max-w-2xl mx-auto">
             {t("about.hero.subtitle")}
           </p>
         </div>
@@ -136,11 +149,11 @@ export default function AboutPage() {
           {faqs.map((faq, i) => (
             <div key={i} className="rounded-2xl shadow-card overflow-hidden">
               <button onClick={() => setOpenFaq(openFaq === i ? null : i)} className="w-full text-left p-5 flex justify-between items-center bg-background hover:bg-card transition-smooth">
-                <span className="text-base font-medium text-foreground font-sans">{t(faq.q)}</span>
+                <span className="text-base font-medium text-foreground font-sans">{t(faq.qKey)}</span>
                 <svg className={`w-5 h-5 text-muted-foreground transition-transform ${openFaq === i ? "rotate-180" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
               </button>
               {openFaq === i && (
-                <div className="px-5 pb-5 bg-background"><p className="text-sm text-muted-foreground">{t(faq.a)}</p></div>
+                <div className="px-5 pb-5 bg-background"><p className="text-sm text-muted-foreground">{t(faq.aKey)}</p></div>
               )}
             </div>
           ))}

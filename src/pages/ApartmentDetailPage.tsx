@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useI18n } from "@/lib/i18n";
 import { apartments, amenities } from "@/lib/data";
 import { useState } from "react";
@@ -14,25 +14,30 @@ import "swiper/css/navigation";
 
 export default function ApartmentDetailPage() {
   const { t, langPrefix } = useI18n();
+  const location = useLocation();
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const [expanded, setExpanded] = useState(false);
   const [bookingOpen, setBookingOpen] = useState(false);
   const [conditionsOpen, setConditionsOpen] = useState(false);
 
-  const location = window.location.pathname;
-  const slug = location.split("/").filter(Boolean).pop() || "";
+  // Extract slug from URL path - get the last segment
+  const pathSegments = location.pathname.split("/").filter(Boolean);
+  const slug = pathSegments[pathSegments.length - 1] || "";
 
   const apartment = apartments.find((a) => a.id === slug);
 
   if (!apartment) {
     return (
-      <div className="pt-32 text-center">
-        <h1 className="text-2xl font-serif">Apartment not found</h1>
+      <div className="w-full min-h-screen flex flex-col items-center justify-center bg-card">
+        <h1 className="text-4xl font-serif font-bold text-foreground mb-4">
+          {t("apartment.not_found")}
+        </h1>
+        <p className="text-lg text-muted-foreground mb-8">Slug: {slug}</p>
         <Link
           to={`${langPrefix}/apartments`}
-          className="text-primary hover:underline mt-4 inline-block"
+          className="px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:opacity-90 transition-smooth"
         >
-          {t({ de: "Zurück zu Apartments", en: "Back to Apartments" })}
+          {t("apartment.back_to_apartments")}
         </Link>
       </div>
     );
@@ -60,23 +65,32 @@ export default function ApartmentDetailPage() {
   return (
     <div>
       {/* Hero */}
-      <section className="relative h-[60vh] min-h-[500px]">
-        <div className="absolute inset-0">
-          <img
-            src={apartment.heroImage}
-            alt={apartment.name}
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-foreground/20 to-transparent" />
-        </div>
+      <section 
+        className="relative h-[60vh] min-h-[500px] overflow-hidden bg-gradient-to-br from-gray-700 to-gray-800"
+        style={{
+          backgroundImage: `url(${apartment.heroImage})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
+        <img
+          src={apartment.heroImage}
+          alt={apartment.name}
+          className="absolute inset-0 w-full h-full object-cover"
+          onError={(e) => {
+            console.error("Apartment detail hero image failed to load:", e);
+            e.currentTarget.style.display = 'none';
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent" />
         <div className="absolute bottom-0 left-0 right-0 z-10">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8">
             <div>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-background mb-3">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-white mb-3">
                 {apartment.name}
               </h1>
-              <p className="text-background/80 max-w-lg text-sm sm:text-base">
-                {t(apartment.description)}
+              <p className="text-white/80 max-w-lg text-sm sm:text-base">
+                {t(apartment.descriptionKey)}
               </p>
             </div>
 
@@ -86,16 +100,16 @@ export default function ApartmentDetailPage() {
                 {apartment.name}
               </h3>
               <p className="text-sm text-muted-foreground mb-3">
-                {apartment.persons} {t({ de: "Personen", en: "Persons" })}
+                {apartment.persons} {t("apartment.persons")}
               </p>
               <div className="border-t border-border pt-3 mb-4">
                 <p className="text-sm text-muted-foreground">
-                  {t({ de: "Ab", en: "From" })}
+                  {t("apartment.from")}
                 </p>
                 <p className="text-2xl font-bold text-foreground">
                   € {apartment.price}.00 EUR{" "}
                   <span className="text-sm font-normal text-muted-foreground">
-                    /{t({ de: "Nacht", en: "Night" })}
+                    /{t("apartment.night")}
                   </span>
                 </p>
               </div>
@@ -105,7 +119,7 @@ export default function ApartmentDetailPage() {
                 onClick={openBookingWidget}
                 className="w-full inline-flex items-center justify-center px-6 py-3 text-sm font-medium text-primary-foreground bg-primary rounded-lg shadow-card hover:shadow-card-hover transition-smooth hover:-translate-y-[1px] active:translate-y-[1px] active:scale-[0.98]"
               >
-                {t({ de: "Jetzt buchen!", en: "Book now!" })}
+                {t("apartment.book_now")}
               </button>
             </div>
           </div>
@@ -116,13 +130,13 @@ export default function ApartmentDetailPage() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex flex-wrap gap-3">
           <span className="inline-flex items-center gap-2 px-4 py-2 bg-card rounded-lg text-sm text-foreground shadow-card">
-            👤 {apartment.persons} {t({ de: "Person", en: "Person" })}
+            👤 {apartment.persons} {t("apartment.person")}
           </span>
           <span className="inline-flex items-center gap-2 px-4 py-2 bg-card rounded-lg text-sm text-foreground shadow-card">
-            🛏️ {t(apartment.beds)}
+            🛏️ {t(apartment.bedsKey)}
           </span>
           <span className="inline-flex items-center gap-2 px-4 py-2 bg-card rounded-lg text-sm text-foreground shadow-card">
-            🏠 {t(apartment.rooms)}
+            🏠 {t(apartment.roomsKey)}
           </span>
           <span className="inline-flex items-center gap-2 px-4 py-2 bg-card rounded-lg text-sm text-foreground shadow-card">
             📐 {apartment.size}
@@ -133,10 +147,10 @@ export default function ApartmentDetailPage() {
       {/* Description */}
       <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <h2 className="text-2xl md:text-3xl font-serif font-bold text-foreground mb-6">
-          {t(apartment.sectionTitle)}
+          {t(apartment.sectionTitleKey)}
         </h2>
         <div className="prose prose-slate max-w-none">
-          {t(apartment.longDescription)
+          {t(apartment.longDescriptionKey)
             .split("\n\n")
             .map((p, i) => (
               <p
@@ -152,7 +166,7 @@ export default function ApartmentDetailPage() {
       {/* Amenities */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <h2 className="text-2xl md:text-3xl font-serif font-bold text-foreground mb-8">
-          {t({ de: "Ausstattung", en: "Amenities" })}
+          {t("apartment.amenities")}
         </h2>
         <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-4">
           {amenities.map((a, i) => (
@@ -162,7 +176,7 @@ export default function ApartmentDetailPage() {
             >
               <span className="text-2xl">{a.icon}</span>
               <span className="text-xs font-medium text-foreground">
-                {t(a.label)}
+                {t(a.labelKey)}
               </span>
             </div>
           ))}
@@ -172,7 +186,7 @@ export default function ApartmentDetailPage() {
       {/* Gallery */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <h2 className="text-2xl md:text-3xl font-serif font-bold text-foreground mb-8">
-          {t({ de: "Galerie", en: "Gallery" })}
+          {t("apartment.gallery")}
         </h2>
 
         {/* Expand / Collapse Button */}
@@ -181,8 +195,8 @@ export default function ApartmentDetailPage() {
           className="flex items-center gap-2 text-primary font-medium mb-6"
         >
           {expanded
-            ? t({ de: "▲ Weniger anzeigen", en: "▲ Show less" })
-            : t({ de: "▼ Alle Bilder anzeigen", en: "▼ Show all images" })}
+            ? t("apartment.show_less")
+            : t("apartment.show_all_images")}
         </button>
 
         {/* Collapsed: Swiper Carousel */}
@@ -222,7 +236,7 @@ export default function ApartmentDetailPage() {
             {apartment.gallery.map((img, i) => (
               <div
                 key={i}
-                className="aspect-[4/3] rounded-xl overflow-hidden shadow-card cursor-pointer hover:shadow-card-hover transition-smooth"
+                className="aspect-[4/3] rounded-xl overflow-hidden shadow-card cursor-pointer hover:shadow-card-hover transition-smooth bg-card"
                 onClick={() => setLightboxIndex(i)}
               >
                 <img
@@ -230,6 +244,10 @@ export default function ApartmentDetailPage() {
                   alt={`${apartment.name} ${i + 1}`}
                   className="w-full h-full object-cover"
                   loading="lazy"
+                  onError={(e) => {
+                    console.error(`Gallery image failed to load: ${img}`);
+                    e.currentTarget.style.display = 'none';
+                  }}
                 />
               </div>
             ))}
@@ -251,7 +269,7 @@ export default function ApartmentDetailPage() {
       {/* NEW BOOKING MODAL (shared modal) */}
       <ModalPane open={bookingOpen} onClose={() => setBookingOpen(false)}>
         <h2 className="text-xl font-semibold mb-4">
-          {t({ de: "Jetzt buchen", en: "Book now" })}
+          {t("apartment.book_now_modal")}
         </h2>
 
         <div id="apartmentIframeAll"></div>
@@ -260,7 +278,7 @@ export default function ApartmentDetailPage() {
         className="text-center mt-4 text-sm text-primary underline cursor-pointer"
         onClick={() => setConditionsOpen(true)}
       >
-        {t({ de: "Buchungsbedingungen anzeigen", en: "View Booking Conditions" })}
+        {t("apartment.booking_conditions")}
       </p>
       </ModalPane>
 
@@ -274,13 +292,13 @@ export default function ApartmentDetailPage() {
         <div className="flex items-center justify-between">
           <div>
             <span className="text-sm text-muted-foreground">
-              {t({ de: "Ab", en: "From" })}
+              {t("apartment.from")}
             </span>
             <span className="text-lg font-bold text-foreground ml-1">
               €{apartment.price}
             </span>
             <span className="text-sm text-muted-foreground">
-              /{t({ de: "Nacht", en: "Night" })}
+              /{t("apartment.night")}
             </span>
           </div>
 
@@ -289,7 +307,7 @@ export default function ApartmentDetailPage() {
             onClick={openBookingWidget}
             className="px-6 py-2.5 text-sm font-medium text-primary-foreground bg-primary rounded-lg shadow-card transition-smooth"
           >
-            {t({ de: "Jetzt buchen!", en: "Book now!" })}
+            {t("apartment.book_now")}
           </button>
         </div>
       </div>

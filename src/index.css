@@ -43,11 +43,14 @@
 }
 
 @layer base {
+  html {
+    @apply h-full;
+  }
   * {
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground font-sans antialiased;
+    @apply h-full bg-background text-foreground font-sans antialiased;
   }
   h1, h2, h3 {
     @apply font-serif;

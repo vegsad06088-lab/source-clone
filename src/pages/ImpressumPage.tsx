@@ -8,14 +8,14 @@ export default function ImpressumPage() {
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <h1 className="text-4xl font-serif font-bold text-foreground mb-4">Impressum</h1>
       <p className="text-muted-foreground mb-8">
-        {t("en.impressum.intro")}
+        {t("impressum.intro")}
       </p>
 
       <div className="space-y-8 text-sm text-muted-foreground leading-relaxed">
         {/* Kontakt */}
         <section>
           <h3 className="text-lg font-sans font-semibold text-foreground mb-3">
-            {t("en.impressum.contact.title")}
+            {t("impressum.contact.title")}
           </h3>
           <p className="mb-1">Apartments zur Quelle</p>
           <p className="mb-1">Christine Führer GmbH</p>
@@ -38,40 +38,37 @@ export default function ImpressumPage() {
         {/* Auskunft / Unternehmensdaten */}
         <section>
           <h3 className="text-lg font-sans font-semibold text-foreground mb-3">
-            {t("en.impressum.info.title")}
+            {t("impressum.info.title")}
           </h3>
           <p className="mb-1">Christine Führer GmbH</p>
           <p className="mb-1">
-            {t("en.impressum.info.management")}
+            {t("impressum.info.management")}
           </p>
           <p className="mb-1">
-            {t("en.impressum.info.businessPurpose")}
+            {t("impressum.info.businessPurpose")}
           </p>
           <p className="mb-1">UID-Nr: ATU67808903</p>
           <p className="mb-1">
-            {t("en.impressum.info.registrationNumber")}: 389718s
+            {t("impressum.info.registrationNumber")}: 389718s
           </p>
           <p className="mb-1">
-            {t("en.impressum.info.registrationCourt")}: Handelsgericht Wien
+            {t("impressum.info.registrationCourt")}: Handelsgericht Wien
           </p>
           <p className="mb-1">
-            {t("en.impressum.info.registeredOffice")}: Absberggasse 6, 1100 Wien, Austria
+            {t("impressum.info.registeredOffice")}: Absberggasse 6, 1100 Wien, Austria
           </p>
           <p className="mb-1">
-            {t("en.impressum.info.memberOf")}: Wirtschaftskammer Wien
+            {t("impressum.info.memberOf")}: Wirtschaftskammer Wien
           </p>
           <p className="mb-1">
-            {t("en.impressum.info.professionalGroup")}: Gastgewerbe
-          </p>
-          <p>
-            {t("en.impressum.info.mediaOwner")}
+            {t("impressum.info.professionalGroup")}: Gastgewerbe
           </p>
         </section>
 
         {/* Design & Programmierung */}
         <section>
           <h3 className="text-lg font-sans font-semibold text-foreground mb-3">
-            Design & {t("en.impressum.design")}
+            Design & {t({ de: "Programmierung", en: "Programming" })}
           </h3>
           <p>ap-zur-quelle Team</p>
           <p>
@@ -85,39 +82,39 @@ export default function ImpressumPage() {
         {/* Haftung und Datenschutz */}
         <section>
           <h3 className="text-lg font-sans font-semibold text-foreground mb-3">
-            {t("en.impressum.liability.title")}
+            {t({ de: "Haftung & Datenschutz", en: "Liability & Data Protection" })}
           </h3>
           <h4 className="font-semibold text-foreground mb-2">
-            {t("en.impressum.section1")}
+            {t("impressum.section1.title")}
           </h4>
           <p className="mb-4">
-            {t("en.impressum.section1.text")}
+            {t("impressum.section1.text")}
           </p>
           <h4 className="font-semibold text-foreground mb-2">
-            {t("en.impressum.section2")}
+            {t("impressum.section2")}
           </h4>
           <p className="mb-4">
-            {t("en.impressum.section2.text")}{" "}
+            {t("impressum.section2.text")}{" "}
             <a href="/datenschutz" className="text-primary hover:underline">
-              {t("en.impressum.section2.link")}
+              {t("impressum.section2.link")}
             </a>
             .
           </p>
           <h4 className="font-semibold text-foreground mb-2">
-            {t("en.impressum.section3")}
+            {t("impressum.section3")}
           </h4>
           <p>
-            {t("en.impressum.section3.text")}
+            {t("impressum.section3.text")}
           </p>
         </section>
 
         {/* Online-Streitbeilegung */}
         <section>
           <h3 className="text-lg font-sans font-semibold text-foreground mb-3">
-            {t("en.impressum.odr.title")}
+            {t("impressum.odr.title")}
           </h3>
           <p>
-            {t("en.impressum.odr.text")}{" "}
+            {t("impressum.odr.text")}{" "}
             <a
               href="http://ec.europa.eu/odr"
               target="_blank"

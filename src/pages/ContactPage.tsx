@@ -21,20 +21,29 @@ export default function ContactPage() {
   return (
     <div>
       {/* Hero */}
-      <section className="relative min-h-[50vh] flex items-center justify-center">
-        <div className="absolute inset-0">
-          <img
-            src="/images/652938d0b1ddde3e7ecc4cac_151351.avif"
-            alt="Contact"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-foreground/50" />
-        </div>
+      <section 
+        className="relative min-h-[50vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-700 to-gray-800"
+        style={{
+          backgroundImage: 'url(/images/652938d0b1ddde3e7ecc4cac_151351.avif)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
+        <img
+          src="/images/652938d0b1ddde3e7ecc4cac_151351.avif"
+          alt="Contact"
+          className="absolute inset-0 w-full h-full object-cover"
+          onError={(e) => {
+            console.error("Contact hero image failed to load:", e);
+            e.currentTarget.style.display = 'none';
+          }}
+        />
+        <div className="absolute inset-0 bg-black/30" />
         <div className="relative z-10 text-center px-4 pt-24">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif font-bold text-background mb-4">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif font-bold text-white mb-4">
             {t("contact.hero.title")}
           </h1>
-          <p className="text-lg text-background/90 max-w-2xl mx-auto">
+          <p className="text-lg text-white/90 max-w-2xl mx-auto">
             {t("contact.hero.subtitle")}
           </p>
         </div>

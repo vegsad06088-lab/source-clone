@@ -133,23 +133,6 @@
 "fr.reviews.laura_tom.quote": "Le confort et la tranquillité de ces appartements sont exceptionnels. Une véritable oasis après une journée en ville!",
 "fr.reviews.laura_tom.location": "Weiden, Allemagne",
 
-"fr.faqs.booking.q": "Comment puis-je réserver un appartement?",
-"fr.faqs.booking.a": "Vous pouvez facilement réserver via notre site Web ou nous appeler directement. Nous sommes heureux de vous aider!",
-
-"fr.faqs.prices.q": "Les prix sont-ils par personne ou par appartement?",
-"fr.faqs.prices.a": "Les prix indiqués sont par appartement, pas par personne. Vous pouvez donc planifier facilement!",
-
-"fr.faqs.amenities.q": "Quels équipements les appartements offrent-ils?",
-"fr.faqs.amenities.a": "Tous nos appartements sont équipés d'une cuisine, d'une salle de bains avec douche, d'un salon et d'une chambre pour votre confort complet.",
-
-"fr.faqs.pets.q": "Les animaux de compagnie sont-ils autorisés?",
-"fr.faqs.pets.a": "Malheureusement non, par égard pour les autres clients, les animaux de compagnie ne sont pas autorisés.",
-
-"fr.faqs.long_stays.q": "Y a-t-il des tarifs spéciaux pour les séjours prolongés?",
-"fr.faqs.long_stays.a": "Bien sûr! Nous offrons des tarifs spéciaux pour les séjours prolongés. Renseignez-vous simplement auprès de nous et nous serons heureux de vous informer.",
-
-"fr.faqs.parking.q": "Le stationnement est-il disponible aux appartements?",
-"fr.faqs.parking.a": "Oui, il est possible de réserver un garage souterrain en supplément. Cependant, cela devrait être clarifié et confirmé sur place.",
 
 "fr.features.elevator.title": "Ascenseur Disponible",
 "fr.features.elevator.desc": "Accès facile à votre appartement.",
@@ -365,7 +348,184 @@
   "fr.cookies.basis.text": "Les cookies essentiels reposent sur notre intérêt légitime (Art. 6(1)(f) RGPD). Les cookies d’analyse et marketing ne sont utilisés qu’avec votre consentement (Art. 6(1)(a) RGPD).",
   "fr.cookies.change.title": "4. Modifier les paramètres des cookies",
   "fr.cookies.change.text": "Vous pouvez ajuster vos paramètres de cookies à tout moment via la bannière. S’il n’apparaît pas, supprimez les cookies dans votre navigateur pour le faire réapparaître.",
-  "fr.cookies.contact.title": "5. Contact"
+  "fr.cookies.contact.title": "5. Contact",
 
+  "fr.faq.booking.q": "Comment puis-je réserver un appartement?",
+  "fr.faq.booking.a": "Vous pouvez réserver facilement via notre site Web ou nous appeler directement. Nous sommes heureux de vous aider!",
 
+  "fr.faq.prices.q": "Les prix sont-ils par personne ou par appartement?",
+  "fr.faq.prices.a": "Les prix indiqués sont par appartement, non par personne. Vous pouvez donc planifier facilement!",
+
+  "fr.faq.amenities.q": "Quels équipements les appartements offrent-ils?",
+  "fr.faq.amenities.a": "Tous nos appartements sont équipés d'une cuisine, d'une salle de bain avec douche, d'un salon et d'une chambre, pour votre confort complet.",
+
+  "fr.faq.pets.q": "Les animaux domestiques sont-ils autorisés?",
+  "fr.faq.pets.a": "Malheureusement non, par égard pour les autres clients, les animaux domestiques ne sont pas autorisés.",
+
+  "fr.faq.discounts.q": "Y a-t-il des tarifs spéciaux pour les séjours plus longs?",
+  "fr.faq.discounts.a": "Bien sûr! Nous offrons des tarifs spéciaux pour les séjours plus longs. Contactez-nous simplement et nous serons heureux de vous informer.",
+
+  "fr.faq.parking.q": "Un parking est-il disponible aux appartements?",
+  "fr.faq.parking.a": "Oui, il est possible de réserver un garage souterrain en plus. Cependant, cela doit être clarifié et confirmé sur place.",
+
+  "fr.home.hero.title": "Bienvenue chez Apartments zur Quelle",
+  "fr.home.hero.subtitle": "Votre maison loin de chez vous à Vienne. Confortable, moderne et chaleureux.",
+  "fr.home.hero.cta_book": "Réserver Maintenant",
+  "fr.home.hero.cta_about": "À Propos",
+
+  "fr.home.booking.title": "Portail de Réservation",
+  "fr.home.booking.subtitle": "Trouvez votre appartement idéal et réservez directement.",
+  "fr.home.booking.minimum_stay": "Séjour minimum: 4 nuits",
+  "fr.home.booking.conditions_link": "Conditions de Réservation",
+
+  "fr.home.apartments.title": "Nos Appartements",
+
+  "fr.home.features.title": "Nos Commodités",
+  "fr.home.features.subtitle": "Tout ce dont vous avez besoin pour un séjour confortable.",
+  "fr.home.features.elevator": "Ascenseur Disponible",
+  "fr.home.features.tv": "TV Moderne",
+  "fr.home.features.hair_dryer": "Sèche-cheveux",
+  "fr.home.features.wifi": "WiFi Rapide",
+  "fr.home.features.cooking": "Équipements de Cuisine",
+  "fr.home.features.towels": "Serviettes Douces",
+
+  "fr.home.sustainability.title": "Durabilité",
+  "fr.home.sustainability.subtitle": "Nous nous concentrons sur des pratiques respectueuses de l'environnement.",
+  "fr.home.sustainability.cta_discover": "En Savoir Plus",
+
+  "fr.home.why_us.title": "Pourquoi Nous?",
+  "fr.home.why_us.subtitle": "Service personnalisé et hébergement confortable.",
+  "fr.home.why_us.description": "Chez Apartments zur Quelle, il ne s'agit pas seulement d'hébergement – il s'agit d'une expérience. Chaque client est unique pour nous, et nous voulons que votre séjour soit inoubliable.",
+
+  "fr.home.reviews.title": "Avis des Clients",
+  "fr.home.reviews.subtitle": "Voici ce que nos clients satisfaits disent de nous.",
+
+  "fr.faq.section.title": "Questions Fréquemment Posées",
+  "fr.faq.section.subtitle": "Trouvez les réponses à vos questions sur nos appartements.",
+
+  "fr.agb.title": "Conditions Générales",
+  "fr.agb.intro": "Ces Conditions Générales s'appliquent à toutes les réservations et séjours à Apartments zur Quelle.",
+
+  "fr.agb.section1.title": "1. Domaine d'Application",
+  "fr.agb.section1.text": "Ces Conditions Générales s'appliquent à toutes les réservations, séjours et services liés aux appartements de vacances Apartments zur Quelle. En finalisant une réservation, le client accepte ces conditions.",
+
+  "fr.agb.section2.title": "2. Réservation & Paiement",
+  "fr.agb.section2.paragraph1": "Une réservation devient contraignante dès que le client a terminé le processus de réservation et reçoit une confirmation.",
+  "fr.agb.section2.paragraph2": "Le paiement se fait en deux étapes : un dépôt de 20% au moment de la réservation (via Stripe ou PayPal) et le solde restant de 80% au plus tard 7 jours avant l'arrivée. Si le solde restant n'est pas payé à temps, nous nous réservons le droit d'annuler la réservation.",
+
+  "fr.agb.section3.title": "3. Politique d'Annulation",
+  "fr.agb.section3.paragraph1": "Jusqu'à 7 jours avant l'arrivée (14:00), le dépôt est remboursé à 100%.",
+  "fr.agb.section3.paragraph2": "À partir de 7 jours avant l'arrivée (14:00), des frais d'annulation de 20% du prix de réservation s'appliquent (égal au dépôt). Le dépôt n'est pas remboursable dans ce cas.",
+  "fr.agb.section3.paragraph3": "En cas de non-présentation sans annulation, le montant total est dû.",
+
+  "fr.agb.section4.title": "4. Enregistrement & Départ",
+  "fr.agb.section4.checkin": "Enregistrement : à partir de 14:00",
+  "fr.agb.section4.checkout": "Départ : avant 10:00",
+  "fr.agb.section4.text": "L'accès se fait via l'auto-enregistrement à l'aide d'une boîte à clés. Le code d'accès sera fourni avant l'arrivée.",
+
+  "fr.agb.section5.title": "5. Règlement Intérieur",
+  "fr.agb.section5.paragraph1": "Pendant le séjour : maximum 2 clients, interdiction de fumer, pas d'animaux domestiques, pas de fêtes ou d'événements, heures de silence de 22:00–07:00, l'appartement doit être traité avec soin, et aucun visiteur non enregistré n'est autorisé.",
+  "fr.agb.section5.paragraph2": "Avant le départ : rassemblez les serviettes utilisées, éteignez les lumières et les appareils, rincez la vaisselle utilisée, rendez les clés à la boîte à clés, et informez l'hôte du départ.",
+
+  "fr.agb.section6.title": "6. Dommages & Responsabilité",
+  "fr.agb.section6.paragraph1": "Le client est responsable de tous les dommages causés pendant le séjour par lui-même ou ses compagnons. Les dommages doivent être signalés immédiatement.",
+  "fr.agb.section6.paragraph2": "L'hôte n'est pas responsable de la perte d'objets de valeur, des biens personnels du client, ou des interruptions causées par des cas de force majeure (p. ex. électricité, internet).",
+
+  "fr.agb.section7.title": "7. Sécurité",
+  "fr.agb.section7.text": "L'appartement est équipé d'un détecteur de fumée et d'un détecteur de monoxyde de carbone. Les consignes de sécurité doivent être respectées.",
+
+  "fr.agb.section8.title": "8. Confidentialité",
+  "fr.agb.section8.text": "Pour les informations sur la protection des données, veuillez consulter notre politique de confidentialité.",
+
+  "fr.agb.section9.title": "9. Juridiction",
+  "fr.agb.section9.text": "La loi autrichienne s'applique exclusivement. Le tribunal compétent est Vienne.",
+
+  "fr.anleitungen.title": "Instructions pour Votre Séjour",
+  "fr.anleitungen.subtitle": "Tout ce que vous devez savoir pour un séjour relaxant.",
+  "fr.anleitungen.viator.title": "Conseils pour votre séjour à Vienne.",
+  "fr.anleitungen.viator.subtitle": "Découvrez les meilleures visites guidées, billets et points forts",
+  "fr.anleitungen.viator.cta": "Découvrez maintenant",
+  "fr.anleitungen.section.title": "Vous trouverez tout ce que vous devez savoir ici.",
+  "fr.anleitungen.category.apartments": "Appartements",
+  "fr.anleitungen.category.location": "Emplacement & Région",
+
+  "fr.cookies.title": "Politique des Cookies",
+  "fr.cookies.intro": "Ici, nous expliquons les cookies que nous utilisons, pourquoi nous les utilisons et comment vous pouvez gérer vos paramètres.",
+  "fr.cookies.section1.title": "1. Que sont les cookies?",
+  "fr.cookies.section1.text": "Les cookies sont de petits fichiers texte stockés sur votre appareil. Ils nous aident à maintenir le site Web fonctionnel et à améliorer votre expérience utilisateur.",
+  "fr.cookies.section2.title": "2. Quels cookies utilisons-nous?",
+  "fr.cookies.section2.essential": "a) Cookies essentiels",
+  "fr.cookies.section2.essential.text": "Ces cookies sont techniquement requis pour le fonctionnement du site Web. Ils ne peuvent pas être désactivés.",
+  "fr.cookies.section2.analytics": "b) Cookies d'analyse",
+  "fr.cookies.section2.analytics.text": "Ces cookies nous aident à comprendre comment les visiteurs utilisent notre site Web. Les données sont évaluées anonymement.",
+  "fr.cookies.section2.marketing": "c) Cookies de marketing",
+  "fr.cookies.section2.marketing.text": "Les cookies de marketing nous permettent de vous montrer du contenu et des offres pertinents. Ceux-ci peuvent être définis par des tiers.",
+  "fr.cookies.section2.thirdparty": "d) Cookies de tiers (p.ex. Smoobu)",
+  "fr.cookies.section2.thirdparty.text": "Pour nos fonctions de réservation, nous utilisons des services externes tels que Smoobu. Ces fournisseurs peuvent définir leurs propres cookies.",
+  "fr.cookies.section3.title": "3. Base juridique",
+  "fr.cookies.section3.text": "Les cookies essentiels sont basés sur notre intérêt légitime (Art. 6(1)(f) RGPD). Les cookies d'analyse et de marketing ne sont utilisés qu'avec votre consentement (Art. 6(1)(a) RGPD).",
+  "fr.cookies.section4.title": "4. Modifier les paramètres des cookies",
+  "fr.cookies.section4.text": "Vous pouvez modifier vos paramètres de cookies à tout moment via la bannière des cookies. Si la bannière n'est pas affichée, vous pouvez supprimer les cookies dans votre navigateur pour la réafficher.",
+
+  "fr.datenschutz.title": "Politique de Confidentialité",
+  "fr.datenschutz.subtitle": "Votre vie privée nous est importante.",
+  "fr.datenschutz.preamble.title": "Protection des Données",
+  "fr.datenschutz.preamble.text": "Nous accordons une grande importance à la protection de vos données. Cette politique de confidentialité explique comment nous traitons vos données personnelles.",
+  "fr.datenschutz.preamble.lastUpdated": "Dernière mise à jour: Mars 2026",
+  "fr.datenschutz.controller.title": "Responsable de la Protection des Données",
+  "fr.datenschutz.processing.title": "Traitement des Données Personnelles",
+  "fr.datenschutz.processing.types": "Quelles données traitons-nous?",
+  "fr.datenschutz.processing.masterData": "Données principales (nom, adresse)",
+  "fr.datenschutz.processing.contactData": "Données de contact (e-mail, numéro de téléphone)",
+  "fr.datenschutz.processing.contentData": "Données de contenu (messages, demandes)",
+  "fr.datenschutz.processing.usageData": "Données d'utilisation (pages vues, durée)",
+  "fr.datenschutz.processing.metaData": "Métadonnées (adresse IP, type de navigateur)",
+  "fr.datenschutz.cookies.title": "Utilisation des Cookies",
+  "fr.datenschutz.cookies.text": "Les cookies sont de petits fichiers texte ou d'autres notes de stockage qui stockent des informations sur les appareils et lisent des informations à partir des appareils. Nous utilisons des cookies pour assurer la fonctionnalité de base de notre site Web (cookies nécessaires), ainsi que des cookies d'analyse et de marketing optionnels. Vous pouvez gérer votre consentement à tout moment via notre bannière de cookies.",
+  "fr.datenschutz.booking.title": "Gestion des Réservations via Smoobu",
+  "fr.datenschutz.booking.text": "Pour la gestion des réservations, nous utilisons le logiciel Smoobu (Smoobu GmbH, Wichertstr. 16, 10439 Berlin, Allemagne). Lors d'une réservation, vos données (nom, coordonnées, données de réservation, informations de paiement) seront partagées avec Smoobu. Le traitement est basé sur l'article 6(1)(b) RGPD (exécution du contrat). Plus d'informations sont disponibles dans la politique de confidentialité de Smoobu à https://www.smoobu.com/fr/privacy/.",
+  "fr.datenschutz.hosting.title": "Hébergement",
+  "fr.datenschutz.hosting.text": "Ce site Web est hébergé par Lovable / Vercel. Les services d'hébergement servent à fournir les éléments suivants: services d'infrastructure et de plateforme, capacité de calcul, espace de stockage et services de base de données. Nous avons conclu un accord de traitement des données (AVP) avec le fournisseur d'hébergement.",
+  "fr.datenschutz.rights.title": "Droits des Personnes Concernées",
+  "fr.datenschutz.rights.text": "En tant que personne concernée, vous disposez de différents droits en vertu du RGPD: droit d'accès (art. 15), droit de rectification (art. 16), droit à l'effacement (art. 17), droit à la limitation du traitement (art. 18), droit à la portabilité des données (art. 20), droit d'opposition (art. 21). Vous avez également le droit de déposer plainte auprès d'une autorité de contrôle en matière de protection des données.",
+  "fr.datenschutz.austria.title": "Réglementations Nationales de Protection des Données en Autriche",
+  "fr.datenschutz.austria.text": "En plus du RGPD, des réglementations nationales de protection des données s'appliquent en Autriche. Cela inclut en particulier la loi fédérale sur la protection des personnes physiques en ce qui concerne le traitement des données personnelles (loi sur la protection des données – DSG).",
+  "fr.datenschutz.contact.title": "Contact",
+  "fr.datenschutz.contact.text": "Si vous avez des questions concernant la protection des données, veuillez nous contacter à:",
+
+  "fr.impressum.intro": "Divulgation conformément à la loi autrichienne sur les médias et la loi sur le commerce électronique",
+  "fr.impressum.contact.title": "Contact",
+  "fr.impressum.info.title": "Informations de la Société",
+  "fr.impressum.info.management": "Directrice générale: Christine Führer",
+  "fr.impressum.info.businessPurpose": "Objet Social: Location d'appartements",
+  "fr.impressum.info.registrationNumber": "Numéro d'immatriculation",
+  "fr.impressum.info.registrationCourt": "Tribunal d'enregistrement",
+  "fr.impressum.info.registeredOffice": "Siège social",
+  "fr.impressum.info.memberOf": "Membre de",
+  "fr.impressum.info.professionalGroup": "Groupe Professionnel",
+  "fr.impressum.section1.title": "Responsabilité du Contenu",
+  "fr.impressum.section1.text": "Le contenu de nos pages a été créé avec beaucoup de soin. Cependant, nous ne pouvons pas garantir l'exactitude, l'exhaustivité et l'actualité du contenu.",
+  "fr.impressum.section2": "Responsabilité des Liens",
+  "fr.impressum.section2.text": "Notre site Web contient des liens vers des sites externes. Nous ne sommes pas responsables de leur contenu. Chaque fournisseur est responsable de son propre contenu.",
+  "fr.impressum.section2.link": "Politique de Confidentialité",
+  "fr.impressum.section3": "Droit d'Auteur",
+  "fr.impressum.section3.text": "Le contenu et les œuvres sur ces pages sont soumis au droit d'auteur. La reproduction, l'édition, la distribution et toute forme d'exploitation en dehors des limites du droit d'auteur nécessitent une permission écrite de l'auteur ou du créateur.",
+  "fr.impressum.odr.title": "Résolution des Litiges en Ligne",
+  "fr.impressum.odr.text": "La Commission européenne fournit une plateforme de résolution des litiges en ligne (plateforme RLL):",
+
+  "fr.apartments.hero.subtitle": "Découvrez votre maison temporaire parfaite au cœur de Vienne. Style, confort et individualité dans chaque pièce.",
+
+  "fr.apartment.not_found": "Appartement non trouvé",
+  "fr.apartment.back_to_apartments": "Retour aux Appartements",
+  "fr.apartment.persons": "Personnes",
+  "fr.apartment.from": "À partir de",
+  "fr.apartment.night": "Nuit",
+  "fr.apartment.person": "Personne",
+  "fr.apartment.amenities": "Équipements",
+  "fr.apartment.gallery": "Galerie",
+  "fr.apartment.show_all_images": "▼ Afficher toutes les images",
+  "fr.apartment.show_less": "▲ Afficher moins",
+  "fr.apartment.book_now": "Réserver maintenant!",
+  "fr.apartment.book_now_modal": "Réserver maintenant",
+  "fr.apartment.booking_conditions": "Voir les Conditions de Réservation"
 }

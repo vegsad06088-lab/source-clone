@@ -7,84 +7,66 @@ export default function DatenschutzPage() {
     <div className="pt-32 pb-20">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <h1 className="text-4xl font-serif font-bold text-foreground mb-4">
-          {t("en.datenschutz.title")}
+          {t("datenschutz.title")}
         </h1>
         <p className="text-muted-foreground mb-8">
-          {t("en.datenschutz.subtitle")}
+          {t("datenschutz.subtitle")}
         </p>
 
         <div className="prose prose-slate max-w-none text-muted-foreground text-sm leading-relaxed space-y-6">
           <section>
-            <h2 className="text-xl font-serif font-bold text-foreground">{t("en.datenschutz.preamble.title")}</h2>
-            <p>{t("en.datenschutz.preamble.text")}</p>
-            <p>{t("en.datenschutz.preamble.lastUpdated")}</p>
+            <h2 className="text-xl font-serif font-bold text-foreground">{t("datenschutz.preamble.title")}</h2>
+            <p>{t("datenschutz.preamble.text")}</p>
+            <p>{t("datenschutz.preamble.lastUpdated")}</p>
           </section>
 
           <section>
-            <h2 className="text-xl font-serif font-bold text-foreground">{t("en.datenschutz.controller.title")}</h2>
+            <h2 className="text-xl font-serif font-bold text-foreground">{t("datenschutz.controller.title")}</h2>
             <p>Christine Führer GmbH<br />Absberggasse 6<br />1100 Wien - AT</p>
             <p>E-Mail: <a href="mailto:info@ap-zur-quelle.at" className="text-primary hover:underline">info@ap-zur-quelle.at</a></p>
             <p>Impressum: <a href="/impressum" className="text-primary hover:underline">ap-zur-quelle.at/impressum</a></p>
           </section>
 
           <section>
-            <h2 className="text-xl font-serif font-bold text-foreground">{t("en.datenschutz.processing.title")}</h2>
-            <h3 className="text-lg font-sans font-semibold text-foreground">{t("en.datenschutz.processing.types")}</h3>
+            <h2 className="text-xl font-serif font-bold text-foreground">{t("datenschutz.processing.title")}</h2>
+            <h3 className="text-lg font-sans font-semibold text-foreground">{t("datenschutz.processing.types")}</h3>
             <ul className="list-disc pl-5">
-              <li>{t("en.datenschutz.processing.masterData")}</li>
-              <li>{t("en.datenschutz.processing.contactData")}</li>
-              <li>{t("en.datenschutz.processing.contentData")}</li>
-              <li>{t("en.datenschutz.processing.usageData")}</li>
-              <li>{t("en.datenschutz.processing.metaData")}</li>
+              <li>{t("datenschutz.processing.masterData")}</li>
+              <li>{t("datenschutz.processing.contactData")}</li>
+              <li>{t("datenschutz.processing.contentData")}</li>
+              <li>{t("datenschutz.processing.usageData")}</li>
+              <li>{t("datenschutz.processing.metaData")}</li>
             </ul>
           </section>
 
           <section>
-            <h2 className="text-xl font-serif font-bold text-foreground">{t({ de: "Einsatz von Cookies", en: "Use of Cookies" })}</h2>
-            <p>{t({
-              de: "Cookies sind kleine Textdateien bzw. sonstige Speichervermerke, die Informationen auf Endgeräten speichern und Informationen aus den Endgeräten auslesen. Wir setzen Cookies ein, um die grundlegende Funktionsfähigkeit unserer Website zu gewährleisten (notwendige Cookies), sowie optional Analyse- und Marketing-Cookies. Sie können Ihre Einwilligung jederzeit über unseren Cookie-Banner verwalten.",
-              en: "Cookies are small text files or other storage notes that store information on end devices and read information from end devices. We use cookies to ensure the basic functionality of our website (necessary cookies), as well as optional analytics and marketing cookies. You can manage your consent at any time via our cookie banner."
-            })}</p>
+            <h2 className="text-xl font-serif font-bold text-foreground">{t("datenschutz.cookies.title")}</h2>
+            <p>{t("datenschutz.cookies.text")}</p>
           </section>
 
           <section>
-            <h2 className="text-xl font-serif font-bold text-foreground">{t({ de: "Buchungsverwaltung über Smoobu", en: "Booking Management via Smoobu" })}</h2>
-            <p>{t({
-              de: "Zur Abwicklung von Buchungen nutzen wir die Software Smoobu (Smoobu GmbH, Wichertstr. 16, 10439 Berlin). Wenn Sie eine Buchung vornehmen, werden Ihre Daten (Name, Kontaktdaten, Buchungsdaten, Zahlungsinformationen) an Smoobu weitergegeben. Die Verarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung). Weitere Informationen finden Sie in der Datenschutzerklärung von Smoobu unter https://www.smoobu.com/de/datenschutz/.",
-              en: "For booking management, we use the software Smoobu (Smoobu GmbH, Wichertstr. 16, 10439 Berlin, Germany). When you make a booking, your data (name, contact details, booking data, payment information) will be shared with Smoobu. Processing is based on Art. 6(1)(b) GDPR (contract fulfillment). More information can be found in Smoobu's privacy policy at https://www.smoobu.com/en/privacy/."
-            })}</p>
+            <h2 className="text-xl font-serif font-bold text-foreground">{t("datenschutz.booking.title")}</h2>
+            <p>{t("datenschutz.booking.text")}</p>
           </section>
 
           <section>
-            <h2 className="text-xl font-serif font-bold text-foreground">{t({ de: "Hosting", en: "Hosting" })}</h2>
-            <p>{t({
-              de: "Diese Website wird gehostet von Lovable / Vercel. Die Hosting-Dienste dienen der Bereitstellung der folgenden Leistungen: Infrastruktur- und Plattformdienstleistungen, Rechenkapazität, Speicherplatz und Datenbankdienste. Wir haben einen Auftragsverarbeitungsvertrag (AVV) mit dem Hosting-Anbieter abgeschlossen.",
-              en: "This website is hosted by Lovable / Vercel. The hosting services serve to provide the following: infrastructure and platform services, computing capacity, storage space and database services. We have concluded a data processing agreement (DPA) with the hosting provider."
-            })}</p>
+            <h2 className="text-xl font-serif font-bold text-foreground">{t("datenschutz.hosting.title")}</h2>
+            <p>{t("datenschutz.hosting.text")}</p>
           </section>
 
           <section>
-            <h2 className="text-xl font-serif font-bold text-foreground">{t({ de: "Rechte der betroffenen Personen", en: "Rights of Data Subjects" })}</h2>
-            <p>{t({
-              de: "Ihnen stehen als Betroffene nach der DSGVO verschiedene Rechte zu: Auskunftsrecht (Art. 15 DSGVO), Recht auf Berichtigung (Art. 16 DSGVO), Recht auf Löschung (Art. 17 DSGVO), Recht auf Einschränkung der Verarbeitung (Art. 18 DSGVO), Recht auf Datenübertragbarkeit (Art. 20 DSGVO), Widerspruchsrecht (Art. 21 DSGVO). Sie haben außerdem das Recht, sich bei einer Datenschutz-Aufsichtsbehörde über die Verarbeitung Ihrer personenbezogenen Daten durch uns zu beschweren.",
-              en: "As a data subject, you have various rights under the GDPR: Right of access (Art. 15), Right to rectification (Art. 16), Right to erasure (Art. 17), Right to restriction of processing (Art. 18), Right to data portability (Art. 20), Right to object (Art. 21). You also have the right to lodge a complaint with a data protection supervisory authority."
-            })}</p>
+            <h2 className="text-xl font-serif font-bold text-foreground">{t("datenschutz.rights.title")}</h2>
+            <p>{t("datenschutz.rights.text")}</p>
           </section>
 
           <section>
-            <h2 className="text-xl font-serif font-bold text-foreground">{t({ de: "Nationale Datenschutzregelungen in Österreich", en: "National Data Protection Regulations in Austria" })}</h2>
-            <p>{t({
-              de: "Zusätzlich zu den Datenschutzregelungen der DSGVO gelten nationale Regelungen zum Datenschutz in Österreich. Hierzu gehört insbesondere das Bundesgesetz zum Schutz natürlicher Personen bei der Verarbeitung personenbezogener Daten (Datenschutzgesetz – DSG).",
-              en: "In addition to the GDPR, national data protection regulations apply in Austria. This includes in particular the Federal Act on the Protection of Natural Persons with regard to the Processing of Personal Data (Data Protection Act – DSG)."
-            })}</p>
+            <h2 className="text-xl font-serif font-bold text-foreground">{t("datenschutz.austria.title")}</h2>
+            <p>{t("datenschutz.austria.text")}</p>
           </section>
 
           <section>
-            <h2 className="text-xl font-serif font-bold text-foreground">{t({ de: "Kontakt", en: "Contact" })}</h2>
-            <p>{t({
-              de: "Wenn Sie Fragen zum Datenschutz haben, kontaktieren Sie uns bitte unter:",
-              en: "If you have questions about data protection, please contact us at:"
-            })}</p>
+            <h2 className="text-xl font-serif font-bold text-foreground">{t("datenschutz.contact.title")}</h2>
+            <p>{t("datenschutz.contact.text")}</p>
             <p>Christine Führer GmbH<br />Absberggasse 6, 1100 Wien<br />E-Mail: <a href="mailto:info@ap-zur-quelle.at" className="text-primary hover:underline">info@ap-zur-quelle.at</a></p>
           </section>
         </div>
