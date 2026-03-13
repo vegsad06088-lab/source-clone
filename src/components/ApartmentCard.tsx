@@ -45,9 +45,9 @@ export default function ApartmentCard({ id, name, image, descriptionKey, persons
             <span className="text-xl font-semibold text-foreground ml-1">€{price}</span>
             <span className="text-sm text-muted-foreground">/{t("apartment.card.night")}</span>
           </div>
-          <span className="text-sm font-medium text-primary group-hover:underline">
-            {t("apartment.card.view_details")} →
-          </span>
+          <button className="px-4 py-1.5 rounded-full font-medium text-xs text-white bg-primary hover:bg-primary/90 transition-smooth hover:shadow-lg active:scale-95 group-hover:shadow-lg">
+            {t("apartment.card.view_details")}
+          </button>
         </div>
       </div>
     </Link>

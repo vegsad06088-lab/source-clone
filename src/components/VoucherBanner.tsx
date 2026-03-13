@@ -24,21 +24,13 @@ export default function VoucherBanner() {
             {/* Right side - Content */}
             <div className="flex-1 pr-8">
                 <h3 className="text-2xl font-bold text-white mb-4">
-                    🎉 {t("voucher.title").replace("%%value%%", offersConfig.voucher.voucherValue.toString())}
+                    🎉 {t("voucher.banner.title").replace("%%value%%", offersConfig.voucher.voucherValue.toString())}
                 </h3>
 
                 <p className="text-base text-white leading-relaxed">
-                    {t("voucher.description")
+                    {t("voucher.banner.description")
                         .replace("%%value%%", offersConfig.voucher.voucherValue.toString())
-                        .split("APP10")
-                        .map((part, index, arr) => (
-                            <span key={index}>
-                                {part}
-                                {index < arr.length - 1 && (
-                                    <span className="font-bold text-orange-400">{offersConfig.voucher.voucherCode}</span>
-                                )}
-                            </span>
-                        ))}
+                        .replace("%%code%%", offersConfig.voucher.voucherCode)}
                 </p>
             </div>
 

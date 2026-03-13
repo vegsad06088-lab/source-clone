@@ -2,12 +2,14 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useI18n } from "@/lib/i18n";
 import { Mail, Phone, MapPin } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 export default function ContactPage() {
   const { t, langPrefix } = useI18n();
   const [formData, setFormData] = useState({ name: "", email: "", phone: "", subject: "", message: "" });
   const [agreed, setAgreed] = useState(false);
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
+  const viatorRef = useScrollAnimation({ threshold: 0.2, delay: 150 });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -33,6 +35,7 @@ export default function ContactPage() {
           src="/images/652938d0b1ddde3e7ecc4cac_151351.avif"
           alt="Contact"
           className="absolute inset-0 w-full h-full object-cover"
+          loading="lazy"
           onError={(e) => {
             console.error("Contact hero image failed to load:", e);
             e.currentTarget.style.display = 'none';
@@ -139,7 +142,7 @@ export default function ContactPage() {
             <button
               type="submit"
               disabled={!agreed}
-              className="w-full px-6 py-3.5 text-sm font-medium text-primary-foreground bg-primary rounded-lg shadow-card hover:shadow-card-hover transition-smooth hover:-translate-y-[1px] active:translate-y-[1px] active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full px-6 py-3.5 text-sm font-medium text-primary-foreground bg-primary rounded-full shadow-card hover:shadow-card-hover transition-smooth hover:-translate-y-[1px] active:translate-y-[1px] active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {t("contact.form.submit")}
             </button>
@@ -188,22 +191,26 @@ export default function ContactPage() {
       </section>
 
       {/* Viator */}
-      <section className="bg-card py-12 bg-cover bg-center bg-no-repeat relative" style={{ backgroundImage: 'url(/images/opera.avif)' }}>
-        <div className="absolute inset-0 bg-black/40"></div>
+      <section 
+        ref={viatorRef.ref}
+        className={`bg-primary text-white py-10 bg-cover bg-center bg-no-repeat relative transition-all duration-700 ${
+          viatorRef.isVisible ? "animate-fade-up-in" : "will-animate-fade-up"
+        }`}
+        style={{ backgroundImage: 'url(/images/opera.avif)' }}
+      >
+        <div className="absolute inset-0 bg-black/50"></div>
         <div className="max-w-7xl mx-auto px-4 text-center relative z-10">
-          <h2 className="text-2xl font-serif font-bold text-foreground mb-3">
-            {t("contact.recommendations_title")}
+          <h2 className="text-xl font-serif font-bold mb-2 text-white">
+            {t("anleitungen.viator.title")}
           </h2>
-          <p className="text-muted-foreground mb-6">
-            {t("contact.viator.subtitle")}
-          </p>
+          <p className="text-white/90 mb-4 text-sm">{t("anleitungen.viator.subtitle")}</p>
           <a
             href="https://www.viator.com/Vienna/d454-ttd?localeSwitch=1&pid=P00290902&mcid=42383&medium=link"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center px-6 py-3 text-sm font-medium text-primary bg-white rounded-lg transition-smooth hover:opacity-90"
+            className="inline-flex items-center justify-center px-6 py-2 text-sm font-medium bg-white text-primary rounded-full shadow-lg hover:shadow-xl transition-smooth hover:opacity-95 active:scale-95"
           >
-            {t("home.hero.cta_book")}
+            {t("anleitungen.viator.cta")}
           </a>
         </div>
       </section>

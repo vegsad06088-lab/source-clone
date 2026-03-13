@@ -65,7 +65,7 @@ export default function Navbar() {
           <div className="hidden md:block">
             <Link
               to={`${langPrefix}/apartments`}
-              className="inline-flex items-center justify-center px-5 py-2.5 text-sm font-medium text-primary-foreground bg-primary rounded-lg shadow-card hover:shadow-card-hover transition-smooth hover:-translate-y-[1px] active:translate-y-[1px] active:scale-[0.98]"
+              className="inline-flex items-center justify-center px-5 py-2.5 text-sm font-medium text-primary-foreground bg-primary/80 rounded-full shadow-card hover:shadow-card-hover transition-smooth hover:-translate-y-[1px] active:translate-y-[1px] active:scale-[0.98] hover:bg-primary"
             >
               {t("navbar.book_now")}
             </Link>
@@ -108,7 +108,7 @@ export default function Navbar() {
             <Link
               to={`${langPrefix}/apartments`}
               onClick={() => setMobileOpen(false)}
-              className="mt-4 w-full inline-flex items-center justify-center px-5 py-3 text-sm font-medium text-primary-foreground bg-primary rounded-lg"
+              className="mt-4 w-full inline-flex items-center justify-center px-5 py-3 text-sm font-medium text-primary-foreground bg-primary/80 rounded-full hover:bg-primary transition-smooth"
             >
               {t("navbar.book_now")}
             </Link>

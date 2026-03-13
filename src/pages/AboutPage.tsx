@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { faqs } from "@/lib/data";
 import { useState, useEffect } from "react";
 import Lightbox from "@/components/Lightbox";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 
 export default function AboutPage() {
@@ -10,6 +11,7 @@ export default function AboutPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [scrollY, setScrollY] = useState(0);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const viatorRef = useScrollAnimation({ threshold: 0.2, delay: 150 });
 
   const photoGallery = [
     "/images/653593603b0593b2e2e14b9a_Unbenannt-3.avif",
@@ -44,6 +46,7 @@ export default function AboutPage() {
           style={{
             transform: `scale(1.05) translateY(${scrollY * 0.3}px)`,
           }}
+          loading="lazy"
           onError={(e) => {
             console.error("About hero image failed to load:", e);
             e.currentTarget.style.display = 'none';
@@ -84,6 +87,7 @@ export default function AboutPage() {
               src="/images/65344f823268205b9fd3083b_1231211212.avif"
               alt="Apartments zur Quelle Location"
               className="w-full h-96 object-cover"
+              loading="lazy"
             />
           </a>
           <h3 className="text-xl font-serif font-semibold text-foreground mb-2">Apartments zur Quelle</h3>
@@ -93,33 +97,41 @@ export default function AboutPage() {
       </section>
 
       {/* Viator */}
-      <section className="bg-card py-12 bg-cover bg-center bg-no-repeat relative" style={{ backgroundImage: 'url(/images/opera.avif)' }}>
-        <div className="absolute inset-0 bg-black/40"></div>
+      <section 
+        ref={viatorRef.ref}
+        className={`bg-primary text-white py-10 bg-cover bg-center bg-no-repeat relative transition-all duration-700 ${
+          viatorRef.isVisible ? "animate-fade-up-in" : "will-animate-fade-up"
+        }`}
+        style={{ backgroundImage: 'url(/images/opera.avif)' }}
+      >
+        <div className="absolute inset-0 bg-black/50"></div>
         <div className="max-w-7xl mx-auto px-4 text-center relative z-10">
-          <h2 className="text-2xl font-serif font-bold text-foreground mb-3">
-            {t("about.viator.title")}
+          <h2 className="text-xl font-serif font-bold mb-2 text-white">
+            {t("anleitungen.viator.title")}
           </h2>
-          <p className="text-muted-foreground mb-6">{t("about.viator.subtitle")}</p>
-          <a href="https://www.viator.com/Vienna/d454-ttd?localeSwitch=1&pid=P00290902&mcid=42383&medium=link" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-6 py-3 text-sm font-medium text-primary-foreground bg-primary rounded-lg transition-smooth hover:opacity-90">
-            {t("home.hero.cta_book")}
+          <p className="text-white/90 mb-4 text-sm">{t("anleitungen.viator.subtitle")}</p>
+          <a href="https://www.viator.com/Vienna/d454-ttd?localeSwitch=1&pid=P00290902&mcid=42383&medium=link" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-6 py-2.5 text-sm font-medium bg-background text-foreground rounded-lg transition-smooth hover:opacity-90">
+            {t("anleitungen.viator.cta")}
           </a>
         </div>
       </section>
 
-      {/* Your Home */}
-      <section className="container-narrow py-20">
-        <h2 className="text-3xl font-serif font-bold text-foreground mb-6">
-          {t("about.home.title")}
-        </h2>
-        <p className="text-muted-foreground leading-relaxed mb-8">
-          {t("about.home.description")}
-        </p>
-        <h2 className="text-3xl font-serif font-bold text-foreground mb-6">
-          {t("about.rooms.title")}
-        </h2>
-        <p className="text-muted-foreground leading-relaxed">
-          {t("about.rooms.description")}
-        </p>
+      {/* ...existing code... */}
+      <section className="py-20 bg-background">
+        <div className="max-w-3xl mx-auto px-4 text-center">
+          <h2 className="text-3xl font-serif font-bold text-foreground mb-6">
+            {t("about.home.title")}
+          </h2>
+          <p className="text-muted-foreground leading-relaxed mb-12 text-lg">
+            {t("about.home.description")}
+          </p>
+          <h2 className="text-3xl font-serif font-bold text-foreground mb-6">
+            {t("about.rooms.title")}
+          </h2>
+          <p className="text-muted-foreground leading-relaxed text-lg">
+            {t("about.rooms.description")}
+          </p>
+        </div>
       </section>
 
       {/* Photo Grid */}
@@ -144,7 +156,7 @@ export default function AboutPage() {
 
       {/* Why Guests Love Us */}
       <section className="bg-card py-20">
-        <div className="container-modern">
+        <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-3xl font-serif font-bold text-foreground text-center mb-12">
             {t({ de: "Warum Gäste uns lieben", en: "Why Guests Love Us" })}
           </h2>
@@ -168,22 +180,33 @@ export default function AboutPage() {
       </section>
 
       {/* FAQ */}
-      <section className="container-ultra-narrow py-20">
-        <h2 className="text-3xl font-serif font-bold text-foreground text-center mb-12">
-          {t({ de: "Häufige Fragen", en: "FAQ" })}
-        </h2>
-        <div className="space-y-3">
-          {faqs.map((faq, i) => (
-            <div key={i} className="rounded-2xl shadow-card overflow-hidden">
-              <button onClick={() => setOpenFaq(openFaq === i ? null : i)} className="w-full text-left p-5 flex justify-between items-center bg-background hover:bg-card transition-smooth">
-                <span className="text-base font-medium text-foreground font-sans">{t(faq.qKey)}</span>
-                <svg className={`w-5 h-5 text-muted-foreground transition-transform ${openFaq === i ? "rotate-180" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
-              </button>
-              {openFaq === i && (
-                <div className="px-5 pb-5 bg-background"><p className="text-sm text-muted-foreground">{t(faq.aKey)}</p></div>
-              )}
-            </div>
-          ))}
+      <section className="py-20 bg-background">
+        <div className="max-w-3xl mx-auto px-4">
+          <h2 className="text-3xl font-serif font-bold text-foreground text-center mb-12">
+            {t({ de: "Häufige Fragen", en: "FAQ" })}
+          </h2>
+          <div className="space-y-3">
+            {faqs.map((faq, i) => (
+              <div key={i} className="rounded-2xl shadow-card overflow-hidden">
+                <button onClick={() => setOpenFaq(openFaq === i ? null : i)} className="w-full text-left p-5 flex justify-between items-center bg-background hover:bg-card transition-smooth">
+                  <span className="text-base font-medium text-foreground font-sans">{t(faq.qKey)}</span>
+                  <svg className={`w-5 h-5 text-muted-foreground transition-transform duration-300 ${openFaq === i ? "rotate-180" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+                </button>
+                <div
+                  className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                    openFaq === i ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+                  }`}
+                  style={{
+                    maxHeight: openFaq === i ? "500px" : "0px",
+                  }}
+                >
+                  <div className="px-5 py-4 bg-background border-t border-border/20">
+                    <p className="text-sm text-muted-foreground leading-relaxed">{t(faq.aKey)}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
       {lightboxIndex !== null && (

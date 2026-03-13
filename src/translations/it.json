@@ -484,5 +484,8 @@
   "it.anleitungen.pdf_download": "Scarica come PDF",
   "it.anleitungen.pdf_description": "Scarica la guida completa in PDF e avere tutte le informazioni importanti a portata di mano.",
   "it.anleitungen.more_instructions": "Altre Guide",
-  "it.anleitungen.show_all": "Mostra tutti"
+  "it.anleitungen.show_all": "Mostra tutti",
+  "it.promo.banner": "Soggiorna più a lungo, paga meno! Risparmia fino al %%percentage%%% per %%nights%% notti o più!",
+  "it.voucher.banner.title": "Risparmia €%%value%% sulla tua prenotazione!",
+  "it.voucher.banner.description": "Usa il codice promozionale %%code%% e ottieni €%%value%% di sconto sulla tua prenotazione. Prenota ora e goditi il tuo soggiorno a un ottimo prezzo!"
 }

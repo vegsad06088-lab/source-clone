@@ -5,9 +5,18 @@ import ApartmentCard from "@/components/ApartmentCard";
 import PromoBanner from "@/components/PromoBanner";
 import FAQSection from "@/components/FAQSection";
 import { useEffect } from "react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 export default function HomePage() {
   const { t, langPrefix } = useI18n();
+
+  // Scroll animation refs
+  const bookingRef = useScrollAnimation({ threshold: 0.2 });
+  const apartmentsRef = useScrollAnimation({ threshold: 0.2 });
+  const featuresRef = useScrollAnimation({ threshold: 0.15 });
+  const sustainabilityRef = useScrollAnimation({ threshold: 0.2 });
+  const whyUsRef = useScrollAnimation({ threshold: 0.2 });
+  const reviewsRef = useScrollAnimation({ threshold: 0.15 });
 
   useEffect(() => {
     const script = document.createElement("script");
@@ -42,6 +51,7 @@ export default function HomePage() {
           src="/images/65292a8ac576df93df55e85a_Titelbild_3.avif"
           alt="Apartments zur Quelle"
           className="absolute inset-0 w-full h-full object-cover"
+          loading="lazy"
           onError={(e) => {
             console.error("Hero image failed to load:", e);
             e.currentTarget.style.display = 'none';
@@ -49,7 +59,7 @@ export default function HomePage() {
         />
         <div className="absolute inset-0 bg-black/30" />
 
-        <div className="relative z-10 text-center px-4 max-w-3xl mx-auto">
+        <div className="relative z-10 text-center px-4 max-w-3xl mx-auto animate-fade-up-in">
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif font-bold text-white mb-6">
             {t("home.hero.title")}
           </h1>
@@ -61,14 +71,14 @@ export default function HomePage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to={`${langPrefix}/apartments`}
-              className="inline-flex items-center justify-center px-8 py-3.5 text-base font-medium text-primary-foreground bg-primary rounded-lg shadow-card hover:shadow-card-hover transition-smooth hover:-translate-y-[1px]"
+              className="inline-flex items-center justify-center px-8 py-3.5 text-base font-medium text-primary-foreground bg-primary rounded-full shadow-card hover:shadow-card-hover transition-smooth hover:-translate-y-[1px]"
             >
               {t("home.hero.cta_book")}
             </Link>
 
             <Link
               to={`${langPrefix}/about`}
-              className="inline-flex items-center justify-center px-8 py-3.5 text-base font-medium text-background bg-background/20 backdrop-blur-sm border border-background/30 rounded-lg transition-smooth hover:bg-background/30"
+              className="inline-flex items-center justify-center px-8 py-3.5 text-base font-medium text-background bg-background/20 backdrop-blur-sm border border-background/30 rounded-full transition-smooth hover:bg-background/30"
             >
               {t("home.hero.cta_about")}
             </Link>
@@ -77,7 +87,12 @@ export default function HomePage() {
       </section>
 
       {/* Booking Widget */}
-      <section className="bg-card py-12 sm:py-16 lg:py-20">
+      <section 
+        ref={bookingRef.ref}
+        className={`bg-card py-12 sm:py-16 lg:py-20 transition-all duration-700 ${
+          bookingRef.isVisible ? "animate-fade-up-in" : "will-animate-fade-up"
+        }`}
+      >
         <div className="container-modern">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-foreground text-center mb-2 sm:mb-4">
             {t("home.booking.title")}
@@ -112,22 +127,42 @@ export default function HomePage() {
       <PromoBanner />
 
       {/* Apartments */}
-      <section className="w-full py-20 bg-background">
+      <section 
+        ref={apartmentsRef.ref}
+        className={`w-full py-20 bg-background transition-all duration-700 ${
+          apartmentsRef.isVisible ? "animate-fade-up-in" : "will-animate-fade-up"
+        }`}
+      >
         <div className="mx-auto w-full px-4 sm:px-6 lg:px-8 max-w-6xl">
           <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground text-center mb-12">
             {t("home.apartments.title")}
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {apartments.map((apt) => (
-              <ApartmentCard key={apt.id} {...apt} />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {apartments.map((apt, index) => (
+              <div
+                key={apt.id}
+                className="transition-all duration-700"
+                style={{
+                  animation: apartmentsRef.isVisible ? `fadeUpIn 0.6s ease-out ${0.1 * index}s forwards` : "none",
+                  opacity: apartmentsRef.isVisible ? 1 : 0,
+                  transform: apartmentsRef.isVisible ? "translateY(0)" : "translateY(40px)",
+                }}
+              >
+                <ApartmentCard {...apt} />
+              </div>
             ))}
           </div>
         </div>
       </section>
 
       {/* Features */}
-      <section className="w-full py-20 bg-background">
+      <section 
+        ref={featuresRef.ref}
+        className={`w-full py-20 bg-background transition-all duration-700 ${
+          featuresRef.isVisible ? "animate-fade-up-in" : "will-animate-fade-up"
+        }`}
+      >
         <div className="mx-auto w-full px-4 sm:px-6 lg:px-8 max-w-6xl">
           <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground text-center mb-4">
             {t("home.features.title")}
@@ -139,7 +174,15 @@ export default function HomePage() {
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
             {features.map((f, i) => (
-              <div key={i} className="text-center group">
+              <div 
+                key={i} 
+                className="text-center group transition-all duration-700"
+                style={{
+                  animation: featuresRef.isVisible ? `fadeUpIn 0.6s ease-out ${0.05 * i}s forwards` : "none",
+                  opacity: featuresRef.isVisible ? 1 : 0,
+                  transform: featuresRef.isVisible ? "translateY(0)" : "translateY(30px)",
+                }}
+              >
                 <div className="flex items-center justify-center mb-3">
                   <img
                     src={f.image}
@@ -163,7 +206,12 @@ export default function HomePage() {
       </section>
 
       {/* Sustainability CTA */}
-      <section className="bg-primary text-primary-foreground py-16">
+      <section 
+        ref={sustainabilityRef.ref}
+        className={`bg-primary text-primary-foreground py-16 transition-all duration-700 ${
+          sustainabilityRef.isVisible ? "animate-fade-in-scale" : "will-animate-scale"
+        }`}
+      >
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">
             {t("home.sustainability.title")}
@@ -176,14 +224,14 @@ export default function HomePage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to={`${langPrefix}/apartments`}
-              className="inline-flex items-center justify-center px-6 py-3 text-sm font-medium bg-background text-foreground rounded-lg transition-smooth hover:opacity-90"
+              className="inline-flex items-center justify-center px-6 py-3 text-sm font-medium bg-background text-foreground rounded-full transition-smooth hover:opacity-90"
             >
               {t("home.sustainability.cta_discover")}
             </Link>
 
             <Link
               to={`${langPrefix}/about`}
-              className="inline-flex items-center justify-center px-6 py-3 text-sm font-medium text-primary-foreground border border-primary-foreground/30 rounded-lg transition-smooth hover:bg-primary-foreground/10"
+              className="inline-flex items-center justify-center px-6 py-3 text-sm font-medium text-primary-foreground border border-primary-foreground/30 rounded-full transition-smooth hover:bg-primary-foreground/10"
             >
               {t("home.hero.cta_about")}
             </Link>
@@ -192,7 +240,12 @@ export default function HomePage() {
       </section>
 
       {/* Why Us */}
-      <section className="w-full py-20 bg-background">
+      <section 
+        ref={whyUsRef.ref}
+        className={`w-full py-20 bg-background transition-all duration-700 ${
+          whyUsRef.isVisible ? "animate-fade-up-in" : "will-animate-fade-up"
+        }`}
+      >
         <div className="mx-auto w-full px-4 sm:px-6 lg:px-8 max-w-6xl">
           <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground text-center mb-4">
             {t("home.why_us.title")}
@@ -209,7 +262,12 @@ export default function HomePage() {
       </section>
 
       {/* Reviews */}
-      <section className="bg-card py-20">
+      <section 
+        ref={reviewsRef.ref}
+        className={`bg-card py-20 transition-all duration-700 ${
+          reviewsRef.isVisible ? "animate-fade-up-in" : "will-animate-fade-up"
+        }`}
+      >
         <div className="container-modern">
           <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground text-center mb-4">
             {t("home.reviews.title")}
@@ -221,7 +279,15 @@ export default function HomePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {reviews.map((r, i) => (
-              <div key={i} className="bg-background p-6 rounded-2xl shadow-card">
+              <div 
+                key={i} 
+                className="bg-background p-6 rounded-2xl shadow-card transition-all duration-700"
+                style={{
+                  animation: reviewsRef.isVisible ? `fadeUpIn 0.6s ease-out ${0.1 * i}s forwards` : "none",
+                  opacity: reviewsRef.isVisible ? 1 : 0,
+                  transform: reviewsRef.isVisible ? "translateY(0)" : "translateY(30px)",
+                }}
+              >
                 <h3 className="text-lg font-semibold text-foreground mb-3 font-sans">
                   "{t(r.textKey)}"
                 </h3>
@@ -253,14 +319,14 @@ export default function HomePage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to={`${langPrefix}/apartments`}
-              className="inline-flex items-center justify-center px-8 py-3.5 text-base font-medium text-primary-foreground bg-primary rounded-lg shadow-card hover:shadow-card-hover transition-smooth"
+              className="inline-flex items-center justify-center px-8 py-3.5 text-base font-medium text-primary-foreground bg-primary rounded-full shadow-card hover:shadow-card-hover transition-smooth"
             >
               {t("home.hero.cta_book")}
             </Link>
 
             <Link
               to={`${langPrefix}/about`}
-              className="inline-flex items-center justify-center px-8 py-3.5 text-base font-medium text-foreground bg-muted rounded-lg transition-smooth hover:bg-muted/80"
+              className="inline-flex items-center justify-center px-8 py-3.5 text-base font-medium text-foreground bg-muted rounded-full transition-smooth hover:bg-muted/80"
             >
               {t("home.hero.cta_about")}
             </Link>

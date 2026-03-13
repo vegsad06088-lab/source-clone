@@ -493,7 +493,9 @@
   "zh.anleitungen.pdf_download": "下载为PDF",
   "zh.anleitungen.pdf_description": "下载完整指南的PDF版本，随时随地获取所有重要信息。",
   "zh.anleitungen.more_instructions": "更多指南",
-  "zh.anleitungen.show_all": "显示全部"
-
+  "zh.anleitungen.show_all": "显示全部",
+  "zh.promo.banner": "住得更久，付费更少！%%nights%%晚或以上最多节省%%percentage%%！",
+  "zh.voucher.banner.title": "预订可节省€%%value%%！",
+  "zh.voucher.banner.description": "使用促销代码%%code%%，预订可获得€%%value%%折扣。立即预订，享受优惠价格！"
 }
 

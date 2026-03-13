@@ -518,6 +518,9 @@
   "ja.anleitungen.pdf_download": "PDFとしてダウンロード",
   "ja.anleitungen.pdf_description": "完全なガイドをPDFとしてダウンロードし、重要な情報をいつでも手に取ることができます。",
   "ja.anleitungen.more_instructions": "その他のガイド",
-  "ja.anleitungen.show_all": "すべて表示"
+  "ja.anleitungen.show_all": "すべて表示",
+  "ja.promo.banner": "長く滞在して、料金を少なく! %%nights%%泊以上で最大%%percentage%%節約!",
+  "ja.voucher.banner.title": "ご予約で€%%value%%節約!",
+  "ja.voucher.banner.description": "プロモコード%%code%%を使用して、ご予約で€%%value%%の割引を受けてください。今すぐ予約して、素晴らしい価格で滞在をお楽しみください!"
 }
 

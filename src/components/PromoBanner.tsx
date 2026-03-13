@@ -4,23 +4,24 @@ import { X } from "lucide-react";
 import offersConfig from "@/config/offers.json";
 
 export default function PromoBanner() {
-  const { t, lang } = useI18n();
+  const { t } = useI18n();
   const [visible, setVisible] = useState(true);
 
-  // Check if promo is enabled and has required config
-  if (!visible || !offersConfig.promo.enabled || !offersConfig.promo.percentage || !offersConfig.promo.nights) {
+  if (!visible) {
     return null;
   }
 
-  // Construct promo message dynamically
-  const promoBannerTexts: Record<string, string> = {
-    de: `Mehr bleiben, weniger zahlen! Bis zu ${offersConfig.promo.percentage}% sparen ab ${offersConfig.promo.nights} Nächten!`,
-    en: `Stay more, pay less! Save up to ${offersConfig.promo.percentage}% if you stay ${offersConfig.promo.nights} nights or more!`,
-    sq: `Qëndroni më shumë, paguani më pak! Kurseni deri ${offersConfig.promo.percentage}% për qëndrime ${offersConfig.promo.nights} netësh ose më shumë!`,
-    ru: `Живите дольше, платьте меньше! Экономьте до ${offersConfig.promo.percentage}% при проживании ${offersConfig.promo.nights} ночей или дольше!`,
-  };
+  // Only show promo banner (not voucher - that's handled by VoucherBanner component)
+  if (!offersConfig.promo.enabled || !offersConfig.promo.percentage || !offersConfig.promo.nights) {
+    return null;
+  }
 
-  const bannerText = promoBannerTexts[lang] || promoBannerTexts.de;
+  const percentage = offersConfig.promo.percentage;
+  const nights = offersConfig.promo.nights;
+
+  const bannerText = t("promo.banner")
+    .replace("%%percentage%%", percentage.toString())
+    .replace("%%nights%%", nights.toString());
 
   return (
     <div className="bg-primary text-primary-foreground text-center py-3 px-4 text-sm font-medium relative">

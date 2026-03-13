@@ -371,5 +371,8 @@
   "tr.anleitungen.pdf_download": "PDF Olarak İndir",
   "tr.anleitungen.pdf_description": "Tam rehberi PDF olarak indirin ve tüm önemli bilgileri her zaman elinizde bulundurun.",
   "tr.anleitungen.more_instructions": "Diğer Rehberler",
-  "tr.anleitungen.show_all": "Tümünü Göster"
+  "tr.anleitungen.show_all": "Tümünü Göster",
+  "tr.promo.banner": "Daha uzun kalın, daha az ödeme yapın! %%nights%% gece veya daha fazla için %% percentage%%'e kadar tasarruf edin!",
+  "tr.voucher.banner.title": "Rezervasyonunuzda €%%value%% tasarruf edin!",
+  "tr.voucher.banner.description": "Promosyon kodu %%code%% kullanın ve rezervasyonunuzda €%%value%% indirim alın. Şimdi rezerv edin ve harika bir fiyatla konaklış keyfini çıkarın!"
 }

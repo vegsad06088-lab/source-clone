@@ -92,7 +92,7 @@ export default function CookieBanner() {
           <div className="flex gap-3">
             <button
               onClick={acceptAll}
-              className="flex-1 px-4 py-2.5 text-sm font-medium text-primary-foreground bg-primary rounded-lg transition-smooth hover:opacity-90"
+              className="flex-1 px-4 py-2.5 text-sm font-medium text-primary-foreground bg-primary rounded-full transition-smooth hover:opacity-90"
             >
               {t({ de: "Ich stimme zu", en: "I agree" })}
             </button>
@@ -153,7 +153,7 @@ export default function CookieBanner() {
           <div className="flex gap-3">
             <button
               onClick={acceptAll}
-              className="flex-1 px-4 py-2.5 text-sm font-medium text-primary-foreground bg-primary rounded-lg transition-smooth hover:opacity-90"
+              className="flex-1 px-4 py-2.5 text-sm font-medium text-primary-foreground bg-primary rounded-full transition-smooth hover:opacity-90"
             >
               {t({ de: "Alle akzeptieren", en: "Accept all" })}
             </button>
