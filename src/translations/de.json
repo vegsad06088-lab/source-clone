@@ -1,7 +1,6 @@
 {
   "de.bookingConditions.title": "Buchungsbedingungen",
   "de.bookingConditions.intro": "Bitte lesen Sie diese Buchungsbedingungen sorgfältig durch, bevor Sie eine Reservierung vornehmen.",
-
   "de.bookingConditions.cancellation.title": "1. Stornierungsbedingungen",
   "de.bookingConditions.cancellation.free": "Kostenlose Stornierung bis 7 Tage vor Anreise (14:00 Uhr).",
   "de.bookingConditions.cancellation.late": "Ab 7 Tage vor Anreise beträgt die Stornogebühr 20 % des Buchungspreises.",
@@ -21,7 +20,6 @@
   "de.bookingConditions.more.title": "7. Weitere Informationen",
   "de.bookingConditions.more.text": "Die vollständigen rechtlichen Bedingungen finden Sie in unseren",
   "de.bookingConditions.more.link": "AGB",
-
   "de.amenities.accessible": "Barrierefrei",
   "de.amenities.cooking_facilities": "Kochfeld",
   "de.amenities.fridge": "Kühlschrank",
@@ -399,11 +397,12 @@
   "de.apartment.card.night": "Nacht",
   "de.apartment.card.from": "ab",
   "de.apartment.card.persons": "Personen",
-  "de.anleitungen.category.apartments": "Apartments",
-  "de.anleitungen.category.location": "Standort & Umgebung",
-  "de.anleitungen.back_to_all": "Alle Anleitungen",
-  "de.anleitungen.pdf_download": "Download als PDF",
-  "de.anleitungen.pdf_description": "Lade die vollständige Anleitung als PDF herunter und habe alle wichtigen Infos jederzeit griffbereit.",
-  "de.anleitungen.more_instructions": "Weitere Anleitungen",
-  "de.anleitungen.show_all": "Alle zeigen"
+  "de.promo.banner": "Mehr bleiben, weniger zahlen! Bis zu %%percentage%%% sparen ab %%nights%% Nächten!",
+  "de.voucher.banner.title": "Spare %%value%%€ bei Deiner Buchung!",
+  "de.voucher.banner.description": "Nutze den Gutscheincode %%code%% und sichere dir %%value%%€ Rabatt auf deine Buchung. Buche jetzt und genieße deinen Aufenthalt zum Vorteilspreis!",
+  "de.voucher.title": "Spare %%value%%€ bei Deiner Buchung!",
+  "de.voucher.description": "Nutze den Gutscheincode APP10 und sichere dir %%value%%€ Rabatt auf deine Buchung. Buche jetzt und genieße deinen Aufenthalt zum Vorteilspreis!",
+  "de.voucher.codeLabel": "Gutscheincode:",
+  "de.voucher.valueLabel": "Rabattwert:",
+  "de.promo.alert": "🎉 Angebot: Bis zu %%percentage%%% Rabatt ab %%nights%% Nächten!"
 }

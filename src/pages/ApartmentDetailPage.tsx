@@ -35,7 +35,7 @@ export default function ApartmentDetailPage() {
         <p className="text-lg text-muted-foreground mb-8">Slug: {slug}</p>
         <Link
           to={`${langPrefix}/apartments`}
-          className="px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:opacity-90 transition-smooth"
+          className="px-6 py-3 bg-primary text-primary-foreground rounded-full hover:opacity-90 transition-smooth"
         >
           {t("apartment.back_to_apartments")}
         </Link>
@@ -51,7 +51,7 @@ export default function ApartmentDetailPage() {
       const script = document.createElement("script");
       script.src = "https://login.smoobu.com/js/Settings/BookingToolIframe.js";
       script.onload = () => {
-        // @ts-ignore
+        // @ts-expect-error BookingToolIframe is from external script
         BookingToolIframe.initialize({
           url: "https://login.smoobu.com/en/booking-tool/iframe/1656615",
           baseUrl: "https://login.smoobu.com",
@@ -84,7 +84,7 @@ export default function ApartmentDetailPage() {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent" />
         <div className="absolute bottom-0 left-0 right-0 z-10">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
             <div>
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-white mb-3">
                 {apartment.name}
@@ -93,172 +93,184 @@ export default function ApartmentDetailPage() {
                 {t(apartment.descriptionKey)}
               </p>
             </div>
-
-            {/* Booking Card */}
-            <div className="bg-background rounded-2xl shadow-elevated p-6 min-w-[280px] lg:min-w-[320px]">
-              <h3 className="text-lg font-semibold text-foreground font-sans">
-                {apartment.name}
-              </h3>
-              <p className="text-sm text-muted-foreground mb-3">
-                {apartment.persons} {t("apartment.persons")}
-              </p>
-              <div className="border-t border-border pt-3 mb-4">
-                <p className="text-sm text-muted-foreground">
-                  {t("apartment.from")}
-                </p>
-                <p className="text-2xl font-bold text-foreground">
-                  € {apartment.price}.00 EUR{" "}
-                  <span className="text-sm font-normal text-muted-foreground">
-                    /{t("apartment.night")}
-                  </span>
-                </p>
-              </div>
-
-              {/* NEW: Open booking modal */}
-              <button
-                onClick={openBookingWidget}
-                className="w-full inline-flex items-center justify-center px-6 py-3 text-sm font-medium text-primary-foreground bg-primary rounded-lg shadow-card hover:shadow-card-hover transition-smooth hover:-translate-y-[1px] active:translate-y-[1px] active:scale-[0.98]"
-              >
-                {t("apartment.book_now")}
-              </button>
-            </div>
           </div>
         </div>
       </section>
 
-      {/* Quick Info */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="flex flex-wrap gap-3">
-          <span className="inline-flex items-center gap-2 px-4 py-2 bg-card rounded-lg text-sm text-foreground shadow-card">
-            👤 {apartment.persons} {t("apartment.person")}
-          </span>
-          <span className="inline-flex items-center gap-2 px-4 py-2 bg-card rounded-lg text-sm text-foreground shadow-card">
-            🛏️ {t(apartment.bedsKey)}
-          </span>
-          <span className="inline-flex items-center gap-2 px-4 py-2 bg-card rounded-lg text-sm text-foreground shadow-card">
-            🏠 {t(apartment.roomsKey)}
-          </span>
-          <span className="inline-flex items-center gap-2 px-4 py-2 bg-card rounded-lg text-sm text-foreground shadow-card">
-            📐 {apartment.size}
-          </span>
-        </div>
-      </section>
-
-      {/* Description */}
-      <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <h2 className="text-2xl md:text-3xl font-serif font-bold text-foreground mb-6">
-          {t(apartment.sectionTitleKey)}
-        </h2>
-        <div className="prose prose-slate max-w-none">
-          {t(apartment.longDescriptionKey)
-            .split("\n\n")
-            .map((p, i) => (
-              <p
-                key={i}
-                className="text-muted-foreground leading-relaxed mb-4"
-              >
-                {p}
-              </p>
-            ))}
-        </div>
-      </section>
-
-      {/* Amenities */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <h2 className="text-2xl md:text-3xl font-serif font-bold text-foreground mb-8">
-          {t("apartment.amenities")}
-        </h2>
-        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-4">
-          {amenities.map((a, i) => (
-            <div
-              key={i}
-              className="flex flex-col items-center gap-2 p-4 bg-card rounded-xl shadow-card text-center"
-            >
-              <span className="text-2xl">{a.icon}</span>
-              <span className="text-xs font-medium text-foreground">
-                {t(a.labelKey)}
-              </span>
+      {/* Main Content Layout with Sticky Card */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 -mt-40 grid grid-cols-1 lg:grid-cols-3 gap-8 pb-32 lg:pb-12">
+        {/* Left Content Column */}
+          <div className="lg:col-span-2 pl-0 md:pl-12 lg:pl-20 mt-48">
+          {/* Quick Info */}
+          <section className="mb-12 bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl p-4 border border-primary/20 -mt-8">
+            <div className="grid grid-cols-4 gap-2">
+              <div className="flex flex-col items-center gap-0.5 p-2 bg-background rounded-lg text-center hover:shadow-card transition-smooth">
+                <span className="text-base">👤</span>
+                <span className="text-xs font-medium text-foreground">{apartment.persons}</span>
+              </div>
+              <div className="flex flex-col items-center gap-0.5 p-2 bg-background rounded-lg text-center hover:shadow-card transition-smooth">
+                <span className="text-base">🛏️</span>
+                <span className="text-xs font-medium text-foreground">{t(apartment.bedsKey)}</span>
+              </div>
+              <div className="flex flex-col items-center gap-0.5 p-2 bg-background rounded-lg text-center hover:shadow-card transition-smooth">
+                <span className="text-base">🏠</span>
+                <span className="text-xs font-medium text-foreground">{t(apartment.roomsKey)}</span>
+              </div>
+              <div className="flex flex-col items-center gap-0.5 p-2 bg-background rounded-lg text-center hover:shadow-card transition-smooth">
+                <span className="text-base">📐</span>
+                <span className="text-xs font-medium text-foreground">{apartment.size}</span>
+              </div>
             </div>
-          ))}
-        </div>
-      </section>
+          </section>
 
-      {/* Gallery */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <h2 className="text-2xl md:text-3xl font-serif font-bold text-foreground mb-8">
-          {t("apartment.gallery")}
-        </h2>
+          {/* Description */}
+          <section className="mb-12">
+            <h2 className="text-2xl md:text-3xl font-serif font-bold text-foreground mb-6">
+              {t(apartment.sectionTitleKey)}
+            </h2>
+            <div className="prose prose-slate max-w-none">
+              {t(apartment.longDescriptionKey)
+                .split("\n\n")
+                .map((p, i) => (
+                  <p
+                    key={i}
+                    className="text-muted-foreground leading-relaxed mb-4"
+                  >
+                    {p}
+                  </p>
+                ))}
+            </div>
+          </section>
 
-        {/* Expand / Collapse Button */}
-        <button
-          onClick={() => setExpanded(!expanded)}
-          className="flex items-center gap-2 text-primary font-medium mb-6"
-        >
-          {expanded
-            ? t("apartment.show_less")
-            : t("apartment.show_all_images")}
-        </button>
-
-        {/* Collapsed: Swiper Carousel */}
-        {!expanded && (
-          <Swiper
-            modules={[Navigation]}
-            navigation
-            spaceBetween={16}
-            slidesPerView={1.2}
-            breakpoints={{
-              640: { slidesPerView: 2.2 },
-              1024: { slidesPerView: 3.2 },
-            }}
-            className="w-full"
-          >
-            {apartment.gallery.map((img, i) => (
-              <SwiperSlide key={i}>
+          {/* Amenities */}
+          <section className="mb-12">
+            <h2 className="text-2xl md:text-3xl font-serif font-bold text-foreground mb-8">
+              {t("apartment.amenities")}
+            </h2>
+            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-4">
+              {amenities.map((a, i) => (
                 <div
-                  className="aspect-[4/3] rounded-xl overflow-hidden shadow-card cursor-pointer hover:shadow-card-hover transition-smooth"
-                  onClick={() => setLightboxIndex(i)}
+                  key={i}
+                  className="flex flex-col items-center gap-2 p-4 bg-card rounded-xl shadow-card text-center"
                 >
-                  <img
-                    src={img}
-                    alt={`${apartment.name} ${i + 1}`}
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                  />
+                  <span className="text-2xl">{a.icon}</span>
+                  <span className="text-xs font-medium text-foreground">
+                    {t(a.labelKey)}
+                  </span>
                 </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        )}
+              ))}
+            </div>
+          </section>
 
-        {/* Expanded: Full Grid */}
-        {expanded && (
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-            {apartment.gallery.map((img, i) => (
-              <div
-                key={i}
-                className="aspect-[4/3] rounded-xl overflow-hidden shadow-card cursor-pointer hover:shadow-card-hover transition-smooth bg-card"
-                onClick={() => setLightboxIndex(i)}
+          {/* Gallery */}
+          <section>
+            <h2 className="text-2xl md:text-3xl font-serif font-bold text-foreground mb-8">
+              {t("apartment.gallery")}
+            </h2>
+
+            {/* Expand / Collapse Button */}
+            <button
+              onClick={() => setExpanded(!expanded)}
+              className="flex items-center gap-2 text-primary font-medium mb-6"
+            >
+              {expanded
+                ? t("apartment.show_less")
+                : t("apartment.show_all_images")}
+            </button>
+
+            {/* Collapsed: Swiper Carousel */}
+            {!expanded && (
+              <Swiper
+                modules={[Navigation]}
+                navigation
+                spaceBetween={16}
+                slidesPerView={1.2}
+                breakpoints={{
+                  640: { slidesPerView: 2.2 },
+                  1024: { slidesPerView: 3.2 },
+                }}
+                className="w-full"
               >
-                <img
-                  src={img}
-                  alt={`${apartment.name} ${i + 1}`}
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                  onError={(e) => {
-                    console.error(`Gallery image failed to load: ${img}`);
-                    e.currentTarget.style.display = 'none';
-                  }}
-                />
+                {apartment.gallery.map((img, i) => (
+                  <SwiperSlide key={i}>
+                    <div
+                      className="aspect-[4/3] rounded-xl overflow-hidden shadow-card cursor-pointer hover:shadow-card-hover transition-smooth"
+                      onClick={() => setLightboxIndex(i)}
+                    >
+                      <img
+                        src={img as string}
+                        alt={`${apartment.name} ${i + 1}`}
+                        className="w-full h-full object-cover"
+                        loading="lazy"
+                      />
+                    </div>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            )}
+
+            {/* Expanded: Full Grid */}
+            {expanded && (
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                {apartment.gallery.map((img, i) => (
+                  <div
+                    key={i}
+                    className="aspect-[4/3] rounded-xl overflow-hidden shadow-card cursor-pointer hover:shadow-card-hover transition-smooth bg-card"
+                    onClick={() => setLightboxIndex(i)}
+                  >
+                    <img
+                      src={img as string}
+                      alt={`${apartment.name} ${i + 1}`}
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                      onError={(e) => {
+                        console.error(`Gallery image failed to load: ${img}`);
+                        e.currentTarget.style.display = 'none';
+                      }}
+                    />
+                  </div>
+                ))}
               </div>
-            ))}
+            )}
+          </section>
+        </div>
+
+        {/* Right Sidebar: Sticky Booking Card */}
+        <div className="lg:col-span-1">
+          <div className="sticky top-24 bg-background rounded-2xl shadow-elevated p-6">
+            <h3 className="text-lg font-semibold text-foreground font-sans">
+              {apartment.name}
+            </h3>
+            <p className="text-sm text-muted-foreground mb-3">
+              {apartment.persons} {t("apartment.persons")}
+            </p>
+            <div className="border-t border-border pt-3 mb-4">
+              <p className="text-sm text-muted-foreground">
+                {t("apartment.from")}
+              </p>
+              <p className="text-2xl font-bold text-foreground">
+                € {apartment.price}.00 EUR{" "}
+                <span className="text-sm font-normal text-muted-foreground">
+                  /{t("apartment.night")}
+                </span>
+              </p>
+            </div>
+
+            {/* Open booking modal */}
+            <button
+              onClick={openBookingWidget}
+              className="w-full inline-flex items-center justify-center px-6 py-3 text-sm font-medium text-primary-foreground bg-primary rounded-full shadow-card hover:shadow-card-hover transition-smooth hover:-translate-y-[1px] active:translate-y-[1px] active:scale-[0.98] mb-6"
+            >
+              {t("apartment.book_now")}
+            </button>
           </div>
-        )}
-      </section>
+        </div>
+      </div>
 
       {/* Lightbox */}
       {lightboxIndex !== null && (
         <Lightbox
-          images={apartment.gallery}
+          images={apartment.gallery as string[]}
           currentIndex={lightboxIndex}
           onClose={() => setLightboxIndex(null)}
           onNavigate={setLightboxIndex}
@@ -274,12 +286,12 @@ export default function ApartmentDetailPage() {
 
         <div id="apartmentIframeAll"></div>
 
-       <p
-        className="text-center mt-4 text-sm text-primary underline cursor-pointer"
-        onClick={() => setConditionsOpen(true)}
-      >
-        {t("apartment.booking_conditions")}
-      </p>
+        <p
+          className="text-center mt-4 text-sm text-primary underline cursor-pointer"
+          onClick={() => setConditionsOpen(true)}
+        >
+          {t("apartment.booking_conditions")}
+        </p>
       </ModalPane>
 
       {/* NEW BOOKING CONDITIONS MODAL */}
@@ -288,7 +300,7 @@ export default function ApartmentDetailPage() {
       </ModalPane>
 
       {/* Sticky Mobile Booking */}
-      <div className="fixed bottom-0 left-0 right-0 lg:hidden bg-background border-t border-border p-4 z-40">
+      <div className="fixed bottom-0 left-0 right-0 lg:hidden bg-background border-t border-border p-4 z-50">
         <div className="flex items-center justify-between">
           <div>
             <span className="text-sm text-muted-foreground">
@@ -305,7 +317,7 @@ export default function ApartmentDetailPage() {
           {/* Mobile booking button */}
           <button
             onClick={openBookingWidget}
-            className="px-6 py-2.5 text-sm font-medium text-primary-foreground bg-primary rounded-lg shadow-card transition-smooth"
+            className="px-6 py-2.5 text-sm font-medium text-primary-foreground bg-primary rounded-full shadow-card transition-smooth"
           >
             {t("apartment.book_now")}
           </button>

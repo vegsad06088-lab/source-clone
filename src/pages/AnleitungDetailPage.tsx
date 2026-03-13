@@ -150,7 +150,7 @@ export default function AnleitungDetailPage() {
         <div className="absolute bottom-0 left-0 right-0 z-10">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-8">
             <span className="text-xs font-medium text-white/80 uppercase tracking-wider font-sans">
-              {instruction.category === "apartments" ? t("anleitungen.category.apartments") : t("anleitungen.category.location")}
+i              {instruction.category === "apartments" ? t("anleitungen.category.apartments") : t("anleitungen.category.location")}
             </span>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-white mt-2">
               {t(instruction.titleKey)}
@@ -204,7 +204,7 @@ export default function AnleitungDetailPage() {
                       href={block.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center px-5 py-2 mt-4 text-sm font-medium text-primary-foreground bg-primary rounded-lg transition-smooth hover:opacity-90"
+                      className="inline-flex items-center justify-center px-5 py-2 mt-4 text-sm font-medium text-primary-foreground bg-primary rounded-full transition-smooth hover:opacity-90"
                     >
                       {t(block.linkTextKey)}
                     </a>
@@ -227,12 +227,12 @@ export default function AnleitungDetailPage() {
             </p>
             <div className="flex flex-wrap gap-3">
               {instruction.pdf.de && (
-                <a href={instruction.pdf.de} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-primary-foreground bg-primary rounded-lg transition-smooth hover:opacity-90">
+                <a href={instruction.pdf.de} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-primary-foreground bg-primary rounded-full transition-smooth hover:opacity-90">
                   📄 PDF Deutsch
                 </a>
               )}
               {instruction.pdf.en && (
-                <a href={instruction.pdf.en} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-primary-foreground bg-primary rounded-lg transition-smooth hover:opacity-90">
+                <a href={instruction.pdf.en} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-primary-foreground bg-primary rounded-full transition-smooth hover:opacity-90">
                   📄 PDF English
                 </a>
               )}

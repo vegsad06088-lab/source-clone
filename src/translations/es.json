@@ -484,5 +484,8 @@
 "es.anleitungen.pdf_download": "Descargar como PDF",
 "es.anleitungen.pdf_description": "Descargue la guía completa en PDF y tenga toda la información importante al alcance de su mano.",
 "es.anleitungen.more_instructions": "Más Guías",
-"es.anleitungen.show_all": "Mostrar todos"
+"es.anleitungen.show_all": "Mostrar todos",
+"es.promo.banner": "¡Quédate más tiempo, paga menos! ¡Ahorra hasta el %%percentage%%% por %%nights%% noches o más!",
+"es.voucher.banner.title": "¡Ahorra €%%value%% en tu reserva!",
+"es.voucher.banner.description": "Usa el código promocional %%code%% y obtén €%%value%% de descuento en tu reserva. ¡Reserva ahora y disfruta tu estadía a un precio excelente!"
 }
