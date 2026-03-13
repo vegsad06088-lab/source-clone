@@ -12,13 +12,13 @@ export default function ApartmentsPage() {
       <section 
         className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-700 to-gray-800"
         style={{
-          backgroundImage: 'url(/images/65293b8eedb9c49b8bc71ecd_bad.avif)',
+          backgroundImage: 'url(/images/65edeb66502ff65f274596f1_ccn.avif)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
       >
         <img 
-          src="/images/65293b8eedb9c49b8bc71ecd_bad.avif" 
+          src="/images/65edeb66502ff65f274596f1_ccn.avif"
           alt="Apartments" 
           className="absolute inset-0 w-full h-full object-cover"
           onError={(e) => {
@@ -40,11 +40,13 @@ export default function ApartmentsPage() {
       <PromoBanner />
 
       {/* Apartment Grid */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {apartments.map((apt) => (
-            <ApartmentCard key={apt.id} {...apt} />
-          ))}
+      <section className="w-full py-20 bg-background">
+        <div className="mx-auto w-full px-4 sm:px-6 lg:px-8 max-w-5xl">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {apartments.map((apt) => (
+              <ApartmentCard key={apt.id} {...apt} />
+            ))}
+          </div>
         </div>
       </section>
     </div>

@@ -20,8 +20,9 @@ export default function AnleitungenPage() {
       </section>
 
       {/* Viator */}
-      <section className="bg-primary text-primary-foreground py-10">
-        <div className="max-w-7xl mx-auto px-4 text-center">
+      <section className="bg-primary text-primary-foreground py-10 bg-cover bg-center bg-no-repeat relative" style={{ backgroundImage: 'url(/images/opera.avif)' }}>
+        <div className="absolute inset-0 bg-black/40"></div>
+        <div className="max-w-7xl mx-auto px-4 text-center relative z-10">
           <h2 className="text-xl font-serif font-bold mb-2">
             {t("anleitungen.viator.title")}
           </h2>

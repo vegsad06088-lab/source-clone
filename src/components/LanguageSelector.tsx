@@ -17,50 +17,41 @@ interface LanguageInfo {
   nativeName: string;
 }
 
-const LANGUAGE_INFO: Record<Lang, LanguageInfo> = {
-  de: {
-    code: "de",
-    name: "German",
-    flag: "🇩🇪",
-    nativeName: "Deutsch",
-  },
-  en: {
-    code: "en",
-    name: "English",
-    flag: "🇬🇧",
-    nativeName: "English",
-  },
-  sq: {
-    code: "sq",
-    name: "Albanian",
-    flag: "🇦🇱",
-    nativeName: "Shqip",
-  },
-  fr: {
-    code: "fr",
-    name: "French",
-    flag: "🇫🇷",
-    nativeName: "Français",
-  },
-  it: {
-    code: "it",
-    name: "Italian",
-    flag: "🇮🇹",
-    nativeName: "Italiano",
-  },
-  es: {
-    code: "es",
-    name: "Spanish",
-    flag: "🇪🇸",
-    nativeName: "Español",
-  },
-  tr: {
-    code: "tr",
-    name: "Turkish",
-    flag: "🇹🇷",
-    nativeName: "Türkçe",
-  },
+// ============================================
+// LANGUAGE METADATA
+// ============================================
+// Add all available languages here with their display information.
+// These will be automatically mapped to LANGUAGE_PACK in the language selector.
+// When adding a new language:
+// 1. Add entry here with name, flag, and native name
+// 2. Add language code to LANGUAGE_PACK in src/lib/i18n.tsx
+// 3. Create translation JSON file in src/translations/{code}.json
+// That's it! The selector will automatically include the new language.
+// ============================================
+
+const LANGUAGE_METADATA: Record<string, Omit<LanguageInfo, "code">> = {
+  de: { name: "German", flag: "🇩🇪", nativeName: "Deutsch" },
+  en: { name: "English", flag: "🇬🇧", nativeName: "English" },
+  sq: { name: "Albanian", flag: "🇦🇱", nativeName: "Shqip" },
+  fr: { name: "French", flag: "🇫🇷", nativeName: "Français" },
+  it: { name: "Italian", flag: "🇮🇹", nativeName: "Italiano" },
+  es: { name: "Spanish", flag: "🇪🇸", nativeName: "Español" },
+  tr: { name: "Turkish", flag: "🇹🇷", nativeName: "Türkçe" },
+  ru: { name: "Russian", flag: "🇷🇺", nativeName: "Русский" },
+  ja: { name: "Japanese", flag: "🇯🇵", nativeName: "日本語" },
+  zh: { name: "Chinese", flag: "🇨🇳", nativeName: "中文" },
 };
+
+// Auto-generate LANGUAGE_INFO from LANGUAGE_PACK and LANGUAGE_METADATA
+const LANGUAGE_INFO: Record<Lang, LanguageInfo> = Object.fromEntries(
+  LANGUAGE_PACK.map((code) => [
+    code,
+    {
+      code,
+      ...(LANGUAGE_METADATA[code] || { name: code, flag: "🌍", nativeName: code }),
+    },
+  ])
+) as Record<Lang, LanguageInfo>;
 
 export default function LanguageSelector() {
   const { lang, setLang } = useI18n();
@@ -94,7 +85,7 @@ export default function LanguageSelector() {
           title={`Switch language - ${currentLang.nativeName}`}
         >
           <Globe size={18} className="mr-2" />
-          <span className="text-lg leading-none">{currentLang.flag}</span>
+          <span className="text-lg leading-none font-emoji" style={{ fontFamily: 'Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, sans-serif' }}>{currentLang.flag}</span>
         </button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="w-48">
@@ -106,7 +97,7 @@ export default function LanguageSelector() {
               lng === lang ? "bg-accent" : ""
             }`}
           >
-            <span className="text-xl">{LANGUAGE_INFO[lng].flag}</span>
+            <span className="text-xl" style={{ fontFamily: 'Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, sans-serif', letterSpacing: 0 }}>{LANGUAGE_INFO[lng].flag}</span>
             <div className="flex flex-col">
               <span className="text-sm font-medium">
                 {LANGUAGE_INFO[lng].nativeName}

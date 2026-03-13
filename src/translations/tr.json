@@ -151,14 +151,14 @@
 "tr.faq.parking.q": "Dairelerde otopark mevcut mu?",
 "tr.faq.parking.a": "Evet, ilave olarak yeraltı garajı rezerve etmek mümkündür. Ancak bu durum yerinde açıklanıp onaylanmalıdır.",
 
-  "tr.home.hero.title": "Apartments zur Quelle'a Hoş Geldiniz",
+  "tr.home.hero.title": "Ap zur Quelle'a Hoş Geldiniz",
   "tr.home.hero.subtitle": "Viyana'daki eviniz. Konforlu, modern ve sıcak bir ortam.",
   "tr.home.hero.cta_book": "Hemen Rezervasyon Yap",
   "tr.home.hero.cta_about": "Hakkımızda",
 
   "tr.home.booking.title": "Rezervasyon Portalı",
   "tr.home.booking.subtitle": "Size en uygun daireyi bulun ve hemen rezervasyon yapın.",
-  "tr.home.booking.minimum_stay": "Minimum konaklama: 4 gece",
+  "tr.home.booking.minimum_stay": "Minimum konaklama: 2 gece",
   "tr.home.booking.conditions_link": "Rezervasyon Şartları",
 
   "tr.home.apartments.title": "Dairelerimiz",
@@ -229,8 +229,6 @@
   "tr.anleitungen.viator.subtitle": "En iyi turları, biletleri ve öne çıkan yerleri keşfedin",
   "tr.anleitungen.viator.cta": "Şimdi Keşfedin",
   "tr.anleitungen.section.title": "Bilmeniz gereken her şeyi burada bulacaksınız.",
-  "tr.anleitungen.category.apartments": "Daireler",
-  "tr.anleitungen.category.location": "Konum & Bölge",
 
   "tr.cookies.title": "Çerez Politikası",
   "tr.cookies.intro": "Burada kullandığımız çerezleri, neden kullandığımızı ve ayarlarınızı nasıl yönetebileceğinizi açıklıyoruz.",
@@ -312,6 +310,7 @@
   "tr.about.home.description": "Viyana'nın kentsel atmosferine dalın ve aynı zamanda modern apartmanlarımızın konforunu ve gizliliğini kesersiniz. Her oda şık bir şekilde mobilyalandırılmıştır ve bu şehrin vibran enerjisini yansıtır.",
 
   "tr.about.rooms.title": "İyi Hissetmek İçin Odalar",
+  "tr.about.rooms.description": "Seyahat ederken rahat bir sığınak sahibi olmak ne kadar önemli olduğunu biliyoruz. Apartmanlarımız size tam da bunu sunmak için tasarlanmıştır.",
 
   "tr.navbar.home": "Anasayfa",
   "tr.navbar.apartments": "Daireler",
@@ -361,5 +360,16 @@
   "tr.apartment.show_less": "▲ Daha Az Göster",
   "tr.apartment.book_now": "Şimdi Rezerv Et!",
   "tr.apartment.book_now_modal": "Şimdi Rezerv Et",
-  "tr.apartment.booking_conditions": "Rezervasyon Koşullarını Görüntüle"
+  "tr.apartment.booking_conditions": "Rezervasyon Koşullarını Görüntüle",
+  "tr.apartment.card.view_details": "Detayları Görüntüle",
+  "tr.apartment.card.night": "Gece",
+  "tr.apartment.card.from": "başlangıç",
+  "tr.apartment.card.persons": "Kişi",
+  "tr.anleitungen.category.apartments": "Daireler",
+  "tr.anleitungen.category.location": "Konum ve Çevre",
+  "tr.anleitungen.back_to_all": "Tüm Rehberler",
+  "tr.anleitungen.pdf_download": "PDF Olarak İndir",
+  "tr.anleitungen.pdf_description": "Tam rehberi PDF olarak indirin ve tüm önemli bilgileri her zaman elinizde bulundurun.",
+  "tr.anleitungen.more_instructions": "Diğer Rehberler",
+  "tr.anleitungen.show_all": "Tümünü Göster"
 }
