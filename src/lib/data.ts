@@ -1,3 +1,40 @@
+// Dynamic gallery loader that works on Vercel
+// Loads all images from apartment folders on-demand
+async function loadGallery(folderName: string): Promise<string[]> {
+  try {
+    // Use glob without eager: true for better Vercel compatibility
+    const modules = import.meta.glob("/src/assets/images/**/*.{jpg,jpeg,png,avif,webp,gif}", {
+      eager: false,
+      import: "default",
+    }) as Record<string, () => Promise<string>>;
+
+    const images: string[] = [];
+    const pattern = new RegExp(`/src/assets/images/${folderName}/`);
+
+    for (const [path, module] of Object.entries(modules)) {
+      if (pattern.test(path)) {
+        try {
+          const url = await module();
+          if (typeof url === "string") {
+            images.push(url);
+          }
+        } catch (e) {
+          console.warn(`Failed to load module for ${path}:`, e);
+        }
+      }
+    }
+
+    // Sort images for consistent ordering
+    images.sort();
+
+    console.log(`✅ Loaded ${images.length} images for ${folderName}:`, images);
+    return images;
+  } catch (error) {
+    console.error(`❌ Failed to load gallery for ${folderName}:`, error);
+    return [];
+  }
+}
+
 export const apartments = [
   {
     id: "twin-harmony-suite",
@@ -12,12 +49,7 @@ export const apartments = [
     roomsKey: "apartments.twin_harmony_suite.rooms",
     size: "35m²",
     price: 50,
-    gallery: Object.values(
-      import.meta.glob("/src/assets/images/twin-harmony-suite/*.{jpg,jpeg,png,avif,webp,gif}", {
-        eager: true,
-        import: "default",
-      })
-    ) as string[],
+    galleryLoader: () => loadGallery("twin-harmony-suite"),
   },
   {
     id: "duo-deluxe-studio",
@@ -32,12 +64,7 @@ export const apartments = [
     roomsKey: "apartments.duo_deluxe_studio.rooms",
     size: "35m²",
     price: 50,
-    gallery: Object.values(
-      import.meta.glob("/src/assets/images/duo-deluxe-studio/*.{jpg,jpeg,png,avif,webp,gif}", {
-        eager: true,
-        import: "default",
-      })
-    ) as string[],
+    galleryLoader: () => loadGallery("duo-deluxe-studio"),
   },
   {
     id: "cosy-couple-nest",
@@ -52,12 +79,7 @@ export const apartments = [
     roomsKey: "apartments.cosy_couple_nest.rooms",
     size: "35m²",
     price: 55,
-    gallery: Object.values(
-      import.meta.glob("/src/assets/images/cosy-couple-nest/*.{jpg,jpeg,png,avif,webp,gif}", {
-        eager: true,
-        import: "default",
-      })
-    ) as string[],
+    galleryLoader: () => loadGallery("cosy-couple-nest"),
   },
   {
     id: "trio-harmony-suite",
@@ -72,12 +94,7 @@ export const apartments = [
     roomsKey: "apartments.trio_harmony_suite.rooms",
     size: "35m²",
     price: 50,
-    gallery: Object.values(
-      import.meta.glob("/src/assets/images/trio-harmony-suite/*.{jpg,jpeg,png,avif,webp,gif}", {
-        eager: true,
-        import: "default",
-      })
-    ) as string[],
+    galleryLoader: () => loadGallery("trio-harmony-suite"),
   },
 ];
 
@@ -101,7 +118,7 @@ export const instructions = [
     id: "check-in-anleitung",
     titleKey: "instructions.check_in_guide.title",
     descriptionKey: "instructions.check_in_guide.description",
-    image: "/images/66dc570e930b82790d37d7c0_rfwergfwer.avif",
+    image: "/images/anleitungen/check_in/66dc570e930b82790d37d7c0_rfwergfwer.avif",
     category: "apartments",
     pdf: {
       de: "/pdfs/66dc4099e1e99fbb3902dd4d_CHECK-IN-DEUTSCH.pdf",
@@ -112,7 +129,7 @@ export const instructions = [
     id: "bugeleisen-bugelbrett",
     titleKey: "instructions.iron_board.title",
     descriptionKey: "instructions.iron_board.description",
-    image: "/images/66dc5787f68d3cfe6e042314_Bgeleisen.avif",
+    image: "/images/anleitungen/iron/66dc5787f68d3cfe6e042314_Bgeleisen.avif",
     category: "apartments",
     pdf: {
       de: "/pdfs/66dc5126b1ddeddd0b92998a_BUEGELEISEN-DEUTSCH.pdf",
@@ -123,42 +140,42 @@ export const instructions = [
     id: "parkmoglichkeiten",
     titleKey: "instructions.parking_options.title",
     descriptionKey: "instructions.parking_options.description",
-    image: "/images/66dc58a302429c73b83f2a07_parken.avif",
+    image: "/images/anleitungen/parking/66dc58a302429c73b83f2a07_parken.avif",
     category: "location",
   },
   {
     id: "check-out-anleitung",
     titleKey: "instructions.check_out_guide.title",
     descriptionKey: "instructions.check_out_guide.description",
-    image: "/images/66dc7e9ee1e99fbb3939a00d_vervrv.avif",
+    image: "/images/anleitungen/checkout/66dc7e9ee1e99fbb3939a00d_vervrv.avif",
     category: "apartments",
   },
   {
     id: "offentlichen-verkehrsmittel-in-wien",
     titleKey: "instructions.public_transport_vienna.title",
     descriptionKey: "instructions.public_transport_vienna.description",
-    image: "/images/66dc827f8058bad06f30403d_evrweve.avif",
+    image: "/images/anleitungen/transport/66dc827f8058bad06f30403d_evrweve.avif",
     category: "location",
   },
   {
     id: "gepackaufbewahrung-vor-dem-check-in",
     titleKey: "instructions.luggage_before_check_in.title",
     descriptionKey: "instructions.luggage_before_check_in.description",
-    image: "/images/66dc8c71079776ced5082229_wervrv.avif",
+    image: "/images/anleitungen/luggage/66dc8c71079776ced5082229_wervrv.avif",
     category: "apartments",
   },
   {
     id: "gepackaufbewahrung-nach-dem-check-out",
     titleKey: "instructions.luggage_after_check_out.title",
     descriptionKey: "instructions.luggage_after_check_out.description",
-    image: "/images/66dc8de4f5bef41881263a8f_wreferfrf.avif",
+    image: "/images/anleitungen/luggage/66dc8de4f5bef41881263a8f_wreferfrf.avif",
     category: "apartments",
   },
   {
     id: "anleitung-zur-steuerung-der-heizung",
     titleKey: "instructions.heating_control.title",
     descriptionKey: "instructions.heating_control.description",
-    image: "/images/66dc932976d9846673c23606_bwtrbwtb.avif",
+    image: "/images/anleitungen/heating/66dc932976d9846673c23606_bwtrbwtb.avif",
     category: "apartments",
     pdf: {
       de: "/pdfs/66dc93638058bad06f401194_Heizung_Deutsch.pdf",
@@ -169,7 +186,7 @@ export const instructions = [
     id: "anleitung-tv",
     titleKey: "instructions.tv_guide.title",
     descriptionKey: "instructions.tv_guide.description",
-    image: "/images/67a202309177d701325a5536_tv_2.avif",
+    image: "/images/anleitungen/tv/67a202309177d701325a5536_tv_2.avif",
     category: "apartments",
     pdf: {
       de: "/pdfs/67a1fc442fb5da9e90ee64f7_TV_Deutsch.pdf",
@@ -180,7 +197,7 @@ export const instructions = [
     id: "anleitung-induktionskochplatte",
     titleKey: "instructions.induction_cooktop.title",
     descriptionKey: "instructions.induction_cooktop.description",
-    image: "/images/67aaaea25c2914fff36f0c64_uzmzum.avif",
+    image: "/images/anleitungen/induction/67aaaea25c2914fff36f0c64_uzmzum.avif",
     category: "apartments",
     pdf: {
       de: "/pdfs/67aaaf26f38909589d462bd1_Anleitung_DE.pdf",
@@ -190,7 +207,7 @@ export const instructions = [
     id: "mit-kindern-wien-entdecken",
     titleKey: "instructions.discover_vienna_kids.title",
     descriptionKey: "instructions.discover_vienna_kids.description",
-    image: "/images/69aa470974b98e421661b814_L.avif",
+    image: "/images/anleitungen/kids/69aa470974b98e421661b814_L.avif",
     category: "location",
   },
 ];
@@ -214,11 +231,11 @@ export const faqs = [
 ];
 
 export const features = [
-  { image: "/images/65295b54dd06ae818ed1be7c_Aufzug.avif", titleKey: "home.features.elevator" },
-  { image: "/images/65295f309e9c01878c7c2ce6_TV.avif", titleKey: "home.features.tv" },
-  { image: "/images/65295fe24c43f5d22dc509df_Fn.avif", titleKey: "home.features.hair_dryer" },
-  { image: "/images/6529604a62e57157ec5f3402_WLAN.avif", titleKey: "home.features.wifi" },
-  { image: "/images/6529619ad524db7eb5a8f6e8_Kche.avif", titleKey: "home.features.cooking" },
-  { image: "/images/65296245dd8cf73344675481_Handtcher.avif", titleKey: "home.features.towels" },
+  { image: "/images/home/features/65295b54dd06ae818ed1be7c_Aufzug.avif", titleKey: "home.features.elevator" },
+  { image: "/images/home/features/65295f309e9c01878c7c2ce6_TV.avif", titleKey: "home.features.tv" },
+  { image: "/images/home/features/65295fe24c43f5d22dc509df_Fn.avif", titleKey: "home.features.hair_dryer" },
+  { image: "/images/home/features/6529604a62e57157ec5f3402_WLAN.avif", titleKey: "home.features.wifi" },
+  { image: "/images/home/features/6529619ad524db7eb5a8f6e8_Kche.avif", titleKey: "home.features.cooking" },
+  { image: "/images/home/features/65296245dd8cf73344675481_Handtcher.avif", titleKey: "home.features.towels" },
 ];
 

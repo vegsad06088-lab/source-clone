@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { useI18n } from "@/lib/i18n";
 import { apartments, amenities } from "@/lib/data";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Lightbox from "@/components/Lightbox";
 import ModalPane from "@/components/ModalPane";
 import BookingConditionsContent from "@/components/BookingConditionsContent";
@@ -19,12 +19,34 @@ export default function ApartmentDetailPage() {
   const [expanded, setExpanded] = useState(false);
   const [bookingOpen, setBookingOpen] = useState(false);
   const [conditionsOpen, setConditionsOpen] = useState(false);
+  const [gallery, setGallery] = useState<string[]>([]);
+  const [galleryLoading, setGalleryLoading] = useState(true);
 
   // Extract slug from URL path - get the last segment
   const pathSegments = location.pathname.split("/").filter(Boolean);
   const slug = pathSegments[pathSegments.length - 1] || "";
 
   const apartment = apartments.find((a) => a.id === slug);
+
+  // Load gallery dynamically on component mount
+  useEffect(() => {
+    if (apartment && "galleryLoader" in apartment) {
+      setGalleryLoading(true);
+      const loader = (apartment as any).galleryLoader;
+      loader()
+        .then((images: string[]) => {
+          console.log(`✅ Gallery loaded for ${apartment.id}:`, images);
+          setGallery(images);
+        })
+        .catch((error) => {
+          console.error(`❌ Failed to load gallery for ${apartment.id}:`, error);
+          setGallery([]);
+        })
+        .finally(() => {
+          setGalleryLoading(false);
+        });
+    }
+  }, [apartment]);
 
   if (!apartment) {
     return (
@@ -164,76 +186,87 @@ export default function ApartmentDetailPage() {
 
           {/* Gallery */}
           <section>
-            <h2 className="text-2xl md:text-3xl font-serif font-bold text-foreground mb-8">
+            <h2 className="text-2xl md:text-3xl font-serif font-bold text-foreground mb-8 flex items-center gap-3">
               {t("apartment.gallery")}
+              {galleryLoading && <span className="text-sm text-muted-foreground animate-pulse">(loading...)</span>}
             </h2>
 
-            {/* Expand / Collapse Button */}
-            <button
-              onClick={() => setExpanded(!expanded)}
-              className="flex items-center gap-2 text-primary font-medium mb-6"
-            >
-              {expanded
-                ? t("apartment.show_less")
-                : t("apartment.show_all_images")}
-            </button>
-
-            {/* Collapsed: Swiper Carousel */}
-            {!expanded && (
-              <Swiper
-                modules={[Navigation]}
-                navigation
-                spaceBetween={16}
-                slidesPerView={1.2}
-                breakpoints={{
-                  640: { slidesPerView: 2.2 },
-                  1024: { slidesPerView: 3.2 },
-                }}
-                className="w-full"
-              >
-                {apartment.gallery.map((img, i) => (
-                  <SwiperSlide key={i}>
-                    <div
-                      className="aspect-[4/3] rounded-xl overflow-hidden shadow-card cursor-pointer hover:shadow-card-hover transition-smooth"
-                      onClick={() => setLightboxIndex(i)}
-                    >
-                      <img
-                        src={img as string}
-                        alt={`${apartment.name} ${i + 1}`}
-                        className="w-full h-full object-cover"
-                        loading="lazy"
-                      />
-                    </div>
-                  </SwiperSlide>
-                ))}
-              </Swiper>
+            {gallery.length === 0 && !galleryLoading && (
+              <div className="text-center py-8 bg-card rounded-lg">
+                <p className="text-muted-foreground">No gallery images available</p>
+              </div>
             )}
 
-            {/* Expanded: Full Grid */}
-            {expanded && (
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                {apartment.gallery.map((img, i) => (
-                  <div
-                    key={i}
-                    className="aspect-[4/3] rounded-xl overflow-hidden shadow-card cursor-pointer hover:shadow-card-hover transition-smooth bg-card"
-                    onClick={() => setLightboxIndex(i)}
+            {gallery.length > 0 && (
+              <>
+                {/* Expand / Collapse Button */}
+                <button
+                  onClick={() => setExpanded(!expanded)}
+                  className="flex items-center gap-2 text-primary font-medium mb-6"
+                >
+                  {expanded
+                    ? t("apartment.show_less")
+                    : t("apartment.show_all_images")}
+                </button>
+
+                {/* Collapsed: Swiper Carousel */}
+                {!expanded && (
+                  <Swiper
+                    modules={[Navigation]}
+                    navigation
+                    spaceBetween={16}
+                    slidesPerView={1.2}
+                    breakpoints={{
+                      640: { slidesPerView: 2.2 },
+                      1024: { slidesPerView: 3.2 },
+                    }}
+                    className="w-full"
                   >
-                    <img
-                      src={img as string}
-                      alt={`${apartment.name} ${i + 1}`}
-                      className="w-full h-full object-cover"
-                      loading="lazy"
-                      onError={(e) => {
-                        console.error(`[Gallery Grid] Image failed to load:`, {
-                          src: (e.currentTarget as HTMLImageElement).src,
-                          apartment: apartment.id,
-                          index: i,
-                        });
-                      }}
-                    />
+                    {gallery.map((img, i) => (
+                      <SwiperSlide key={i}>
+                        <div
+                          className="aspect-[4/3] rounded-xl overflow-hidden shadow-card cursor-pointer hover:shadow-card-hover transition-smooth"
+                          onClick={() => setLightboxIndex(i)}
+                        >
+                          <img
+                            src={img as string}
+                            alt={`${apartment.name} ${i + 1}`}
+                            className="w-full h-full object-cover"
+                            loading="lazy"
+                          />
+                        </div>
+                      </SwiperSlide>
+                    ))}
+                  </Swiper>
+                )}
+
+                {/* Expanded: Full Grid */}
+                {expanded && (
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                    {gallery.map((img, i) => (
+                      <div
+                        key={i}
+                        className="aspect-[4/3] rounded-xl overflow-hidden shadow-card cursor-pointer hover:shadow-card-hover transition-smooth bg-card"
+                        onClick={() => setLightboxIndex(i)}
+                      >
+                        <img
+                          src={img as string}
+                          alt={`${apartment.name} ${i + 1}`}
+                          className="w-full h-full object-cover"
+                          loading="lazy"
+                          onError={(e) => {
+                            console.error(`[Gallery Grid] Image failed to load:`, {
+                              src: (e.currentTarget as HTMLImageElement).src,
+                              apartment: apartment.id,
+                              index: i,
+                            });
+                          }}
+                        />
+                      </div>
+                    ))}
                   </div>
-                ))}
-              </div>
+                )}
+              </>
             )}
           </section>
         </div>
@@ -273,7 +306,7 @@ export default function ApartmentDetailPage() {
       {/* Lightbox */}
       {lightboxIndex !== null && (
         <Lightbox
-          images={apartment.gallery as string[]}
+          images={gallery as string[]}
           currentIndex={lightboxIndex}
           onClose={() => setLightboxIndex(null)}
           onNavigate={setLightboxIndex}

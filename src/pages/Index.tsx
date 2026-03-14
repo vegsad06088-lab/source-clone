@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useI18n } from "@/lib/i18n";
 import { apartments, features, reviews } from "@/lib/data";
 import ApartmentCard from "@/components/ApartmentCard";
-import PromoBanner from "@/components/PromoBanner";
+import { PromoBanner } from "@/components/promo";
 import FAQSection from "@/components/FAQSection";
 import { useEffect } from "react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
@@ -42,13 +42,13 @@ export default function HomePage() {
       <section 
         className="relative w-screen h-[85vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-700 to-gray-800"
         style={{
-          backgroundImage: 'url(/images/65292a8ac576df93df55e85a_Titelbild_3.avif)',
+          backgroundImage: 'url(/images/commons/65292a8ac576df93df55e85a_Titelbild_3.avif)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
       >
         <img
-          src="/images/65292a8ac576df93df55e85a_Titelbild_3.avif"
+          src="/images/commons/65292a8ac576df93df55e85a_Titelbild_3.avif"
           alt="Apartments zur Quelle"
           className="absolute inset-0 w-full h-full object-cover"
           loading="lazy"

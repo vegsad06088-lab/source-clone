@@ -14,9 +14,9 @@ export default function AboutPage() {
   const viatorRef = useScrollAnimation({ threshold: 0.2, delay: 150 });
 
   const photoGallery = [
-    "/images/653593603b0593b2e2e14b9a_Unbenannt-3.avif",
-    "/images/65359412284b0413bf6b772e_Unbenannt-5.avif",
-    "/images/653594678dd7217452f8a07f_Unbenannt-6.avif",
+    "/images/about/653593603b0593b2e2e14b9a_Unbenannt-3.avif",
+    "/images/about/65359412284b0413bf6b772e_Unbenannt-5.avif",
+    "/images/about/653594678dd7217452f8a07f_Unbenannt-6.avif",
   ];
 
   useEffect(() => {
@@ -40,7 +40,7 @@ export default function AboutPage() {
         }}
       >
         <img 
-          src="/images/6534417f2845a4410a0f52c5_Untitled-poster-00001.jpg"
+          src="/images/about/6534417f2845a4410a0f52c5_Untitled-poster-00001.jpg"
           alt="About" 
           className="absolute inset-0 w-full h-full object-cover transition-transform duration-300"
           style={{
@@ -84,7 +84,7 @@ export default function AboutPage() {
             className="mb-6 inline-block rounded-2xl overflow-hidden shadow-card hover:shadow-card-hover transition-smooth cursor-pointer transform hover:scale-105"
           >
             <img
-              src="/images/65344f823268205b9fd3083b_1231211212.avif"
+              src="/images/about/65344f823268205b9fd3083b_1231211212.avif"
               alt="Apartments zur Quelle Location"
               className="w-full h-96 object-cover"
               loading="lazy"
@@ -102,7 +102,7 @@ export default function AboutPage() {
         className={`bg-primary text-white py-10 bg-cover bg-center bg-no-repeat relative transition-all duration-700 ${
           viatorRef.isVisible ? "animate-fade-up-in" : "will-animate-fade-up"
         }`}
-        style={{ backgroundImage: 'url(/images/opera.avif)' }}
+        style={{ backgroundImage: 'url(/images/commons/opera.avif)' }}
       >
         <div className="absolute inset-0 bg-black/50"></div>
         <div className="max-w-7xl mx-auto px-4 text-center relative z-10">
@@ -110,7 +110,7 @@ export default function AboutPage() {
             {t("anleitungen.viator.title")}
           </h2>
           <p className="text-white/90 mb-4 text-sm">{t("anleitungen.viator.subtitle")}</p>
-          <a href="https://www.viator.com/Vienna/d454-ttd?localeSwitch=1&pid=P00290902&mcid=42383&medium=link" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-6 py-2.5 text-sm font-medium bg-background text-foreground rounded-lg transition-smooth hover:opacity-90">
+          <a href="https://www.viator.com/Vienna/d454-ttd?localeSwitch=1&pid=P00290902&mcid=42383&medium=link" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-6 py-2 text-sm font-medium bg-white text-primary rounded-full shadow-lg hover:shadow-xl transition-smooth hover:opacity-95 active:scale-95">
             {t("anleitungen.viator.cta")}
           </a>
         </div>
@@ -162,10 +162,10 @@ export default function AboutPage() {
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
-                { img: "/images/652d4d541f3b9a2db2c8aff9_lage.avif", title: { de: "Top Lage", en: "Top Location" }, desc: { de: "Mitten in Wien, alles in greifbarer Nähe.", en: "In the middle of Vienna, everything within reach." } },
-                { img: "/images/652d4e65582b48b236c38f15_persoenlichkeit.avif", title: { de: "Persönlichkeit", en: "Personality" }, desc: { de: "Jeder Gast ist für uns einzigartig.", en: "Every guest is unique to us." } },
-                { img: "/images/652d4e65c9fcba3cb32f9734_service.avif", title: { de: "Einzigartiger Service", en: "Unique Service" }, desc: { de: "Wir sind erst zufrieden, wenn Du es bist.", en: "We're not satisfied until you are." } },
-                { img: "/images/652d4e659191a5d05333e03b_detail.avif", title: { de: "Liebe zum Detail", en: "Attention to Detail" }, desc: { de: "In jedem Raum spürst Du unsere Leidenschaft.", en: "In every room you feel our passion." } },
+                { img: "/images/about/652d4d541f3b9a2db2c8aff9_lage.avif", title: { de: "Top Lage", en: "Top Location" }, desc: { de: "Mitten in Wien, alles in greifbarer Nähe.", en: "In the middle of Vienna, everything within reach." } },
+                { img: "/images/about/652d4e65582b48b236c38f15_persoenlichkeit.avif", title: { de: "Persönlichkeit", en: "Personality" }, desc: { de: "Jeder Gast ist für uns einzigartig.", en: "Every guest is unique to us." } },
+                { img: "/images/about/652d4e65c9fcba3cb32f9734_service.avif", title: { de: "Einzigartiger Service", en: "Unique Service" }, desc: { de: "Wir sind erst zufrieden, wenn Du es bist.", en: "We're not satisfied until you are." } },
+                { img: "/images/about/652d4e659191a5d05333e03b_detail.avif", title: { de: "Liebe zum Detail", en: "Attention to Detail" }, desc: { de: "In jedem Raum spürst Du unsere Leidenschaft.", en: "In every room you feel our passion." } },
               ].map((item, i) => (
               <div key={i} className="text-center">
                 <div className="aspect-square rounded-2xl overflow-hidden shadow-card mb-4">
