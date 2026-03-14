@@ -33,7 +33,7 @@ export default function Navbar() {
           
           <Link to={`${langPrefix}/`} className="flex-shrink-0">
             <img
-              src="/images/logo.avif"
+              src="/images/commons/logo.avif"
               alt="Apartments zur Quelle"
               className="h-10 md:h-12"
             />

@@ -42,13 +42,13 @@ export default function HomePage() {
       <section 
         className="relative w-screen h-[85vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-700 to-gray-800"
         style={{
-          backgroundImage: 'url(/images/commons/65292a8ac576df93df55e85a_Titelbild_3.avif)',
+          backgroundImage: 'url(/images/home/home.avif)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
       >
         <img
-          src="/images/commons/65292a8ac576df93df55e85a_Titelbild_3.avif"
+          src="/images/home/home.avif"
           alt="Apartments zur Quelle"
           className="absolute inset-0 w-full h-full object-cover"
           loading="lazy"
