@@ -17,7 +17,7 @@ export const apartments = [
         eager: true,
         import: "default",
       })
-    ),
+    ) as string[],
   },
   {
     id: "duo-deluxe-studio",
@@ -37,7 +37,7 @@ export const apartments = [
         eager: true,
         import: "default",
       })
-    ),
+    ) as string[],
   },
   {
     id: "cosy-couple-nest",
@@ -57,7 +57,7 @@ export const apartments = [
         eager: true,
         import: "default",
       })
-    ),
+    ) as string[],
   },
   {
     id: "trio-harmony-suite",
@@ -77,7 +77,7 @@ export const apartments = [
         eager: true,
         import: "default",
       })
-    ),
+    ) as string[],
   },
 ];
 

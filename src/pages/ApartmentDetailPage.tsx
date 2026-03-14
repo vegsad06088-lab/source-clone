@@ -224,8 +224,11 @@ export default function ApartmentDetailPage() {
                       className="w-full h-full object-cover"
                       loading="lazy"
                       onError={(e) => {
-                        console.error(`Gallery image failed to load: ${img}`);
-                        e.currentTarget.style.display = 'none';
+                        console.error(`[Gallery Grid] Image failed to load:`, {
+                          src: (e.currentTarget as HTMLImageElement).src,
+                          apartment: apartment.id,
+                          index: i,
+                        });
                       }}
                     />
                   </div>
