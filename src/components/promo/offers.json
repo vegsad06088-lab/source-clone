@@ -7,7 +7,7 @@
   },
   "voucher": {
     "enabled": true,
-    "voucherCode": "SUMMER2026",
+    "voucherCode": "SPRING2026",
     "voucherValue": 20,
     "currency": "EUR"
   }
