@@ -1,7 +1,7 @@
 import { useI18n } from "@/lib/i18n";
 import { apartments } from "@/lib/data";
 import ApartmentCard from "@/components/ApartmentCard";
-import PromoBanner from "@/components/PromoBanner";
+import { PromoBanner } from "@/components/promo";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 export default function ApartmentsPage() {
@@ -75,7 +75,7 @@ export default function ApartmentsPage() {
         className={`bg-primary text-white py-10 bg-cover bg-center bg-no-repeat relative transition-all duration-700 ${
           viatorRef.isVisible ? "animate-fade-up-in" : "will-animate-fade-up"
         }`}
-        style={{ backgroundImage: 'url(/images/opera.avif)' }}
+        style={{ backgroundImage: 'url(/images/commons/opera.avif)' }}
       >
         <div className="absolute inset-0 bg-black/50"></div>
         <div className="max-w-7xl mx-auto px-4 text-center relative z-10">

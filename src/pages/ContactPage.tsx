@@ -26,13 +26,13 @@ export default function ContactPage() {
       <section 
         className="relative min-h-[50vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-700 to-gray-800"
         style={{
-          backgroundImage: 'url(/images/652938d0b1ddde3e7ecc4cac_151351.avif)',
+          backgroundImage: 'url(/images/home/home.avif)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
       >
         <img
-          src="/images/652938d0b1ddde3e7ecc4cac_151351.avif"
+          src="/images/home/home.avif"
           alt="Contact"
           className="absolute inset-0 w-full h-full object-cover"
           loading="lazy"
@@ -196,7 +196,7 @@ export default function ContactPage() {
         className={`bg-primary text-white py-10 bg-cover bg-center bg-no-repeat relative transition-all duration-700 ${
           viatorRef.isVisible ? "animate-fade-up-in" : "will-animate-fade-up"
         }`}
-        style={{ backgroundImage: 'url(/images/opera.avif)' }}
+        style={{ backgroundImage: 'url(/images/commons/opera.avif)' }}
       >
         <div className="absolute inset-0 bg-black/50"></div>
         <div className="max-w-7xl mx-auto px-4 text-center relative z-10">
