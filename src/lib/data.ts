@@ -1,38 +1,12 @@
-// Dynamic gallery loader that works on Vercel
-// Loads all images from apartment folders on-demand
+// Import gallery images compiled at build time from /public/images folders
+// No runtime fetch needed - images are built into the bundle
+import { getGalleryImages } from "./gallery-data";
+
+// Gallery loader - uses pre-compiled image lists
 async function loadGallery(folderName: string): Promise<string[]> {
-  try {
-    // Use glob without eager: true for better Vercel compatibility
-    const modules = import.meta.glob("/src/assets/images/**/*.{jpg,jpeg,png,avif,webp,gif}", {
-      eager: false,
-      import: "default",
-    }) as Record<string, () => Promise<string>>;
-
-    const images: string[] = [];
-    const pattern = new RegExp(`/src/assets/images/${folderName}/`);
-
-    for (const [path, module] of Object.entries(modules)) {
-      if (pattern.test(path)) {
-        try {
-          const url = await module();
-          if (typeof url === "string") {
-            images.push(url);
-          }
-        } catch (e) {
-          console.warn(`Failed to load module for ${path}:`, e);
-        }
-      }
-    }
-
-    // Sort images for consistent ordering
-    images.sort();
-
-    console.log(`✅ Loaded ${images.length} images for ${folderName}:`, images);
-    return images;
-  } catch (error) {
-    console.error(`❌ Failed to load gallery for ${folderName}:`, error);
-    return [];
-  }
+  const images = getGalleryImages(folderName);
+  console.log(`✅ Retrieved ${images.length} images for ${folderName}`);
+  return images;
 }
 
 export const apartments = [
