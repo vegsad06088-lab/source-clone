@@ -70,7 +70,10 @@ export default function ImpressumPage() {
           <h3 className="text-lg font-sans font-semibold text-foreground mb-3">
             Design & {t({ de: "Programmierung", en: "Programming" })}
           </h3>
-          <p>ap-zur-quelle Team</p>
+          <p className="mb-2">
+            <span className="font-medium">Iseini Vegim</span> - Full-Stack Development & Design
+          </p>
+          <p className="mb-2">ap-zur-quelle Team</p>
           <p>
             E-Mail:{" "}
             <a href="mailto:info@ap-zur-quelle.at" className="text-primary hover:underline">
