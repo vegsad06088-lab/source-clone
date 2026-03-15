@@ -95,7 +95,10 @@ export default function Footer() {
         </div>
 
         <div className="pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center text-xs text-muted-foreground">
-          <p>© {new Date().getFullYear()} AP Zur Quelle. All rights reserved.</p>
+          <div>
+            <p>© {new Date().getFullYear()} AP Zur Quelle. All rights reserved.</p>
+            <p className="text-[10px] opacity-70 mt-1">Website by Iseini Vegim</p>
+          </div>
           <p className="mt-2 md:mt-0">
             {t("footer.design_programming")}{" "}
             <span className="font-medium text-foreground">ap-zur-quelle Team</span>

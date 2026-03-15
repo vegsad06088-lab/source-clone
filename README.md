@@ -333,6 +333,12 @@ See `package.json` for complete list. Key packages:
 
 ---
 
+## 👨‍💻 Developer
+
+**Iseini Vegim** - Full-Stack Development & Design
+
+---
+
 ## 📄 License
 
 This project is proprietary. All rights reserved.
