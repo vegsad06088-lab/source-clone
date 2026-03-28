@@ -20,6 +20,7 @@ import ScrollToTop from "@/components/ScrollToTop";
 import CookiePolicy from "@/pages/CookiePolicy";
 import AGBPage from "@/pages/AGBPage";
 import BookingConditionsPage from "@/pages/BookingConditionsPage";
+import ChatPage from "@/pages/ChatPage";
 
 const queryClient = new QueryClient();
 
