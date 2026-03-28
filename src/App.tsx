@@ -71,6 +71,7 @@ export default function App() {
             <Route path="/impressum" element={<Navigate to={`/${DEFAULT_LANGUAGE}/impressum`} replace />} />
             <Route path="/agb" element={<Navigate to={`/${DEFAULT_LANGUAGE}/agb`} replace />} />
             <Route path="/booking-conditions" element={<Navigate to={`/${DEFAULT_LANGUAGE}/booking-conditions`} replace />} />
+            <Route path="/chat" element={<Navigate to={`/${DEFAULT_LANGUAGE}/chat`} replace />} />
             
             {/* All language-specific routes */}
             <Route path="/:lang" element={<LangWrapper />}>
@@ -89,6 +90,7 @@ export default function App() {
               <Route path="impressum" element={<ImpressumPage />} />
               <Route path="agb" element={<AGBPage />} />
               <Route path="booking-conditions" element={<BookingConditionsPage />} />
+              <Route path="chat" element={<ChatPage />} />
             </Route>
           
             {/* Fallback 404 */}
