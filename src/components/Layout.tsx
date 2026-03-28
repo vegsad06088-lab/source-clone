@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import CookieBanner from "./CookieBanner";
+import ChatWidget from "./ChatWidget";
 import { useEffect } from "react";
 import { getConsent, loadAnalytics, loadMarketing, loadSmoobu } from "@/lib/cookieConsent";
 
@@ -22,6 +23,7 @@ export default function Layout() {
       </main>
       <Footer />
       <CookieBanner />
+      <ChatWidget />
     </div>
   );
 }

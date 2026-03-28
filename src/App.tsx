@@ -20,6 +20,7 @@ import ScrollToTop from "@/components/ScrollToTop";
 import CookiePolicy from "@/pages/CookiePolicy";
 import AGBPage from "@/pages/AGBPage";
 import BookingConditionsPage from "@/pages/BookingConditionsPage";
+import ChatPage from "@/pages/ChatPage";
 
 const queryClient = new QueryClient();
 
@@ -70,6 +71,7 @@ export default function App() {
             <Route path="/impressum" element={<Navigate to={`/${DEFAULT_LANGUAGE}/impressum`} replace />} />
             <Route path="/agb" element={<Navigate to={`/${DEFAULT_LANGUAGE}/agb`} replace />} />
             <Route path="/booking-conditions" element={<Navigate to={`/${DEFAULT_LANGUAGE}/booking-conditions`} replace />} />
+            <Route path="/chat" element={<Navigate to={`/${DEFAULT_LANGUAGE}/chat`} replace />} />
             
             {/* All language-specific routes */}
             <Route path="/:lang" element={<LangWrapper />}>
@@ -88,6 +90,7 @@ export default function App() {
               <Route path="impressum" element={<ImpressumPage />} />
               <Route path="agb" element={<AGBPage />} />
               <Route path="booking-conditions" element={<BookingConditionsPage />} />
+              <Route path="chat" element={<ChatPage />} />
             </Route>
           
             {/* Fallback 404 */}
