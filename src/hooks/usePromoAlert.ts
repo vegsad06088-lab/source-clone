@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useI18n } from "@/lib/i18n";
-import offersConfig from "@/config/offers.json";
+import offersConfig from "@/components/promo/offers.json";
 
 export function usePromoAlert() {
   const { t } = useI18n();
