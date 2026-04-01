@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { supabase } from "@/lib/supabase";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -59,11 +59,25 @@ export default function AdminPage() {
   const [password, setPassword] = useState("");
   const [data, setData] = useState<RegistrationRow[]>([]);
   const [loading, setLoading] = useState(false);
+  const [supabaseAuthenticated, setSupabaseAuthenticated] = useState(false);
+  const [showSupabaseLogin, setShowSupabaseLogin] = useState(false);
+  const [supabaseEmail, setSupabaseEmail] = useState("");
+  const [supabasePassword, setSupabasePassword] = useState("");
 
   // Month/year filter
   const now = new Date();
   const [filterMonth, setFilterMonth] = useState(String(now.getMonth() + 1));
   const [filterYear, setFilterYear] = useState(String(now.getFullYear()));
+
+  useEffect(() => {
+    const checkAuth = async () => {
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
+      setSupabaseAuthenticated(!!user);
+    };
+    checkAuth();
+  }, []);
 
   const handleLogin = () => {
     if (username === "admin" && password === "admin") {
@@ -73,7 +87,38 @@ export default function AdminPage() {
     }
   };
 
+  const handleSupabaseLogin = async () => {
+    if (!supabaseEmail || !supabasePassword) {
+      toast.error("Bitte E-Mail und Passwort eingeben");
+      return;
+    }
+    try {
+      const { error } = await supabase.auth.signInWithPassword({
+        email: supabaseEmail,
+        password: supabasePassword,
+      });
+      if (error) {
+        toast.error("Supabase Auth Fehler: " + error.message);
+        return;
+      }
+      setSupabaseAuthenticated(true);
+      setShowSupabaseLogin(false);
+      toast.success("Erfolgreich angemeldet");
+    } catch (err) {
+      toast.error("Authentifizierungsfehler");
+    }
+  };
+
+  const authenticateWithSupabase = async () => {
+    if (supabaseAuthenticated) return true;
+    setShowSupabaseLogin(true);
+    return false; // Will trigger after login
+  };
+
   const fetchData = async () => {
+    const authSuccess = await authenticateWithSupabase();
+    if (!authSuccess) return;
+
     setLoading(true);
     try {
       const month = parseInt(filterMonth);
@@ -102,16 +147,35 @@ export default function AdminPage() {
   };
 
   const downloadCSV = () => {
+    if (!supabaseAuthenticated) {
+      toast.error("Bitte zuerst Daten laden, um zu authentifizieren");
+      return;
+    }
     if (data.length === 0) {
       toast.error("Keine Daten zum Exportieren");
       return;
     }
 
     const headers = [
-      "Date", "Ort", "IP Address", "Vorname", "Familienname", "Geschlecht",
-      "Geburtsdatum", "Staatsangehörigkeit", "Reisedokument", "Dokumentennummer",
-      "Strasse", "Hausnummer", "PLZ", "Ort_Person", "Land_Person",
-      "Check-In", "Check-Out", "Apartment", "Timestamp",
+      "Date",
+      "Ort",
+      "IP Address",
+      "Vorname",
+      "Familienname",
+      "Geschlecht",
+      "Geburtsdatum",
+      "Staatsangehörigkeit",
+      "Reisedokument",
+      "Dokumentennummer",
+      "Strasse",
+      "Hausnummer",
+      "PLZ",
+      "Ort_Person",
+      "Land_Person",
+      "Check-In",
+      "Check-Out",
+      "Apartment",
+      "Timestamp",
     ];
 
     const rows: string[][] = [];
@@ -143,14 +207,20 @@ export default function AdminPage() {
 
     const csvContent = [
       headers.join(","),
-      ...rows.map((r) => r.map((c) => `"${(c || "").replace(/"/g, '""')}"`).join(",")),
+      ...rows
+        .map((r) => r.map((c) => `"${(c || "").replace(/"/g, '""')}"`).join(",")),
     ].join("\n");
 
-    const blob = new Blob(["\uFEFF" + csvContent], { type: "text/csv;charset=utf-8;" });
+    const blob = new Blob(["\uFEFF" + csvContent], {
+      type: "text/csv;charset=utf-8;",
+    });
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = `registrierung-${filterYear}-${String(filterMonth).padStart(2, "0")}.csv`;
+    a.download = `registrierung-${filterYear}-${String(filterMonth).padStart(
+      2,
+      "0"
+    )}.csv`;
     a.click();
     URL.revokeObjectURL(url);
     toast.success("CSV heruntergeladen");
@@ -205,7 +275,9 @@ export default function AdminPage() {
     <div className="min-h-screen bg-background">
       <header className="border-b border-border bg-card px-4 py-4">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <h1 className="text-xl font-bold text-foreground">Gästeregistrierung – Admin</h1>
+          <h1 className="text-xl font-bold text-foreground">
+            Gästeregistrierung – Admin
+          </h1>
           <Button variant="ghost" size="sm" onClick={() => setLoggedIn(false)}>
             <LogOut className="w-4 h-4 mr-2" /> Abmelden
           </Button>
@@ -270,7 +342,9 @@ export default function AdminPage() {
               <TableBody>
                 {data.map((reg) => (
                   <TableRow key={reg.id}>
-                    <TableCell className="font-medium">{reg.apartment || "–"}</TableCell>
+                    <TableCell className="font-medium">
+                      {reg.apartment || "–"}
+                    </TableCell>
                     <TableCell>{reg.check_in}</TableCell>
                     <TableCell>{reg.check_out}</TableCell>
                     <TableCell>
@@ -294,6 +368,48 @@ export default function AdminPage() {
           <p className="text-muted-foreground text-center py-12">
             Keine Daten geladen. Wähle Monat/Jahr und klicke „Daten laden".
           </p>
+        )}
+
+        {/* Supabase login form */}
+        {showSupabaseLogin && (
+          <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+            <div className="bg-card rounded-lg shadow-lg border border-border p-6 max-w-sm w-full">
+              <h2 className="text-lg font-bold text-foreground mb-4">
+                Supabase Anmeldung
+              </h2>
+              <div className="space-y-4">
+                <div className="space-y-1.5">
+                  <Label>E-Mail</Label>
+                  <Input
+                    type="email"
+                    value={supabaseEmail}
+                    onChange={(e) => setSupabaseEmail(e.target.value)}
+                    placeholder="you@example.com"
+                  />
+                </div>
+                <div className="space-y-1.5">
+                  <Label>Passwort</Label>
+                  <Input
+                    type="password"
+                    value={supabasePassword}
+                    onChange={(e) => setSupabasePassword(e.target.value)}
+                    placeholder="••••••••"
+                  />
+                </div>
+                <div className="flex justify-end gap-2">
+                  <Button
+                    onClick={() => setShowSupabaseLogin(false)}
+                    variant="outline"
+                  >
+                    Abbrechen
+                  </Button>
+                  <Button onClick={handleSupabaseLogin}>
+                    Anmelden
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </div>
         )}
       </main>
     </div>
