@@ -41,10 +41,10 @@ const labels: Record<string, Record<string, string>> = {
       "Bitte gib hier deine Wohnadresse (Hauptwohnsitz) an, NICHT DIE ADRESSE DES APARTMENTS.",
     step3Title: "Angaben zur 2. Person (falls vorhanden)",
     step3Desc:
-      "Falls eine weitere Person mit Dir reist, trage bitte deren Daten hier ein. Falls nicht, klicke einfach auf „Weiter".",
+      'Falls eine weitere Person mit Dir reist, trage bitte deren Daten hier ein. Falls nicht, klicke einfach auf \u201EWeiter\u201C.',
     step4Title: "Angaben zur 3. Person (falls vorhanden)",
     step4Desc:
-      "Falls Du mit einer dritten Person reist, gib hier bitte die entsprechenden Informationen ein. Falls nicht, klicke einfach auf „Registrieren".",
+      'Falls Du mit einer dritten Person reist, gib hier bitte die entsprechenden Informationen ein. Falls nicht, klicke einfach auf \u201ERegistrieren\u201C.',
     vorname: "Vorname",
     familienname: "Familienname",
     geschlecht: "Geschlecht",
