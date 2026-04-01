@@ -312,27 +312,31 @@ export default function RegistrierungPage() {
 
     try {
       // Get user IP (best effort)
-      let ipAddress = "";
+      let userIp: string | null = null;
       try {
         const ipRes = await fetch("https://api.ipify.org?format=json");
         const ipData = await ipRes.json();
-        ipAddress = ipData.ip || "";
+        userIp = ipData.ip || null;
       } catch {
         // silently ignore
       }
 
       // 1) Insert registration
+      const payload = {
+        apartment: apartment ?? "unknown",
+        check_in: checkInDate ? format(checkInDate, "yyyy-MM-dd") : null,
+        check_out: checkOutDate ? format(checkOutDate, "yyyy-MM-dd") : null,
+        datenschutz,
+        ip_address: userIp ?? "unknown",
+        ort: person1.ort,
+        land: person1.land,
+      };
+
+      console.log("Payload being sent:", payload);
+
       const { data: regData, error: regError } = await supabase
         .from("registrations")
-        .insert([{
-          apartment: apartment || null,
-          check_in: checkInDate ? format(checkInDate, "yyyy-MM-dd") : null,
-          check_out: checkOutDate ? format(checkOutDate, "yyyy-MM-dd") : null,
-          datenschutz,
-          ip_address: ipAddress,
-          ort: person1.ort || null,
-          land: person1.land || null,
-        }])
+        .insert([payload])
         .select();
 
       if (regError) {
@@ -745,7 +749,7 @@ export default function RegistrierungPage() {
                 <Button variant="outline" onClick={back} className="gap-2">
                   <ChevronLeft className="w-4 h-4" /> {t.zurueck}
                 </Button>
-                <Button onClick={handleSubmit} disabled={submitting} className="gap-2">
+                <Button onClick={handleSubmit} disabled={submitting || !datenschutz} className="gap-2">
                   {submitting ? "..." : t.registrieren} <CheckCircle2 className="w-4 h-4" />
                 </Button>
               </div>
