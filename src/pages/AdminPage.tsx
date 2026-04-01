@@ -92,6 +92,10 @@ export default function AdminPage() {
       toast.error("Bitte E-Mail und Passwort eingeben");
       return;
     }
+    if (supabaseEmail === "user@user.com") {
+      toast.error("Dieser Benutzer hat keinen Zugriff auf die Admin-Seite");
+      return;
+    }
     try {
       const { error } = await supabase.auth.signInWithPassword({
         email: supabaseEmail,

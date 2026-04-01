@@ -303,6 +303,20 @@ export default function RegistrierungPage() {
 
   const [submitting, setSubmitting] = useState(false);
 
+  const autoAuthenticate = async () => {
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email: 'user@user.com',
+      password: 'useruser',
+    });
+
+    if (error) {
+      console.error('Auth failed:', error.message);
+      throw new Error('Authentication failed');
+    } else {
+      console.log('Authenticated automatically:', data.session);
+    }
+  };
+
   const handleSubmit = async () => {
     if (!datenschutz) {
       toast.error(t.datenschutzHint);
@@ -317,6 +331,9 @@ export default function RegistrierungPage() {
     setSubmitting(true);
 
     try {
+      // Automatic authentication
+      await autoAuthenticate();
+
       // Get user IP (best effort)
       let ipAddress: string | undefined;
       try {
@@ -341,8 +358,8 @@ export default function RegistrierungPage() {
 
       // 1) Insert registration
       const { data: regData, error: regError } = await supabase
-        .from("registrations")
-        .insert([payload])
+        .from('registrations')
+        .insert(payload)
         .select();
 
       if (regError) {
@@ -381,8 +398,9 @@ export default function RegistrierungPage() {
         personsToInsert.push(mapPerson(person3));
       }
 
+      // 3) Insert persons
       const { error: persError } = await supabase
-        .from("persons")
+        .from('persons')
         .insert(personsToInsert);
 
       if (persError) {
