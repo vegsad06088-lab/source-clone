@@ -745,8 +745,8 @@ export default function RegistrierungPage() {
                 <Button variant="outline" onClick={back} className="gap-2">
                   <ChevronLeft className="w-4 h-4" /> {t.zurueck}
                 </Button>
-                <Button onClick={handleSubmit} className="gap-2">
-                  {t.registrieren} <CheckCircle2 className="w-4 h-4" />
+                <Button onClick={handleSubmit} disabled={submitting} className="gap-2">
+                  {submitting ? "..." : t.registrieren} <CheckCircle2 className="w-4 h-4" />
                 </Button>
               </div>
             </div>
