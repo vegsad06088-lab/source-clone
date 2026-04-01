@@ -22,6 +22,7 @@ import AGBPage from "@/pages/AGBPage";
 import BookingConditionsPage from "@/pages/BookingConditionsPage";
 import ChatPage from "@/pages/ChatPage";
 import RegistrierungPage from "@/pages/RegistrierungPage";
+import AdminPage from "@/pages/AdminPage";
 
 const queryClient = new QueryClient();
 
@@ -74,6 +75,7 @@ export default function App() {
             <Route path="/booking-conditions" element={<Navigate to={`/${DEFAULT_LANGUAGE}/booking-conditions`} replace />} />
             <Route path="/chat" element={<Navigate to={`/${DEFAULT_LANGUAGE}/chat`} replace />} />
             <Route path="/registrierung" element={<RegistrierungPage />} />
+            <Route path="/admin" element={<AdminPage />} />
             
             {/* All language-specific routes */}
             <Route path="/:lang" element={<LangWrapper />}>

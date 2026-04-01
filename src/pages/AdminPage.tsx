@@ -1,0 +1,301 @@
+import { useState } from "react";
+import { supabase } from "@/lib/supabase";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Lock, Download, RefreshCw, LogOut } from "lucide-react";
+import { toast } from "sonner";
+import { format } from "date-fns";
+
+interface PersonRow {
+  id: string;
+  registration_id: string;
+  vorname: string;
+  familienname: string;
+  geschlecht: string;
+  geburtsdatum: string;
+  staatsangehoerigkeit: string;
+  reisedokument: string;
+  dokumentennummer: string;
+  strasse: string;
+  hausnummer: string;
+  plz: string;
+  ort: string;
+  land: string;
+  created_at: string;
+}
+
+interface RegistrationRow {
+  id: string;
+  apartment: string;
+  check_in: string;
+  check_out: string;
+  datenschutz: boolean;
+  ip_address: string;
+  ort: string;
+  land: string;
+  created_at: string;
+  persons: PersonRow[];
+}
+
+export default function AdminPage() {
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [data, setData] = useState<RegistrationRow[]>([]);
+  const [loading, setLoading] = useState(false);
+
+  // Month/year filter
+  const now = new Date();
+  const [filterMonth, setFilterMonth] = useState(String(now.getMonth() + 1));
+  const [filterYear, setFilterYear] = useState(String(now.getFullYear()));
+
+  const handleLogin = () => {
+    if (username === "admin" && password === "admin") {
+      setLoggedIn(true);
+    } else {
+      toast.error("Ungültige Anmeldedaten");
+    }
+  };
+
+  const fetchData = async () => {
+    setLoading(true);
+    try {
+      const month = parseInt(filterMonth);
+      const year = parseInt(filterYear);
+      const startDate = `${year}-${String(month).padStart(2, "0")}-01`;
+      const endMonth = month === 12 ? 1 : month + 1;
+      const endYear = month === 12 ? year + 1 : year;
+      const endDate = `${endYear}-${String(endMonth).padStart(2, "0")}-01`;
+
+      const { data: registrations, error } = await supabase
+        .from("registrations")
+        .select("*, persons(*)")
+        .gte("check_in", startDate)
+        .lt("check_in", endDate)
+        .order("created_at", { ascending: false });
+
+      if (error) {
+        toast.error("Fehler beim Laden: " + error.message);
+        return;
+      }
+      setData(registrations || []);
+      toast.success(`${(registrations || []).length} Registrierungen geladen`);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const downloadCSV = () => {
+    if (data.length === 0) {
+      toast.error("Keine Daten zum Exportieren");
+      return;
+    }
+
+    const headers = [
+      "Date", "Ort", "IP Address", "Vorname", "Familienname", "Geschlecht",
+      "Geburtsdatum", "Staatsangehörigkeit", "Reisedokument", "Dokumentennummer",
+      "Strasse", "Hausnummer", "PLZ", "Ort_Person", "Land_Person",
+      "Check-In", "Check-Out", "Apartment", "Timestamp",
+    ];
+
+    const rows: string[][] = [];
+    for (const reg of data) {
+      for (const p of reg.persons || []) {
+        rows.push([
+          reg.created_at ? format(new Date(reg.created_at), "yyyy-MM-dd") : "",
+          reg.ort || "",
+          reg.ip_address || "",
+          p.vorname || "",
+          p.familienname || "",
+          p.geschlecht || "",
+          p.geburtsdatum || "",
+          p.staatsangehoerigkeit || "",
+          p.reisedokument || "",
+          p.dokumentennummer || "",
+          p.strasse || "",
+          p.hausnummer || "",
+          p.plz || "",
+          p.ort || "",
+          p.land || "",
+          reg.check_in || "",
+          reg.check_out || "",
+          reg.apartment || "",
+          reg.created_at || "",
+        ]);
+      }
+    }
+
+    const csvContent = [
+      headers.join(","),
+      ...rows.map((r) => r.map((c) => `"${(c || "").replace(/"/g, '""')}"`).join(",")),
+    ].join("\n");
+
+    const blob = new Blob(["\uFEFF" + csvContent], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `registrierung-${filterYear}-${String(filterMonth).padStart(2, "0")}.csv`;
+    a.click();
+    URL.revokeObjectURL(url);
+    toast.success("CSV heruntergeladen");
+  };
+
+  // Login screen
+  if (!loggedIn) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-background px-4">
+        <div className="w-full max-w-sm bg-card rounded-2xl shadow-lg border border-border p-8 space-y-6">
+          <div className="text-center space-y-2">
+            <Lock className="w-10 h-10 text-primary mx-auto" />
+            <h1 className="text-2xl font-bold text-foreground">Admin Login</h1>
+          </div>
+          <div className="space-y-4">
+            <div className="space-y-1.5">
+              <Label>Benutzername</Label>
+              <Input
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                placeholder="admin"
+                onKeyDown={(e) => e.key === "Enter" && handleLogin()}
+              />
+            </div>
+            <div className="space-y-1.5">
+              <Label>Passwort</Label>
+              <Input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="••••••••"
+                onKeyDown={(e) => e.key === "Enter" && handleLogin()}
+              />
+            </div>
+            <Button onClick={handleLogin} className="w-full">
+              Anmelden
+            </Button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  const months = Array.from({ length: 12 }, (_, i) => ({
+    value: String(i + 1),
+    label: new Date(2000, i).toLocaleString("de", { month: "long" }),
+  }));
+
+  const years = Array.from({ length: 5 }, (_, i) => String(now.getFullYear() - 2 + i));
+
+  return (
+    <div className="min-h-screen bg-background">
+      <header className="border-b border-border bg-card px-4 py-4">
+        <div className="max-w-7xl mx-auto flex items-center justify-between">
+          <h1 className="text-xl font-bold text-foreground">Gästeregistrierung – Admin</h1>
+          <Button variant="ghost" size="sm" onClick={() => setLoggedIn(false)}>
+            <LogOut className="w-4 h-4 mr-2" /> Abmelden
+          </Button>
+        </div>
+      </header>
+
+      <main className="max-w-7xl mx-auto px-4 py-8 space-y-6">
+        {/* Filters */}
+        <div className="flex flex-wrap items-end gap-4">
+          <div className="space-y-1.5">
+            <Label>Monat</Label>
+            <Select value={filterMonth} onValueChange={setFilterMonth}>
+              <SelectTrigger className="w-40">
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent>
+                {months.map((m) => (
+                  <SelectItem key={m.value} value={m.value}>
+                    {m.label}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+          <div className="space-y-1.5">
+            <Label>Jahr</Label>
+            <Select value={filterYear} onValueChange={setFilterYear}>
+              <SelectTrigger className="w-28">
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent>
+                {years.map((y) => (
+                  <SelectItem key={y} value={y}>
+                    {y}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+          <Button onClick={fetchData} disabled={loading} className="gap-2">
+            <RefreshCw className={`w-4 h-4 ${loading ? "animate-spin" : ""}`} />
+            Daten laden
+          </Button>
+          <Button variant="outline" onClick={downloadCSV} className="gap-2">
+            <Download className="w-4 h-4" /> CSV Download
+          </Button>
+        </div>
+
+        {/* Data table */}
+        {data.length > 0 ? (
+          <div className="rounded-lg border border-border overflow-hidden">
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead>Apartment</TableHead>
+                  <TableHead>Check-In</TableHead>
+                  <TableHead>Check-Out</TableHead>
+                  <TableHead>Gäste</TableHead>
+                  <TableHead>Registriert am</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {data.map((reg) => (
+                  <TableRow key={reg.id}>
+                    <TableCell className="font-medium">{reg.apartment || "–"}</TableCell>
+                    <TableCell>{reg.check_in}</TableCell>
+                    <TableCell>{reg.check_out}</TableCell>
+                    <TableCell>
+                      {(reg.persons || []).map((p, i) => (
+                        <div key={p.id || i} className="text-sm">
+                          {p.vorname} {p.familienname} ({p.staatsangehoerigkeit})
+                        </div>
+                      ))}
+                    </TableCell>
+                    <TableCell className="text-sm text-muted-foreground">
+                      {reg.created_at
+                        ? format(new Date(reg.created_at), "dd.MM.yyyy HH:mm")
+                        : ""}
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </div>
+        ) : (
+          <p className="text-muted-foreground text-center py-12">
+            Keine Daten geladen. Wähle Monat/Jahr und klicke „Daten laden".
+          </p>
+        )}
+      </main>
+    </div>
+  );
+}

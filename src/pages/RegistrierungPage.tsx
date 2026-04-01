@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useSearchParams, Link } from "react-router-dom";
 import { useI18n } from "@/lib/i18n";
+import { supabase } from "@/lib/supabase";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -299,52 +300,93 @@ export default function RegistrierungPage() {
     setStep((s) => Math.max(s - 1, 1));
   };
 
-  const handleSubmit = () => {
+  const [submitting, setSubmitting] = useState(false);
+
+  const handleSubmit = async () => {
     if (!datenschutz) {
       toast.error(t.datenschutzHint);
       return;
     }
 
-    // Build payload for each person
-    const timestamp = new Date().toISOString();
-    const guests = [
-      {
-        ...person1,
-        geburtsdatum: person1.geburtsdatum ? format(person1.geburtsdatum, "yyyy-MM-dd") : "",
-        checkIn: checkInDate ? format(checkInDate, "yyyy-MM-dd") : "",
-        checkOut: checkOutDate ? format(checkOutDate, "yyyy-MM-dd") : "",
-        apartment: apartment || "",
-        timestamp,
-      },
-    ];
+    setSubmitting(true);
 
-    // Add person 2 if filled
-    if (person2.vorname.trim() && person2.familienname.trim()) {
-      guests.push({
-        ...person2,
-        geburtsdatum: person2.geburtsdatum ? format(person2.geburtsdatum, "yyyy-MM-dd") : "",
-        checkIn: checkInDate ? format(checkInDate, "yyyy-MM-dd") : "",
-        checkOut: checkOutDate ? format(checkOutDate, "yyyy-MM-dd") : "",
-        apartment: apartment || "",
-        timestamp,
+    try {
+      // Get user IP (best effort)
+      let ipAddress = "";
+      try {
+        const ipRes = await fetch("https://api.ipify.org?format=json");
+        const ipData = await ipRes.json();
+        ipAddress = ipData.ip || "";
+      } catch {
+        // silently ignore
+      }
+
+      // 1) Insert registration
+      const { data: regData, error: regError } = await supabase
+        .from("registrations")
+        .insert([{
+          apartment: apartment || null,
+          check_in: checkInDate ? format(checkInDate, "yyyy-MM-dd") : null,
+          check_out: checkOutDate ? format(checkOutDate, "yyyy-MM-dd") : null,
+          datenschutz,
+          ip_address: ipAddress,
+          ort: person1.ort || null,
+          land: person1.land || null,
+        }])
+        .select();
+
+      if (regError) {
+        toast.error("Fehler: " + regError.message);
+        setSubmitting(false);
+        return;
+      }
+
+      const registrationId = regData[0].id;
+
+      // 2) Build persons array
+      const personsToInsert = [];
+
+      const mapPerson = (p: PersonData) => ({
+        registration_id: registrationId,
+        vorname: p.vorname.trim(),
+        familienname: p.familienname.trim(),
+        geschlecht: p.geschlecht,
+        geburtsdatum: p.geburtsdatum ? format(p.geburtsdatum, "yyyy-MM-dd") : null,
+        staatsangehoerigkeit: p.staatsangehoerigkeit,
+        reisedokument: p.reisedokument,
+        dokumentennummer: p.dokumentennummer,
+        strasse: p.strasse || null,
+        hausnummer: p.hausnummer || null,
+        plz: p.plz || null,
+        ort: p.ort || null,
+        land: p.land || null,
       });
-    }
 
-    // Add person 3 if filled
-    if (person3.vorname.trim() && person3.familienname.trim()) {
-      guests.push({
-        ...person3,
-        geburtsdatum: person3.geburtsdatum ? format(person3.geburtsdatum, "yyyy-MM-dd") : "",
-        checkIn: checkInDate ? format(checkInDate, "yyyy-MM-dd") : "",
-        checkOut: checkOutDate ? format(checkOutDate, "yyyy-MM-dd") : "",
-        apartment: apartment || "",
-        timestamp,
-      });
-    }
+      personsToInsert.push(mapPerson(person1));
 
-    console.log("Registration data:", guests);
-    // TODO: POST to backend edge function when Lovable Cloud is enabled
-    setSubmitted(true);
+      if (person2.vorname.trim() && person2.familienname.trim()) {
+        personsToInsert.push(mapPerson(person2));
+      }
+      if (person3.vorname.trim() && person3.familienname.trim()) {
+        personsToInsert.push(mapPerson(person3));
+      }
+
+      const { error: persError } = await supabase
+        .from("persons")
+        .insert(personsToInsert);
+
+      if (persError) {
+        toast.error("Fehler bei Personen: " + persError.message);
+        setSubmitting(false);
+        return;
+      }
+
+      setSubmitted(true);
+    } catch (err: any) {
+      toast.error("Fehler: " + (err?.message || "Unbekannter Fehler"));
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   // ── Reusable field renderers ──────────────────────────────
@@ -703,8 +745,8 @@ export default function RegistrierungPage() {
                 <Button variant="outline" onClick={back} className="gap-2">
                   <ChevronLeft className="w-4 h-4" /> {t.zurueck}
                 </Button>
-                <Button onClick={handleSubmit} className="gap-2">
-                  {t.registrieren} <CheckCircle2 className="w-4 h-4" />
+                <Button onClick={handleSubmit} disabled={submitting} className="gap-2">
+                  {submitting ? "..." : t.registrieren} <CheckCircle2 className="w-4 h-4" />
                 </Button>
               </div>
             </div>
