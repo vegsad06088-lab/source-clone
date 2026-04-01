@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useSearchParams, Link } from "react-router-dom";
 import { useI18n } from "@/lib/i18n";
 import { supabase } from "@/lib/supabase";
+import { buildRegistrationPayload } from "@/lib/registrationPayload";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -308,31 +309,40 @@ export default function RegistrierungPage() {
       return;
     }
 
+    if (!checkInDate || !checkOutDate || !person1.ort.trim() || !person1.land.trim()) {
+      toast.error(t.pflichtfeld);
+      return;
+    }
+
     setSubmitting(true);
 
     try {
       // Get user IP (best effort)
-      let ipAddress = "";
+      let ipAddress: string | undefined;
       try {
         const ipRes = await fetch("https://api.ipify.org?format=json");
         const ipData = await ipRes.json();
-        ipAddress = ipData.ip || "";
+        ipAddress = ipData.ip || undefined;
       } catch {
         // silently ignore
       }
 
+      const payload = buildRegistrationPayload({
+        apartment,
+        checkInDate,
+        checkOutDate,
+        datenschutz,
+        userIp: ipAddress,
+        userOrt: person1.ort.trim(),
+        userLand: person1.land.trim(),
+      });
+
+      console.log("Payload being sent:", payload);
+
       // 1) Insert registration
       const { data: regData, error: regError } = await supabase
         .from("registrations")
-        .insert([{
-          apartment: apartment || null,
-          check_in: checkInDate ? format(checkInDate, "yyyy-MM-dd") : null,
-          check_out: checkOutDate ? format(checkOutDate, "yyyy-MM-dd") : null,
-          datenschutz,
-          ip_address: ipAddress,
-          ort: person1.ort || null,
-          land: person1.land || null,
-        }])
+        .insert([payload])
         .select();
 
       if (regError) {
@@ -382,8 +392,9 @@ export default function RegistrierungPage() {
       }
 
       setSubmitted(true);
-    } catch (err: any) {
-      toast.error("Fehler: " + (err?.message || "Unbekannter Fehler"));
+    } catch (err: unknown) {
+      const message = err instanceof Error ? err.message : "Unbekannter Fehler";
+      toast.error("Fehler: " + message);
     } finally {
       setSubmitting(false);
     }
@@ -745,7 +756,7 @@ export default function RegistrierungPage() {
                 <Button variant="outline" onClick={back} className="gap-2">
                   <ChevronLeft className="w-4 h-4" /> {t.zurueck}
                 </Button>
-                <Button onClick={handleSubmit} disabled={submitting} className="gap-2">
+                <Button onClick={handleSubmit} disabled={submitting || !datenschutz} className="gap-2">
                   {submitting ? "..." : t.registrieren} <CheckCircle2 className="w-4 h-4" />
                 </Button>
               </div>
