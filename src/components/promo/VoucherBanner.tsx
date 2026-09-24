@@ -1,3 +1,4 @@
+import { siteConfig } from "@/config/site.config";
 import offersConfig from "./offers.json";
 import { useI18n } from "@/lib/i18n";
 
@@ -15,7 +16,7 @@ export default function VoucherBanner() {
             {/* Left side - Promo Image */}
             <div className="flex-shrink-0 pl-6">
                 <img
-                    src="/images/commons/67a13058a619e20486fec50f_Memoji.png"
+                    src={siteConfig.images.voucher}
                     alt="Voucher Promo"
                     className="w-40 h-40"
                 />

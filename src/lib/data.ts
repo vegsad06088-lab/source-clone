@@ -1,20 +1,15 @@
-// Import gallery images compiled at build time from /public/images folders
-// No runtime fetch needed - images are built into the bundle
-import { getGalleryImages } from "./gallery-data";
+import { siteConfig } from "@/config/site.config";
 
-// Gallery loader - uses pre-compiled image lists
-async function loadGallery(folderName: string): Promise<string[]> {
-  const images = getGalleryImages(folderName);
-  console.log(`✅ Retrieved ${images.length} images for ${folderName}`);
-  return images;
+async function loadGallery(id: string): Promise<string[]> {
+  return siteConfig.apartment(id).gallery();
 }
 
 export const apartments = [
   {
     id: "twin-harmony-suite",
     name: "Twin Harmony Suite",
-    image: "/images/twin-harmony-suite/652dafad00056b0caa524030_ths.avif",
-    heroImage: "/images/twin-harmony-suite/652db036bdd8b74dadc0fd17_61681681.avif",
+    image: siteConfig.apartment("twin-harmony-suite").cover,
+    heroImage: siteConfig.apartment("twin-harmony-suite").hero,
     descriptionKey: "apartments.twin_harmony_suite.description",
     longDescriptionKey: "apartments.twin_harmony_suite.long_description",
     sectionTitleKey: "apartments.twin_harmony_suite.section_title",
@@ -28,8 +23,8 @@ export const apartments = [
   {
     id: "duo-deluxe-studio",
     name: "Duo Deluxe Studio",
-    image: "/images/duo-deluxe-studio/652d9a94a36b9a6aafdf3b93_sds1.avif",
-    heroImage: "/images/duo-deluxe-studio/652dabc60259a4fa49f46718_616164616.avif",
+    image: siteConfig.apartment("duo-deluxe-studio").cover,
+    heroImage: siteConfig.apartment("duo-deluxe-studio").hero,
     descriptionKey: "apartments.duo_deluxe_studio.description",
     longDescriptionKey: "apartments.duo_deluxe_studio.long_description",
     sectionTitleKey: "apartments.duo_deluxe_studio.section_title",
@@ -43,8 +38,8 @@ export const apartments = [
   {
     id: "cosy-couple-nest",
     name: "Cosy Couple Nest",
-    image: "/images/cosy-couple-nest/65edec3c69a525858218e635_ccn_kl.avif",
-    heroImage: "/images/cosy-couple-nest/65edeb66502ff65f274596f1_ccn.avif",
+    image: siteConfig.apartment("cosy-couple-nest").cover,
+    heroImage: siteConfig.apartment("cosy-couple-nest").hero,
     descriptionKey: "apartments.cosy_couple_nest.description",
     longDescriptionKey: "apartments.cosy_couple_nest.long_description",
     sectionTitleKey: "apartments.cosy_couple_nest.section_title",
@@ -58,8 +53,8 @@ export const apartments = [
   {
     id: "trio-harmony-suite",
     name: "Trio Harmony Suite",
-    image: "/images/trio-harmony-suite/65caa473a481dedf03e5a9cb_35135135.avif",
-    heroImage: "/images/trio-harmony-suite/652db036bdd8b74dadc0fd17_61681681.avif",
+    image: siteConfig.apartment("trio-harmony-suite").cover,
+    heroImage: siteConfig.apartment("trio-harmony-suite").hero,
     descriptionKey: "apartments.trio_harmony_suite.description",
     longDescriptionKey: "apartments.trio_harmony_suite.long_description",
     sectionTitleKey: "apartments.trio_harmony_suite.section_title",
@@ -92,96 +87,97 @@ export const instructions = [
     id: "check-in-anleitung",
     titleKey: "instructions.check_in_guide.title",
     descriptionKey: "instructions.check_in_guide.description",
-    image: "/images/anleitungen/check_in/66dc570e930b82790d37d7c0_rfwergfwer.avif",
+    image: siteConfig.guide("check-in-anleitung").cover,
     category: "apartments",
     pdf: {
-      de: "/pdfs/66dc4099e1e99fbb3902dd4d_CHECK-IN-DEUTSCH.pdf",
-      en: "/pdfs/66dc409d875e1dd1152e97fc_CHECK-IN-ENGLISH.pdf",
+      de: siteConfig.guide("check-in-anleitung").pdf("de"),
+      en: siteConfig.guide("check-in-anleitung").pdf("en"),
     },
   },
   {
     id: "bugeleisen-bugelbrett",
     titleKey: "instructions.iron_board.title",
     descriptionKey: "instructions.iron_board.description",
-    image: "/images/anleitungen/iron/66dc5787f68d3cfe6e042314_Bgeleisen.avif",
+    image: siteConfig.guide("bugeleisen-bugelbrett").cover,
     category: "apartments",
     pdf: {
-      de: "/pdfs/66dc5126b1ddeddd0b92998a_BUEGELEISEN-DEUTSCH.pdf",
-      en: "/pdfs/66dc512829e15a21ed752974_BUEGELEISEN-ENGLISH.pdf",
+      de: siteConfig.guide("bugeleisen-bugelbrett").pdf("de"),
+      en: siteConfig.guide("bugeleisen-bugelbrett").pdf("en"),
     },
   },
   {
     id: "parkmoglichkeiten",
     titleKey: "instructions.parking_options.title",
     descriptionKey: "instructions.parking_options.description",
-    image: "/images/anleitungen/parking/66dc58a302429c73b83f2a07_parken.avif",
+    image: siteConfig.guide("parkmoglichkeiten").cover,
     category: "location",
   },
   {
     id: "check-out-anleitung",
     titleKey: "instructions.check_out_guide.title",
     descriptionKey: "instructions.check_out_guide.description",
-    image: "/images/anleitungen/checkout/66dc7e9ee1e99fbb3939a00d_vervrv.avif",
+    image: siteConfig.guide("check-out-anleitung").cover,
     category: "apartments",
   },
   {
     id: "offentlichen-verkehrsmittel-in-wien",
     titleKey: "instructions.public_transport_vienna.title",
     descriptionKey: "instructions.public_transport_vienna.description",
-    image: "/images/anleitungen/transport/66dc827f8058bad06f30403d_evrweve.avif",
+    image: siteConfig.guide("offentlichen-verkehrsmittel-in-wien").cover,
     category: "location",
   },
   {
     id: "gepackaufbewahrung-vor-dem-check-in",
     titleKey: "instructions.luggage_before_check_in.title",
     descriptionKey: "instructions.luggage_before_check_in.description",
-    image: "/images/anleitungen/luggage/66dc8c71079776ced5082229_wervrv.avif",
+    image: siteConfig.guide("gepackaufbewahrung-vor-dem-check-in").cover,
     category: "apartments",
   },
   {
     id: "gepackaufbewahrung-nach-dem-check-out",
     titleKey: "instructions.luggage_after_check_out.title",
     descriptionKey: "instructions.luggage_after_check_out.description",
-    image: "/images/anleitungen/luggage/66dc8de4f5bef41881263a8f_wreferfrf.avif",
+    image: siteConfig.guide("gepackaufbewahrung-nach-dem-check-out").cover,
     category: "apartments",
   },
   {
     id: "anleitung-zur-steuerung-der-heizung",
     titleKey: "instructions.heating_control.title",
     descriptionKey: "instructions.heating_control.description",
-    image: "/images/anleitungen/heating/66dc932976d9846673c23606_bwtrbwtb.avif",
+    image: siteConfig.guide("anleitung-zur-steuerung-der-heizung").cover,
     category: "apartments",
     pdf: {
-      de: "/pdfs/66dc93638058bad06f401194_Heizung_Deutsch.pdf",
-      en: "/pdfs/66dc9369a0bd34b5418fc5d4_Heizung_English.pdf",
+      de: siteConfig.guide("anleitung-zur-steuerung-der-heizung").pdf("de"),
+      en: siteConfig.guide("anleitung-zur-steuerung-der-heizung").pdf("en"),
     },
   },
   {
     id: "anleitung-tv",
     titleKey: "instructions.tv_guide.title",
     descriptionKey: "instructions.tv_guide.description",
-    image: "/images/anleitungen/tv/67a202309177d701325a5536_tv_2.avif",
+    image: siteConfig.guide("anleitung-tv").cover,
     category: "apartments",
     pdf: {
-      de: "/pdfs/67a1fc442fb5da9e90ee64f7_TV_Deutsch.pdf",
-      en: "/pdfs/67a1fc9c6c341944712ef511_TV_English.pdf",
+      de: siteConfig.guide("anleitung-tv").pdf("de"),
+      en: siteConfig.guide("anleitung-tv").pdf("en"),
     },
   },
   {
     id: "anleitung-induktionskochplatte",
     titleKey: "instructions.induction_cooktop.title",
     descriptionKey: "instructions.induction_cooktop.description",
-    image: "/images/anleitungen/induction/67aaaea25c2914fff36f0c64_uzmzum.avif",
+    image: siteConfig.guide("anleitung-induktionskochplatte").cover,
     category: "apartments",
     pdf: {
-      de: "/pdfs/67aaaf26f38909589d462bd1_Anleitung_DE.pdf",
+      de: siteConfig.guide("anleitung-induktionskochplatte").pdf("de"),
+      en: siteConfig.guide("anleitung-induktionskochplatte").pdf("en"),
     },
   },
   {
     id: "mit-kindern-wien-entdecken",
     titleKey: "instructions.discover_vienna_kids.title",
     descriptionKey: "instructions.discover_vienna_kids.description",
-    image: "/images/anleitungen/kids/69aa470974b98e421661b814_L.avif",
+    image: siteConfig.guide("mit-kindern-wien-entdecken").cover,
     category: "location",
   },
 ];
@@ -205,11 +201,11 @@ export const faqs = [
 ];
 
 export const features = [
-  { image: "/images/home/features/65295b54dd06ae818ed1be7c_Aufzug.avif", titleKey: "home.features.elevator" },
-  { image: "/images/home/features/65295f309e9c01878c7c2ce6_TV.avif", titleKey: "home.features.tv" },
-  { image: "/images/home/features/65295fe24c43f5d22dc509df_Fn.avif", titleKey: "home.features.hair_dryer" },
-  { image: "/images/home/features/6529604a62e57157ec5f3402_WLAN.avif", titleKey: "home.features.wifi" },
-  { image: "/images/home/features/6529619ad524db7eb5a8f6e8_Kche.avif", titleKey: "home.features.cooking" },
-  { image: "/images/home/features/65296245dd8cf73344675481_Handtcher.avif", titleKey: "home.features.towels" },
+  { image: siteConfig.images.features.elevator, titleKey: "home.features.elevator" },
+  { image: siteConfig.images.features.tv, titleKey: "home.features.tv" },
+  { image: siteConfig.images.features.hairDryer, titleKey: "home.features.hair_dryer" },
+  { image: siteConfig.images.features.wifi, titleKey: "home.features.wifi" },
+  { image: siteConfig.images.features.kitchen, titleKey: "home.features.cooking" },
+  { image: siteConfig.images.features.towels, titleKey: "home.features.towels" },
 ];
 

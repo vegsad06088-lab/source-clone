@@ -1,3 +1,4 @@
+import { siteConfig } from "@/config/site.config";
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useI18n } from "@/lib/i18n";
@@ -33,7 +34,7 @@ export default function Navbar() {
           
           <Link to={`${langPrefix}/`} className="flex-shrink-0">
             <img
-              src="/images/commons/logo.avif"
+              src={siteConfig.brand.logo}
               alt="Apartments zur Quelle"
               className="h-10 md:h-12"
             />
