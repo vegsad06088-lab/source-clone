@@ -1,3 +1,4 @@
+import { siteConfig } from "@/config/site.config";
 import { Link } from "react-router-dom";
 import { useI18n } from "@/lib/i18n";
 import { apartments, features, reviews } from "@/lib/data";
@@ -42,13 +43,13 @@ export default function HomePage() {
       <section 
         className="relative w-screen h-[85vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-700 to-gray-800"
         style={{
-          backgroundImage: 'url(/images/home/home.avif)',
+          backgroundImage: `url(${siteConfig.images.homeHero})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
       >
         <img
-          src="/images/home/home.avif"
+          src={siteConfig.images.homeHero}
           alt="Apartments zur Quelle"
           className="absolute inset-0 w-full h-full object-cover"
           loading="lazy"
