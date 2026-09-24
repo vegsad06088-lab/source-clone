@@ -10,35 +10,35 @@ type ContentBlock = { type: "text" | "quote" | "image" | "heading" | "link"; con
 const instructionContent: Record<string, ContentBlock[]> = {
   "check-in-anleitung": [
   { type: "quote", translationKey: "instructions.checkin.quote1" },
-  { type: "image", content: "/images/66dc45988e6e09e9b269ac19_66dc45928f8fd5ebe17d1afc_IMG_1436.avif" },
+  { type: "image", content: "/content/guides/check-in-anleitung/steps/01.avif" },
   { type: "quote", translationKey: "instructions.checkin.quote2" },
-  { type: "image", content: "/images/66dc443f29e15a21ed69ce8b_66dc42ad06db0a58c147d4d6_IMG_1440.avif" },
+  { type: "image", content: "/content/guides/check-in-anleitung/steps/02.avif" },
   { type: "quote", translationKey: "instructions.checkin.quote3" },
-  { type: "image", content: "/images/66dc467cdd607b08dfe8c236_66dc465440390f84ccd1ead1_IMG_1444.avif" },
+  { type: "image", content: "/content/guides/check-in-anleitung/steps/03.avif" },
   { type: "quote", translationKey: "instructions.checkin.quote4" },
-  { type: "image", content: "/images/66dc467cdd607b08dfe8c239_66dc466c06db0a58c14aef89_IMG_1449.avif" },
+  { type: "image", content: "/content/guides/check-in-anleitung/steps/04.avif" },
   { type: "quote", translationKey: "instructions.checkin.quote5" },
-  { type: "image", content: "/images/66dc483281bf97e67091ad00_66dc46f7e38da854fed8c474_IMG_1521.avif" },
-  { type: "image", content: "/images/66dc483281bf97e67091acfd_66dc478efa615238251319d1_IMG_1522.avif" },
+  { type: "image", content: "/content/guides/check-in-anleitung/steps/05.avif" },
+  { type: "image", content: "/content/guides/check-in-anleitung/steps/06.avif" },
   { type: "quote", translationKey: "instructions.checkin.quote6" },
-  { type: "image", content: "/images/66dc483281bf97e67091acf5_66dc47a1e1e99fbb39092a1a_IMG_1454.avif" },
-  { type: "image", content: "/images/66dc483281bf97e67091ad14_66dc47b1d8e5c09607f54284_IMG_1455.avif" },
+  { type: "image", content: "/content/guides/check-in-anleitung/steps/07.avif" },
+  { type: "image", content: "/content/guides/check-in-anleitung/steps/08.avif" },
 ],
  "bugeleisen-bugelbrett": [
   { type: "quote", translationKey: "instructions.ironing.quote1" },
-  { type: "image", content: "/images/66dc52d2930b82790d33cb66_66dc529e06db0a58c155b71b_IMG_2869.avif" },
-  { type: "image", content: "/images/66dc54cc8f8fd5ebe18ae220_66dc53ddfc927bc34ff43cb4_IMG_2870%2520Kopie.avif" },
+  { type: "image", content: "/content/guides/bugeleisen-bugelbrett/steps/01.avif" },
+  { type: "image", content: "/content/guides/bugeleisen-bugelbrett/steps/02.avif" },
   { type: "quote", translationKey: "instructions.ironing.quote2" },
-  { type: "image", content: "/images/66dc54cc8f8fd5ebe18ae213_66dc532229e15a21ed76e692_IMG_2872.avif" },
-  { type: "image", content: "/images/66dc54cc8f8fd5ebe18ae210_66dc544139706fc65ea3af9d_IMG_2873%2520Kopie.avif" },
+  { type: "image", content: "/content/guides/bugeleisen-bugelbrett/steps/03.avif" },
+  { type: "image", content: "/content/guides/bugeleisen-bugelbrett/steps/04.avif" },
   { type: "quote", translationKey: "instructions.ironing.quote3" },
-  { type: "image", content: "/images/66dc54cc8f8fd5ebe18ae216_66dc54c029e15a21ed785738_IMG_2877.avif" }
+  { type: "image", content: "/content/guides/bugeleisen-bugelbrett/steps/05.avif" }
 ],
   "parkmoglichkeiten": [
   { type: "heading", translationKey: "instructions.parking.heading" },
   { type: "quote", translationKey: "instructions.parking.quote1" },
   { type: "quote", translationKey: "instructions.parking.quote2" },
-  { type: "image", content: "/images/66dc5abf81bf97e670a31eb0_66dc5ab602429c73b8411a77_unnamed.avif" }
+  { type: "image", content: "/content/guides/parkmoglichkeiten/steps/01.avif" }
 ],
 "check-out-anleitung": [
   { type: "text", translationKey: "instructions.checkout.text1" },
