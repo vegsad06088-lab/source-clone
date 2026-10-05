@@ -1,5 +1,7 @@
 # Template Guide — new apartment site in ~2 hours
 
+> AI agents: the complete, step-by-step instructions are in **docs/REBRAND_GUIDE.md**.
+
 Goal: duplicate this project, swap photos + texts, publish. Written for humans **and** AI assistants
 (tell your AI: "Follow TEMPLATE_GUIDE.md and adapt the site to the photos/texts I provide").
 
