@@ -26,7 +26,7 @@ export default function TemplateStatus() {
       <div>
         <h2 className="text-lg font-semibold text-foreground">Template-Status</h2>
         <p className="text-sm text-muted-foreground">
-          {missing === 0 ? "Alle erwarteten Fotos sind vorhanden." : `${missing} Datei(en) fehlen.`} Anleitung: TEMPLATE_GUIDE.md im Projekt.
+          {missing === 0 ? "Alle erwarteten Fotos sind vorhanden." : `${missing} Datei(en) fehlen.`} Anleitung: docs/REBRAND_GUIDE.md im Projekt.
         </p>
       </div>
       <ul className="grid gap-1.5 sm:grid-cols-2 lg:grid-cols-3 text-sm">
