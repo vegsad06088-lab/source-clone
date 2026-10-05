@@ -1,1 +1,1 @@
-Read and follow AGENTS.md in the project root for all rebranding/adaptation tasks.
+Read and follow docs/REBRAND_GUIDE.md for all rebranding / adapt-for-a-new-company tasks.
