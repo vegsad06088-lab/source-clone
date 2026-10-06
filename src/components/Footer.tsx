@@ -1,3 +1,4 @@
+import { isPageOn } from "@/config/site.config";
 import { Link } from "react-router-dom";
 import { useI18n } from "@/lib/i18n";
 
@@ -32,10 +33,10 @@ export default function Footer() {
               {t("footer.quick_links")}
             </h3>
             <ul className="space-y-2 text-sm">
-              <li><Link to={`${langPrefix}/apartments`} className="text-muted-foreground hover:text-primary transition-smooth">Apartments</Link></li>
-              <li><Link to={`${langPrefix}/about`} className="text-muted-foreground hover:text-primary transition-smooth">{t("footer.about")}</Link></li>
-              <li><Link to={`${langPrefix}/contact`} className="text-muted-foreground hover:text-primary transition-smooth">{t("footer.contact")}</Link></li>
-              <li><Link to={`${langPrefix}/anleitungen`} className="text-muted-foreground hover:text-primary transition-smooth">{t("footer.instructions")}</Link></li>
+              {isPageOn("apartments") && <li><Link to={`${langPrefix}/apartments`} className="text-muted-foreground hover:text-primary transition-smooth">Apartments</Link></li>}
+              {isPageOn("about") && <li><Link to={`${langPrefix}/about`} className="text-muted-foreground hover:text-primary transition-smooth">{t("footer.about")}</Link></li>}
+              {isPageOn("contact") && <li><Link to={`${langPrefix}/contact`} className="text-muted-foreground hover:text-primary transition-smooth">{t("footer.contact")}</Link></li>}
+              {isPageOn("anleitungen") && <li><Link to={`${langPrefix}/anleitungen`} className="text-muted-foreground hover:text-primary transition-smooth">{t("footer.instructions")}</Link></li>}
             </ul>
           </div>
 

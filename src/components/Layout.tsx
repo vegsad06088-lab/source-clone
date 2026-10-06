@@ -1,3 +1,4 @@
+import { isFeatureOn } from "@/config/site.config";
 import { Outlet } from "react-router-dom";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
@@ -23,7 +24,7 @@ export default function Layout() {
       </main>
       <Footer />
       <CookieBanner />
-      <ChatWidget />
+      {isFeatureOn("chatWidget") && <ChatWidget />}
     </div>
   );
 }
