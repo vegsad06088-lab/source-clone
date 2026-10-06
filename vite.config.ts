@@ -37,6 +37,51 @@ function contentManifest(): Plugin {
   };
 }
 
+// LOCAL-ONLY config editor API used by /admin → "Einstellungen".
+// Runs only in `npm run dev`; it does not exist in the published site.
+// Only JSON files in these folders can be read or written.
+function configEditor(): Plugin {
+  const allowed = ["src/config", "src/components/promo", "src/translations"];
+  const list = () =>
+    allowed.flatMap((d) =>
+      fs.existsSync(d) ? fs.readdirSync(d).filter((f) => f.endsWith(".json")).map((f) => `${d}/${f}`) : [],
+    );
+  return {
+    name: "config-editor",
+    apply: "serve",
+    configureServer(server) {
+      server.middlewares.use("/__config", (req, res) => {
+        const url = new URL(req.url || "/", "http://x");
+        const file = url.searchParams.get("file");
+        const send = (code: number, body: unknown) => {
+          res.statusCode = code;
+          res.setHeader("Content-Type", "application/json");
+          res.end(JSON.stringify(body));
+        };
+        if (!file) return send(200, { files: list() });
+        if (!list().includes(file)) return send(403, { error: "File not allowed" });
+        const abs = path.resolve(__dirname, file);
+        if (req.method === "GET") return send(200, { content: fs.readFileSync(abs, "utf8") });
+        if (req.method === "POST") {
+          let body = "";
+          req.on("data", (c) => (body += c));
+          req.on("end", () => {
+            try {
+              JSON.parse(body);
+            } catch {
+              return send(400, { error: "Invalid JSON" });
+            }
+            fs.writeFileSync(abs, body.endsWith("\n") ? body : body + "\n");
+            send(200, { ok: true });
+          });
+          return;
+        }
+        send(405, { error: "Method not allowed" });
+      });
+    },
+  };
+}
+
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
   publicDir: "public",
