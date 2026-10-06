@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { supabase } from "@/lib/supabase";
 import TemplateStatus from "@/components/admin/TemplateStatus";
+import ConfigEditor from "@/components/admin/ConfigEditor";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -290,6 +291,7 @@ export default function AdminPage() {
       </header>
 
       <main className="max-w-7xl mx-auto px-4 py-8 space-y-6">
+        <ConfigEditor />
         <TemplateStatus />
         {/* Filters */}
         <div className="flex flex-wrap items-end gap-4">

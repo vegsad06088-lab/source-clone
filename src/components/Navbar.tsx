@@ -1,4 +1,4 @@
-import { siteConfig } from "@/config/site.config";
+import { siteConfig, isPageOn, type PageKey } from "@/config/site.config";
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useI18n } from "@/lib/i18n";
@@ -21,11 +21,11 @@ export default function Navbar() {
 
   const navItems = [
     { label: "Home", path: `${langPrefix}/` },
-    { label: "Apartments", path: `${langPrefix}/apartments` },
-    { label: t("footer.about"), path: `${langPrefix}/about` },
-    { label: t("footer.instructions"), path: `${langPrefix}/anleitungen` },
-    { label: t("footer.contact"), path: `${langPrefix}/contact` },
-  ];
+    { label: "Apartments", path: `${langPrefix}/apartments`, key: "apartments" as PageKey },
+    { label: t("footer.about"), path: `${langPrefix}/about`, key: "about" as PageKey },
+    { label: t("footer.instructions"), path: `${langPrefix}/anleitungen`, key: "anleitungen" as PageKey },
+    { label: t("footer.contact"), path: `${langPrefix}/contact`, key: "contact" as PageKey },
+  ].filter((i) => !i.key || isPageOn(i.key));
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 px-4 pt-4 w-full">
@@ -35,7 +35,7 @@ export default function Navbar() {
           <Link to={`${langPrefix}/`} className="flex-shrink-0">
             <img
               src={siteConfig.brand.logo}
-              alt="Apartments zur Quelle"
+              alt={siteConfig.brand.name}
               className="h-10 md:h-12"
             />
           </Link>

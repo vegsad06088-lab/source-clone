@@ -1,353 +1,141 @@
-# 🏠 Apartments zur Quelle - Vienna Apartment Rental Platform
+# Apartment Website Template
 
-A modern, multi-language apartment rental booking website built with React, TypeScript, and Tailwind CSS. Features dynamic image loading, geolocation-based language detection, smooth animations, and a beautiful responsive design.
+A multi-language website for holiday apartments: home, apartments, about, house guides, contact, chatbot, guest registration and admin.
+It's built so that **a new company only changes JSON files and photos**. The design stays the same.
 
-**Live Demo**: Deploy to Vercel with `npm run build` and connect your domain
-
----
-
-## ✨ Features
-
-### 🌍 Multi-Language Support
-- **Automatic Language Detection**: Geolocation-based detection
-  - 🇦🇹 Austria → German (DE)
-  - 🇩🇪 Germany → German (DE)
-  - 🇨🇭 Switzerland → German (DE)
-  - 🇦🇱 Albania → Albanian (SQ)
-  - 🌐 Other countries → English (EN)
-  - 🔄 Fallback: German (DE)
-- Languages: German (DE), English (EN), Albanian (SQ)
-- Easy to add more languages via translation files
-
-### 🏘️ Apartment Management
-- **4 Featured Apartments** with dynamic galleries
-- **Automatic Gallery Loading**: Photos automatically discovered from folder structure
-- **Responsive Cards**: Beautiful apartment cards with smooth hover effects
-- **Booking Integration**: Smoobu booking widget embedded
-- **Quick Info Section**: Guests, beds, rooms, and size at a glance
-
-### 📱 Responsive Design
-- Mobile-first approach
-- Works perfectly on all devices (phone, tablet, desktop)
-- Smooth animations and transitions
-
-### 🎨 Beautiful UI
-- **Curvy Buttons**: Modern, elegant button styling
-- **Smooth Animations**: Fade-in, scale, and slide effects
-- **Dark Mode Ready**: Full theme support
-- **Tailwind CSS**: Utility-first CSS framework
-- **shadcn-ui**: High-quality component library
-
-### 📚 Features & Sections
-- **Home Page**: Hero, booking widget, apartments showcase, features, reviews, FAQ
-- **About Us Page**: Company story, location map, photo gallery, why choose us
-- **Apartments Page**: Full apartment listing with organized grid
-- **Contact Page**: Contact form, direct contact info, Viator tours integration
-- **Instructions/Guides**: WiFi, heating, TV, parking, luggage storage, check-in/out
-- **Voucher System**: Promotional offers with Memoji mascot
-
-### 🖼️ Optimized Image Management
-- **Organized Folder Structure**:
-  ```
-  public/images/
-  ├── commons/              → Shared images (opera.avif, logo.avif)
-  ├── home/features/        → Feature icons
-  ├── about/                → About page photos
-  ├── anleitungen/          → Instructions with subcategories
-  ├── apartments/           → Apartment galleries
-  └── not_used/             → Archived images
-  ```
-- **Automatic Gallery Discovery**: Add images to folders, they appear automatically
-- **Optimized AVIF Format**: Modern, compressed images for faster loading
+| Guide | For |
+|---|---|
+| **README.md** (this file) | What can be changed, and where |
+| [`docs/REBRAND_GUIDE.md`](docs/REBRAND_GUIDE.md) | Step-by-step guide to switch to a new company (for you or an AI agent) |
+| [`docs/OVERVIEW.md`](docs/OVERVIEW.md) | Short technical overview, troubleshooting |
+| `docs/archive/` | Old notes, not needed |
 
 ---
 
-## 🛠️ Tech Stack
-
-```
-Frontend Framework    → React 18 with TypeScript
-Build Tool           → Vite
-Styling              → Tailwind CSS + PostCSS
-UI Components        → shadcn-ui + Lucide Icons
-State Management     → React Context (i18n)
-Routing              → React Router v6
-HTTP Client          → Fetch API
-Booking Widget       → Smoobu iframe
-Deployment           → Vercel
-Testing              → Vitest + Playwright
-```
-
----
-
-## 🚀 Quick Start
-
-### Prerequisites
-- Node.js 16+ (use [nvm](https://github.com/nvm-sh/nvm))
-- npm or yarn
-
-### Installation
+## 1. Start locally
 
 ```bash
-# Clone repository
-git clone <YOUR_GIT_URL>
-cd source-clone
-
-# Install dependencies
-npm install
-
-# Start development server (auto-reload)
-npm run dev
-
-# Build for production
-npm run build
-
-# Preview production build
-npm run preview
-
-# Run tests
-npm run test
-
-# Run e2e tests
-npm run test:e2e
-
-# Lint code
-npm run lint
+npm install      # once
+npm run dev      # http://localhost:8080
 ```
-
-The dev server runs at `http://localhost:5173`
+Admin: http://localhost:8080/admin (login `admin` / `admin`, **replace it before going live**).
 
 ---
 
-## 📁 Project Structure
+## 2. Admin: change everything with clicks (local only)
 
-```
-src/
-├── components/
-│   ├── ApartmentCard.tsx        → Card component for apartments
-│   ├── VoucherBanner.tsx        → Promotional voucher banner
-│   ├── LanguageSelector.tsx     → Multi-language switcher
-│   ├── PromoBanner.tsx          → Promo section
-│   ├── Lightbox.tsx             → Image gallery lightbox
-│   └── ...more components
-├── pages/
-│   ├── Index.tsx                → Home page
-│   ├── AboutPage.tsx            → About us
-│   ├── ApartmentsPage.tsx       → Apartments listing
-│   ├── ContactPage.tsx          → Contact form
-│   ├── AnleitungenPage.tsx      → Instructions/guides
-│   └── ApartmentDetailPage.tsx  → Individual apartment details
-├── lib/
-│   ├── i18n.tsx                 → Multi-language system with geolocation
-│   ├── data.ts                  → Apartment data + dynamic gallery loader
-│   └── hooks/
-│       └── useScrollAnimation.ts → Scroll animation hook
-├── translations/
-│   ├── de.json                  → German translations
-│   ├── en.json                  → English translations
-│   └── sq.json                  → Albanian translations
-├── assets/                       → Images, icons
-└── App.tsx                       → Main app component
-```
+`/admin` has three areas:
+
+1. **Einstellungen (Settings):** lists every JSON file in the project.
+   - `pages.json` shows **switches**. One click turns a page or feature on or off.
+   - Every other file opens in an editor. Edit it, click **Speichern** (Save), and the file is written to disk and the preview reloads.
+   - Invalid JSON is rejected, so a broken file is never saved.
+2. **Template-Status:** shows which photos are missing (red) or present (green).
+3. **Gästeregistrierung (guest registration):** list of registrations and CSV export.
+
+> The settings editor **only works while running `npm run dev`** on your computer.
+> On the published website it doesn't exist, so nobody can change files there.
+> After changing settings locally, publish or deploy again.
 
 ---
 
-## 🎯 Key Features Explained
+## 3. JSON settings files
 
-### Dynamic Language Detection
-The app automatically detects user location via IP geolocation and sets the language accordingly. Falls back to German if detection fails.
-
-```typescript
-// src/lib/i18n.tsx
-const detectLanguageByGeolocation = async () => {
-  // Uses ipapi.co for free geolocation
-  // Maps country codes to languages
-  // Smart fallback system
+### `src/config/pages.json`: which pages are active
+```json
+{
+  "pages": {
+    "apartments": true,     // /apartments + every apartment detail page
+    "about": true,          // /about  (Über uns)
+    "anleitungen": true,    // /anleitungen + every guide page
+    "contact": true,        // /contact
+    "chat": true,           // /chat (full-page chatbot)
+    "registrierung": true   // /registrierung (guest registration form)
+  },
+  "features": {
+    "chatWidget": true      // floating chat bubble at the bottom right of every page
+  }
 }
 ```
+`false` hides the page from the menu and the footer, and its address shows "Not found".
+Home, the legal pages (Impressum, Datenschutz, AGB, Cookies) and Admin are always on.
 
-### Automatic Gallery Loading
-Add images to `/src/assets/images/{apartment}/` and they appear automatically in the gallery - no code changes needed!
+### `src/config/site.json`: company data
+| Key | Meaning |
+|---|---|
+| `brand.name` | Company name (logo alt text, page texts) |
+| `contact.email` / `contact.phone` | Contact data |
+| `contact.instagram` | Instagram link |
+| `booking.viatorUrl` | Link of the "Vienna tours" (Viator) box |
 
-```typescript
-// src/lib/data.ts
-const loadGallery = async (folderName: string): Promise<string[]> => {
-  // Dynamically loads all images from a folder
-  // Sorts for consistent ordering
-  // Works on Vercel
-}
+### `src/components/promo/offers.json`: discount banner and voucher
+| Key | Meaning |
+|---|---|
+| `promo.enabled` | Show the "save X% from N nights" banner |
+| `promo.percentage` / `promo.nights` | Discount % and minimum nights |
+| `promo.showAsAlert` | Also show a pop-up on the first visit |
+| `voucher.enabled` | Show the voucher box |
+| `voucher.voucherCode` / `voucherValue` / `currency` | Code, value, currency |
+
+### `src/translations/<lang>.json`: all texts
+One file per language (`de`, `en`, `sq`, `fr`, `it`, `es`, `tr`, `ru`, `ja`, `zh`).
+Keys look like `"de.home.hero.title"`. **Change only the text on the right**, never the key.
+Which languages are visible is set in `LANGUAGE_PACK` in `src/lib/i18n.tsx`.
+
+### Not yet JSON (edit the TypeScript file)
+| What | File |
+|---|---|
+| Apartments (id, persons, size, price), guides list, FAQ, reviews | `src/lib/data.ts` |
+| Guide step-by-step content | `src/pages/AnleitungDetailPage.tsx` |
+| Chatbot answers | `src/lib/knowledgeBase.ts` |
+| Smoobu booking widget link | `src/pages/Index.tsx` |
+| Address and map | `src/components/Footer.tsx`, `src/pages/ContactPage.tsx` |
+
+---
+
+## 4. Photos: where each photo goes
+
+All photos are in **`public/content/`**. Replace a file with the **same name** and the page changes. No code is needed.
+
+| Folder / file | Shown on | Size (recommended) |
+|---|---|---|
+| `common/logo.avif` | Menu bar, every page | about 400×120, transparent |
+| `common/viator-bg.avif` | "Vienna tours" box (Apartments, About, Guides, Contact) | 1920×600 |
+| `common/voucher.png` | Voucher box (character / mascot) | 400×400, transparent |
+| `home/hero.avif` | Home: big top photo | 1920×1080 |
+| `home/features/elevator.avif` … `towels.avif` | Home: 6 equipment tiles (elevator, tv, hair-dryer, wifi, kitchen, towels) | 800×600 |
+| `about/hero.jpg` | About: top photo | 1920×1080 |
+| `about/gallery/01.avif, 02.avif …` | About: photo slider (any number) | 1600 px long side |
+| `about/location.avif` | About: location photo | 1200×800 |
+| `about/why/location / personality / service / detail.avif` | About: "Why guests love us" 4 tiles | 800×600 |
+| `apartments-page/hero.avif` | Apartments page: top photo | 1920×1080 |
+| `apartments/<id>/cover.avif` | Apartment card (Home + Apartments) | 1200×800 |
+| `apartments/<id>/hero.avif` | Apartment detail: top photo | 1920×1080 |
+| `apartments/<id>/gallery/01.avif …` | Apartment detail: gallery and fullscreen viewer (any number, sorted by number) | 1600 px long side |
+| `guides-page/hero.avif` | Guides page: top photo | 1920×1080 |
+| `guides/<id>/cover.avif` | Guide card | 1200×800 |
+| `guides/<id>/steps/01.avif …` | Guide detail: step photos | 1200 px wide |
+| `guides/<id>/de.pdf`, `en.pdf` | Guide PDF download buttons (shown only if the file exists) | none |
+| `contact/hero.avif` | Contact: top photo | 1920×1080 |
+
+- `<id>` = the apartment or guide id from `src/lib/data.ts` (for example `cosy-couple-nest`).
+- Galleries pick up new photos automatically. Restart `npm run dev` if one doesn't appear.
+- Using `.jpg` instead of `.avif` works if you also change the path in `src/config/site.config.ts`.
+- `/admin` → Template-Status shows any missing photo.
+
+---
+
+## 5. Project structure (short)
+
+```text
+public/content/        photos + PDFs (see section 4)
+src/config/            pages.json · site.json · site.config.ts (reads the JSON + photo paths)
+src/translations/      texts per language
+src/lib/data.ts        apartments, guides, FAQ, reviews
+src/pages/             one file per page
+src/components/        menu, footer, banners, admin tools
+vite.config.ts         photo scanner + local settings editor
 ```
 
-### Beautiful Animations
-- Fade-in on scroll
-- Scale effects on hover
-- Smooth transitions on all interactions
-
----
-
-## 📖 Adding New Content
-
-### Add a New Apartment
-1. Edit `src/lib/data.ts`
-2. Add new apartment object with required fields
-3. Create folder in `/src/assets/images/{apartment-name}/`
-4. Add images to that folder
-5. Images auto-load in gallery ✅
-
-### Add a New Language
-1. Create `src/translations/{code}.json` (e.g., `fr.json`)
-2. Add language to `LANGUAGE_PACK` in `src/lib/i18n.tsx`
-3. Add metadata to `LanguageSelector.tsx`
-4. Translation keys auto-populate ✅
-
-### Add Instructions/Guides
-1. Edit `src/lib/data.ts` in the `instructions` array
-2. Add new instruction object
-3. Add image to appropriate `anleitungen` subfolder
-4. Update translations with guide text ✅
-
----
-
-## 🚀 Deployment
-
-### Deploy to Vercel
-```bash
-# Build locally
-npm run build
-
-# Deploy (Vercel CLI)
-vercel
-
-# Or push to GitHub and connect Vercel
-git push origin main
-```
-
-### Connect Custom Domain
-1. Go to Vercel Dashboard
-2. Project Settings → Domains
-3. Add your domain
-4. Update DNS records
-
----
-
-## 🎨 Customization
-
-### Colors & Theme
-Edit `tailwind.config.ts` for brand colors and theme variables
-
-### Fonts
-Customize in `index.css` - currently uses system fonts + serif fonts
-
-### Animation Speed
-Modify `transition-smooth` class in Tailwind config
-
----
-
-## 📊 Performance
-
-- ✅ AVIF image format (modern compression)
-- ✅ Lazy loading for images
-- ✅ Code splitting with Vite
-- ✅ Optimized bundle size
-- ✅ Vercel edge network deployment
-
----
-
-## 🔒 Privacy & Security
-
-- GDPR-compliant privacy policy page
-- Secure contact form with validation
-- No tracking without consent
-- All data handled securely
-
----
-
-## 📞 Support & Maintenance
-
-### Common Issues
-
-**Images not loading:**
-- Check `/public/images/` folder structure
-- Verify file extensions (.avif, .jpg, .png)
-- Clear browser cache and rebuild
-
-**Language not detecting:**
-- Check browser geolocation permissions
-- Verify VPN isn't interfering
-- Check browser console for errors
-
-**Booking widget not appearing:**
-- Check Smoobu iframe URL in Index.tsx
-- Verify account is active
-- Clear cookies and reload
-
----
-
-## 📝 Documentation Files
-
-- `IMAGE_ORGANIZATION_SUMMARY.md` - Image folder structure guide
-- `LANGUAGE_QUICK_REFERENCE.md` - Translation keys reference
-- `GETTING_STARTED.md` - Initial setup guide
-
----
-
-## 🔄 Build & Deploy Workflow
-
-```bash
-# Local development
-npm run dev              # Start dev server
-
-# Before commit
-npm run lint            # Check code quality
-npm run test            # Run tests
-
-# Build for production
-npm run build           # Create optimized build
-npm run preview         # Test production build locally
-
-# Deploy
-git add .
-git commit -m "message"
-git push origin main    # Vercel auto-deploys
-```
-
----
-
-## 📦 Dependencies
-
-See `package.json` for complete list. Key packages:
-- `react` - UI library
-- `react-router-dom` - Client routing
-- `tailwindcss` - Styling
-- `shadcn-ui` - Component library
-- `lucide-react` - Icons
-- `swiper` - Touch carousel
-
----
-
-## 🎓 Learn More
-
-- [Vite Documentation](https://vitejs.dev)
-- [React Documentation](https://react.dev)
-- [Tailwind CSS](https://tailwindcss.com)
-- [shadcn-ui](https://ui.shadcn.com)
-
----
-
-## 👨‍💻 Developer
-
-**Iseini Vegim** - Full-Stack Development & Design
-
----
-
-## 📄 License
-
-This project is proprietary. All rights reserved.
-
----
-
-## 👨‍💻 Developer Notes
-
-This is a production-ready apartment rental website. All features are tested and optimized for Vercel deployment. Images are organized by feature/section for easy maintenance. Multi-language support is automated via geolocation.
-
-**Last Updated**: March 2026
-**Status**: ✅ Production Ready
+## 6. Publish
+Run `npm run build`, then deploy (Lovable Publish, Vercel, …). Settings changed locally are only part of the live site after you publish again.

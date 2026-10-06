@@ -49,7 +49,7 @@ Galleries update by themselves. A PDF button only shows if the PDF file is there
 ## Step 3: Edit these files
 | # | File | What to change |
 |---|---|---|
-| 1 | `src/config/site.config.ts` | name, email, instagram, viator |
+| 1 | `src/config/site.json` + `src/config/pages.json` | name, email, phone, instagram, viator; switch pages on/off (or use `/admin` → Einstellungen) |
 | 2 | `src/lib/data.ts` | apartments (id = photo folder), guides, FAQ, reviews |
 | 3 | `src/App.tsx` | for each apartment: one route inside `/:lang` and one redirect at the top |
 | 4 | `src/translations/de.json`, `en.json` (+ other active languages) | all text **values**. Keep the keys. Rename only the `apartments.<id>` keys (dashes become `_`) |

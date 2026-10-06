@@ -1,3 +1,4 @@
+import { isPageOn, type PageKey } from "@/config/site.config";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Route, Routes, Navigate, useParams } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
@@ -23,6 +24,8 @@ import BookingConditionsPage from "@/pages/BookingConditionsPage";
 import ChatPage from "@/pages/ChatPage";
 import RegistrierungPage from "@/pages/RegistrierungPage";
 import AdminPage from "@/pages/AdminPage";
+
+const on = (k: PageKey, el: JSX.Element) => (isPageOn(k) ? el : <NotFound />);
 
 const queryClient = new QueryClient();
 
@@ -74,27 +77,27 @@ export default function App() {
             <Route path="/agb" element={<Navigate to={`/${DEFAULT_LANGUAGE}/agb`} replace />} />
             <Route path="/booking-conditions" element={<Navigate to={`/${DEFAULT_LANGUAGE}/booking-conditions`} replace />} />
             <Route path="/chat" element={<Navigate to={`/${DEFAULT_LANGUAGE}/chat`} replace />} />
-            <Route path="/registrierung" element={<RegistrierungPage />} />
+            <Route path="/registrierung" element={on("registrierung", <RegistrierungPage />)} />
             <Route path="/admin" element={<AdminPage />} />
             
             {/* All language-specific routes */}
             <Route path="/:lang" element={<LangWrapper />}>
               <Route index element={<HomePage />} />
-              <Route path="apartments" element={<ApartmentsPage />} />
+              <Route path="apartments" element={on("apartments", <ApartmentsPage />)} />
               <Route path="twin-harmony-suite" element={<ApartmentDetailPage />} />
               <Route path="duo-deluxe-studio" element={<ApartmentDetailPage />} />
               <Route path="cosy-couple-nest" element={<ApartmentDetailPage />} />
               <Route path="trio-harmony-suite" element={<ApartmentDetailPage />} />
-              <Route path="about" element={<AboutPage />} />
-              <Route path="contact" element={<ContactPage />} />
-              <Route path="anleitungen" element={<AnleitungenPage />} />
-              <Route path="anleitungen-post/:slug" element={<AnleitungDetailPage />} />
+              <Route path="about" element={on("about", <AboutPage />)} />
+              <Route path="contact" element={on("contact", <ContactPage />)} />
+              <Route path="anleitungen" element={on("anleitungen", <AnleitungenPage />)} />
+              <Route path="anleitungen-post/:slug" element={on("anleitungen", <AnleitungDetailPage />)} />
               <Route path="datenschutz" element={<DatenschutzPage />} />
               <Route path="cookies" element={<CookiePolicy />} />
               <Route path="impressum" element={<ImpressumPage />} />
               <Route path="agb" element={<AGBPage />} />
               <Route path="booking-conditions" element={<BookingConditionsPage />} />
-              <Route path="chat" element={<ChatPage />} />
+              <Route path="chat" element={on("chat", <ChatPage />)} />
             </Route>
           
             {/* Fallback 404 */}

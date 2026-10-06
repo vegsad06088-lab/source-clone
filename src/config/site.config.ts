@@ -4,6 +4,13 @@
  * Replace the photo files, edit the values below, and the whole site updates.
  */
 import { contentFiles } from "virtual:content-manifest";
+import site from "./site.json";
+import pagesJson from "./pages.json";
+
+export type PageKey = keyof typeof pagesJson.pages;
+/** true if a page is switched on in src/config/pages.json */
+export const isPageOn = (k: PageKey) => pagesJson.pages[k] !== false;
+export const isFeatureOn = (k: keyof typeof pagesJson.features) => pagesJson.features[k] !== false;
 
 const c = (p: string) => `/content/${p}`;
 
@@ -17,16 +24,11 @@ export function gallery(folder: string): string[] {
 
 export const siteConfig = {
   brand: {
-    name: "Apartments zur Quelle",
+    name: site.brand.name,
     logo: c("common/logo.avif"),
   },
-  contact: {
-    email: "office@ap-zur-quelle.at",
-    instagram: "https://www.instagram.com/apartments_zur_quelle/",
-  },
-  booking: {
-    viatorUrl: "https://www.viator.com/Vienna/d454-ttd?localeSwitch=1&pid=P00290902&mcid=42383&medium=link",
-  },
+  contact: site.contact,
+  booking: site.booking,
   images: {
     viatorBg: c("common/viator-bg.avif"),
     voucher: c("common/voucher.png"),
