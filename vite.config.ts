@@ -78,6 +78,39 @@ function configEditor(): Plugin {
         }
         send(405, { error: "Method not allowed" });
       });
+
+      // Photos & PDFs in public/content: upload/replace (POST raw bytes) and delete (DELETE).
+      const contentRoot = path.resolve(__dirname, "public/content");
+      const okExt = /\.(avif|jpe?g|png|webp|gif|svg|pdf)$/i;
+      server.middlewares.use("/__content", (req, res) => {
+        const url = new URL(req.url || "/", "http://x");
+        const rel = (url.searchParams.get("path") || "").replace(/^\/+/, "");
+        const abs = path.resolve(contentRoot, rel);
+        const send = (code: number, body: unknown) => {
+          res.statusCode = code;
+          res.setHeader("Content-Type", "application/json");
+          res.end(JSON.stringify(body));
+        };
+        if (!rel || !abs.startsWith(contentRoot + path.sep) || !okExt.test(abs)) return send(403, { error: "Path not allowed" });
+        if (req.method === "DELETE") {
+          if (fs.existsSync(abs)) fs.unlinkSync(abs);
+          return send(200, { ok: true });
+        }
+        if (req.method === "POST") {
+          const chunks: Buffer[] = [];
+          req.on("data", (c) => chunks.push(c));
+          req.on("end", () => {
+            const buf = Buffer.concat(chunks);
+            if (!buf.length) return send(400, { error: "Empty file" });
+            if (buf.length > 20 * 1024 * 1024) return send(413, { error: "File larger than 20 MB" });
+            fs.mkdirSync(path.dirname(abs), { recursive: true });
+            fs.writeFileSync(abs, buf);
+            send(200, { ok: true, url: "/content/" + rel });
+          });
+          return;
+        }
+        send(405, { error: "Method not allowed" });
+      });
     },
   };
 }
