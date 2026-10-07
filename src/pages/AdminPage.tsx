@@ -2,6 +2,10 @@ import { useState, useEffect } from "react";
 import { supabase } from "@/lib/supabase";
 import TemplateStatus from "@/components/admin/TemplateStatus";
 import ConfigEditor from "@/components/admin/ConfigEditor";
+import PhotoManager from "@/components/admin/PhotoManager";
+import TextEditor from "@/components/admin/TextEditor";
+import { isLocal } from "@/components/admin/localApi";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -56,7 +60,13 @@ interface RegistrationRow {
 }
 
 export default function AdminPage() {
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [loggedIn, setLoggedInState] = useState(() => isLocal && sessionStorage.getItem("localAdmin") === "1");
+  const setLoggedIn = (v: boolean) => {
+    if (isLocal) v ? sessionStorage.setItem("localAdmin", "1") : sessionStorage.removeItem("localAdmin");
+    setLoggedInState(v);
+  };
+  const [tab, setTabState] = useState(() => (isLocal && sessionStorage.getItem("adminTab")) || (isLocal ? "pages" : "registrations"));
+  const setTab = (t: string) => { sessionStorage.setItem("adminTab", t); setTabState(t); };
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [data, setData] = useState<RegistrationRow[]>([]);
@@ -282,7 +292,7 @@ export default function AdminPage() {
       <header className="border-b border-border bg-card px-4 py-4">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <h1 className="text-xl font-bold text-foreground">
-            Gästeregistrierung – Admin
+            Admin{isLocal && <span className="ml-2 rounded-full bg-primary/10 px-2 py-0.5 text-xs font-medium text-primary align-middle">Lokaler Bearbeitungsmodus</span>}
           </h1>
           <Button variant="ghost" size="sm" onClick={() => setLoggedIn(false)}>
             <LogOut className="w-4 h-4 mr-2" /> Abmelden
@@ -290,9 +300,25 @@ export default function AdminPage() {
         </div>
       </header>
 
-      <main className="max-w-7xl mx-auto px-4 py-8 space-y-6">
-        <ConfigEditor />
-        <TemplateStatus />
+      <main className="max-w-7xl mx-auto px-4 py-8">
+        <Tabs value={tab} onValueChange={setTab} className="space-y-6">
+          <TabsList className="flex h-auto flex-wrap justify-start">
+            {isLocal && <TabsTrigger value="pages">Seiten & Einstellungen</TabsTrigger>}
+            {isLocal && <TabsTrigger value="texts">Texte</TabsTrigger>}
+            {isLocal && <TabsTrigger value="photos">Fotos & PDFs</TabsTrigger>}
+            <TabsTrigger value="status">Foto-Check</TabsTrigger>
+            <TabsTrigger value="registrations">Gästeregistrierungen</TabsTrigger>
+          </TabsList>
+          {!isLocal && (
+            <p className="text-sm text-muted-foreground">
+              Bearbeiten von Texten, Fotos und Einstellungen ist nur lokal möglich (<code>npm run dev</code>).
+            </p>
+          )}
+          {isLocal && <TabsContent value="pages"><ConfigEditor /></TabsContent>}
+          {isLocal && <TabsContent value="texts"><TextEditor /></TabsContent>}
+          {isLocal && <TabsContent value="photos"><PhotoManager /></TabsContent>}
+          <TabsContent value="status"><TemplateStatus /></TabsContent>
+          <TabsContent value="registrations" className="space-y-6">
         {/* Filters */}
         <div className="flex flex-wrap items-end gap-4">
           <div className="space-y-1.5">
@@ -377,6 +403,9 @@ export default function AdminPage() {
             Keine Daten geladen. Wähle Monat/Jahr und klicke „Daten laden".
           </p>
         )}
+
+          </TabsContent>
+        </Tabs>
 
         {/* Supabase login form */}
         {showSupabaseLogin && (
