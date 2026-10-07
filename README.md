@@ -22,22 +22,22 @@ Admin: http://localhost:8080/admin (login `admin` / `admin`, **replace it before
 
 ---
 
-## 2. Admin: change everything with clicks (local only)
+## 2. Admin: edit everything from the browser (local only)
 
-`/admin` has three areas:
+Open http://localhost:8080/admin while `npm run dev` is running. Tabs:
 
-1. **Einstellungen (Settings):** lists every JSON file in the project.
-   - `pages.json` shows **switches**. One click turns a page or feature on or off.
-   - Every other file opens in an editor. Edit it, click **Speichern** (Save), and the file is written to disk and the preview reloads.
-   - Invalid JSON is rejected, so a broken file is never saved.
-2. **Template-Status:** shows which photos are missing (red) or present (green).
-3. **Gästeregistrierung (guest registration):** list of registrations and CSV export.
+| Tab | What you can do | Saved into |
+|---|---|---|
+| **Seiten & Einstellungen** (Pages & settings) | Switch pages and features on/off with one click; edit any settings file | `src/config/*.json`, `offers.json` |
+| **Texte** (Texts) | Search all texts, edit languages side by side (choose languages at the top), save | `src/translations/<lang>.json` |
+| **Fotos & PDFs** | See every photo by page. **Ersetzen** (Replace) uploads a new photo under the same name. In galleries: **Foto hinzufügen** (Add photo) / delete | `public/content/**` |
+| **Foto-Check** (Photo check) | Shows missing photos | none |
+| **Gästeregistrierungen** (Guest registrations) | Registrations + CSV export (also on the live site) | Supabase |
 
-> The settings editor **only works while running `npm run dev`** on your computer.
-> On the published website it doesn't exist, so nobody can change files there.
-> After changing settings locally, publish or deploy again.
-
----
+- Changes are written **directly into the project files**, and the preview reloads by itself.
+- The editing tabs and the file API only exist while running locally. On the published site they are absent, so nobody can change files there.
+- To put changes live, publish or deploy again.
+- Texts are re-read from disk before saving, so edits made in your code editor at the same time are not overwritten.
 
 ## 3. JSON settings files
 
