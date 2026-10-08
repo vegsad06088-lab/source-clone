@@ -4,6 +4,7 @@ import Navbar from "./Navbar";
 import Footer from "./Footer";
 import CookieBanner from "./CookieBanner";
 import ChatWidget from "./ChatWidget";
+import EditMode, { BlockStyles } from "./edit/EditMode";
 import { useEffect } from "react";
 import { getConsent, loadAnalytics, loadMarketing, loadSmoobu } from "@/lib/cookieConsent";
 
@@ -18,12 +19,14 @@ export default function Layout() {
 
   return (
     <div className="w-full min-h-screen flex flex-col bg-background">
+      <BlockStyles />
       <Navbar />
       <main className="flex-1 w-full pt-24">
         <Outlet />
       </main>
       <Footer />
       <CookieBanner />
+      <EditMode />
       {isFeatureOn("chatWidget") && <ChatWidget />}
     </div>
   );
