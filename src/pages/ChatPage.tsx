@@ -62,10 +62,10 @@ export default function ChatPage() {
     <div className="min-h-screen bg-background pt-24 pb-12">
       <div className="max-w-2xl mx-auto px-4">
         <h1 className="text-3xl font-serif font-bold text-foreground text-center mb-2">
-          {t({ de: "Chat-Assistent", en: "Chat Assistant", sq: "Asistenti i Chat-it" })}
+          {t("inline.chat.t1")}
         </h1>
         <p className="text-center text-muted-foreground mb-8 text-sm">
-          {t({ de: "Frag mich alles über Deinen Aufenthalt!", en: "Ask me anything about your stay!", sq: "Pyesni çdo gjë për qëndrimin tuaj!" })}
+          {t("inline.chat.t2")}
         </p>
 
         {/* Messages */}

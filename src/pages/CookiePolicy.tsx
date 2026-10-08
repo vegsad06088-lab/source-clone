@@ -84,7 +84,7 @@ export default function CookiePolicy() {
           {/* 5. Contact */}
           <section>
             <h2 className="text-lg font-sans font-semibold text-foreground mb-2">
-              {t({ de: "5. Kontakt", en: "5. Contact" })}
+              {t("inline.cookiepolicy.t1")}
             </h2>
             <p className="mb-1">
               Apartments zur Quelle<br />

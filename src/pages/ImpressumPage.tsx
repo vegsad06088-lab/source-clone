@@ -68,7 +68,7 @@ export default function ImpressumPage() {
         {/* Design & Programmierung */}
         <section>
           <h3 className="text-lg font-sans font-semibold text-foreground mb-3">
-            Design & {t({ de: "Programmierung", en: "Programming" })}
+            Design & {t("inline.impressum.t1")}
           </h3>
           <p className="mb-2">
             <span className="font-medium">Iseini Vegim</span> - Full-Stack Development & Design
@@ -85,7 +85,7 @@ export default function ImpressumPage() {
         {/* Haftung und Datenschutz */}
         <section>
           <h3 className="text-lg font-sans font-semibold text-foreground mb-3">
-            {t({ de: "Haftung & Datenschutz", en: "Liability & Data Protection" })}
+            {t("inline.impressum.t2")}
           </h3>
           <h4 className="font-semibold text-foreground mb-2">
             {t("impressum.section1.title")}

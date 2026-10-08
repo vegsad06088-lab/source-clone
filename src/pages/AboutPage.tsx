@@ -155,14 +155,14 @@ export default function AboutPage() {
       <section className="bg-card py-20">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-3xl font-serif font-bold text-foreground text-center mb-12">
-            {t({ de: "Warum Gäste uns lieben", en: "Why Guests Love Us" })}
+            {t("inline.about.t1")}
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
-                { img: siteConfig.images.aboutWhy.location, title: { de: "Top Lage", en: "Top Location" }, desc: { de: "Mitten in Wien, alles in greifbarer Nähe.", en: "In the middle of Vienna, everything within reach." } },
-                { img: siteConfig.images.aboutWhy.personality, title: { de: "Persönlichkeit", en: "Personality" }, desc: { de: "Jeder Gast ist für uns einzigartig.", en: "Every guest is unique to us." } },
-                { img: siteConfig.images.aboutWhy.service, title: { de: "Einzigartiger Service", en: "Unique Service" }, desc: { de: "Wir sind erst zufrieden, wenn Du es bist.", en: "We're not satisfied until you are." } },
-                { img: siteConfig.images.aboutWhy.detail, title: { de: "Liebe zum Detail", en: "Attention to Detail" }, desc: { de: "In jedem Raum spürst Du unsere Leidenschaft.", en: "In every room you feel our passion." } },
+                { img: siteConfig.images.aboutWhy.location, title: "inline.about.t2", desc: "inline.about.t3" },
+                { img: siteConfig.images.aboutWhy.personality, title: "inline.about.t4", desc: "inline.about.t5" },
+                { img: siteConfig.images.aboutWhy.service, title: "inline.about.t6", desc: "inline.about.t7" },
+                { img: siteConfig.images.aboutWhy.detail, title: "inline.about.t8", desc: "inline.about.t9" },
               ].map((item, i) => (
               <div key={i} className="text-center">
                 <div className="aspect-square rounded-2xl overflow-hidden shadow-card mb-4">
@@ -180,7 +180,7 @@ export default function AboutPage() {
       <section className="py-20 bg-background">
         <div className="max-w-3xl mx-auto px-4">
           <h2 className="text-3xl font-serif font-bold text-foreground text-center mb-12">
-            {t({ de: "Häufige Fragen", en: "FAQ" })}
+            {t("inline.about.t10")}
           </h2>
           <div className="space-y-3">
             {faqs.map((faq, i) => (

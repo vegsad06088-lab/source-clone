@@ -39,6 +39,12 @@ Open http://localhost:8080/admin while `npm run dev` is running. Tabs:
 - To put changes live, publish or deploy again.
 - Texts are re-read from disk before saving, so edits made in your code editor at the same time are not overwritten.
 
+### Edit directly on the page
+After logging in at `/admin` (locally), open any page and click **Seite bearbeiten** (Edit page) at the bottom left:
+- Every block (section) gets a **Sichtbar / Ausgeblendet** (Visible / Hidden) switch, saved in `src/config/blocks.json` (`{"hidden": {"/about": [2]}}` = 2nd block on About is hidden).
+- Click any text to edit it in DE / EN / SQ.
+- Click any photo to replace it.
+
 ## 3. JSON settings files
 
 ### `src/config/pages.json`: which pages are active

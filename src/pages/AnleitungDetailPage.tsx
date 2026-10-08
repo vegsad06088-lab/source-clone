@@ -111,14 +111,14 @@ export default function AnleitungDetailPage() {
     return (
       <div className="w-full min-h-screen flex flex-col items-center justify-center bg-card">
         <h1 className="text-4xl font-serif font-bold text-foreground mb-4">
-          {t({ de: "Anleitung nicht gefunden", en: "Guide not found" })}
+          {t("inline.anleitungdetail.t1")}
         </h1>
         <p className="text-lg text-muted-foreground mb-8">Slug: {slug}</p>
         <Link 
           to={`${langPrefix}/anleitungen`} 
           className="px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:opacity-90 transition-smooth"
         >
-          {t({ de: "Zurück zu Anleitungen", en: "Back to Instructions" })}
+          {t("inline.anleitungdetail.t2")}
         </Link>
       </div>
     );
