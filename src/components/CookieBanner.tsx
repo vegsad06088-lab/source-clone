@@ -66,7 +66,7 @@ export default function CookieBanner() {
           </button>
 
           <h3 className="text-base font-medium text-foreground font-sans mb-2">
-            {t({ de: "Schutz deiner Daten", en: "Protecting your data" })}
+            {t("inline.cookiebanner.t1")}
           </h3>
 
           <p className="text-sm text-muted-foreground mb-4">
@@ -78,14 +78,14 @@ export default function CookieBanner() {
               to={`${langPrefix}/datenschutz`}
               className="text-primary hover:underline"
             >
-              {t({ de: "Datenschutz", en: "Data protection" })}
+              {t("inline.cookiebanner.t2")}
             </Link>
             {" · "}
             <Link
               to={`${langPrefix}/cookies`}
               className="text-primary hover:underline"
             >
-              {t({ de: "Cookie-Richtlinie", en: "Cookie Policy" })}
+              {t("inline.cookiebanner.t3")}
             </Link>
           </p>
 
@@ -94,20 +94,20 @@ export default function CookieBanner() {
               onClick={acceptAll}
               className="flex-1 px-4 py-2.5 text-sm font-medium text-primary-foreground bg-primary rounded-full transition-smooth hover:opacity-90"
             >
-              {t({ de: "Ich stimme zu", en: "I agree" })}
+              {t("inline.cookiebanner.t4")}
             </button>
             <button
               onClick={() => setShowSettings(true)}
               className="flex-1 px-4 py-2.5 text-sm font-medium text-foreground bg-muted rounded-lg transition-smooth hover:bg-muted/80"
             >
-              {t({ de: "Einstellungen", en: "Settings" })}
+              {t("inline.cookiebanner.t5")}
             </button>
           </div>
         </div>
       ) : (
         <div className="bg-background p-6 rounded-2xl shadow-elevated">
           <h3 className="text-base font-medium text-foreground font-sans mb-3">
-            {t({ de: "Cookies verwalten", en: "Manage Cookies" })}
+            {t("inline.cookiebanner.t6")}
           </h3>
 
           <p className="text-xs text-muted-foreground mb-4">
@@ -120,14 +120,14 @@ export default function CookieBanner() {
           <div className="space-y-3 mb-4">
             <label className="flex items-center justify-between">
               <span className="text-sm text-foreground">
-                {t({ de: "Notwendige Cookies", en: "Essential Cookies" })}
+                {t("inline.cookiebanner.t7")}
               </span>
               <input type="checkbox" checked disabled className="accent-primary" />
             </label>
 
             <label className="flex items-center justify-between cursor-pointer">
               <span className="text-sm text-foreground">
-                {t({ de: "Marketing Cookies", en: "Marketing Cookies" })}
+                {t("inline.cookiebanner.t8")}
               </span>
               <input
                 type="checkbox"
@@ -139,7 +139,7 @@ export default function CookieBanner() {
 
             <label className="flex items-center justify-between cursor-pointer">
               <span className="text-sm text-foreground">
-                {t({ de: "Analyse Cookies", en: "Analytics Cookies" })}
+                {t("inline.cookiebanner.t9")}
               </span>
               <input
                 type="checkbox"
@@ -155,14 +155,14 @@ export default function CookieBanner() {
               onClick={acceptAll}
               className="flex-1 px-4 py-2.5 text-sm font-medium text-primary-foreground bg-primary rounded-full transition-smooth hover:opacity-90"
             >
-              {t({ de: "Alle akzeptieren", en: "Accept all" })}
+              {t("inline.cookiebanner.t10")}
             </button>
 
             <button
               onClick={saveSettings}
               className="flex-1 px-4 py-2.5 text-sm font-medium text-foreground bg-muted rounded-lg transition-smooth hover:bg-muted/80"
             >
-              {t({ de: "Auswahl bestätigen", en: "Confirm selection" })}
+              {t("inline.cookiebanner.t11")}
             </button>
           </div>
         </div>
