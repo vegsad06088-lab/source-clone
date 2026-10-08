@@ -1,13 +1,13 @@
 # Roadmap
 
 ## Phase 1: everything translatable (DE / EN / SQ)
-- [ ] Move inline `{ de, en }` texts into the translation files, with Albanian added
+- [x] Move inline `{ de, en }` texts into the translation files, with Albanian added
 - [ ] Audit the remaining hard-coded texts (navbar labels, chat widget, registration form)
 
 ## Phase 2: edit on the page (local + admin only)
-- [ ] Block show/hide per page section, saved in `src/config/blocks.json` and applied on the live site
-- [ ] Click any text → edit DE/EN/SQ → saves into the translation files
-- [ ] Click any photo → replace the file in `public/content`
+- [x] Block show/hide per page section, saved in `src/config/blocks.json` and applied on the live site
+- [x] Click any text → edit DE/EN/SQ → saves into the translation files
+- [x] Click any photo → replace the file in `public/content`
 
 ## Phase 3: block list in admin
 - [ ] Admin tab listing every page's blocks with show/hide
